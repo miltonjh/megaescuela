@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum Vitae Moderno - Milton Jackson Hurtado Muñoz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ESTILOS GENERALES Y COLORES */
+        :root {
+            --primary-color: #2c3e50; /* Azul oscuro elegante */
+            --secondary-color: #34495e; /* Un tono un poco más claro para detalles */
+            --accent-color: orange; /* Naranja para resaltar */
+            --text-color: #333;
+            --light-gray: #f8f8f8;
+            --medium-gray: #ecf0f1;
+            --white: #ffffff;
+        }
+
+        /* CONFIGURACIÓN DE IMPRESIÓN IMPORTANTE */
+        /* Fuerza la impresión de colores de fondo */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .cv-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 30px 0;
+            background: var(--white);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: row;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* BARRA LATERAL */
+        .sidebar {
+            width: 35%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-pic-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-color);
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cv-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+
+        .cv-title {
+            font-size: 1.1em;
+            font-weight: 300;
+            color: var(--medium-gray);
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 15px;
+            width: 80%;
+        }
+
+        .sidebar h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            text-align: center;
+        }
+
+        .contact-info p, .skill-list li, .language-level span {
+            font-size: 0.95em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            line-height: 1.4;
+        }
+        .contact-info p i {
+            margin-right: 12px;
+            font-size: 1.1em;
+            color: var(--accent-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            text-align: left;
+        }
+        .skill-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--white);
+        }
+        .skill-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+
+        .language-level {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .filled {
+            background-color: var(--accent-color);
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .main-content {
+            width: 65%;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: var(--white);
+        }
+
+        .main-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--medium-gray);
+            padding-bottom: 10px;
+        }
+
+        .main-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 35px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+            padding-bottom: 8px;
+        }
+        
+        /* Identificador de Cursos para Salto de Página */
+        #cursos-y-certificaciones {
+            margin-top: 35px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+            padding-bottom: 8px;
+        }
+
+        .main-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .entry-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+
+        .entry-subtitle {
+            font-style: italic;
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        .entry-description {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+
+        .profile-summary {
+            font-size: 1em;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .bold-text {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        /* MEDIA PRINT: Optimización para PDF */
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
+            .cv-container {
+                max-width: 100%;
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+                display: flex; 
+            }
+            .sidebar, .main-content {
+                width: 35% !important; 
+                float: left;
+            }
+            .main-content {
+                width: 65% !important;
+            }
+            
+            /* REGLA CRÍTICA PARA EL SALTO DE PÁGINA ANTES DE CURSOS */
+            #cursos-y-certificaciones {
+                page-break-before: always;
+            }
+            
+            /* Asegurar que las secciones pequeñas no se corten */
+            .job-entry, .education-entry {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Iconos (usamos Font Awesome) */
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    <div class="sidebar">
+        <div class="profile-pic-container">
+            <img src="mi-foto.png" alt="Foto de Perfil" class="profile-pic">
+        </div>
+
+        <div class="cv-name">Milton Jackson</div>
+        <div class="cv-name">Hurtado Muñoz</div>
+        <div class="cv-title">Analista y Desarrollador de Software | Instructor</div>
+
+        <h2>Datos Personales</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> <span>miltonprogramador@hotmail.com</span></p>
+            <p><i class="fas fa-phone"></i> <span>0414-6034438</span></p>
+            <p><i class="fas fa-map-marker-alt"></i> <span>Bloque 33, entre Av. 39 y 40 de Urb. San Francisco. 3º piso. Apartamento 03-06. Municipio San Francisco del Estado Zulia 4004 San Francisco</span></p>
+            <p><i class="fas fa-calendar-alt"></i> <span>27 de noviembre de 1981</span></p>
+        </div>
+
+        <h2>Competencias</h2>
+        <ul class="skill-list">
+            <li>Gestiones administrativas integrales</li>
+            <li>Manejo de archivo</li>
+            <li>Instalación, servicio, reparación y mantenimiento de equipos de computación</li>
+            <li>Instalación, servicio, reparación y mantenimiento de sistemas de seguridad (CCTV)</li>
+            <li>Dominio avanzado de Redes Informáticas</li>
+            <li>Dominio medio - avanzado de la Electrónica</li>
+            <li>Manejo avanzado de paquetes de aplicaciones de oficina (OFFICE y OPENOFFICE)</li>
+            <li>Dominio de Aplicaciones para el Diseño Gráfico</li>
+            <li>Analista y Desarrollador de software (web, escritorio y dispositivos móviles)</li>
+            <li>Manejo de Bases de Datos relacionales (SQL, SQLI, embebidas)</li>
+            <li>Manejo profesional de herramientas empresariales (SAINT, A2, Premium-Soft, Next-Soft)</li>
+            <li>Redacción de alto nivel</li>
+            <li>Manejo de grupos</li>
+            <li>Dominio avanzado de herramientas pedagógicas (convencionales y no convencionales)</li>
+            <li>Habilidad para las ventas, persuasión de negocios</li>
+            <li>Capacidad para el trabajo en equipo</li>
+            <li>Capacidad para trabajar en ambientes bajo presión</li>
+        </ul>
+
+        <h2>Idiomas</h2>
+        <p>Español</p>
+        <div class="language-level">
+            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+        </div>
+        <p>Inglés</p>
+        <div class="language-level">
+            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span>
+        </div>
+        <p>Portugués</p>
+        <div class="language-level">
+            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Perfil Profesional</h1>
+        <p class="profile-summary">
+            Profesional versátil y experimentado en áreas de tecnología, administración y educación. Con una sólida base en desarrollo de software, redes, mantenimiento de sistemas y gestión administrativa. Habilidades pedagógicas demostradas en la formación de personal y la enseñanza de conceptos técnicos. Orientado a resultados, con capacidad de adaptación y trabajo bajo presión.
+        </p>
+
+        <h2>Formación Académica</h2>
+        <div class="education-entry entry-description">
+            <h3 class="entry-title">Bachillerato en Ciencias</h3>
+            <p class="entry-subtitle">Liceo EDUARDO MATHIAS LOSSADA, San Francisco - Estado Zulia</p>
+        </div>
+        <div class="education-entry entry-description">
+            <h3 class="entry-title">T.S.U. en Informática</h3>
+            <p class="entry-subtitle">Instituto Universitario de Tecnología Readic (UNIR), Maracaibo - Estado Zulia</p>
+        </div>
+        <div class="education-entry entry-description">
+            <h3 class="entry-title">T.S.U. en Administración de Empresas</h3>
+            <p class="entry-subtitle">Instituto Universitario Juan Pablo Pérez Alfonso (IUTPAL), San Francisco – Estado Zulia</p>
+        </div>
+        <div class="education-entry entry-description">
+            <h3 class="entry-title">Ingeniería en Computación (Cursando Primer Trimestre)</h3>
+            <p class="entry-subtitle">Instituto Universitario de Tecnología Readic (Unir) – Convenio con Universidad Alonso de Ojeda (Uniojeda)</p>
+        </div>
+
+        <h2 id="cursos-y-certificaciones">Cursos y Certificaciones</h2>
+        <ul class="" style="list-style: circle; ">
+            <li >Computación Básica</li>
+            <li>Saint</li>
+            <li>Asistente Contable Computarizado</li>
+            <li>Redes Básicas y Networking</li>
+        </ul>
+
+        <h2>Experiencia Laboral</h2>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Instructor de Desarrollo de Software, Marketing Digital, Ventas, Atención al Cliente, Técnico Administrativo Farmacéutico, Operador de Inteligencia Artificial, Reparación y Mantenimiento de computadoras y CCTV</h3>
+            <p class="entry-subtitle">Mega Escuela, C. A., San Francisco <span class="bold-text">(Presente)</span></p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Técnico para el Departamento de Tecnología, Supervisor, Asistente de la Supervisión Regional de Control y Seguimiento, Responsable de la Supervisión de Control y Seguimiento, Asistente de la Dirección Regional</h3>
+            <p class="entry-subtitle">Movimiento por la Paz y la Vida, Estado Zulia</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Instructor de Operador de Sistema Operativo Linux</h3>
+            <p class="entry-subtitle">Centro Educativo CEFACHB, Av. Santa Rita. Entre Doctor Portillo y Boulevard 5 de Julio</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Docente de Aula (Cátedra de Computación)</h3>
+            <p class="entry-subtitle">U. E. Pio Tamayo, San Francisco, Barrio Manzanillo</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Instructor de Computación (Básica y Avanzada), Reparación y Mantenimiento de Computadoras, Instalación de CCTV, Redes, Saint, A2, Diseño Gráfico Digital, Inglés, Diseño de Páginas Web</h3>
+            <p class="entry-subtitle">Centro Educativo Tamanaco, S. C., Palacio de eventos y C. C. El Portu en el Km 4 vía a Perijá</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Docente de Aula (Cátedra de Computación)</h3>
+            <p class="entry-subtitle">U. E. Santa Verónica de Milán, Sector Ayacucho. Cerca de la Curva de Molina y en IUTM</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Instructor de Computación (Básica y Avanzada), Saint y Asistente Administrativo</h3>
+            <p class="entry-subtitle">Centro Educativo Multidata System, Maracaibo, Casco Central.</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Técnico en Informática, Programador y Capacitador Empresarial de Herramientas Administrativas</h3>
+            <p class="entry-subtitle">Escape Technology, C. A.</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Asistente de Venta</h3>
+            <p class="entry-subtitle">Taquitos de Venezuela, C. A., Av. 40 de la Urb. Coromoto</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Control de Calidad de Producción</h3>
+            <p class="entry-subtitle">Taquitos de Venezuela, C. A., Av. 40 de la Urb. Coromoto</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Encargado del Departamento de Despacho y Almacenamiento</h3>
+            <p class="entry-subtitle">Taquitos de Venezuela, C. A., Av. 40 de la Urb. Coromoto</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Clases Particulares: Inglés, Matemáticas, Física, Contabilidad, Informática y Diseño Gráfico, Marketing Digital, Ventas</h3>
+            <p class="entry-subtitle">Servicios Profesionales Independientes</p>
+        </div>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Facilitador Misión Ribas</h3>
+            <p class="entry-subtitle">Gobierno Nacional, San Francisco</p>
+        </div>
+
+        <h2>Voluntariado</h2>
+        <div class="job-entry entry-description">
+            <h3 class="entry-title">Coordinador de Gestión Social</h3>
+            <p class="entry-subtitle">Mega Escuela - Iniciativa Social, Escuelita de Mi Barrio, San Francisco <span class="bold-text">(Presente)</span></p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
