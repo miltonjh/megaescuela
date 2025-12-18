@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Farmacia y La Parafarmacia: Formación Intensiva de 7 Días - $5 USD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Definición de colores de marca para Tailwind */
+        :root {
+            --color-primary: #FFBF00; /* Ámbar */
+            --color-secondary: #003366; /* Azul Oscuro */
+        }
+        .bg-ambar { background-color: var(--color-primary); }
+        .text-ambar { color: var(--color-primary); }
+        .bg-azul { background-color: var(--color-secondary); }
+        .text-azul { color: var(--color-secondary); }
+        .border-ambar { border-color: var(--color-primary); }
+        
+        /* Estilos específicos para dinamismo y CTA flotante */
+        .cta-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .cta-flotante:hover {
+            transform: scale(1.05);
+        }
+        /* Animación para el contador */
+        @keyframes pulse-ambar {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 191, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 191, 0, 0); }
+        }
+        .animate-pulse-ambar { animation: pulse-ambar 2s infinite; }
+        
+        /* Nuevo efecto para la cabecera: Borde diagonal inferior */
+        .header-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        @media (min-width: 640px) {
+            .header-clip {
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            }
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1165670029012220');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1165670029012220&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+</head>
+
+<body class="font-sans text-[#1A1A1A] bg-white">
+
+    <a href="https://wa.me/+584127639970" target="_blank" class="cta-flotante bg-ambar text-azul font-bold py-3 px-6 rounded-full shadow-lg flex items-center space-x-2 animate-pulse-ambar">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span>¡QUIERO LA OFERTA DE $5!</span>
+    </a>
+
+    <header class="bg-azul text-white pt-12 pb-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden header-clip">
+        
+        <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('hero-farmacia.png');"></div>
+        
+        <div class="relative max-w-7xl mx-auto">
+            
+            <div class="mb-8">
+                <img src="logo-color.png" alt="Logo de la Academia" class="h-28 sm:h-40 w-auto object-contain mx-auto">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                
+                <div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-4 md:text-left text-center">
+                        <span class="text-ambar">¡Conócelas a profundidad en solo 7 Días!</span>
+                        <br>Domina la Farmacia y la Parafarmacia.
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-light mb-8 md:text-left text-center max-w-lg">
+                        Accede a la única formación intensiva que mapea el universo farmacéutico completo, desde el marco legal hasta la operación del negocio.
+                    </p>
+
+                    <div class="bg-white text-azul p-6 sm:p-8 rounded-xl shadow-2xl inline-block text-center md:text-left">
+                        <div id="countdown" class="bg-ambar text-azul text-2xl sm:text-3xl font-extrabold py-2 px-4 rounded-lg inline-block shadow-lg mb-4 border-2 border-white animate-pulse-ambar">
+                            ⏳ OFERTA EXPIRA EN: <span class="countdown-timer">00:00:00</span>
+                        </div>
+                        <p class="text-2xl sm:text-3xl font-extrabold text-red-600">
+                            PRECIO REGULAR: <span class="line-through">$17 USD</span>
+                        </p>
+                        <p class="text-4xl sm:text-6xl font-extrabold text-azul my-2">
+                            ¡ACCESO TOTAL HOY POR SOLO: <span class="text-ambar">$5 USD</span>!
+                        </p>
+                        
+                        <a href="https://wa.me/+584127639970" target="_blank" class="mt-6 inline-block w-full sm:w-auto bg-ambar text-azul font-bold text-2xl py-4 px-12 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                            <i class="fab fa-whatsapp mr-3"></i> ¡SÍ, QUIERO MI ACCESO DE $5!
+                        </a>
+                        <p class="mt-3 text-sm font-semibold text-gray-700">Oferta de Compra Inmediata válida solo mientras el contador esté activo.</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </header>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-16 sm:-mt-24 relative z-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+            ✅ Esto es lo que Lograrás en solo <span class="font-extrabold text-4xl sm:text-5xl" >7 Días</span>
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-ambar hover:bg-gray-50 transition duration-300">
+                <i class="fas fa-gavel text-3xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul mb-2">Dominio Legal Farmacéutico</h3>
+                <p class="text-gray-700">Conocerás el marco legal exacto para operar en <span class="font-extrabold">América Latina y Venezuela</span>. Sabrás qué se necesita para <span class="font-extrabold">crear y gestionar</span> una farmacia o parafarmacia.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-ambar hover:bg-gray-50 transition duration-300">
+                <i class="fas fa-pills text-3xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul mb-2">Diferenciación de Productos</h3>
+                <p class="text-gray-700">Aprenderás a manejar y diferenciar los <span class="font-extrabold">productos comunes</span>, así como los <span class="font-extrabold">homeopáticos</span> y <span class="font-extrabold">fitoterapéuticos</span>, optimizando el inventario y la venta.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-ambar hover:bg-gray-50 transition duration-300">
+                <i class="fas fa-building text-3xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul mb-2">Tipos y Servicios Especializados</h3>
+                <p class="text-gray-700">Identificarás las diferencias estructurales y operativas entre la Farmacia Comunitaria (Rural/Urbana), Hospitalaria, Clínica y el lucrativo sector de la <span class="font-extrabold">Parafarmacia</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+                📚 El Contenido Intensivo que te Vuelve un Experto
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-12"> 
+                
+                <div class="bg-white p-8 rounded-xl shadow-2xl border-l-4 border-azul">
+                    <h3 class="text-2xl font-extrabold text-azul mb-6 flex items-center">
+                        <i class="fas fa-hand-holding-medical text-3xl text-ambar mr-3"></i> MÓDULO 1: LA FARMACIA
+                    </h3>
+                    
+                    <ul class="space-y-4 text-lg text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Definición y Tipos Avanzados:</strong> Cubre Farmacia Comunal, Hospitalaria, Clínica y de Compuesto.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Estructura Interna:</strong> Componentes y requerimientos esenciales para el funcionamiento óptimo.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Marco Legal Clave:</strong> Requisitos para crear una farmacia y el panorama legal en América Latina y Venezuela.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Productos y Servicios:</strong> Manejo de productos comunes, homeopáticos, fitoterapéuticos y servicios adicionales.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-2xl border-l-4 border-azul">
+                    <h3 class="text-2xl font-extrabold text-azul mb-6 flex items-center">
+                        <i class="fas fa-spa text-3xl text-ambar mr-3"></i> MÓDULO 2: LA PARAFARMACIA
+                    </h3>
+                    
+                    <ul class="space-y-4 text-lg text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Parafarmacia Profunda:</strong> Definición, diferencia con la farmacia tradicional y el tipo de productos que se manejan.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Productos Estrellas:</strong> Productos homeopáticos y de bienestar en el contexto de la parafarmacia.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Servicios de Alto Valor:</strong> Identificación de servicios adicionales que aumentan la rentabilidad.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Requisitos Operacionales:</strong> Todo sobre los requisitos de funcionamiento y legalidad para tu negocio.</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-xl font-bold text-azul mb-4">Esta formación se vuelve más valiosa cada día con actualizaciones constantes. ¡Acceso de por vida incluido!</p>
+                <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-12 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                    <i class="fab fa-whatsapp mr-3"></i> ¡QUIERO DOMINAR LA FARMACIA Y LA PARAFARMACIA HOY!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-azul text-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-10 text-ambar">
+                🎁 Bonos Exclusivos por Compra Inmediata (Solo 24 Horas)
+            </h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-graduation-cap text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">Acceso a la Formación</h4>
+                    <p class="text-sm mt-2">Acceso completo al módulo intensivo "La Farmacia y La Parafarmacia".</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $17 USD</p>
+                </div>
+                
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-users text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">1 Año de Membresía EXCLUSIVA</h4>
+                    <p class="text-sm mt-2">Acceso a nuestra comunidad de farmacéuticos (Networking de Alto Valor).</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $49 USD</p>
+                </div>
+
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-file-invoice text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">Masterclass: CV Exitoso</h4>
+                    <p class="text-sm mt-2">Cómo preparar un currículo exitoso para postularte como Técnico Farmacéutico. ¡Tu llave de entrada!</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $35 USD</p>
+                </div>
+
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-tag text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">50% OFF en tu Próximo Programa</h4>
+                    <p class="text-sm mt-2">Un descuento directo para dar el salto a nuestra Especialización Avanzada.</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $25 USD (Potencial)</p>
+                </div>
+            </div>
+            
+            <p class="text-3xl sm:text-5xl font-extrabold mt-12 mb-6">
+                VALOR ACUMULADO REAL: <span class="line-through text-red-400">$126 USD</span>
+            </p>
+            <p class="text-4xl sm:text-6xl font-extrabold text-ambar mb-8">
+                TU INVERSIÓN HOY: $5 USD
+            </p>
+            
+            <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300 border-2 border-white">
+                <i class="fab fa-whatsapp mr-3"></i> ¡QUIERO ESTA OFERTA ANTES DE QUE ACABE!
+            </a>
+            <p class="text-lg mt-3 font-semibold text-white">🚨 ¡El reloj corre! Los bonos expiran con el contador.</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+            🚀 Metodología <span class="text-4xl sm:text-5xl">Intensiva de una Semana</span> y a tu Ritmo
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            
+            <div class="p-6 bg-white rounded-lg shadow-xl border-t-4 border-ambar">
+                <i class="fas fa-clock text-4xl text-azul mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">1. 7 Días de Inmersión Total</h3>
+                <p class="text-gray-700 mt-2">Accede al contenido diario, diseñado para <span class="font-extrabold">absorber el conocimiento en una semana</span>. No tienes que sacrificar tu horario, aprendes a tu ritmo.</p>
+            </div>
+            
+            <div class="p-6 bg-white rounded-lg shadow-xl border-t-4 border-ambar">
+                <i class="fab fa-whatsapp text-4xl text-azul mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">2. Acompañamiento 24/7 Garantizado</h3>
+                <p class="text-gray-700 mt-2">El intensivo no significa soledad. Tienes acceso al <span class="font-extrabold">ForoChat Exclusivo</span> y Asesorías en Vivo con expertos para resolver todas tus dudas.</p>
+            </div>
+            
+            <div class="p-6 bg-white rounded-lg shadow-xl border-t-4 border-ambar">
+                <i class="fas fa-redo-alt text-4xl text-azul mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">3. Contenido Vitalicio y en Crecimiento</h3>
+                <p class="text-gray-700 mt-2">Olvídate de las matrículas. Tu pago te da <span class="font-extrabold text-ambar">Acceso de por Vida</span> y a <span class="font-extrabold">TODAS las futuras actualizaciones</span> y videos que agreguemos.</p>
+            </div>
+        </div>
+    </section>
+        
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+                🌟 Ellos Ya Iniciaron Su Camino Farmacéutico
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <blockquote class="bg-white p-6 rounded-lg shadow-xl border-l-4 border-ambar">
+                    <div>
+                        <p class="italic text-gray-700">"El conocimiento es tan práctico y bien explicado que pude entender la diferencia legal entre una farmacia y una parafarmacia en solo un día. ¡Un curso intensivo que vale oro!"</p>
+                        <footer class="mt-4 font-semibold text-azul">- María C., Técnico Farmacéutico</footer>
+                    </div>
+                </blockquote>
+                
+                <blockquote class="bg-white p-6 rounded-lg shadow-xl border-l-4 border-ambar">
+                    <div>
+                        <p class="italic text-gray-700">"Me sentía perdida con la estructura y la legalidad. Esta formación no solo me dio la base, sino la confianza para postularme a mejores puestos. ¡Recomendadísimo!"</p>
+                        <footer class="mt-4 font-semibold text-azul">- Luisa F., Técnico Farmacéutico</footer>
+                    </div>
+                </blockquote>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold text-red-600 mb-4">¡ALERTA! EL PRECIO DE $5 ES SOLO POR AHORA.</p>
+                <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                    <i class="fab fa-whatsapp mr-3"></i> ASEGURA TU PUESTO A $5 ANTES DE QUE SEA TARDE
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-10">
+            ❓ Preguntas Frecuentes
+        </h2>
+        <div class="space-y-4">
+            
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Cómo funciona el formato intensivo de una semana? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    El contenido está diseñado para ser consumido en 7 días para una inmersión completa. Sin embargo, el <span class="font-extrabold text-ambar">acceso es de por vida</span>, por lo que puedes estudiar a tu propio ritmo sin presiones. El acompañamiento y los bonos se mantienen.
+                </div>
+            </div>
+            
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿El acceso es temporal? ¿Recibiré las actualizaciones futuras? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    <span class="font-extrabold text-ambar">¡Acceso de por vida!</span> Una vez inscrito, tendrás acceso 24/7 a todo el contenido digital, forochat y a <span class="font-extrabold">TODAS las actualizaciones futuras</span> que agreguemos a este módulo.
+                </div>
+            </div>
+
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Cómo accedo al curso después de contactar por WhatsApp? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    Al hacer clic en el botón, nuestro equipo te guiará inmediatamente para completar el pago de $5 y te enviará las credenciales de acceso a la plataforma para que empieces a estudiar hoy mismo.
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="bg-azul py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-ambar mb-6">
+                El Conocimiento que te Abre las Puertas Legales y Operacionales.
+            </h2>
+            <p class="text-xl text-white mb-8">
+                Aprovecha la oferta de $5 y los bonos de la comunidad. ¡Inicia tu camino profesional con la base correcta hoy!
+            </p>
+            <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                <i class="fab fa-whatsapp mr-3"></i> SÍ, ME INSCRIBO HOY POR SOLO $5
+            </a>
+            <p class="text-sm text-gray-400 mt-6">&copy; 2025 Mega Escuela, C. A,. Todos los derechos reservados. | Políticas de Privacidad | Términos de Servicio</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para el Contador de 24 Horas (reutilizado)
+        function startCountdown() {
+            // Establece una fecha de finalización (24 horas desde ahora)
+            let endTime = localStorage.getItem('countdownEnd_Parafarmacia'); // CLAVE ÚNICA
+            if (!endTime) {
+                endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+                localStorage.setItem('countdownEnd_Parafarmacia', endTime);
+            } else {
+                endTime = parseInt(endTime);
+            }
+
+            const countdownElement = document.querySelector('.countdown-timer');
+
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "00:00:00";
+                    // Lógica para subir el precio
+                    return;
+                }
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = 
+                    String(hours).padStart(2, '0') + ":" + 
+                    String(minutes).padStart(2, '0') + ":" + 
+                    String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+
+        // Script para el Accordion (FAQ) (reutilizado)
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Cierra otros abiertos (para mantener la limpieza)
+                document.querySelectorAll('.faq-content').forEach(c => {
+                    if (c !== content && !c.classList.contains('hidden')) {
+                         c.classList.add('hidden');
+                         c.previousElementSibling.querySelector('i').classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    }
+                });
+
+                // Abre/Cierra el actual
+                content.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        startCountdown();
+    </script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roles Farmacéuticos: La Claridad que te Hace Indispensable en la Farmacia - $5 USD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Definición de colores de marca para Tailwind */
+        :root {
+            --color-primary: #FFBF00; /* Ámbar */
+            --color-secondary: #003366; /* Azul Oscuro */
+        }
+        .bg-ambar { background-color: var(--color-primary); }
+        .text-ambar { color: var(--color-primary); }
+        .bg-azul { background-color: var(--color-secondary); }
+        .text-azul { color: var(--color-secondary); }
+        .border-ambar { border-color: var(--color-primary); }
+        
+        /* Estilos específicos para CTA flotante y animación */
+        .cta-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .cta-flotante:hover {
+            transform: scale(1.05);
+        }
+        @keyframes pulse-ambar {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 191, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 191, 0, 0); }
+        }
+        .animate-pulse-ambar { animation: pulse-ambar 2s infinite; }
+        
+        /* Nuevo efecto para la cabecera: Borde diagonal inferior (mantenido) */
+        .header-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        @media (min-width: 640px) {
+            .header-clip {
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            }
+        }
+        /* Estilo para el nuevo diseño de tarjetas de beneficio */
+        .feature-card-new {
+            border: 2px solid var(--color-secondary);
+            transition: all 0.3s ease;
+        }
+        .feature-card-new:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 51, 102, 0.1);
+            border-color: var(--color-primary);
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1165670029012220');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1165670029012220&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+</head>
+
+<body class="font-sans text-[#1A1A1A] bg-white">
+
+    <a href="https://wa.me/+584127639970" target="_blank" class="cta-flotante bg-ambar text-azul font-bold py-3 px-6 rounded-full shadow-lg flex items-center space-x-2 animate-pulse-ambar">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span>¡QUIERO LA OFERTA DE $5!</span>
+    </a>
+
+    <header class="bg-azul text-white pt-12 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    
+        <div class="absolute inset-0 bg-cover bg-center" 
+             style="background-image: url('hero-farmacia.png'); background-position: center center;">
+        </div>
+        
+        <div class="absolute inset-0 bg-azul opacity-60"></div>
+        
+        <div class="relative max-w-7xl mx-auto z-10">
+            
+            
+
+            <div class="grid md:grid-cols-12 gap-10 items-center">
+                
+                <div class="md:col-span-7">
+                    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 text-center md:text-left">
+                        <span class="text-ambar block mb-2">¡Basta de Dudar!</span>
+                        <span class="text-white">Domina la Triada Profesional Farmacéutica y Sé Indispensable.</span>
+                    </h1>
+                    
+                    <p class="text-xl sm:text-2xl font-light mb-8 text-center md:text-left max-w-xl md:ml-0 text-gray-300">
+                        Obtén la <span class="font-extrabold">certeza profesional</span> que te hace un pilar del sector. Accede a la formación que detalla sin ambigüedades las funciones, responsabilidades y proyecciones de carrera en el campo.
+                    </p>
+                </div>
+                
+                <div class="md:col-span-5 flex justify-center md:justify-end">
+                    <div class="bg-white text-azul p-6 sm:p-8 rounded-3xl shadow-2xl border-b-8 border-ambar text-center max-w-sm w-full transform transition duration-500 hover:scale-[1.02]">
+                        <div class="mb-10 text-center">
+                            <img src="logo-color.png" alt="Logo de la Academia" class="h-24 w-auto object-contain mx-auto filter"> 
+                        </div>
+                        <div id="countdown" class="bg-ambar text-azul text-xl sm:text-2xl font-extrabold py-3 px-4 rounded-xl shadow-lg mb-4 inline-block border-2 border-white animate-pulse-ambar">
+                            ⏳ OFERTA EXCLUSIVA EXPIRA EN: <span class="countdown-timer">00:00:00</span>
+                        </div>
+                        
+                        <p class="text-xl sm:text-2xl font-extrabold text-red-600">
+                            VALOR REAL: <span class="line-through">$17 USD</span>
+                        </p>
+                        <p class="text-4xl sm:text-5xl font-extrabold text-azul my-2">
+                            ¡HOY POR SOLO: <span class="text-ambar">$5 USD</span>!
+                        </p>
+                        
+                        <a href="https://wa.me/+584127639970" target="_blank" class="mt-6 inline-block w-full bg-red-600 text-white font-bold text-xl sm:text-2xl py-4 rounded-xl shadow-2xl hover:bg-red-700 transition duration-300 transform hover:scale-[1.01] animate-bounce-slow">
+                            <i class="fab fa-whatsapp mr-3"></i> ¡SÍ, QUIERO MI CLARIDAD POR $5!
+                        </a>
+                        <p class="mt-3 text-xs font-semibold text-gray-700">Oferta de Compra Inmediata válida solo mientras el contador esté activo.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <section class="py-40 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto -mt-16 sm:-mt-24 relative z-10">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+            🚀 El Resultado: Tu Carrera Farmacéutica se Dispara
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="bg-white p-6 rounded-xl shadow-2xl feature-card-new">
+                <i class="fas fa-handshake text-4xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul mb-2">Elimina la Inseguridad y los Conflictos</h3>
+                <p class="text-gray-700">Sabrás dónde terminan tus funciones y dónde inician las de tus colegas. <span class="font-extrabold">Trabaja con confianza</span>, evitando problemas legales o éticos por extralimitación de rol.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-2xl feature-card-new">
+                <i class="fas fa-medal text-4xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul mb-2">Tu Perfil se Vuelve Competitivo</h3>
+                <p class="text-gray-700">Identifica las <span class="font-extrabold">habilidades blandas y técnicas</span> que te hacen un candidato *top*. Prepara tu CV para puestos de mayor nivel y sueldo.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-2xl feature-card-new">
+                <i class="fas fa-eye text-4xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul mb-2">Visión 360° del Sector</h3>
+                <p class="text-gray-700">Deja de ver solo tu puesto. Entiende la <span class="font-extrabold">estructura jerárquica y operativa</span> completa para tomar mejores decisiones y tener una proyección a largo plazo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+                📚 Formación Intensiva: Los Pilares del Rol Farmacéutico
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-12"> 
+                
+                <div class="bg-white p-8 rounded-xl shadow-2xl border-l-8 border-ambar">
+                    <h3 class="text-2xl font-extrabold text-azul mb-6 flex items-center">
+                        <i class="fas fa-user-md text-3xl text-azul mr-3"></i> MÓDULO 1: LA ÉTICA PROFESIONAL Y EL LÍDER
+                    </h3>
+                    
+                    <ul class="space-y-4 text-lg text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-cogs text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Diferenciación de la Triada:</strong> Video detallado que define los límites y las áreas de colaboración entre el Médico, Farmacéutico y Técnico. </p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-search text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>El Farmacéutico: Funciones y Alcance:</strong> Responsabilidades cruciales, impacto legal y el rol de liderazgo en la dispensación de medicamentos.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-shield-alt text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Farmacéutico vs. Médico: Resolución de Conflictos:</strong> Entiende quién hace qué y evita la extralimitación de funciones en la farmacia.</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-2xl border-l-8 border-ambar">
+                    <h3 class="text-2xl font-extrabold text-azul mb-6 flex items-center">
+                        <i class="fas fa-briefcase-medical text-3xl text-azul mr-3"></i> MÓDULO 2: PROYECCIÓN Y EL TÉCNICO INDISPENSABLE
+                    </h3>
+                    
+                    <ul class="space-y-4 text-lg text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-id-badge text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>El Técnico Farmacéutico: Definición Clave:</strong> Su importancia en la operativa diaria y su valor estratégico en el equipo de salud.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-tasks text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Funciones de Alto Impacto:</strong> Tareas diarias, gestión avanzada de inventario, atención al cliente y responsabilidades éticas.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chart-line text-ambar mr-3 mt-1 text-xl flex-shrink-0"></i> 
+                            <p><strong>Habilidades para el Ascenso:</strong> Las características y habilidades que te harán indispensable y te abrirán la puerta a mejores salarios.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-xl font-bold text-azul mb-4">¡Tu único pago te da acceso a esta <span class="font-extrabold">formación completa</span> y a <span class="font-extrabold">todas las actualizaciones</span> futuras! Acceso de por vida.</p>
+                <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-12 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                    <i class="fab fa-whatsapp mr-3"></i> ¡SÍ, QUIERO DEJAR DE DUDAR DE MI ROL HOY!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-azul text-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-10 text-ambar">
+                🎁 Bonos Exclusivos: La Inversión que Multiplica tu Valor
+            </h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-graduation-cap text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">Acceso a la Formación</h4>
+                    <p class="text-sm mt-2">Acceso completo al módulo intensivo "Roles Farmacéuticos".</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $17 USD</p>
+                </div>
+                
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-users text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">1 Año de Membresía EXCLUSIVA</h4>
+                    <p class="text-sm mt-2">Networking de Alto Valor con la comunidad de profesionales farmacéuticos más activa.</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $49 USD</p>
+                </div>
+
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-file-invoice text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">Masterclass: CV Exitoso por Rol</h4> 
+                    <p class="text-sm mt-2">Aprende a vender tu valor. Cómo adaptar tu currículo según el rol que buscas: Farmacéutico, Técnico o Asistente.</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $35 USD</p>
+                </div>
+
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-tag text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">50% OFF en tu Próximo Programa</h4>
+                    <p class="text-sm mt-2">Te damos un descuento directo para dar el salto a nuestra Especialización Avanzada.</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $25 USD (Potencial)</p>
+                </div>
+            </div>
+            
+            <p class="text-3xl sm:text-5xl font-extrabold mt-12 mb-6">
+                VALOR REAL Y ACUMULADO: <span class="line-through text-red-400">$126 USD</span>
+            </p>
+            <p class="text-4xl sm:text-6xl font-extrabold text-ambar mb-8">
+                TU INVERSIÓN HOY: <span class="bg-red-600 text-white px-4 py-1 rounded-lg shadow-lg">$5 USD</span>
+            </p>
+            
+            <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300 border-2 border-white">
+                <i class="fab fa-whatsapp mr-3"></i> ¡QUIERO ESTA OFERTA ANTES DE QUE ACABE!
+            </a>
+            <p class="text-lg mt-3 font-semibold text-white">🚨 ¡El reloj corre! Los bonos expiran con el contador.</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+                🗣️ Voces de Quienes Ya Tienen Claridad Profesional
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <blockquote class="bg-white p-6 rounded-lg shadow-xl border-l-4 border-ambar">
+                    <div>
+                        <p class="italic text-gray-700">"Gracias a esta formación, entendí exactamente hasta dónde llegan mis funciones. Pasé de la duda a la seguridad profesional, y eso se notó en mi postulación a Técnico Farmacéutico. ¡Gracias a eso consegui mi oportunidad en una farmacia !"</p>
+                        <footer class="mt-4 font-semibold text-azul">- Sofía R., Técnico Farmacéutico</footer>
+                    </div>
+                </blockquote>
+                
+                <blockquote class="bg-white p-6 rounded-lg shadow-xl border-l-4 border-ambar">
+                    <div>
+                        <p class="italic text-gray-700">"Empecé como aprendiz y me sentía abrumado por la jerarquía. Este curso me hizo ubicarme en mi nivel y ahora sé qué aprender y cómo crecer, no solo qué hacer. Ha sido la mejor inversión que he hecho!"</p>
+                        <footer class="mt-4 font-semibold text-azul">- Daniel M., Aprendiz de Técnico Farmacéutico</footer>
+                    </div>
+                </blockquote>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold text-red-600 mb-4">¡ALERTA! EL PRECIO DE $5 ES SOLO POR AHORA.</p>
+                <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                    <i class="fab fa-whatsapp mr-3"></i> ASEGURA TU PUESTO A $5 ANTES DE QUE SEA TARDE
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-10">
+            ❓ Preguntas Frecuentes y Solución a Tus Dudas
+        </h2>
+        <div class="space-y-4">
+            
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿El acceso es temporal? ¿Recibiré las actualizaciones futuras de la formación? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    <span class="font-extrabold text-ambar">¡Acceso de por Vida!</span> Una vez inscrito, tendrás acceso 24/7 a todo el contenido y a <span class="font-extrabold">TODAS las actualizaciones futuras</span> que agreguemos a este módulo. Nunca más pagarás por este conocimiento.
+                </div>
+            </div>
+
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Puedo tomar esta formación si apenas soy Aprendiz o Asistente y estoy comenzando? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    ¡Definitivamente! Esta es la <span class="font-extrabold">base más sólida</span> para cualquier persona que comienza. Te dará una visión clara para <span class="font-extrabold">evitar errores</span> y saber exactamente qué habilidades desarrollar para ascender rápidamente.
+                </div>
+            </div>
+            
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Esta formación realmente me ayuda a conseguir un mejor empleo o aumentar mi sueldo? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    Sí, porque no solo aprenderás las funciones, sino las <span class="font-extrabold">características que los empleadores buscan</span>. Al tener claridad de roles y habilidades avanzadas, te posicionas como un profesional de <span class="font-extrabold">mayor valor y menos riesgo</span>, lo que justifica una mejor remuneración.
+                </div>
+            </div>
+
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Cómo me ayuda esta formación a evitar conflictos con otros profesionales de la salud? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    La clave está en la <span class="font-extrabold">Comparativa de Roles</span>. Entenderás los <span class="font-extrabold">límites legales y éticos</span> de cada profesión. Esto te permite comunicarte con certeza, establecer límites profesionales claros y convertir la posible fricción en <span class="font-extrabold">colaboración efectiva</span>.
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="bg-azul py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-ambar mb-6">
+                El Fin de la Duda. El Comienzo de Tu Autoridad Profesional.
+            </h2>
+            <p class="text-xl text-white mb-8">
+                Asegura la formación más clara del sector por solo $5 USD y obtén los bonos que impulsarán tu carrera.
+            </p>
+            <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                <i class="fab fa-whatsapp mr-3"></i> SÍ, ME INSCRIBO HOY POR SOLO $5
+            </a>
+            <p class="text-sm text-gray-400 mt-6">&copy; 2025 Mega Escuela, C. A,. Todos los derechos reservados. | Políticas de Privacidad | Términos de Servicio</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para el Contador de 24 Horas
+        function startCountdown() {
+            // CLAVE ÚNICA para esta LP
+            let endTime = localStorage.getItem('countdownEnd_RolesFarmaceuticos'); 
+            if (!endTime) {
+                // Si no hay clave, establece 24 horas desde ahora
+                endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+                localStorage.setItem('countdownEnd_RolesFarmaceuticos', endTime);
+            } else {
+                endTime = parseInt(endTime);
+            }
+
+            const countdownElement = document.querySelector('.countdown-timer');
+
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "00:00:00";
+                    // Lógica para subir el precio
+                    return;
+                }
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = 
+                    String(hours).padStart(2, '0') + ":" + 
+                    String(minutes).padStart(2, '0') + ":" + 
+                    String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+
+        // Script para el Accordion (FAQ)
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Cierra otros abiertos (para mantener la limpieza)
+                document.querySelectorAll('.faq-content').forEach(c => {
+                    if (c !== content && !c.classList.contains('hidden')) {
+                        c.classList.add('hidden');
+                        c.previousElementSibling.querySelector('i').classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    }
+                });
+
+                // Abre/Cierra el actual
+                content.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        startCountdown();
+    </script>
+</body>
+</html>

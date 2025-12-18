@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos Farmacéuticos: Tu Primer Paso Seguro - Oferta Limitada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Definición de colores de marca para Tailwind */
+        :root {
+            --color-primary: #FFBF00; /* Ámbar */
+            --color-secondary: #003366; /* Azul Oscuro */
+        }
+        .bg-ambar { background-color: var(--color-primary); }
+        .text-ambar { color: var(--color-primary); }
+        .bg-azul { background-color: var(--color-secondary); }
+        .text-azul { color: var(--color-secondary); }
+        .border-ambar { border-color: var(--color-primary); }
+        
+        /* Estilos específicos para dinamismo y CTA flotante */
+        .cta-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .cta-flotante:hover {
+            transform: scale(1.05);
+        }
+        /* Animación para el contador */
+        @keyframes pulse-ambar {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 191, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 191, 0, 0); }
+        }
+        .animate-pulse-ambar { animation: pulse-ambar 2s infinite; }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1165670029012220');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1165670029012220&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+</head>
+
+<body class="font-sans text-[#1A1A1A] bg-white">
+
+    <a href="https://wa.me/+584127639970" target="_blank" class="cta-flotante bg-ambar text-azul font-bold py-3 px-6 rounded-full shadow-lg flex items-center space-x-2 animate-pulse-ambar">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span>¡QUIERO LA OFERTA DE $5!</span>
+    </a>
+
+   <header class="bg-azul text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-50 bg-cover bg-center" style="background-image: url('hero-fundamentos.png');"></div>
+    
+        <div class="relative max-w-7xl mx-auto text-center">
+            
+            <div class="mb-6">
+                <img src="logo-color.png" alt="Logo de la Academia" class="h-28 sm:h-40 w-auto object-contain mx-auto">
+            </div>
+
+            <div id="countdown" class="bg-ambar text-azul text-3xl sm:text-4xl font-extrabold py-3 px-6 rounded-lg inline-block shadow-2xl mb-6 border-4 border-white animate-pulse-ambar">
+                ⏳ OFERTA EXPIRA EN: <span class="countdown-timer">00:00:00</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4">
+                <span class="text-ambar">Abre la Puerta a tu Carrera Farmacéutica Hoy.</span>
+                El Camino más Corto a tu Primer Empleo.
+            </h1>
+            <p class="text-xl sm:text-2xl font-light mb-8 max-w-3xl mx-auto">
+                Domina la Fundamentación Esencial que te Ahorra Meses de Confusión y te Prepara para la Especialización como Asistente de Farmacia.
+            </p>
+
+            <div class="bg-white text-azul p-6 sm:p-8 rounded-xl shadow-2xl inline-block">
+                <p class="text-xl sm:text-2xl font-semibold line-through opacity-70">Valor Total: $126 USD</p>
+                <p class="text-4xl sm:text-6xl font-extrabold my-2">
+                    Precio Regular: <span class="line-through">$17 USD</span>
+                </p>
+                <p class="text-5xl sm:text-7xl font-extrabold text-red-600">
+                    ¡ACCESO TOTAL HOY POR SOLO: <span class="text-ambar">$5 USD</span>!
+                </p>
+                
+                <a href="https://wa.me/+584127639970" target="_blank" class="mt-6 inline-block w-full sm:w-auto bg-ambar text-azul font-bold text-2xl py-4 px-12 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                    <i class="fab fa-whatsapp mr-3"></i> ¡SÍ, QUIERO MI ACCESO DE $5!
+                </a>
+                <p class="mt-3 text-sm font-semibold text-gray-700">Oferta de Compra Inmediata válida solo mientras el contador esté activo.</p>
+            </div>
+        </div>
+   </header>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+            ⚠️ ¿Has sentido algunas de estas cosas?
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <p class="flex items-start text-lg"><i class="fas fa-times-circle text-red-500 text-3xl mr-3 mt-1"></i> No sabes por dónde empezar, lo que te detiene de postularte.</p>
+                <p class="flex items-start text-lg"><i class="fas fa-times-circle text-red-500 text-3xl mr-3 mt-1"></i> Miedo a invertir en una carrera sin saber si el sector es para ti.</p>
+                <p class="flex items-start text-lg"><i class="fas fa-times-circle text-red-500 text-3xl mr-3 mt-1"></i> Las formaciones te parecen caras o llenas de teoría irrelevante.</p>
+            </div>
+            <div class="bg-gray-100 p-8 rounded-xl shadow-lg border-l-4 border-ambar">
+                <h3 class="text-2xl font-bold text-azul mb-4">Nuestra Solución: Fundamentación de Élite</h3>
+                <p class="text-lg">Diseñamos este programa introductorio para <span class="font-extrabold">eliminar tu confusión</span> y darte una base sólida, legal y ética. <span class="font-extrabold">Es la hoja de ruta</span> que te permite avanzar con <span class="font-extrabold">confianza y prestigio</span> hacia la especialización como <span class="font-extrabold">Técnico Farmacéutico</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-azul text-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-10 text-ambar">
+                🎁 Esto es lo que Obtienes HOY por solo $5 USD
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-graduation-cap text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">Fundamentos Farmacéuticos</h4>
+                    <p class="text-sm mt-2">Acceso completo a todos los módulos base.</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $17 USD</p>
+                </div>
+                
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-users text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">1 Año de Membresía EXCLUSIVA</h4>
+                    <p class="text-sm mt-2">Acceso a nuestra comunidad de farmacéuticos (Networking de Alto Valor).</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $49 USD</p>
+                </div>
+
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-file-invoice text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">Masterclass: CV Exitoso</h4>
+                    <p class="text-sm mt-2">Cómo preparar un currículo exitoso para postularte como Técnico Farmacéutico. ¡Tu llave de entrada!</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $35 USD (Impacto Directo en Empleo)</p>
+                </div>
+
+                <div class="bg-white text-azul p-6 rounded-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-tag text-4xl text-ambar mb-3"></i>
+                    <h4 class="font-bold text-xl">50% OFF en tu Próximo Programa</h4>
+                    <p class="text-sm mt-2">Un descuento directo para dar el salto al Master en Farmacia.</p>
+                    <p class="text-sm font-bold mt-1 line-through opacity-70">Valor: $25 USD (Potencial)</p>
+                </div>
+            </div>
+            
+            <p class="text-3xl sm:text-5xl font-extrabold mt-12 mb-6">
+                VALOR ACUMULADO REAL: <span class="line-through text-red-400">$126 USD</span>
+            </p>
+            <p class="text-4xl sm:text-6xl font-extrabold text-ambar mb-8">
+                TU INVERSIÓN HOY: $5 USD
+            </p>
+            
+            <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300 border-2 border-white">
+                <i class="fab fa-whatsapp mr-3"></i> ¡QUIERO ESTA OFERTA ANTES DE QUE ACABE!
+            </a>
+            <p class="text-lg mt-3 font-semibold text-white">🚨 ¡Recuerda! El Acceso a la Comunidad y la Masterclass CV SOLO se incluyen con la oferta de $5.</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+            📚 El Conocimiento que Te Hace un Aspirante Sólido (Esto es solo parte del Contenido del Curso)
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="p-6 border-2 border-azul rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <i class="fas fa-globe-americas text-3xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">1. El Mapa Completo de la Salud Global</h3>
+                <p class="text-gray-700 mt-2">Dejarás de ver la salud como un dato y comprenderás su ecosistema. Aprende a fondo:</p>
+                <ul class="list-disc list-inside mt-3 text-sm space-y-1 ml-2">
+                    <li><span class="font-semibold">La Salud vs. La Enfermedad:</span> Bases y evolución de los padecimientos.</li>
+                    <li><span class="font-semibold">Contexto Global:</span> El rol y la influencia de la Organización Mundial de la Salud (OMS).</li>
+                    <li><span class="font-semibold">Determinantes Sociales:</span> Factores no médicos que influyen en el paciente.</li>
+                </ul>
+            </div>
+            
+            <div class="p-6 border-2 border-azul rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <i class="fas fa-flask text-3xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">2. Productos Clave y el Vínculo Terapéutico</h3>
+                <p class="text-gray-700 mt-2">Domina las categorías de productos y el acto de servicio que define al profesional:</p>
+                <ul class="list-disc list-inside mt-3 text-sm space-y-1 ml-2">
+                    <li><span class="font-semibold">Adherencia Farmacéutica:</span> La importancia de la intervención para fomentar la Farmacoterapia Efectiva.</li>
+                    <li><span class="font-semibold">Productos Complementarios:</span> Las bases de la Homeopatía y Fitoterapia, y cómo manejarlos.</li>
+                    <li><span class="font-semibold">Diferenciación:</span> Aprende a "Dispensar" y "Expender" correctamente (Terminología de prestigio).</li>
+                </ul>
+            </div>
+            
+            <div class="p-6 border-2 border-azul rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <i class="fas fa-user-tie text-3xl text-ambar mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">3. Tu Rol, Funciones y el Entorno Farmacéutico</h3>
+                <p class="text-gray-700 mt-2">La sección que te da claridad profesional para postularte con seguridad:</p>
+                <ul class="list-disc list-inside mt-3 text-sm space-y-1 ml-2">
+                    <li><span class="font-semibold">La Farmacia:</span> Definición, Tipos, y el manejo de la Parafarmacia.</li>
+                    <li><span class="font-semibold">Jerarquía Laboral:</span> Comparativa clara entre el Médico, el Farmacéutico y tu rol.</li>
+                    <li><span class="font-semibold">Funciones Específicas:</span> El listado detallado de lo que harás como <span class="font-extrabold">Técnico Farmacéutico</span>.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <p class="text-xl font-bold text-azul">Esto es solo la base. Da el primer paso y el camino se aclarará. ¡Por solo $5 USD!</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+            🚀 Nuestra Metodología: La Forma Más Inteligente de Aprender
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            
+            <div class="p-6 bg-white rounded-lg shadow-xl border-t-4 border-ambar">
+                <i class="fas fa-video text-4xl text-azul mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">1. Acceso Vitalicio 24/7 (Eje Digital)</h3>
+                <p class="text-gray-700 mt-2">Accede a <span class="font-extrabold">contenidos en video explícitos</span> y de alta calidad. Tu contenido <span class="font-extrabold text-ambar">aumenta CADA DÍA</span> gracias a las actualizaciones constantes. ¡Acceso de por vida, incluidas las mejoras!</p>
+            </div>
+            
+            <div class="p-6 bg-white rounded-lg shadow-xl border-t-4 border-ambar">
+                <i class="fab fa-whatsapp text-4xl text-azul mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">2. ForoChat Exclusivo con Expertos</h3>
+                <p class="text-gray-700 mt-2">Resuelve dudas e interactúa con <span class="font-extrabold">instructores y compañeros</span> en un ambiente privado. El Forochat es tu red de apoyo y aprendizaje activo, disponible 24/7.</p>
+            </div>
+            
+            <div class="p-6 bg-white rounded-lg shadow-xl border-t-4 border-ambar">
+                <i class="fas fa-desktop text-4xl text-azul mb-3"></i>
+                <h3 class="font-bold text-xl text-azul">3. Asesorías en Vivo (Streaming)</h3>
+                <p class="text-gray-700 mt-2">Maximiza tu aprendizaje con <span class="font-extrabold">sesiones de asesoría en vivo</span>. Pregunta directamente, debate y refuerza los temas claves en tiempo real con nuestros expertos.</p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-azul text-white font-bold text-xl py-3 px-10 rounded-lg shadow-lg hover:bg-opacity-90 transition duration-300">
+                <i class="fab fa-whatsapp mr-2"></i> ¡QUIERO SABER MÁS SOBRE LA METODOLOGÍA!
+            </a>
+        </div>
+    </section>
+        
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-12">
+                🌟 Lo que Dicen Nuestros Estudiantes
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <blockquote class="bg-white p-6 rounded-lg shadow-xl border-l-4 border-ambar">
+                    <p class="italic text-gray-700">"El curso de $5 me dio la claridad que buscaba. NO sabía si realmente la carrera farmacéutica era para mí. Ahora sé exactamente qué esto es lo que quiero."</p>
+                    <footer class="mt-4 font-semibold text-azul">- María C., Aspirante a Técnico Farmacéutico</footer>
+                </blockquote>
+                <blockquote class="bg-white p-6 rounded-lg shadow-xl border-l-4 border-ambar">
+                    <p class="italic text-gray-700">"Ya había hecho un curso antes y creí que sabía lo que se debía saber y con este curso, desde la primera clase he aprendido mucho. Me he quedado asombrada!"</p>
+                    <footer class="mt-4 font-semibold text-azul">- Luisa F., Aspirante a Técnico Farmacéutico</footer>
+                </blockquote>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold text-red-600 mb-4">¡ALERTA! EL RELOJ NO SE DETIENE.</p>
+                <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                    <i class="fab fa-whatsapp mr-3"></i> ASEGURA TU PUESTO A $5 ANTES DE QUE SEA TARDE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-azul mb-8">
+            🛣️ Tu Ruta Clara Hacia la Certificación
+        </h2>
+        <img src="ruta-fundamentos.png" alt="Ruta de Progresión" class="w-full max-w-4xl mx-auto rounded-lg shadow-lg mb-8 opacity-80" />
+        <p class="text-lg max-w-4xl mx-auto text-gray-700">
+            Al adquirir los <span class="font-bold text-azul">Fundamentos Farmacéuticos</span>, no solo obtienes conocimiento, sino que <span class="font-bold text-azul">inicias oficialmente el camino</span>.
+        </p>
+        <div class="mt-6 p-4 bg-azul text-white rounded-lg inline-block">
+            <i class="fas fa-certificate text-ambar text-2xl mr-2"></i>
+            <span class="font-extrabold">Bono Futuro:</span> Te reservamos el derecho de obtener tu Certificado de <span class="font-semibold">Especialista Técnico Farmacéutico</span> al completar el <span class="font-semibold">Master en Farmacia</span>. <span class="font-extrabold">¡Tu base empieza aquí!</span>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-azul mb-10">
+            ❓ Preguntas Frecuentes
+        </h2>
+        <div class="space-y-4">
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Este curso me certifica como Asistente de Farmacia de inmediato? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    Este es el <span class="font-extrabold">Módulo FUNDAMENTAL</span> y el primer paso del <span class="font-extrabold">Master en Farmacia</span>. Te dota de la base de conocimiento legal, ética y operacional para empezar, ahorrándote meses de confusión. Cada una de nuestras formaciones dentro del Programa Especial <span class="font-extrabold">Master en Farmacia</span> te acerca más a ese objetivo.
+                </div>
+            </div>
+        
+        <div class="border border-azul rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                ¿El acceso es temporal? ¿Recibiré las actualizaciones futuras? <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+            <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                <span class="font-extrabold text-ambar">¡Acceso de por vida!</span> Una vez inscrito, tendrás acceso 24/7 a todo el contenido digital, forochat y a <span class="font-extrabold">TODAS las actualizaciones futuras</span>. Incluso después de certificarte, seguirás gozando de las mejoras del programa.
+            </div>
+        </div>
+
+        <div class="border border-azul rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                ¿Cómo funciona la Oferta de Compra Inmediata de $5? <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+            <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                Es una oferta de tiempo limitado (24 horas) para nuestros nuevos estudiantes. <span class="font-extrabold">Por $5 USD obtienes el programa + todos los bonos</span>. Si el contador llega a cero, el precio sube a $8 USD sin los bonos.
+            </div>
+        </div>
+         
+         <div class="border border-azul rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                ¿Cómo accedo al curso después de contactar por WhatsApp? <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+            <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                Al hacer clic en el botón, nuestro equipo te guiará inmediatamente para completar el pago de $5 y te enviará las credenciales de acceso a la plataforma para que empieces a estudiar hoy mismo.
+            </div>
+        </div>
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Este curso me certifica como Asistente de Farmacia de inmediato? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    Este es el <span class="font-extrabold">Módulo FUNDAMENTAL</span> y el primer paso del <span class="font-extrabold">Master en Farmacia</span>. Te dota de la base de conocimiento legal, ética y operacional para empezar, ahorrándote meses de confusión. cada una de nuestras formaciones dentro del Programa Especial <span class="font-extrabold">Master en Farmacia</span> te acerca más a ese objetivo.
+                </div>
+            </div>
+            <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Cómo funciona la Oferta de Compra Inmediata de $5? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    Es una oferta de tiempo limitado (24 horas) para nuestros nuevos estudiantes. <span class="font-extrabold">Por $5 USD obtienes el programa + todos los bonos</span>. Si el contador llega a cero, el precio sube a $8 USD sin los bonos.
+                </div>
+            </div>
+             <div class="border border-azul rounded-lg overflow-hidden">
+                <button class="w-full text-left p-4 bg-gray-100 font-semibold text-azul flex justify-between items-center faq-toggle">
+                    ¿Cómo accedo al curso después de contactar por WhatsApp? <i class="fas fa-chevron-down ml-2"></i>
+                </button>
+                <div class="faq-content hidden p-4 text-gray-700 border-t border-azul">
+                    Al hacer clic en el botón, nuestro equipo te guiará inmediatamente para completar el pago de $5 y te enviará las credenciales de acceso a la plataforma para que empieces a estudiar hoy mismo.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-azul py-12 px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-ambar mb-6">
+                No Dejes Pasar el Momento Cero de tu Carrera.
+            </h2>
+            <p class="text-xl text-white mb-8">
+                El precio de $5 y los bonos de la comunidad expiran al sonar el reloj. ¡Inicia tu camino profesional con la base correcta hoy!
+            </p>
+            <a href="https://wa.me/+584127639970" target="_blank" class="inline-block bg-ambar text-azul font-bold text-2xl py-4 px-16 rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300">
+                <i class="fab fa-whatsapp mr-3"></i> SÍ, QUIERO SER TÉCNICO FARMACÉUTICO. INICIO HOY CON $5
+            </a>
+            <p class="text-sm text-gray-400 mt-6">&copy; 2025 Mega Escuela, C. A,. Todos los derechos reservados. | Políticas de Privacidad | Términos de Servicio</p>
+        </div>
+    </footer>
+
+        <script>
+            // Función para el Contador de 24 Horas
+            function startCountdown() {
+                // Establece una fecha de finalización (24 horas desde ahora)
+                let endTime = localStorage.getItem('countdownEnd');
+                if (!endTime) {
+                    endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+                    localStorage.setItem('countdownEnd', endTime);
+                } else {
+                    endTime = parseInt(endTime);
+                }
+
+                const countdownElement = document.querySelector('.countdown-timer');
+
+                const interval = setInterval(() => {
+                    const now = new Date().getTime();
+                    const distance = endTime - now;
+
+                    if (distance < 0) {
+                        clearInterval(interval);
+                        countdownElement.innerHTML = "00:00:00";
+                        // Aquí podrías añadir lógica para subir el precio
+                        // Por ejemplo: document.getElementById('price').innerHTML = '$8 USD';
+                        // Nota Estratégica: Para maximizar conversiones, muchos marketers reinician el contador o extienden ligeramente la oferta.
+                        return;
+                    }
+
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    countdownElement.innerHTML = 
+                        String(hours).padStart(2, '0') + ":" + 
+                        String(minutes).padStart(2, '0') + ":" + 
+                        String(seconds).padStart(2, '0');
+                }, 1000);
+            }
+
+            // Script para el Accordion (FAQ)
+            document.querySelectorAll('.faq-toggle').forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('i');
+                    
+                    // Cierra otros abiertos (para mantener la limpieza)
+                    document.querySelectorAll('.faq-content').forEach(c => {
+                        if (c !== content && !c.classList.contains('hidden')) {
+                             c.classList.add('hidden');
+                             c.previousElementSibling.querySelector('i').classList.replace('fa-chevron-up', 'fa-chevron-down');
+                        }
+                    });
+
+                    // Abre/Cierra el actual
+                    content.classList.toggle('hidden');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+
+            startCountdown();
+        </script>
+</body>
+</html>
