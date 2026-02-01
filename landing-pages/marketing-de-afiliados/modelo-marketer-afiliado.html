@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrera de Marketing de Afiliados | Mega Escuela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Personalización de Colores según el Logo */
+        .bg-mega-yellow { background-color: #FFD700; } /* Amarillo vibrante */
+        .text-mega-yellow { color: #FFD700; }
+        .bg-mega-blue { background-color: #0056b3; } /* Azul corporativo */
+        .text-mega-blue { color: #0056b3; }
+        body { font-family: 'Poppins', sans-serif; }
+        /* Efecto para el botón flotante */
+        #whatsapp-float {
+            transition: all 0.3s ease-in-out;
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        #whatsapp-float.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <img src="image_0.png" alt="Logo Mega Escuela" class="h-12 md:h-16">
+            <a href="https://wa.me/XXXXXX?text=Hola,%20quiero%20mi%20Beca%20de%20Acceso%20Directo" 
+               class="hidden md:inline-block bg-mega-blue text-white font-bold py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300 animate-pulse">
+                Solicitar Mi Beca 📲
+            </a>
+        </div>
+    </header>
+
+    <a href="https://wa.me/XXXXXX?text=Hola,%20quiero%20mi%20Beca%20de%20Acceso%20Directo" 
+       id="whatsapp-float"
+       class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg z-50 hover:scale-110 transition duration-300 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span class="ml-2 font-bold md:hidden">¡Quiero mi Beca!</span>
+    </a>
+
+    <section class="pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-br from-blue-50 to-white overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left md:pr-10" data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900 mb-4">
+                    Genera ingresos desde el primer día <span class="text-mega-blue">certificándote como Marketer Afiliado</span>.
+                </h1>
+                <p class="text-lg text-gray-600 mb-6">
+                    Regístrate hoy y avanza hacia el <strong>Nivel 4</strong> en tu carrera profesional con el respaldo de <strong>Mega Escuela</strong> y sus aliados comerciales. No es un curso, es tu nuevo oficio.
+                </p>
+
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-3 mb-6 rounded text-sm font-semibold inline-block animate-bounce">
+                    ⏳ ¡ATENCIÓN! Solo quedan <span id="cupos-count">14</span> cupos para esta cohorte.
+                </div>
+
+                <a href="https://wa.me/XXXXXX?text=Hola,%20quiero%20mi%20Beca%20de%20Acceso%20Directo" 
+                   class="block md:inline-block w-full md:w-auto text-center bg-mega-yellow text-gray-900 font-extrabold text-xl py-4 px-10 rounded-lg shadow-lg hover:bg-yellow-400 transform hover:-translate-y-1 transition duration-300">
+                    👉 Solicitar Mi Beca de Acceso Directo
+                </a>
+                <p class="text-sm text-gray-500 mt-2 text-center md:text-left">🔒 Compra segura. Garantía de 7 días.</p>
+            </div>
+            <div class="md:w-1/2 mb-10 md:mb-0 relative" data-aos="fade-left">
+                <div class="absolute inset-0 bg-mega-blue opacity-10 rounded-3xl transform rotate-3"></div>
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Persona exitosa con celular" 
+                     class="rounded-3xl shadow-2xl relative z-10 object-cover h-96 w-full md:h-auto">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-900 text-white text-center" data-aos="fade-up">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl font-bold mb-6">¿Hasta cuándo vas a seguir "sobreviviendo"? 🛑</h2>
+            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                Seamos honestos. El sueldo no alcanza, las deudas crecen y sientes que el mundo digital avanza mientras tú te quedas atrás. El problema no eres tú, es que estás usando herramientas del pasado para enfrentar la crisis del 2026.
+            </p>
+            <p class="text-2xl font-extrabold text-mega-yellow">
+                No necesitas otro "cursito". Necesitas una CARRERA REAL que te pague desde ahora.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-down">
+                <h2 class="text-3xl md:text-4xl font-bold text-mega-blue mb-4">Tu Ruta de Ascenso Profesional 🚀</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    En Mega Escuela no eres un estudiante más, eres un técnico en formación. Empiezas hoy y en solo <strong>2 semanas</strong> obtienes tu primera certificación.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="bg-white p-6 rounded-xl shadow-md w-full md:w-1/5 border-b-4 border-gray-300 transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <span class="text-4xl">👶</span>
+                    <h3 class="font-bold text-xl mt-2">Nivel 5</h3>
+                    <p class="text-mega-blue font-semibold">Afiliado Independiente</p>
+                    <p class="text-sm text-gray-500 mt-2">Empiezas aquí hoy. Primeras ventas.</p>
+                </div>
+                <div class="hidden md:block text-gray-400 text-3xl">➔</div>
+                <div class="bg-mega-yellow p-6 rounded-xl shadow-xl w-full md:w-1/4 border-b-4 border-yellow-600 transform scale-110 z-10 relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute -top-4 -right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">META EN 2 SEMANAS</div>
+                    <span class="text-4xl">👷</span>
+                    <h3 class="font-bold text-xl mt-2 text-gray-900">Nivel 4</h3>
+                    <p class="text-gray-900 font-extrabold">Marketer Afiliado Esencial</p>
+                    <p class="text-sm text-gray-800 mt-2 font-semibold">¡Tu Primera Certificación Técnica!</p>
+                </div>
+                <div class="hidden md:block text-gray-400 text-3xl">➔</div>
+                <div class="bg-white p-6 rounded-xl shadow-md w-full md:w-1/5 border-b-4 border-mega-blue opacity-75 hover:opacity-100 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <span class="text-4xl">🎯</span>
+                    <h3 class="font-bold text-xl mt-2">Nivel 3</h3>
+                    <p class="text-mega-blue font-semibold">Profesional</p>
+                </div>
+                </div>
+             <p class="text-center text-gray-500 mt-8 font-medium" data-aos="fade-up" data-aos-delay="400">...hasta llegar a Gerente (Nivel 1).</p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-mega-blue relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+
+        <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-white mb-10 md:mb-0 pr-0 md:pr-10" data-aos="fade-right">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">No es un descuento, es tu <span class="text-mega-yellow">Beca de Acceso Directo</span>.</h2>
+                <p class="text-lg text-blue-100 mb-6">
+                    Sabemos que tienes el talento, solo te falta la oportunidad. Esta formación tiene un valor real de mercado de $47, pero Mega Escuela subsidia tu ingreso porque creemos en tu potencial.
+                </p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center"><span class="text-mega-yellow mr-2">✓</span> Formación Técnica Inmediata.</li>
+                    <li class="flex items-center"><span class="text-mega-yellow mr-2">✓</span> Acompañamiento 24/7 en Forochat.</li>
+                    <li class="flex items-center"><span class="text-mega-yellow mr-2">✓</span> Derecho a comercializar todo el catálogo.</li>
+                </ul>
+            </div>
+
+            <div class="md:w-1/2 bg-white rounded-3xl shadow-2xl p-8 text-center max-w-md mx-auto transform hover:scale-105 transition duration-300" data-aos="zoom-in">
+                <h3 class="text-xl font-bold text-gray-500 mb-2">Valor Real de la Formación</h3>
+                <p class="text-3xl font-bold text-red-500 line-through mb-4">$47 USD</p>
+
+                <div class="bg-mega-yellow text-gray-900 text-sm font-bold px-4 py-2 rounded-full inline-block mb-4 animate-bounce">
+                    🎉 BECA APLICADA HOY
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-700 mb-2">Tu Inversión Única:</h3>
+                <p class="text-6xl font-extrabold text-mega-blue mb-6">$10 <span class="text-2xl text-gray-500">USD</span></p>
+
+                <a href="https://wa.me/XXXXXX?text=Hola,%20quiero%20mi%20Beca%20de%20Acceso%20Directo" 
+                   class="block w-full bg-mega-blue text-white font-bold text-xl py-4 rounded-lg shadow hover:bg-blue-700 transition duration-300 mb-4">
+                    Reclamar Mis $10 Ahora 👉
+                </a>
+                <p class="text-xs text-gray-500">Oferta válida hasta agotar los 20 cupos de esta cohorte.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-mega-blue mb-12">Ellos ya están facturando. ¿Y tú? 🇻🇪</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Mariela" class="w-12 h-12 rounded-full mr-4 border-2 border-mega-yellow">
+                        <div>
+                            <h4 class="font-bold">Mariela R.</h4>
+                            <p class="text-sm text-gray-500">Ama de Casa, Valencia</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Chamo, yo estaba apretada con los gastos. Empecé el lunes con miedo y ya el miércoles cerré mi primera venta en el Forochat. ¡El apoyo es demasiado fino, no te dejan morir!"</p>
+                    <div class="text-mega-yellow mt-3 text-sm">★★★★★ Nivel 4 en proceso</div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos" class="w-12 h-12 rounded-full mr-4 border-2 border-mega-blue">
+                        <div>
+                            <h4 class="font-bold">Carlos P.</h4>
+                            <p class="text-sm text-gray-500">Emprendedor, Caracas</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"He hecho mil cursos 'chimborrios', pero ninguno te pone a producir de una como este. Aquí en Mega Escuela te dan el trote que es. Ya voy pendiente de subir al nivel 3."</p>
+                    <div class="text-mega-yellow mt-3 text-sm">★★★★★ Nivel 4 Certificado</div>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Yusmely" class="w-12 h-12 rounded-full mr-4 border-2 border-mega-yellow">
+                        <div>
+                            <h4 class="font-bold">Yusmely G.</h4>
+                            <p class="text-sm text-gray-500">Estudiante, Maracaibo</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Al principio me dio como miedo por lo barato, pero qué va... los tutores son unos soles. Te explican todo con paciencia. ¡Full recomendado si quieres empezar ya!"</p>
+                    <div class="text-mega-yellow mt-3 text-sm">★★★★★ Nivel 5 Activo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white" data-aos="fade-up">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-10 text-mega-blue">Preguntas que te estarás haciendo 🤔</h2>
+            <div class="space-y-6">
+                <details class="group bg-gray-50 p-4 rounded-lg cursor-pointer">
+                    <summary class="font-bold text-lg flex justify-between items-center group-hover:text-mega-blue">
+                        ¿De verdad puedo ganar dinero el primer día?
+                        <span class="transition group-open:rotate-180">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-3 pl-4 border-l-2 border-mega-yellow leading-relaxed">
+                        Sí. Al recibir tu Beca, tienes acceso inmediato a los productos y al "Contenido Semilla" listo para divulgar. Si aplicas el método que te enseñamos, la primera venta puede llegar hoy mismo. Es una probabilidad real basada en tu ejecución.
+                    </p>
+                </details>
+                <details class="group bg-gray-50 p-4 rounded-lg cursor-pointer">
+                    <summary class="font-bold text-lg flex justify-between items-center group-hover:text-mega-blue">
+                        ¿Qué pasa si no sé nada de tecnología?
+                        <span class="transition group-open:rotate-180">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-3 pl-4 border-l-2 border-mega-yellow leading-relaxed">
+                        No importa. Solo necesitas WhatsApp y ganas de aprender. Esta formación empieza desde cero absoluto. Los tutores en el Forochat te guiarán paso a paso.
+                    </p>
+                </details>
+                <details class="group bg-gray-50 p-4 rounded-lg cursor-pointer">
+                    <summary class="font-bold text-lg flex justify-between items-center group-hover:text-mega-blue">
+                        ¿Cómo y cuándo cobro mis comisiones?
+                        <span class="transition group-open:rotate-180">▼</span>
+                    </summary>
+                    <p class="text-gray-600 mt-3 pl-4 border-l-2 border-mega-yellow leading-relaxed">
+                        Pagamos quincenalmente (los días 15 y 30 de cada mes). Recibes tu dinero a través de Binance, Pago Móvil o transferencia bancaria, una vez que la venta ha superado los 7 días de garantía del cliente.
+                    </p>
+                </details>
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12 text-center">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <img src="image_0.png" alt="Logo Mega Escuela Blanco" class="h-12 mx-auto mb-6 filter brightness-0 invert">
+            <h3 class="text-2xl font-bold mb-4">¿Vas a dejar pasar otros 6 meses igual?</h3>
+            <p class="text-gray-400 mb-8">
+                La oportunidad de construir una carrera real por solo $10 no se repetirá. Toma el control de tu futuro hoy.
+            </p>
+            <a href="https://wa.me/XXXXXX?text=Hola,%20quiero%20mi%20Beca%20de%20Acceso%20Directo%20antes%20que%20se%20acabe" 
+               class="inline-block bg-mega-yellow text-gray-900 font-extrabold text-xl py-4 px-12 rounded-lg shadow-lg hover:bg-yellow-400 transition duration-300 animate-pulse">
+                🚀 ¡SÍ, QUIERO MI BECA YA!
+            </a>
+            <p class="text-sm text-gray-500 mt-6">
+                © 2026 Mega Escuela. Todos los derechos reservados. <br>
+                Políticas de Privacidad | Términos y Condiciones.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar AOS (Animaciones)
+        AOS.init({
+            duration: 800, // Duración de la animación
+            once: true,    // Animar solo una vez al hacer scroll
+            offset: 100    // Offset para disparar la animación
+        });
+
+        // Lógica del Botón Flotante
+        const whatsappFloat = document.getElementById('whatsapp-float');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Aparece después de 300px de scroll
+                whatsappFloat.classList.add('visible');
+            } else {
+                whatsappFloat.classList.remove('visible');
+            }
+        });
+
+        // Lógica del Contador de Escasez (Simulado)
+        let cupos = 14;
+        const cuposElement = document.getElementById('cupos-count');
+        // Simular que los cupos bajan cada cierto tiempo para generar urgencia real
+        setInterval(() => {
+            if (cupos > 5) { // No bajar de 5 para mantener la credibilidad
+                cupos--;
+                cuposElement.textContent = cupos;
+                // Efecto visual de parpadeo al cambiar
+                cuposElement.parentElement.classList.add('bg-red-200');
+                setTimeout(() => {
+                    cuposElement.parentElement.classList.remove('bg-red-200');
+                }, 500);
+            }
+        }, 45000); // Baja un cupo cada 45 segundos
+    </script>
+
+</body>
+</html>
