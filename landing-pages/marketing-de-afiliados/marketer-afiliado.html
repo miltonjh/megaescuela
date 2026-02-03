@@ -36,7 +36,6 @@
     // Eventos que se envían automáticamente al cargar la página:
     fbq('track', 'PageView');
     fbq('track', 'ViewContent');
-    fbq('track', 'InitiateCheckout');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com"
@@ -396,8 +395,8 @@
                 </div>
 
                 <a href="https://miltonjh.github.io/megaescuela/landing-pages/marketing-de-afiliados/checkout-marketer-afiliado.html" 
-                   class="btn-gradient block w-full py-5 rounded-2xl text-2xl font-bold text-slate-900 shadow-xl mb-8 transform hover:scale-105 transition"
-                   >
+                   onclick="fbq('track', 'InitiateCheckout');"
+                   class="btn-gradient block w-full py-5 rounded-2xl text-2xl font-bold text-slate-900 shadow-xl mb-8 transform hover:scale-105 transition">
                     Reclama tu Beca ahora 📲
                 </a>
 
