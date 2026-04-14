@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta | San Francisco Activo & Mega Escuela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .bg-mega-yellow { background-color: #FFD200; }
+        .text-mega-blue { color: #005A8D; }
+        .bg-mega-blue { background-color: #005A8D; }
+        .border-mega-yellow { border-color: #FFD200; }
+        .price-tag { text-decoration: line-through; color: #ff6b6b; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-mega-yellow px-3 py-1 font-extrabold text-white text-xl uppercase tracking-tighter shadow-sm">mega</div>
+                <div class="text-mega-blue font-bold text-xl lowercase tracking-tighter">escuela</div>
+            </div>
+            <a href="#formacion" class="bg-mega-blue text-white text-xs font-bold px-4 py-2 rounded uppercase tracking-widest hover:bg-black transition">Planes</a>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-16 px-6 text-center bg-white">
+        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">Impulso Digital para <br><span class="text-mega-blue italic">San Francisco Activo</span></h1>
+        <p class="text-gray-500 max-w-xl mx-auto font-medium">Capacitación técnica de alto impacto para liderar el alcance público.</p>
+    </header>
+
+    <section id="jerarquia" class="py-16 bg-gray-50 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black text-mega-blue uppercase tracking-tighter italic">Jerarquía del Ecosistema Digital</h2>
+                <div class="w-24 h-2 bg-mega-yellow mx-auto mt-2"></div>
+                <p class="mt-4 text-gray-600 font-medium">No son piezas aisladas; es una estructura de poder diseñada para el éxito político.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mega-yellow hover:shadow-md transition">
+                    <div class="text-xs font-bold text-mega-blue uppercase mb-2 tracking-widest">Nivel 01</div>
+                    <h3 class="font-extrabold text-gray-900 uppercase italic mb-2">Marketing</h3>
+                    <p class="text-xs leading-relaxed text-gray-500"><strong>El Cerebro:</strong> Análisis de datos, segmentación de votantes y narrativa central.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mega-blue hover:shadow-md transition">
+                    <div class="text-xs font-bold text-mega-yellow uppercase mb-2 tracking-widest">Nivel 02</div>
+                    <h3 class="font-extrabold text-gray-900 uppercase italic mb-2">Publicidad</h3>
+                    <p class="text-xs leading-relaxed text-gray-500"><strong>El Altavoz:</strong> Inversión estratégica en Ads y difusión masiva de la ideología.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mega-yellow hover:shadow-md transition">
+                    <div class="text-xs font-bold text-mega-blue uppercase mb-2 tracking-widest">Nivel 03</div>
+                    <h3 class="font-extrabold text-gray-900 uppercase italic mb-2">Creación</h3>
+                    <p class="text-xs leading-relaxed text-gray-500"><strong>La Fábrica:</strong> Producción original de video y piezas gráficas de alto impacto.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mega-blue hover:shadow-md transition">
+                    <div class="text-xs font-bold text-mega-yellow uppercase mb-2 tracking-widest">Nivel 04</div>
+                    <h3 class="font-extrabold text-gray-900 uppercase italic mb-2">Gestión</h3>
+                    <p class="text-xs leading-relaxed text-gray-500"><strong>El Puente:</strong> Community Management activo y moderación de la comunidad.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-mega-yellow hover:shadow-md transition">
+                    <div class="text-xs font-bold text-mega-blue uppercase mb-2 tracking-widest">Nivel 05</div>
+                    <h3 class="font-extrabold text-gray-900 uppercase italic mb-2">Social Media</h3>
+                    <p class="text-xs leading-relaxed text-gray-500"><strong>El Mapa:</strong> Selección estratégica de canales (TikTok, X, Meta) y calendarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="por-que-nosotros" class="py-20 bg-white px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black text-mega-blue uppercase tracking-tighter italic">La Ventaja de San Francisco Activo</h2>
+                <div class="w-32 h-2 bg-mega-yellow mx-auto mt-2"></div>
+                <p class="mt-6 text-lg text-gray-600 font-medium">Mientras otros publican, nosotros construimos una fuerza de influencia real.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-mega-blue text-white rounded-lg flex items-center justify-center font-bold">01</div>
+                        <div>
+                            <h4 class="font-bold text-mega-blue uppercase italic">Para el Equipo de Marketing</h4>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">Dejarán de ser "subidores de fotos" para convertirse en **analistas de datos y productores de alto nivel**, capaces de marcar la agenda mediática del municipio.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-mega-blue text-white rounded-lg flex items-center justify-center font-bold">02</div>
+                        <div>
+                            <h4 class="font-bold text-mega-blue uppercase italic">Para el Liderazgo</h4>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">Lograrán una **autonomía de comunicación**. Un líder que sabe grabarse y narrar su gestión en tiempo real conecta 10 veces más que un mensaje institucional frío.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-mega-blue text-white rounded-lg flex items-center justify-center font-bold">03</div>
+                        <div>
+                            <h4 class="font-bold text-mega-blue uppercase italic">Para la Militancia</h4>
+                            <p class="text-sm text-gray-600 italic leading-relaxed">Transformamos el entusiasmo en **ciberactivismo profesional**. Una militancia que sabe remezclar contenidos es una milicia digital que domina el algoritmo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-8xl">⚠️</div>
+                    <h3 class="text-2xl font-black text-mega-yellow uppercase mb-6 tracking-tighter">El Alto Costo de No Actuar</h3>
+                    <p class="text-sm text-gray-300 leading-relaxed mb-6 italic">
+                        En el ecosistema digital de 2026, lo que no se comunica con técnica, **no existe**. No profesionalizar a su equipo significa:
+                    </p>
+                    <ul class="space-y-4 text-sm font-medium">
+                        <li class="flex items-start gap-3 border-l-2 border-red-500 pl-4">
+                            <span><strong>Irrelevancia Algorítmica:</strong> Ser silenciados por las plataformas por contenido repetitivo o de baja calidad.</span>
+                        </li>
+                        <li class="flex items-start gap-3 border-l-2 border-red-500 pl-4">
+                            <span><strong>Vulnerabilidad ante Ataques:</strong> Quedar indefensos frente a campañas de desprestigio por falta de protocolos de crisis.</span>
+                        </li>
+                        <li class="flex items-start gap-3 border-l-2 border-red-500 pl-4">
+                            <span><strong>Pérdida de Territorio Digital:</strong> Permitir que otras organizaciones ocupen el espacio mental de los ciudadanos de San Francisco.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-10">
+                        <p class="text-xs text-mega-yellow font-bold uppercase tracking-widest mb-4">¿Está dispuesto a ceder ese espacio?</p>
+                        <a href="#formacion" class="inline-block bg-white text-mega-blue font-black px-6 py-3 rounded-lg hover:bg-mega-yellow transition text-sm">REVISAR SOLUCIONES AHORA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="formacion" class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="bg-gray-900 p-8 text-white">
+                        <span class="text-mega-yellow font-bold text-xs uppercase tracking-widest">Nivel Pro</span>
+                        <h3 class="text-2xl font-bold mt-2">Equipo de Marketing</h3>
+                    </div>
+                    <div class="p-8 flex-grow">
+                        <ul class="space-y-4 mb-8 text-sm">
+                            <li class="flex items-center gap-3">✅ <span class="font-bold uppercase tracking-tighter">Producción AV Avanzada</span></li>
+                            <li class="flex items-center gap-3 text-gray-600">✅ Análisis de Datos y Métricas</li>
+                            <li class="flex items-center gap-3 text-gray-600">✅ Gestión de Crisis Políticas</li>
+                        </ul>
+                        <div class="border-t pt-6">
+                            <p class="text-xs text-gray-400 font-bold uppercase mb-2">Inversión (3 Clases)</p>
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <span class="price-tag text-lg">$257</span>
+                                <span class="text-4xl font-black text-mega-blue">$147</span>
+                            </div>
+                            <p class="text-[10px] bg-mega-yellow/10 p-2 rounded border border-mega-yellow text-gray-600 mb-6">
+                                <strong>Plan Especial:</strong> $97 por 1 clase (Máx. 20 pers.)
+                            </p>
+                            <a href="https://wa.me/584127639970?text=Hola%20Mega%20Escuela,%20estoy%20interesado%20en%20la%20formación%20para%20San%20Francisco%20Activo%20con%20el%20plan%201" 
+                               target="_blank" 
+                               class="block">
+                                <button class="w-full bg-mega-blue text-white font-black py-4 rounded-xl hover:scale-105 transition shadow-lg">
+                                    ¡QUIERO ESTE!
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-mega-yellow flex flex-col transform -translate-y-4">
+                    <div class="bg-mega-blue p-8 text-white">
+                        <span class="bg-mega-yellow text-mega-blue font-black text-[10px] px-2 py-1 rounded uppercase tracking-widest">Lo más solicitado</span>
+                        <h3 class="text-2xl font-bold mt-2 italic">Liderazgo y Voceros</h3>
+                    </div>
+                    <div class="p-8 flex-grow">
+                        <ul class="space-y-4 mb-8 text-sm">
+                            <li class="flex items-center gap-3 italic font-bold tracking-tighter">✅ PRODUCCIÓN AV PARA NO DISEÑADORES</li>
+                            <li class="flex items-center gap-3 text-gray-600">✅ Marca Personal y Media Training</li>
+                            <li class="flex items-center gap-3 text-gray-600">✅ Storytelling y Guiones con IA</li>
+                        </ul>
+                        <div class="border-t pt-6">
+                            <p class="text-xs text-gray-400 font-bold uppercase mb-2 text-mega-blue">Inversión (3 Clases)</p>
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <span class="price-tag text-lg">$257</span>
+                                <span class="text-4xl font-black text-mega-blue">$147</span>
+                            </div>
+                            <p class="text-[10px] bg-mega-yellow/10 p-2 rounded border border-mega-yellow text-gray-600 mb-6">
+                                <strong>Plan Especial:</strong> $97 por 1 clase (Máx. 20 pers.)
+                            </p>
+                            <a href="https://wa.me/584127639970?text=Hola%20Mega%20Escuela,%20estoy%20interesado%20en%20la%20formación%20para%20San%20Francisco%20Activo%20con%20el%20plan%202" 
+                               target="_blank" 
+                               class="block">
+                                <button class="w-full bg-mega-blue text-white font-black py-4 rounded-xl hover:scale-105 transition shadow-lg">
+                                    ¡QUIERO ESTE!
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="bg-gray-900 p-8 text-white">
+                        <span class="text-mega-yellow font-bold text-xs uppercase tracking-widest">Alcance Masivo</span>
+                        <h3 class="text-2xl font-bold mt-2">Militancia Digital</h3>
+                    </div>
+                    <div class="p-8 flex-grow">
+                        <ul class="space-y-4 mb-8 text-sm">
+                            <li class="flex items-center gap-3">✅ <span class="font-bold uppercase tracking-tighter italic">Remezcla de Contenidos</span></li>
+                            <li class="flex items-center gap-3 text-gray-600">✅ Ciberactivismo y Algoritmos</li>
+                            <li class="flex items-center gap-3 text-gray-600">✅ Defensa de Narrativa en Redes</li>
+                        </ul>
+                        <div class="border-t pt-6">
+                            <p class="text-xs text-gray-400 font-bold uppercase mb-2">Inversión (3 Clases)</p>
+                            <div class="flex items-baseline gap-2 mb-4">
+                                <span class="price-tag text-lg">$257</span>
+                                <span class="text-4xl font-black text-mega-blue">$147</span>
+                            </div>
+                            <p class="text-[10px] bg-mega-yellow/10 p-2 rounded border border-mega-yellow text-gray-600 mb-6">
+                                <strong>Plan Especial:</strong> $97 por 1 clase (Máx. 20 pers.)
+                            </p>
+                            <a href="https://wa.me/584127639970?text=Hola%20Mega%20Escuela,%20estoy%20interesado%20en%20la%20formación%20para%20San%20Francisco%20Activo%20con%20el%20plan%203" 
+                               target="_blank" 
+                               class="block">
+                                <button class="w-full bg-mega-blue text-white font-black py-4 rounded-xl hover:scale-105 transition shadow-lg">
+                                    ¡QUIERO ESTE!
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-mega-blue text-white">
+        <div class="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="p-6 border border-white/20 rounded-2xl backdrop-blur-md">
+                <div class="text-4xl mb-4">🎓</div>
+                <h4 class="font-bold uppercase mb-2">Certificación Digital</h4>
+                <p class="text-sm text-gray-300">Avalado por Mega Escuela para todos los participantes que culminen el plan.</p>
+            </div>
+            <div class="p-6 border border-white/20 rounded-2xl backdrop-blur-md">
+                <div class="text-4xl mb-4">🤝</div>
+                <h4 class="font-bold uppercase mb-2">Comunidad de Apoyo</h4>
+                <p class="text-sm text-gray-300">Acceso exclusivo a grupo privado para resolución de dudas post-formación.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="bono" class="py-12 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-gradient-to-r from-mega-blue to-black rounded-3xl p-1 md:p-2 shadow-2xl overflow-hidden transform hover:-rotate-1 transition-transform duration-500">
+                <div class="bg-white rounded-[20px] p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 border-4 border-dashed border-mega-yellow/30">
+                    
+                    <div class="relative flex-shrink-0">
+                        <div class="absolute -top-4 -left-4 bg-mega-yellow text-mega-blue font-black px-4 py-2 rounded-lg rotate-[-10deg] shadow-lg z-10 animate-bounce">
+                            ¡GRATIS HOY!
+                        </div>
+                        <div class="w-32 h-32 md:w-48 md:h-48 bg-mega-blue rounded-full flex items-center justify-center text-6xl shadow-inner border-8 border-gray-50">
+                            📱
+                        </div>
+                    </div>
+
+                    <div class="text-center md:text-left flex-grow">
+                        <h2 class="text-3xl md:text-4xl font-black text-mega-blue uppercase tracking-tighter mb-4">
+                            Bono Exclusivo de Lanzamiento
+                        </h2>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 italic">
+                            Curso: Community Manager Político 
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Al inscribirte en <strong>cualquiera</strong> de nuestras formaciones principales, recibes acceso total a la capacitación de gestión de comunidades. Aprende a dominar la moderación, el crecimiento orgánico y la atención al militante sin costo adicional.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4 justify-center md:justify-start items-center">
+                            <a href="#formacion" class="bg-mega-yellow text-mega-blue font-black px-8 py-4 rounded-xl hover:bg-yellow-400 transition shadow-lg flex items-center gap-2 group">
+                                APROVECHAR ESTE BONO
+                                <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                            <span class="text-xs font-bold text-mega-blue uppercase tracking-widest bg-gray-100 px-3 py-1 rounded">Válido por tiempo limitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta-exclusiva" class="py-20 bg-gray-900 text-white px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="bg-red-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-[0.3em] animate-pulse">
+                    Oferta de Tiempo Limitado
+                </span>
+                <h2 class="text-4xl font-black mt-4 uppercase italic">Beneficios Exclusivos <span class="text-mega-yellow">Post-Formación</span></h2>
+                <p class="text-gray-400 mt-2">Solo para quienes aseguren su formación en los próximos <strong>30 días</strong>.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-mega-yellow transition group">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-5xl group-hover:scale-110 transition-transform">🌐</div>
+                        <div class="text-right">
+                            <span class="block text-xs text-gray-500 line-through font-bold">$450 USD</span>
+                            <span class="text-3xl font-black text-mega-yellow">$150 USD</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase italic tracking-tighter">Despliegue Web Político</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm mb-8">
+                        <li class="flex items-center gap-2 font-medium"><span class="text-mega-yellow text-lg">●</span> Sitio Web Profesional de 4 Páginas.</li>
+                        <li class="flex items-center gap-2 font-medium"><span class="text-mega-yellow text-lg">●</span> Formulario de Captación de Voluntarios/Contactos.</li>
+                        <li class="flex items-center gap-2 font-medium"><span class="text-mega-yellow text-lg">●</span> Optimizado para Dispositivos Móviles.</li>
+                    </ul>
+                    <a href="#formacion" class="inline-block text-xs font-black uppercase tracking-widest text-mega-yellow border-b-2 border-mega-yellow pb-1 hover:text-white hover:border-white transition">Ver planes para activar</a>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-mega-yellow transition group">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-5xl group-hover:scale-110 transition-transform">🔗</div>
+                        <div class="text-right">
+                            <span class="block text-xs text-gray-500 line-through font-bold">$120 USD</span>
+                            <span class="text-3xl font-black text-mega-yellow">$50 USD</span>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase italic tracking-tighter">Ecosistema LinkBio</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm mb-8">
+                        <li class="flex items-center gap-2 font-medium"><span class="text-mega-yellow text-lg">●</span> Gestión de Usuario Personalizado.</li>
+                        <li class="flex items-center gap-2 font-medium"><span class="text-mega-yellow text-lg">●</span> Plantilla Autogestionable de Alta Conversión.</li>
+                        <li class="flex items-center gap-2 font-medium"><span class="text-mega-yellow text-lg">●</span> Ideal para Instagram, TikTok y WhatsApp.</li>
+                    </ul>
+                    <a href="#formacion" class="inline-block text-xs font-black uppercase tracking-widest text-mega-yellow border-b-2 border-mega-yellow pb-1 hover:text-white hover:border-white transition">Ver planes para activar</a>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="#formacion" class="bg-mega-yellow text-mega-blue font-black px-12 py-5 rounded-2xl text-lg hover:bg-white hover:scale-105 transition shadow-2xl shadow-yellow-500/20 inline-flex items-center gap-3">
+                    QUIERO MIS FORMACIONES Y ESTOS BENEFICIOS
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                </a>
+                <p class="text-[10px] text-gray-500 mt-6 uppercase tracking-[0.4em] font-bold">Válido exclusivamente para nuevos registros</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 bg-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="inline-flex items-center gap-2 mb-4">
+                <div class="bg-mega-yellow px-2 py-0.5 font-black text-white text-lg">mega</div>
+                <div class="text-mega-blue font-bold text-lg">escuela</div>
+            </div>
+            <p class="text-[10px] text-gray-400 uppercase tracking-[0.3em] font-bold">Enseñando Tecnología para Líderes</p>
+        </div>
+    </footer>
+
+</body>
+</html>
