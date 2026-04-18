@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosistema de Poder Digital | Mega Escuela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --m-yellow: #FFCC00; /* Amarillo Oro del logo */
+            --m-blue: #005581;   /* Azul Petróleo del logo */
+            --m-light: #F8FAFC;  /* Fondo Claro Profesional */
+        }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--m-light); color: #1E293B; }
+        .text-mega-yellow { color: var(--m-yellow); }
+        .bg-mega-yellow { background-color: var(--m-yellow); }
+        .text-mega-blue { color: var(--m-blue); }
+        .bg-mega-blue { background-color: var(--m-blue); }
+        .border-mega-blue { border-color: var(--m-blue); }
+        
+        /* Modernización sutil */
+        .glass-dark { background: rgba(0, 85, 129, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        [x-cloak] { display: none !important; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="overflow-x-hidden selection:bg-mega-yellow selection:text-black">
+
+    <nav class="fixed top-0 left-0 w-full z-[100] bg-white border-b border-zinc-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3">
+                    <a href="#inicio" class="flex items-center">
+                        <img src="logo-mega-escuela.png" alt="Mega Escuela Logo" class="h-12 w-auto object-contain">
+                    </a>
+                    <div class="hidden sm:flex flex-col border-l border-zinc-200 pl-3 leading-none">
+                        <span class="text-[8px] text-zinc-500 font-bold uppercase tracking-[0.3em]">Formamos y<br>Solucionamos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-6 text-[10px] font-bold uppercase tracking-widest text-mega-blue">
+                <a href="#inicio" class="hover:text-mega-yellow transition-colors">Inicio</a>
+                <a href="#vision" class="hover:text-mega-yellow transition-colors">Propuesta</a>
+                <a href="#importancia" class="hover:text-mega-yellow transition-colors">Importancia</a>
+                <a href="#matriz" class="hover:text-mega-yellow transition-colors">Comparativa</a>
+                <a href="#pilares" class="hover:text-mega-yellow transition-colors">Infraestructura</a>
+                <a href="#seguridad" class="hover:text-mega-yellow transition-colors">Seguridad</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/584127639970?text=Hola,%20quiero%20activar%20el%20Protocolo%20de%20Desarrollo%20con%20el%20precio%20de%20oportunidad%20de%20$650" class="bg-mega-blue text-white px-6 py-2.5 rounded-full font-black text-xs uppercase tracking-tighter hover:bg-mega-yellow hover:text-black transition-all active:scale-95 shadow-lg shadow-mega-blue/20">
+                    Adquirir Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0 opacity-10 grayscale">
+            <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=2000" class="w-full h-full object-cover alt="Liderazgo">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
+            <div class="max-w-4xl" x-show="loaded" x-transition:enter="transition duration-1000 translate-y-8 opacity-0" x-transition:enter-end="translate-y-0 opacity-100">
+                <div class="inline-flex items-center gap-3 px-4 py-2 bg-mega-blue text-white rounded-full mb-8 shadow-md">
+                    <span class="text-[10px] font-black uppercase tracking-widest">Protocolo de Alta Dirigencia</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-9xl font-black uppercase tracking-tight leading-[0.85] mb-8 italic text-zinc-950">
+                    Tome el <br> <span class="text-mega-blue underline decoration-mega-yellow decoration-8">Control Total</span> <br> de su Legado.
+                </h1>
+                <p class="text-zinc-700 text-xl md:text-2xl max-w-2xl font-light leading-relaxed mb-10 border-l-4 border-mega-yellow pl-6">
+                    No le proponemos una web; le entregamos la <span class="text-black font-bold">independencia operativa</span> que un partido influyente necesita para no depender nunca más de terceros.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="https://wa.me/584127639970?text=Hola,%20quiero%20activar%20el%20Protocolo%20de%20Desarrollo%20con%20el%20precio%20de%20oportunidad%20de%20$650" class="group px-10 py-5 bg-mega-blue text-white font-black uppercase tracking-tighter text-sm hover:bg-mega-yellow hover:text-black transition-all flex items-center gap-3 rounded-sm shadow-xl shadow-mega-blue/20">
+                        Solicitar Protocolo de Inicio
+                        <span class="group-hover:translate-x-2 transition-transform">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="vision" class="py-32 bg-mega-blue text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=1000" class="rounded-[2rem] border border-white/10 grayscale group-hover:grayscale-0 transition duration-700 shadow-2xl" alt="Visión">
+                    <div class="absolute -bottom-8 -right-8 bg-mega-yellow p-8 rounded-3xl hidden md:block shadow-xl text-black">
+                        <p class="font-black text-4xl tracking-tighter italic leading-none">EL PODER</p>
+                        <p class="font-bold text-xs uppercase tracking-[0.2em] mt-1">De la autogestión</p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black uppercase leading-tight mb-8">
+                        La tecnología que <span class="text-mega-yellow">consolida</span> su visión de liderazgo.
+                    </h2>
+                    <p class="text-zinc-100 text-lg mb-12 italic border-l-2 border-mega-yellow/40 pl-4 leading-relaxed">
+                        Nuestra arquitectura está diseñada para que su equipo de comunicaciones gestione la narrativa diaria sin requerir soporte técnico constante. <span class="font-bold">Usted es el dueño del software, no el rehén</span>.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-black">
+                        <div class="p-6 bg-white rounded-2xl shadow-lg border border-white/10">
+                            <p class="text-mega-blue font-black text-xl mb-2 italic tracking-tighter">Independencia Operativa</p>
+                            <p class="text-zinc-600 text-sm">Cambios gestiona sus áreas y sus datos sin amarrarse a desarrolladores.</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-2xl shadow-lg border border-white/10">
+                            <p class="text-mega-blue font-black text-xl mb-2 italic tracking-tighter">Escalabilidad de Mando</p>
+                            <p class="text-zinc-600 text-sm">Crecimiento sin límites técnicos de cara a su expansión nacional.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="importancia" class="py-24 bg-zinc-50 border-y border-zinc-200">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black uppercase mb-6 italic text-zinc-900 leading-none">
+                    ¿Su liderazgo es <span class="text-mega-blue underline decoration-mega-yellow">Vanguardia</span> o es solo un Cuento?
+                </h2>
+                <p class="text-zinc-500 text-sm md:text-base uppercase tracking-[0.3em] font-bold">
+                    En la era digital, quien no domina su plataforma, no domina su mensaje.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-b from-mega-yellow to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-3xl"></div>
+                    <div class="relative bg-white p-10 rounded-2xl shadow-xl border border-zinc-100 h-full flex flex-col">
+                        <div class="mb-6 text-mega-blue">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 class="text-xl font-black uppercase mb-4 text-zinc-900 italic leading-tight">No sea un eco, <br><span class="text-mega-blue">sea la voz.</span></h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">
+                            Sin esta plataforma, su mensaje depende de algoritmos ajenos que lo ocultan. Con nosotros, usted es el <strong>dueño de la frecuencia</strong>. Su militancia merece escucharlo a usted, no a la publicidad de la competencia.
+                        </p>
+                        <div class="mt-auto font-bold text-[10px] uppercase tracking-widest text-mega-blue border-t border-zinc-50 pt-4">Evite la invisibilidad estratégica</div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-b from-mega-blue to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-3xl"></div>
+                    <div class="relative bg-white p-10 rounded-2xl shadow-xl border border-zinc-100 h-full flex flex-col scale-105 z-10">
+                        <div class="mb-6 text-mega-blue">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 class="text-xl font-black uppercase mb-4 text-mega-blue italic leading-tight">Proteja su capital <br><span class="text-mega-yellow">más sagrado.</span></h3>
+                        <p class="text-zinc-700 text-sm leading-relaxed mb-6 font-medium">
+                            La militancia no es una lista de Excel, es su fuerza de combate. Dejar estos datos en manos de terceros es entregar las llaves de su victoria. <strong>Asegure su base, asegure su futuro.</strong>
+                        </p>
+                        <div class="mt-auto font-bold text-[10px] uppercase tracking-widest text-mega-yellow bg-mega-blue inline-block px-3 py-1 rounded">Prioridad Máxima</div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-b from-mega-yellow to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-3xl"></div>
+                    <div class="relative bg-white p-10 rounded-2xl shadow-xl border border-zinc-100 h-full flex flex-col">
+                        <div class="mb-6 text-mega-blue">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3 class="text-xl font-black uppercase mb-4 text-zinc-900 italic leading-tight">Velocidad que <br><span class="text-mega-blue">Gana Elecciones.</span></h3>
+                        <p class="text-zinc-600 text-sm leading-relaxed mb-6">
+                            En política, una hora de retraso es una derrota. Mientras otros esperan a que un "técnico" les suba una noticia, usted ya habrá <strong>marcado la agenda del día</strong> con un click.
+                        </p>
+                        <div class="mt-auto font-bold text-[10px] uppercase tracking-widest text-zinc-400 border-t border-zinc-50 pt-4">Agilidad vs Burocracia</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="https://wa.me/584127639970?text=Hola,%20quiero%20activar%20el%20Protocolo%20de%20Desarrollo%20con%20el%20precio%20de%20oportunidad%20de%20$650" class="inline-flex items-center gap-4 bg-mega-blue text-white px-12 py-5 rounded-full font-black uppercase tracking-tighter hover:bg-mega-yellow hover:text-black transition-all shadow-2xl hover:scale-105">
+                    Quiero el Control Total de mi Partido
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="matriz" class="py-32 bg-white" x-data="{ start: false }" x-intersect="start = true">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black uppercase mb-6 italic text-mega-blue">Superioridad <span class="text-black">Estratégica</span></h2>
+                <p class="text-zinc-600 uppercase tracking-tighter text-xs font-bold">Benchmark de rendimiento frente a sistemas de referencia.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8 bg-zinc-50 p-10 rounded-3xl border border-zinc-100 shadow-inner text-black">
+                    <template x-for="stat in [
+                        { label: 'Impacto Estético y Autoridad', val: 95, color: 'bg-mega-yellow' },
+                        { label: 'Rendimiento y Velocidad Móvil', val: 90, color: 'bg-mega-blue' },
+                        { label: 'Eficiencia de Conversión (Militancia)', val: 88, color: 'bg-mega-yellow' },
+                        { label: 'Soberanía Operativa (Autogestión)', val: 100, color: 'bg-mega-blue' }
+                    ]">
+                        <div>
+                            <div class="flex justify-between mb-2 italic">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500" x-text="stat.label"></span>
+                                <span class="text-mega-blue font-black" x-text="start ? stat.val + '%' : '0%'"></span>
+                            </div>
+                            <div class="w-full bg-zinc-200 h-1.5 rounded-full overflow-hidden">
+                                <div :class="stat.color" class="h-full transition-all duration-[2000ms] ease-out" :style="start ? `width: ${stat.val}%` : 'width: 0%'"></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="overflow-x-auto bg-white p-8 rounded-3xl border border-zinc-100 shadow-lg text-black">
+                    <table class="w-full text-left text-sm">
+                        <thead>
+                            <tr class="border-b border-mega-blue text-mega-blue uppercase font-black tracking-widest text-[10px]">
+                                <th class="py-4 px-2 italic">Criterio</th>
+                                <th class="py-4 px-2">vs. Actual</th>
+                                <th class="py-4 px-2">vs. Referencia</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-zinc-600">
+                            <tr class="border-b border-zinc-100">
+                                <td class="py-4 px-2 font-bold text-black">Impacto Visual</td>
+                                <td class="py-4 px-2 text-mega-blue font-black">+85%</td>
+                                <td class="py-4 px-2 text-black">+40%</td>
+                            </tr>
+                            <tr class="border-b border-zinc-100">
+                                <td class="py-4 px-2 font-bold text-black">Experiencia / Adaptabilidad a Moviles</td>
+                                <td class="py-4 px-2 text-mega-blue font-black">+90%</td>
+                                <td class="py-4 px-2 text-black">+50%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-2 font-bold text-black">Conversión de Simpatizante a Militante</td>
+                                <td class="py-4 px-2 text-mega-blue font-black">+75%</td>
+                                <td class="py-4 px-2 text-black">+25%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilares" class="py-32 bg-zinc-50 border-y border-zinc-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+                <div class="max-w-2xl text-black">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase leading-none italic">Arquitectura de <br> <span class="text-mega-blue">Vanguardia</span></h2>
+                    <p class="text-zinc-600 mt-6 text-lg border-l-2 border-mega-yellow pl-4 leading-relaxed">Priorizamos la fuerza del mensaje y la captación de militancia bajo un diseño institucional impecable.</p>
+                </div>
+                <a href="https://miltonjh.github.io/megaescuela/propuestas-software/partido-centro-domocratico/demo.html" target="_blank" class="group px-8 py-4 bg-mega-blue text-white font-black uppercase text-xs tracking-widest hover:bg-mega-yellow hover:text-black transition-all rounded-full shadow-lg shadow-mega-blue/10">
+                    Explorar Plantilla Demo <span class="group-hover:pl-2 transition-all">↗</span>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-3xl border border-zinc-100 shadow-xl bg-white">
+                    <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <h4 class="text-2xl font-black uppercase italic text-white">Diseño de Autoridad</h4>
+                        <p class="text-xs text-mega-yellow font-bold mt-2 uppercase tracking-widest">Jerarquía Visual</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-3xl border border-zinc-100 shadow-xl bg-white">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <h4 class="text-2xl font-black uppercase italic text-white">Módulo Militancia</h4>
+                        <p class="text-xs text-mega-yellow font-bold mt-2 uppercase tracking-widest">Conversión Optimizada</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-3xl border border-zinc-100 shadow-xl bg-white">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <h4 class="text-2xl font-black uppercase italic text-white">Sala de Prensa</h4>
+                        <p class="text-xs text-mega-yellow font-bold mt-2 uppercase tracking-widest">Narrativa 24/7</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 pt-10 border-t border-zinc-200">
+                <p class="text-mega-blue font-black uppercase tracking-widest text-sm mb-8 italic">
+                    Y otros módulos indispensables de gestión operativa:
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 rounded-lg bg-white shadow-md flex items-center justify-center text-mega-yellow group-hover:bg-mega-blue transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter text-zinc-600">Registro de Activistas</span>
+                    </div>
+                    <div class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 rounded-lg bg-white shadow-md flex items-center justify-center text-mega-yellow group-hover:bg-mega-blue transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter text-zinc-600">Agenda Territorial</span>
+                    </div>
+                    <div class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 rounded-lg bg-white shadow-md flex items-center justify-center text-mega-yellow group-hover:bg-mega-blue transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter text-zinc-600">Métricas de Alcance</span>
+                    </div>
+                    <div class="flex items-center gap-3 group">
+                        <div class="w-8 h-8 rounded-lg bg-white shadow-md flex items-center justify-center text-mega-yellow group-hover:bg-mega-blue transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-1.228A2 2 0 0110 18.827c0-1.104-.896-2-2-2s-2 .896-2 2a2 2 0 011.56 1.957m8.318-9.834a2 2 0 011.622 1.623m-1.014-5.340a4 4 0 013.627 3.627M11 21l1.297-9.86A2 2 0 0010.308 9.003L3 10.5V21h8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-tighter text-zinc-600">Blindaje de Acceso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seguridad" class="py-32 bg-mega-blue text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-12 items-center">
+                <div class="lg:col-span-2">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase mb-12 italic leading-tight">Gestión y Blindaje de <span class="text-mega-yellow italic">Datos</span></h2>
+                    <div class="grid md:grid-cols-2 gap-8 text-black">
+                        <div class="p-8 bg-white rounded-2xl group border-l-4 border-mega-yellow shadow-xl transition-all">
+                            <div class="text-mega-blue mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <h4 class="text-xl font-black uppercase mb-4 text-mega-blue">Cifrado de Alta Integridad</h4>
+                            <p class="text-zinc-600 text-sm italic">Protección absoluta de la privacidad de sus militantes y cuadros directivos.</p>
+                        </div>
+                        <div class="p-8 bg-white rounded-2xl group border-l-4 border-mega-yellow shadow-xl transition-all">
+                            <div class="text-mega-blue mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8.111 16.404a5.5 5.5 0 117.778 0M12 20h.01m-7.08-7.071a10 10 0 1114.142 0M2.828 9.9a15 15 0 1121.214 0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <h4 class="text-xl font-black uppercase mb-4 text-mega-blue">Conectividad Viral</h4>
+                            <p class="text-zinc-600 text-sm italic">Direccionamiento inteligente a todas sus redes sociales para dominar la conversación digital.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white text-black p-12 border border-white flex flex-col justify-center rounded-3xl shadow-2xl">
+                    <p class="text-mega-blue font-black text-xs uppercase tracking-[0.3em] mb-6 border-b border-mega-yellow pb-2">Inclusión en Propuesta</p>
+                    <ul class="space-y-4 text-sm font-bold uppercase italic">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-mega-blue rounded-full"></span> Aplicación Multi-plataforma</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-mega-blue rounded-full"></span> Panel Administrativo</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-mega-blue rounded-full"></span> Cifrado de Punto a Punto</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-mega-blue rounded-full"></span> Ecosistema Social Integrado</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-mega-blue rounded-full"></span> Panel de Autogestión Directo</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-mega-blue rounded-full"></span> Dominio .com gratis</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-mega-blue rounded-full"></span>Alojamiento web renovable en un año</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 bg-mega-blue rounded-full"></span>Soporte Técnico</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bonos" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <span class="text-mega-blue font-black uppercase tracking-[0.3em] text-[10px] bg-mega-blue/5 px-4 py-2 rounded-full">Beneficios Exclusivos</span>
+                <h2 class="text-4xl md:text-5xl font-black uppercase mt-6 italic text-zinc-900">
+                    Inversión en <span class="text-mega-blue">Resultados</span>, no solo en Software
+                </h2>
+                <p class="text-zinc-500 mt-4 font-medium italic">Al iniciar el protocolo en el tiempo estipulado, usted adquiere estas capacidades de élite de forma gratuita:</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="group p-10 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-mega-yellow transition-all duration-500 shadow-xl shadow-zinc-200/50 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-mega-blue bg-white p-3 rounded-2xl shadow-sm group-hover:bg-mega-blue group-hover:text-white transition-colors">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="text-zinc-400 font-bold text-sm line-through">$350.00</span>
+                    </div>
+                    <h3 class="text-xl font-black uppercase italic text-zinc-900 mb-4 italic">Auditoría & <br><span class="text-mega-blue">Respaldo Total</span></h3>
+                    <ul class="text-zinc-600 text-xs space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> Monitoreo constante de integridad.</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> Respaldo externo de datos (1 año).</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> Recuperación ante desastres incluida.</li>
+                    </ul>
+                    <div class="pt-4 border-t border-zinc-200">
+                        <span class="text-mega-blue font-black text-[10px] uppercase tracking-widest">Valor: GRATIS</span>
+                    </div>
+                </div>
+
+                <div class="group p-10 bg-mega-blue rounded-3xl border border-mega-blue shadow-2xl flex flex-col h-full transform lg:-translate-y-4">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-mega-yellow bg-white/10 p-3 rounded-2xl backdrop-blur-md">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="text-white/40 font-bold text-sm line-through">$250.00</span>
+                    </div>
+                    <h3 class="text-xl font-black uppercase italic text-white mb-4 italic">Workshops <br><span class="text-mega-yellow">Digitales Pro</span></h3>
+                    <ul class="text-white/80 text-xs space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> <strong>Uso Operativo:</strong> Gestión de bases.</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> <strong>Propaganda:</strong> Herramientas de difusión.</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> Sesión práctica para su equipo de prensa.</li>
+                    </ul>
+                    <div class="pt-4 border-t border-white/10">
+                        <span class="text-mega-yellow font-black text-[10px] uppercase tracking-widest">Valor: GRATIS</span>
+                    </div>
+                </div>
+
+                <div class="group p-10 bg-zinc-50 rounded-3xl border border-zinc-100 hover:border-mega-yellow transition-all duration-500 shadow-xl shadow-zinc-200/50 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-mega-blue bg-white p-3 rounded-2xl shadow-sm group-hover:bg-mega-blue group-hover:text-white transition-colors">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="text-zinc-400 font-bold text-sm line-through">$200.00</span>
+                    </div>
+                    <h3 class="text-xl font-black uppercase italic text-zinc-900 mb-4 italic">Análisis de <br><span class="text-mega-blue">Optimización RRSS</span></h3>
+                    <ul class="text-zinc-600 text-xs space-y-3 mb-8 flex-grow">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> Auditoría de perfiles actuales.</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> Guía de imagen y coherencia de marca.</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-mega-yellow rounded-full"></span> Estrategia de linkeo directo a plataforma.</li>
+                    </ul>
+                    <div class="pt-4 border-t border-zinc-200">
+                        <span class="text-mega-blue font-black text-[10px] uppercase tracking-widest">Valor: GRATIS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-zinc-100 p-6 rounded-2xl border-dashed border-2 border-zinc-300 text-center">
+                <p class="text-zinc-700 font-bold uppercase tracking-widest text-xs">
+                    Usted está recibiendo un valor total de <span class="text-mega-blue font-black">$800.00 USD</span> en servicios adicionales sin costo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="precio" class="py-24 bg-mega-blue text-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-mega-yellow opacity-10 rounded-full -mr-32 -mt-32"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-white opacity-5 rounded-full -ml-48 -mb-48"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-mega-yellow/20 border border-mega-yellow/30 rounded-full mb-6">
+                            <span class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-mega-yellow opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-mega-yellow"></span>
+                            </span>
+                            <span class="text-mega-yellow font-black text-[10px] uppercase tracking-widest">Ventana de Oportunidad Limitada</span>
+                        </div>
+                        
+                        <h2 class="text-4xl md:text-6xl font-black uppercase leading-tight italic mb-8">
+                            Decisión <br><span class="text-mega-yellow">Estratégica</span>
+                        </h2>
+                        
+                        <p class="text-white/80 text-lg mb-8 leading-relaxed border-l-2 border-mega-yellow/50 pl-6">
+                            Esta propuesta ha sido diseñada para líderes que actúan con determinación. Al iniciar el <span class="font-bold">Protocolo de Desarrollo en los primeros 7 días</span>, accede a una estructura de costos preferencial y bonificaciones totales.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 text-white/60 italic">
+                                <svg class="w-5 h-5 text-mega-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span class="text-sm font-bold uppercase">Incluye todos los Bonos de Gestión ($800.00 Valor)</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-white/60 italic">
+                                <svg class="w-5 h-5 text-mega-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                <span class="text-sm font-bold uppercase">Soporte Técnico Prioritario</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="bg-white rounded-[2.5rem] p-10 md:p-16 text-black shadow-2xl transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+                            <div class="absolute -top-6 -right-6 bg-mega-yellow text-black font-black w-24 h-24 rounded-full flex flex-col items-center justify-center text-center shadow-xl rotate-12">
+                                <span class="text-[10px] uppercase leading-none">Ahorro Directo</span>
+                                <span class="text-xl leading-none">$300</span>
+                            </div>
+
+                            <p class="text-zinc-400 font-bold uppercase tracking-widest text-xs mb-2 italic">Inversión Especial</p>
+                            <div class="flex items-end gap-2 mb-8">
+                                <span class="text-6xl md:text-8xl font-black tracking-tighter text-mega-blue leading-none">$650</span>
+                                <span class="text-xl font-bold text-zinc-400 pb-2 uppercase tracking-tighter">USD</span>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="flex justify-between items-center py-3 border-b border-zinc-100">
+                                    <span class="text-zinc-500 font-bold text-xs uppercase">Precio Regular</span>
+                                    <span class="text-zinc-400 font-black line-through">$950.00</span>
+                                </div>
+                                <div class="flex justify-between items-center py-3 border-b border-zinc-100">
+                                    <span class="text-zinc-900 font-black text-xs uppercase italic">Oportunidad Exclusiva</span>
+                                    <span class="text-mega-blue font-black">$650.00</span>
+                                </div>
+                                
+                                <p class="text-[9px] text-zinc-400 uppercase font-bold leading-tight">
+                                    * Posterior a los 7 días de esta propuesta, el costo retornará a su valor original de $950.00 USD sin bonificaciones.
+                                </p>
+
+                                <a href="https://wa.me/584127639970?text=Hola,%20quiero%20activar%20el%20Protocolo%20de%20Desarrollo%20con%20el%20precio%20de%20oportunidad%20de%20$650" class="block w-full bg-mega-yellow text-black text-center py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all shadow-xl shadow-mega-yellow/20">
+                                    Activar Protocolo Ahora
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#050505] py-16 border-t border-white/5 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                <div class="flex items-center gap-3">
+                    <div class="flex flex-col leading-none">
+                        <a href="#inicio" class="flex items-center">
+                            <img src="logo-mega-escuela.png" alt="Mega Escuela Logo" class="h-12 w-auto object-contain">
+                        </a>
+                        <span class="text-[9px] text-zinc-400 font-bold uppercase tracking-[0.4em]">Soluciones de Vanguardia</span>
+                    </div>
+            </div>
+                
+                <div class="flex flex-col items-center md:items-end gap-3 text-zinc-500">
+                    <p class="text-[10px] uppercase tracking-widest font-bold">&copy; 2026 Mega Escuela. Excelencia en Software Político.</p>
+                    <div class="flex gap-6">
+                        <a href="https://wa.me/584127639970?text=Hola,%20quiero%20activar%20el%20Protocolo%20de%20Desarrollo%20con%20el%20precio%20de%20oportunidad%20de%20$650" class="text-mega-yellow hover:text-white font-black text-[10px] uppercase tracking-widest transition-colors">Contacto Directo</a>
+                        <span class="text-zinc-800">|</span>
+                        <a href="https://miltonjh.github.io/megaescuela/propuestas-software/partido-centro-domocratico/demo.html" class="hover:text-white font-black text-[10px] uppercase tracking-widest transition-colors">Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
