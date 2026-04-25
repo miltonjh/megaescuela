@@ -146,7 +146,7 @@
     <section id="hero" class="relative h-screen bg-cd-dark overflow-hidden group" 
          x-data="{ 
             slide: 1, 
-            total: 3,
+            total: 2,
             timer: null,
             start() { this.timer = setInterval(() => this.next(), 6000); },
             stop() { clearInterval(this.timer); },
@@ -172,58 +172,47 @@
             </template>
         </div>
 
-        <div x-show="slide === 1" x-transition:enter="transition duration-1000" class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1575032617751-6ddec2089882?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover scale-105">
-            <div class="absolute inset-0 bg-gradient-to-r from-cd-dark via-cd-dark/70 to-transparent"></div>
+       <div id="slide1" x-show="slide === 1" x-transition:enter="transition duration-1000" class="absolute inset-0">
+            
+            <img id="slide1-image" src="creada3.png" class="absolute inset-0 w-full h-full object-cover scale-105">
+            
+            <div class="absolute inset-0 bg-gradient-to-r from-cd-dark/50 via-cd-dark/10 to-transparent"></div>
             
             <div class="relative h-full flex flex-col justify-center px-6 md:px-12 lg:px-24">
-                <p class="text-white text-lg md:text-2xl lg:text-4xl font-light mb-4 italic">Para llegar al futuro hay que ir</p>
-                <h1 class="text-5xl md:text-7xl lg:text-[10rem] font-black text-cd-green uppercase tracking-tighter leading-[0.9] mb-8">
-                    Hasta <br> El Final
+                <p id="slide1-subtitle1" class="text-white text-lg md:text-2xl lg:text-4xl font-bold mb-4 italic drop-shadow-[0_2px_5px_rgba(0,0,0,0.7)]">
+                    Pasión por el Zulia
+                </p>
+                <h1 id="slide1-title" class="text-5xl md:text-7xl lg:text-[10rem] font-black text-cd-green uppercase tracking-tighter leading-[0.9] mb-8 drop-shadow-[0_5px_15px_rgba(0,0,0,0.6)]">
+                    VALORES <br> DE CENTRO
                 </h1>
                 <div class="flex items-center gap-4 md:gap-6">
-                    <div class="w-12 md:w-20 h-1 bg-white flex-shrink-0"></div>
-                    <p class="text-white font-bold tracking-[0.2em] md:tracking-[0.5em] uppercase text-[10px] md:text-xs">
-                        María Corina & Centro Democrático
+                    <div class="w-12 md:w-20 h-1 bg-white flex-shrink-0 shadow-lg"></div>
+                    <p id="slide1-subtitle2" class="text-white font-black tracking-[0.2em] md:tracking-[0.5em] uppercase text-[10px] md:text-xs drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                        Carlos Alaimo & Centro Democrático
                     </p>
                 </div>
             </div>
         </div>
 
-        <div x-show="slide === 2" x-transition:enter="transition duration-1000" x-cloak class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-cd-blue/80 mix-blend-multiply"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cd-dark/90"></div>
+
+        <div id="slide2" x-show="slide === 2" x-transition:enter="transition duration-1000" x-cloak class="absolute inset-0">
+            <img id="slide2-image" src="creada4.png" class="absolute inset-0 w-full h-full object-cover">
+            
+            <div class="absolute inset-0 bg-cd-blue/10 backdrop-blur-[1px]"></div>
             
             <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-none">
-                    Formación <br> <span class="text-cd-green">De Líderes</span>
+                <h2 id="slide2-title" class="text-5xl md:text-7xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.7)]">
+                    GERENCIA <br> <span class="text-cd-green">CON SENTIDO</span>
                 </h2>
-                <p class="text-white/80 text-sm md:text-xl mt-6 md:mt-8 uppercase tracking-[0.2em] md:tracking-[0.3em] font-light max-w-md">
-                    Escuela de Liderazgo y Buen Gobierno
+                <p id="slide2-subtitle1" class="text-white text-sm md:text-xl mt-6 md:mt-8 uppercase tracking-[0.2em] md:tracking-[0.3em] font-black max-w-2xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                    Impulsando el desarrollo productivo y la salud de vanguardia en Maracaibo
                 </p>
-                <button class="mt-8 md:mt-12 px-8 md:px-10 py-4 bg-cd-green text-white font-black uppercase tracking-widest text-xs md:text-base hover:bg-white hover:text-cd-blue transition-all">
-                    Empezar ahora
+                <button id="slide2-button1" class="mt-8 md:mt-12 px-8 md:px-10 py-4 bg-cd-green text-white font-black uppercase tracking-widest text-xs md:text-base hover:bg-cd-dark transition-all shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+                    Conocer su trayectoria
                 </button>
             </div>
         </div>
 
-        <div x-show="slide === 3" x-transition:enter="transition duration-1000" x-cloak class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-cd-dark/70"></div>
-            
-            <div class="relative h-full flex flex-col justify-center items-center md:items-end px-6 md:px-12 lg:px-24 text-center md:text-right">
-                <h2 class="text-5xl md:text-7xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9]">
-                    Sala De <br> <span class="text-cd-green">Prensa</span>
-                </h2>
-                <p class="text-white/60 text-base md:text-xl mt-6 md:mt-8 max-w-xl">
-                    La verdad sobre nuestra gestión nacional y comunicados oficiales.
-                </p>
-                <a href="#" class="mt-8 text-cd-green font-bold uppercase tracking-widest border-b-2 border-cd-green pb-2 text-sm md:text-base">
-                    Ir a noticias
-                </a>
-            </div>
-        </div>
     </section>
 
     <section class="py-20 bg-white relative overflow-hidden" x-data="{ 
