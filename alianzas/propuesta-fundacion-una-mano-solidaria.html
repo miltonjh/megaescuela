@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Corporativa de Alianza Estratégica - Mega Escuela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased pb-28 lg:pb-8" x-data="{ tab: 'resumen' }">
+
+    <header class="w-full bg-[#005f96] text-white border-b-4 border-[#f2c104] shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-5 sm:px-6 lg:px-8 flex flex-row justify-between items-center gap-4">
+            <div>
+                <span class="inline-block bg-[#f2c104] text-slate-900 text-[10px] sm:text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm mb-1.5">
+                    Propuesta Sujeta a Negociación Bilateral
+                </span>
+                <h1 class="text-xl sm:text-2xl font-bold tracking-tight">Alianza Estratégica de Impacto Mutuo</h1>
+                <p class="text-slate-200 text-xs font-light mt-0.5">Mega Escuela &times; Fundación Una Mano Solidaria</p>
+            </div>
+            <div class="bg-transparent px-2 py-2 flex items-center justify-center shrink-0">
+                <img src="logo-mega-escuela.png" alt="Logo Mega Escuela" class="h-16 sm:h-20 w-auto object-contain brightness-0 invert" />
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <aside class="hidden lg:flex col-span-1 flex-col gap-2">
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest px-3 mb-1">Índice del Documento</p>
+            <button @click="tab = 'resumen'" :class="tab === 'resumen' ? 'bg-[#005f96] text-white font-semibold' : 'bg-white text-slate-600 hover:bg-slate-100'" class="w-full text-left px-4 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-between">
+                <span>1. Resumen de Alianza</span>
+                <span class="w-2 h-2 rounded-full" :class="tab === 'resumen' ? 'bg-[#f2c104]' : 'bg-transparent'"></span>
+            </button>
+            <button @click="tab = 'espacios'" :class="tab === 'espacios' ? 'bg-[#005f96] text-white font-semibold' : 'bg-white text-slate-600 hover:bg-slate-100'" class="w-full text-left px-4 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-between">
+                <span>2. Espacios y Calendario</span>
+                <span class="w-2 h-2 rounded-full" :class="tab === 'espacios' ? 'bg-[#f2c104]' : 'bg-transparent'"></span>
+            </button>
+            <button @click="tab = 'compromisos'" :class="tab === 'compromisos' ? 'bg-[#005f96] text-white font-semibold' : 'bg-white text-slate-600 hover:bg-slate-100'" class="w-full text-left px-4 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-between">
+                <span>3. Compromisos de ME</span>
+                <span class="w-2 h-2 rounded-full" :class="tab === 'compromisos' ? 'bg-[#f2c104]' : 'bg-transparent'"></span>
+            </button>
+            <button @click="tab = 'pidt'" :class="tab === 'pidt' ? 'bg-[#005f96] text-white font-semibold' : 'bg-white text-slate-600 hover:bg-slate-100'" class="w-full text-left px-4 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-between">
+                <span>4. Programa PIDT (Becas)</span>
+                <span class="w-2 h-2 rounded-full" :class="tab === 'pidt' ? 'bg-[#f2c104]' : 'bg-transparent'"></span>
+            </button>
+            <button @click="tab = 'financiero'" :class="tab === 'financiero' ? 'bg-[#005f96] text-white font-semibold' : 'bg-white text-slate-600 hover:bg-slate-100'" class="w-full text-left px-4 py-3 rounded-lg shadow-sm transition-all duration-200 flex items-center justify-between">
+                <span>5. Sostenibilidad Financiera</span>
+                <span class="w-2 h-2 rounded-full" :class="tab === 'financiero' ? 'bg-[#f2c104]' : 'bg-transparent'"></span>
+            </button>
+        </aside>
+
+        <main class="col-span-1 lg:col-span-3 bg-white border border-slate-200 rounded-xl p-5 sm:p-8 shadow-sm">
+            
+            <div x-show="tab === 'resumen'" x-transition:enter="transition ease-out duration-200" class="space-y-4">
+                <h2 class="text-xl font-bold text-[#005f96] flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <span class="w-1.5 h-6 bg-[#f2c104] inline-block rounded"></span>
+                    1. Resumen de Alianza de Impacto Colectivo
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed text-justify">
+                    La presente propuesta técnico-económica modela los términos para el establecimiento de una alianza estratégica y de cooperación mutua entre <strong class="text-[#005f96]">Mega Escuela</strong> y la <strong class="text-[#005f96]">Fundación Una Mano Solidaria</strong>. El propósito fundamental de este acuerdo es transformar el alto costo de oportunidad que representan las instalaciones físicas actuales de <strong class="text-[#005f96]">La Fundación</strong> en un activo de desarrollo social continuo, logrando activar sus funciones esenciales a costo cero para su presupuesto operativo.
+                </p>
+                <div class="p-4 bg-slate-50 border-l-4 border-[#005f96] rounded-r-lg">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-[#005f96] mb-1">Consolidación Institucional Continua</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed text-justify">
+                        Esta alianza es la llave operativa que lleva a <strong class="text-[#005f96]">La Fundación</strong> a migrar de un esquema asistencial esporádico hacia un modelo de gestión continua, predecible y de alto impacto diario en la comunidad. Asimismo, consolida la presencia física y despliegue de las formaciones prácticas de <strong class="text-[#005f96]">Mega Escuela</strong> en la localidad de San Francisco.
+                    </p>
+                </div>
+
+                <div class="p-4 bg-slate-50 border-l-4 border-[#f2c104] rounded-r-lg mt-4">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-[#005f96] mb-1">Crecimiento Estratégico e Impacto Humano</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed text-justify">
+                        Para <strong class="text-[#005f96]">Mega Escuela</strong>, esta alianza representa un pilar clave en su consolidación empresarial bajo la modalidad presencial, constituyendo la punta de lanza para nuestra futura expansión hacia nuevas ciudades. Asimismo, este acuerdo materializa nuestra visión de elevar radicalmente el apoyo a las familias vulnerables de San Francisco. Esto se logrará mediante el despliegue del equipo de voluntarios de nuestra iniciativa social <strong class="text-[#005f96]">Escuelita de Mi Barrio</strong>, quienes se activarán de manera polifacética en roles esenciales que fortalecen el tejido operativo y la misión de <strong class="text-[#005f96]">La Fundación</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <div x-show="tab === 'espacios'" x-transition:enter="transition ease-out duration-200" class="space-y-4">
+                <h2 class="text-xl font-bold text-[#005f96] flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <span class="w-1.5 h-6 bg-[#f2c104] inline-block rounded"></span>
+                    2. Concesión de Espacios y Coordinación de Calendario
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed text-justify">
+                    El uso de la sede física se ejecutaría bajo un enfoque estrictamente <span class="font-semibold text-slate-700">Modular y Escalable</span> para proteger la naturaleza benéfica de <strong class="text-[#005f96]">La Fundación</strong>:
+                </p>
+                <ul class="text-xs text-slate-600 space-y-2 list-disc pl-5 text-justify">
+                    <li><strong>Distribución Inicial (Trimestre 1):</strong> Uso exclusivo de dos (2) salones teóricos/prácticos, área de recepción general y salas sanitarias.</li>
+                    <li><strong>Bloques de Sinergia:</strong> Según conversaciones con la Delegación de la Dirección de <strong class="text-[#005f96]">La Fundación</strong> sobre sus objetivos, las mañanas quedarían de uso exclusivo para <strong class="text-[#005f96]">La Fundación</strong> para la gestión continua de su comedor de abuelos y otras acciones de asistencia o apoyo a las comunidades vulnerables. Por tanto, las tardes y los fines de semana completos (sábados y domingos) corresponden al uso preferencial de <strong class="text-[#005f96]">Mega Escuela</strong>.</li>
+                    <li><strong>Continuidad y Reputación Académica:</strong> Ante requerimientos extraordinarios de <strong class="text-[#005f96]">La Fundación</strong> en bloques de <strong class="text-[#005f96]">Mega Escuela</strong>, se notificaría con anticipación para coordinar el desarrollo de las actividades de <strong class="text-[#005f96]">Mega Escuela</strong> y <strong class="text-[#005f96]">La Fundación</strong> sin perjuicio una de la otra.</li>
+                </ul>
+            </div>
+
+            <div x-show="tab === 'compromisos'" x-transition:enter="transition ease-out duration-200" class="space-y-4">
+                <h2 class="text-xl font-bold text-[#005f96] flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <span class="w-1.5 h-6 bg-[#f2c104] inline-block rounded"></span>
+                    3. Compromisos Operativos y Anclaje de Valor
+                </h2>
+                <div class="relative border-l-2 border-slate-200 ml-3 space-y-4 my-2">
+                    <div class="ml-4">
+                        <span class="absolute flex items-center justify-center w-4 h-4 bg-[#005f96] rounded-full -left-[9px] ring-4 ring-white"></span>
+                        <h4 class="text-xs font-bold text-slate-800">Semana 1: Activación Inmediata</h4>
+                        <p class="text-[11px] text-slate-500 text-justify">Despliegue de la célula de abordaje social <strong class="text-[#005f96]">Escuelita de Mi Barrio (EDMB)</strong> para captación de beneficiarios y gestión de benefactores para el comedor y otras actividades desarrolladas por <strong class="text-[#005f96]">La Fundación</strong>. Además de brindar atención unificada en recepción, lo que permite ahorrar al rededor de $120 USD mensuales en salario.</p>
+                    </div>
+                    <div class="ml-4">
+                        <span class="absolute flex items-center justify-center w-4 h-4 bg-slate-400 rounded-full -left-[9px] ring-4 ring-white"></span>
+                        <h4 class="text-xs font-bold text-slate-800">Mes 1: Subsidio Operativo</h4>
+                        <p class="text-[11px] text-slate-500"><strong class="text-[#005f96]">Mega Escuela</strong> asume el 100% del pago de los recibos de electricidad e internet de alta velocidad de los espacios. Evitando el costo de al menos $50 USD mensuales por no tener un estimado claro del consumo eléctrico.</p>
+                    </div>
+                    <div class="ml-4">
+                        <span class="absolute flex items-center justify-center w-4 h-4 bg-[#f2c104] rounded-full -left-[9px] ring-4 ring-white"></span>
+                        <h4 class="text-xs font-bold text-slate-800">Mes 3: Infraestructura Digital</h4>
+                        <p class="text-[11px] text-slate-500 text-justify">Entrega de la plataforma web oficial de <strong class="text-[#005f96]">La Fundación</strong> optimizada para Inteligencia Artificial con pasarela de donaciones integrada sin costos (Valor Real: $800 USD).</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 border border-slate-100 rounded-xl bg-gradient-to-br from-slate-50 to-white p-4 shadow-sm">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-200/60 pb-3 mb-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-[#005f96]">Balance de Impacto Económico Acumulado</h4>
+                        <p class="text-[11px] text-slate-500 mt-0.5">Consolidación del alivio presupuestario directo para La Fundación (Primeros 90 días)</p>
+                    </div>
+                    <div class="bg-[#005f96] text-white px-3 py-1 rounded-full text-center shrink-0">
+                        <span class="text-[10px] font-bold uppercase tracking-wide block">Valor Total Inyectado</span>
+                        <span class="text-sm font-extrabold">$1,310.00 USD</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-[#005f96] tracking-wider block mb-1">Ahorro Operativo Directo</span>
+                            <p class="text-[11px] text-slate-600 text-justify leading-relaxed">
+                                La absorción de los gastos de energía eléctrica, conectividad de alta velocidad y la unificación del personal de recepción genera un ahorro directo de <strong>$170.00 USD mensuales</strong>.
+                            </p>
+                        </div>
+                        <div class="text-right mt-2 pt-2 border-t border-slate-50">
+                            <span class="text-xs font-bold text-slate-700">Subtotal Trimestre: <strong class="text-[#005f96]">$510 USD</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-lg border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-[#005f96] tracking-wider block mb-1">Inyección de Activos Digitales</span>
+                            <p class="text-[11px] text-slate-600 text-justify leading-relaxed">
+                                Transferencia de propiedad de la infraestructura web corporativa optimizada para IA. Un activo tecnológico llave en mano con pasarela automatizada de recaudación global.
+                            </p>
+                        </div>
+                        <div class="text-right mt-2 pt-2 border-t border-slate-50">
+                            <span class="text-xs font-bold text-slate-700">Aporte Único: <strong class="text-[#005f96]">$800 USD</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#fffdf5] p-3 rounded-lg border border-amber-100 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase text-amber-800 tracking-wider block mb-1">Impacto Social No Cuantificable</span>
+                            <p class="text-[11px] text-slate-600 text-justify leading-relaxed">
+                                El despliegue de las brigadas de <strong class="text-[#005f96]">Escuelita de Mi Barrio</strong> actúa como un motor de tracción humana, atrayendo nuevos benefactores y proveedores estratégicos para el comedor social.
+                            </p>
+                        </div>
+                        <div class="text-right mt-2 pt-2 border-t border-amber-50">
+                            <span class="text-[10px] font-bold uppercase bg-[#f2c104] text-slate-900 px-2 py-0.5 rounded shadow-sm">Costo Cero para la Fundación</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-2.5 bg-blue-50/50 rounded-lg text-[11px] text-[#005f96] text-justify leading-normal border-l-2 border-[#005f96]">
+                    <strong>Significado Estratégico:</strong> Este balance demuestra que la alianza no representa un costo o pasivo de arrendamiento tradicional. Al contrario, se traduce en una <strong>inyección inmediata de capital operativo e infraestructura digital que blinda las finanzas de La Fundación</strong>, permitiéndole reinvertir el 100% de sus fondos actuales exclusivamente en la compra de alimentos y atención directa para el comedor de abuelos y niños.
+                </div>
+            </div>
+
+            </div>
+
+            <div x-show="tab === 'pidt'" x-transition:enter="transition ease-out duration-200" class="space-y-4">
+                <h2 class="text-xl font-bold text-[#005f96] flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <span class="w-1.5 h-6 bg-[#f2c104] inline-block rounded"></span>
+                    4. Programa de Inclusión y Desarrollo de Talentos (PIDT)
+                </h2>
+                <p class="text-sm text-slate-600 text-justify">
+                    Basado en las directrices de Ingeniería Humana de Mega Escuela:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <div class="p-3 bg-slate-50 border border-slate-100 rounded-lg text-justify">
+                        <span class="font-bold text-[#005f96] block mb-1">Acceso a Becas</span>
+                        Asignación de becas completas y parciales para los programas presenciales de la academia dirigidas a voluntarios y familias vulnerables de la red.
+                    </div>
+                    <div class="p-3 bg-amber-50/50 border border-amber-100 rounded-lg text-justify">
+                        <span class="font-bold text-amber-800 block mb-1">Prácticas de Oficio</span>
+                        Los estudiantes de las distintas escuelas realizarían diagnósticos y mantenimientos del equipamiento de la sede, y jornadas de servicios gratuitas y/o a presión muy solidarios para las comunidades. 
+                    </div>
+                </div>
+            </div>
+
+            <div x-show="tab === 'financiero'" x-transition:enter="transition ease-out duration-200" class="space-y-4" x-data="{ alumnos: 20 }">
+                <h2 class="text-xl font-bold text-[#005f96] flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <span class="w-1.5 h-6 bg-[#f2c104] inline-block rounded"></span>
+                    5. Ingeniería Financiera (Canon de Sostenibilidad)
+                </h2>
+                <p class="text-sm text-slate-600 text-justify">
+                    Aportación limpia mensual de un canon de <strong>$5.00 USD por cada estudiante regular activo matriculado</strong> en la sede de San Francisco (excluyendo becados del PIDT).
+                </p>
+                
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                    <p class="text-xs font-bold text-slate-500 text-center uppercase tracking-wider">Simulador de Escalabilidad Líquida</p>
+                    <div class="flex justify-center gap-1.5 flex-wrap">
+                        <button @click="alumnos = 20" :class="alumnos === 20 ? 'bg-[#005f96] text-white font-bold' : 'bg-white text-slate-600 border'" class="px-2.5 py-1.5 text-[11px] rounded transition-all">20 Alumnos</button>
+                        <button @click="alumnos = 60" :class="alumnos === 60 ? 'bg-[#005f96] text-white font-bold' : 'bg-white text-slate-600 border'" class="px-2.5 py-1.5 text-[11px] rounded transition-all">60 Alumnos</button>
+                        <button @click="alumnos = 120" :class="alumnos === 120 ? 'bg-[#005f96] text-white font-bold' : 'bg-white text-slate-600 border'" class="px-2.5 py-1.5 text-[11px] rounded transition-all">120 Alumnos</button>
+                    </div>
+                    <div class="bg-white p-3 rounded border text-center">
+                        <span class="text-xs text-slate-400 block">Fondo Mensual Directo para el Comedor:</span>
+                        <span class="text-xl font-black text-[#005f96]" x-text="`$${alumnos * 5}.00 USD`"></span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="lg:hidden fixed inset-x-0 bottom-0 z-[100] bg-slate-900 text-white shadow-[0_-10px_25px_-5px_rgba(0,0,0,0.3)] border-t border-slate-800 px-2 pt-3 pb-5 compliance-bottom-nav">
+    <div class="relative max-w-md mx-auto flex justify-between items-center px-2">
+        
+        <div class="absolute left-6 right-6 top-[18px] h-0.5 bg-slate-700 -z-10"></div>
+        
+        <button @click="tab = 'resumen'; window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center focus:outline-none flex-1 group relative">
+            <div :class="tab === 'resumen' ? 'bg-[#f2c104] text-slate-950 scale-110 ring-4 ring-[#005f96]/40' : 'bg-slate-800 text-slate-400'" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            </div>
+            <span :class="tab === 'resumen' ? 'text-[#f2c104] font-bold' : 'text-slate-400 font-medium'" class="text-[9px] mt-1.5 tracking-tight text-center transition-all duration-300">1. Alianza</span>
+        </button>
+
+        <button @click="tab = 'espacios'; window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center focus:outline-none flex-1 group relative">
+            <div :class="tab === 'espacios' ? 'bg-[#f2c104] text-slate-950 scale-110 ring-4 ring-[#005f96]/40' : 'bg-slate-800 text-slate-400'" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5"></path></svg>
+            </div>
+            <span :class="tab === 'espacios' ? 'text-[#f2c104] font-bold' : 'text-slate-400 font-medium'" class="text-[9px] mt-1.5 tracking-tight text-center transition-all duration-300">2. Espacios</span>
+        </button>
+
+        <button @click="tab = 'compromisos'; window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center focus:outline-none flex-1 group relative">
+            <div :class="tab === 'compromisos' ? 'bg-[#f2c104] text-slate-950 scale-110 ring-4 ring-[#005f96]/40' : 'bg-slate-800 text-slate-400'" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <span :class="tab === 'compromisos' ? 'text-[#f2c104] font-bold' : 'text-slate-400 font-medium'" class="text-[9px] mt-1.5 tracking-tight text-center transition-all duration-300">3. Tiempos</span>
+        </button>
+
+        <button @click="tab = 'pidt'; window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center focus:outline-none flex-1 group relative">
+            <div :class="tab === 'pidt' ? 'bg-[#f2c104] text-slate-950 scale-110 ring-4 ring-[#005f96]/40' : 'bg-slate-800 text-slate-400'" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+            </div>
+            <span :class="tab === 'pidt' ? 'text-[#f2c104] font-bold' : 'text-slate-400 font-medium'" class="text-[9px] mt-1.5 tracking-tight text-center transition-all duration-300">4. PIDT</span>
+        </button>
+
+        <button @click="tab = 'financiero'; window.scrollTo({top: 0, behavior: 'smooth'})" class="flex flex-col items-center focus:outline-none flex-1 group relative">
+            <div :class="tab === 'financiero' ? 'bg-[#f2c104] text-slate-950 scale-110 ring-4 ring-[#005f96]/40' : 'bg-slate-800 text-slate-400'" class="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <span :class="tab === 'financiero' ? 'text-[#f2c104] font-bold' : 'text-slate-400 font-medium'" class="text-[9px] mt-1.5 tracking-tight text-center transition-all duration-300">5. Finanzas</span>
+        </button>
+
+    </div>
+</div>
+
+</body>
+</html>
