@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mega Escuela Venezuela | Oficios Rentables, Negocios y Mentalidad de Éxito</title>
+    <meta name="description" content="Domina un oficio práctico (Refrigeración, Estética, Salud), aprende marketing y finanzas reales, y transforma tu mentalidad con el Método Mega. Alcanza tu Umbral de Independencia Económica en Venezuela.">
+    <meta name="keywords" content="Mega Escuela Venezuela, emprender en venezuela, cursos tecnicos venezuela, academia de refrigeracion, escuela de barberia, marketing para emprendedores, educacion profesional venezuela">
+    <meta name="author" content="Mega Escuela Holding">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Mega Escuela Venezuela | Vive del Oficio que te Apasiona">
+    <meta property="og:description" content="No vendemos cursos vacíos. Te entrenamos bajo el Sistema de las Tres Dimensiones para garantizar que pases de cero a dueño de tu propio negocio técnico.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ve.megaescuela.com">
+    <meta property="og:site_name" content="Mega Escuela">
+    <meta property="og:locale" content="es_VE">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        megaBlue: '#005b82',     /* 30% Estructural: Autoridad y confianza */
+                        megaYellow: '#f2c200',   /* 10% Acento: Conversión y transformación */
+                        megaDark: '#1a1a1a',     /* Texto y contraste profundo */
+                        megaLight: '#fdfbf7'     /* 60% Dominante: Fondo limpio y respiración */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-megaLight text-megaDark font-sans selection:bg-megaYellow selection:text-megaDark">
+
+    <header class="sticky top-0 z-50 glass-header border-b-2 border-megaYellow/80 shadow-sm" x-data="{ mobileMenu: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                <div class="relative flex items-center justify-center w-11 h-11 bg-megaDark rounded-xl shadow-md border border-white/10 group-hover:scale-105 transition-transform">
+                    <span class="text-megaYellow font-black text-2xl tracking-tighter">M</span>
+                    <div class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-megaYellow rounded-full border-2 border-white"></div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-megaBlue font-black text-xl tracking-tight leading-none uppercase">MEGA <span class="text-megaDark font-light">ESCUELA</span></span>
+                    <span class="text-[9px] font-bold text-slate-500 tracking-widest uppercase mt-0.5">Venezuela</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-bold text-sm uppercase tracking-wider text-slate-600">
+                <a href="#manifiesto" class="hover:text-megaBlue transition-colors focus:text-megaBlue py-2 border-b-2 border-transparent hover:border-megaBlue">Método</a>
+                <a href="#escuelas" class="hover:text-megaBlue transition-colors focus:text-megaBlue py-2 border-b-2 border-transparent hover:border-megaBlue">Escuelas</a>
+                <a href="#agenda" class="hover:text-megaBlue transition-colors focus:text-megaBlue py-2 border-b-2 border-transparent hover:border-megaBlue">Agenda</a>
+                <a href="#testimonios" class="hover:text-megaBlue transition-colors focus:text-megaBlue py-2 border-b-2 border-transparent hover:border-megaBlue">Casos de Éxito</a>
+                <a href="#certificacion" class="hover:text-megaBlue transition-colors focus:text-megaBlue py-2 border-b-2 border-transparent hover:border-megaBlue">Certificación</a>
+                <a href="#afiliados" class="hover:text-megaBlue transition-colors focus:text-megaBlue py-2 border-b-2 border-transparent hover:border-megaBlue">Afiliados</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20estoy%20en%20el%20inicio%20de%20la%20web%20y%20necesito%20asesor%C3%ADa%20personalizada." 
+                   target="_blank" 
+                   rel="noopener"
+                   class="bg-megaYellow text-megaDark font-black px-6 py-3 rounded-full shadow-lg hover:bg-yellow-500 hover:scale-105 active:scale-95 transition-all text-xs uppercase tracking-wider">
+                    Asesoría Express
+                </a>
+            </div>
+
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden p-2 text-slate-600 hover:text-megaBlue focus:outline-none" aria-label="Abrir menú">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path x-show="!mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+                    <path x-show="mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" style="display: none;"/>
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             class="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-xl"
+             style="display: none;">
+            <a href="#manifiesto" @click="mobileMenu = false" class="block py-2 text-slate-700 hover:text-megaBlue font-bold uppercase text-xs tracking-wide">Nuestro Método</a>
+            <a href="#escuelas" @click="mobileMenu = false" class="block py-2 text-slate-700 hover:text-megaBlue font-bold uppercase text-xs tracking-wide">Escuelas</a>
+            <a href="#agenda" @click="mobileMenu = false" class="block py-2 text-slate-700 hover:text-megaBlue font-bold uppercase text-xs tracking-wide">Agenda Mega</a>
+            <a href="#testimonios" @click="mobileMenu = false" class="block py-2 text-slate-700 hover:text-megaBlue font-bold uppercase text-xs tracking-wide">Casos de Éxito</a>
+            <a href="#certificacion" @click="mobileMenu = false" class="block py-2 text-slate-700 hover:text-megaBlue font-bold uppercase text-xs tracking-wide">Certificación</a>
+            <hr class="border-slate-100 my-2">
+            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20estoy%20en%20el%20inicio%20de%20la%20web%20y%20necesito%20asesor%C3%ADa%20personalizada." 
+               target="_blank" 
+               rel="noopener"
+               class="w-full text-center block bg-megaYellow text-megaDark font-black py-3.5 rounded-xl shadow-lg uppercase tracking-wider text-sm">
+                Asesoría Express por WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="relative bg-gradient-to-b from-slate-950 via-slate-900 to-megaDark py-20 lg:py-28 overflow-hidden text-white">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-megaBlue/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-megaYellow/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-12 gap-12 items-center">
+                
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold tracking-widest text-megaYellow uppercase border border-white/10">
+                        <span class="w-2.5 h-2.5 rounded-full bg-megaYellow animate-pulse"></span>
+                        Inscripciones Abiertas Cohorte 2026
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+                        Aprende un oficio, <br class="hidden lg:inline">
+                        <span class="text-megaYellow">domina el negocio</span> y vive de tu pasión.
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-light">
+                        El sistema tradicional te entrena para depender de un sueldo básico que la inflación devora. En <strong class="text-white font-bold">Mega Escuela</strong> rompemos el ciclo: te entrenamos en la excelencia técnica del oficio, te enseñamos marketing digital estratégico para captar clientes y blindamos tu mentalidad y hábitos para garantizar el bienestar económico real de tu familia.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4">
+                        <a href="#escuelas" 
+                           class="w-full sm:w-auto text-center bg-megaBlue text-white font-black px-8 py-4 rounded-xl shadow-xl hover:bg-[#004d6e] hover:scale-105 transition-all uppercase tracking-wider text-xs border border-white/10">
+                            Explorar Programas Profesionales
+                        </a>
+                        <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20estoy%20en%20el%20inicio%20de%20la%20web%20y%20quiero%20asesor%C3%ADa%20personalizada%20para%20elegir%20mi%20carrera." 
+                           target="_blank"
+                           rel="noopener"
+                           class="w-full sm:w-auto text-center bg-megaYellow text-megaDark font-black px-8 py-4 rounded-xl shadow-xl hover:bg-yellow-500 hover:scale-105 transition-all uppercase tracking-wider text-xs flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.66.986 3.292 1.48 4.967 1.481 5.428 0 9.847-4.415 9.85-9.846.002-2.63-1.013-5.101-2.859-6.949E-4-1.847-1.848-4.316-2.865-6.943-2.865-5.438 0-9.854 4.417-9.858 9.848-.002 1.748.459 3.456 1.331 4.973L1.082 21.37l4.364-1.144c1.56.905 3.201 1.368 4.79 1.368zm11.354-7.409c-.29-.145-1.716-.847-1.982-.944-.266-.096-.459-.145-.653.145-.193.29-.748.944-.917 1.137-.169.194-.338.217-.627.072-2.912-1.455-4.23-2.523-5.168-4.145-.25-.433.25-.401.715-1.327.072-.145.036-.266-.018-.374-.054-.109-.459-1.109-.628-1.516-.165-.396-.333-.342-.459-.348-.119-.006-.256-.007-.391-.007-.135 0-.356.05-.542.254-.187.203-.712.696-.712 1.697 0 1.001.729 1.968.831 2.103.102.136 1.433 2.187 3.472 3.067.485.209.864.335 1.16.429.488.155.931.133 1.282.08.391-.058 1.716-.701 1.957-1.38.241-.678.241-1.258.169-1.38-.073-.121-.266-.193-.556-.338z"/></svg>
+                            Hablar con un Asesor
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 relative flex justify-center float-anim">
+                    <div class="w-full max-w-sm bg-gradient-to-b from-slate-900 to-black rounded-3xl p-6 shadow-2xl border-4 border-megaYellow text-white relative">
+                        <div class="flex items-center gap-2 pb-4 border-b border-slate-800">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-megaYellow"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="text-xs text-slate-500 font-mono ml-2">mega-ecosystem.sh</span>
+                        </div>
+                        <div class="space-y-5 pt-4">
+                            <div class="p-3 bg-slate-800/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-megaBlue/50 transition-colors">
+                                <div class="w-10 h-10 bg-megaBlue text-white font-black rounded-xl flex items-center justify-center text-md shadow-md">01</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-white">Oficio Técnico</h3>
+                                    <p class="text-xs text-slate-400">Hard Skills de Alta Demanda</p>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-slate-800/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-megaYellow/50 transition-colors">
+                                <div class="w-10 h-10 bg-megaYellow text-megaDark font-black rounded-xl flex items-center justify-center text-md shadow-md">02</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-megaYellow">Gestión de Negocio</h3>
+                                    <p class="text-xs text-slate-400">Marketing, Costos y Ventas Reales</p>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-slate-800/40 rounded-2xl border border-white/5 flex items-center gap-4 hover:border-green-500/50 transition-colors">
+                                <div class="w-10 h-10 bg-green-600 text-white font-black rounded-xl flex items-center justify-center text-md shadow-md">03</div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-green-400">Ingeniería Humana</h3>
+                                    <p class="text-xs text-slate-400">Mentalidad, Gestión Emocional y Hábitos</p>
+                                </div>
+                            </div>
+                            <div class="bg-black p-4 rounded-xl border border-slate-800 flex justify-between items-center mt-2">
+                                <span class="text-xs text-slate-500 font-mono">STATUS:</span>
+                                <span class="text-xs text-megaYellow font-mono font-black tracking-widest animate-pulse"><i class="fas fa-check-circle mr-1"></i>ALUMNO PREPARADO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="manifiesto" class="py-20 lg:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="bg-megaBlue/10 text-megaBlue px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest inline-block">El Manifiesto Mega Escuela</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-megaDark tracking-tight uppercase">
+                        Saber el oficio ya no es suficiente. Te presentamos el Método Mega.
+                    </h2>
+                    <p class="text-slate-600 text-lg font-light">
+                        Aprender a reparar un aire acondicionado, inyectar un medicamento o estructurar una ceja es solo el 33% de la ecuación. Si no sabes vender tu servicio ni gestionar tus emociones, tu talento se desperdicia.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-megaLight p-8 rounded-3xl border-b-8 border-gray-200 hover:border-megaBlue flex flex-col justify-between hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 bg-megaBlue text-white rounded-2xl flex items-center justify-center font-black text-xl shadow-lg">
+                                I
+                            </div>
+                            <h3 class="text-2xl font-extrabold text-megaDark uppercase tracking-tight">El Oficio Técnico</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                <strong class="text-megaDark font-bold">Hard Skills Absolutas.</strong> Prácticas intensivas con herramientas reales. Aprendes la ciencia exacta detrás de la tecnología, la salud o la estética de la mano de expertos que viven del oficio hoy mismo. Sin teoría de relleno.
+                            </p>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold text-slate-400 mt-6 tracking-widest uppercase"><i class="fas fa-tools mr-1"></i>DIMENSIÓN TÉCNICA</span>
+                    </div>
+
+                    <div class="bg-yellow-50/40 p-8 rounded-3xl border-b-8 border-megaYellow flex flex-col justify-between hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 bg-megaDark text-megaYellow rounded-2xl flex items-center justify-center font-black text-xl shadow-lg">
+                                II
+                            </div>
+                            <h3 class="text-2xl font-extrabold text-megaBlue uppercase tracking-tight">Gestión de Negocio</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                <strong class="text-megaDark font-bold">Business Skills.</strong> Eje transversal obligatorio en todas las escuelas. Te enseñamos a calcular estructuras de costos reales, dominar el marketing digital local y vender tus servicios en plataformas digitales para que nunca compitas por precio regalado.
+                            </p>
+                        </div>
+                        <span class="text-[10px] font-mono text-megaBlue mt-6 tracking-widest font-black uppercase"><i class="fas fa-chart-line mr-1"></i>REQUISITO OBLIGATORIO</span>
+                    </div>
+
+                    <div class="bg-megaLight p-8 rounded-3xl border-b-8 border-gray-200 hover:border-green-600 flex flex-col justify-between hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 bg-green-600 text-white rounded-2xl flex items-center justify-center font-black text-xl shadow-lg">
+                                III
+                            </div>
+                            <h3 class="text-2xl font-extrabold text-megaDark uppercase tracking-tight">Ingeniería Humana</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                <strong class="text-megaDark font-bold">Mentalidad y Hábitos.</strong> Control de las emociones, gestión de la frustración financiera y construcción de hábitos de alta productividad. Un emprendedor inestable destruye su caja; un emprendedor con ingeniería humana sostiene un imperio.
+                            </p>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold text-slate-400 mt-6 tracking-widest uppercase"><i class="fas fa-brain mr-1"></i>ESTABILIDAD Y PROPÓSITO</span>
+                    </div> 
+                </div>
+
+                <div class="mt-20 max-w-3xl mx-auto border-2 border-slate-200 rounded-2xl bg-white shadow-xl overflow-hidden" x-data="{ activeTab: 1 }">
+                    <div class="border-b border-slate-200">
+                        <button @click="activeTab = 1" class="w-full text-left px-6 py-4 font-black uppercase tracking-wider text-xs sm:text-sm flex justify-between items-center transition-colors" :class="activeTab === 1 ? 'bg-megaDark text-megaYellow' : 'text-slate-700 hover:bg-slate-50'">
+                            <span>1. El Umbral de Independencia Económica</span>
+                            <i class="fas" :class="activeTab === 1 ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                        </button>
+                        <div x-show="activeTab === 1" class="p-6 bg-megaLight/50 text-sm text-slate-600 border-t border-slate-200 leading-relaxed">
+                            No medimos el éxito por exámenes aprobados, sino por ingresos reales en la calle. Diseñamos tu plan para superar el <strong class="text-megaDark font-bold">Umbral de Independencia:</strong> el punto exacto donde tus ingresos como profesional libre cubren tus costos operativos, tus gastos personales y te garantizan una excelente calidad de vida junto a tu familia.
+                        </div>
+                    </div>
+
+                    <div class="border-b border-slate-200">
+                        <button @click="activeTab = 2" class="w-full text-left px-6 py-4 font-black uppercase tracking-wider text-xs sm:text-sm flex justify-between items-center transition-colors" :class="activeTab === 2 ? 'bg-megaDark text-megaYellow' : 'text-slate-700 hover:bg-slate-50'">
+                            <span>2. Acompañamiento Constante y Peer-Tutoring</span>
+                            <i class="fas" :class="activeTab === 2 ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                        </button>
+                        <div x-show="activeTab === 2" class="p-6 bg-megaLight/50 text-sm text-slate-600 border-t border-slate-200 leading-relaxed" style="display: none;">
+                            Nunca estarás solo. Contamos con un sistema estructurado donde instructores certificados y tutores avanzados (estudiantes de élite elegidos por mérito técnico y actitudinal) te guían paso a paso, resolviendo tus dudas en vivo y corrigiendo tus prácticas en tiempo real.
+                        </div>
+                    </div>
+
+                    <div>
+                        <button @click="activeTab = 3" class="w-full text-left px-6 py-4 font-black uppercase tracking-wider text-xs sm:text-sm flex justify-between items-center transition-colors" :class="activeTab === 3 ? 'bg-megaDark text-megaYellow' : 'text-slate-700 hover:bg-slate-50'">
+                            <span>3. El Volante de Crecimiento (Holding Flywheel)</span>
+                            <i class="fas" :class="activeTab === 3 ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                        </button>
+                        <div x-show="activeTab === 3" class="p-6 bg-megaLight/50 text-sm text-slate-600 border-t border-slate-200 leading-relaxed" style="display: none;">
+                            Somos un ecosistema completo. Formamos el mejor talento de Venezuela y los estudiantes más sobresalientes tienen la oportunidad de convertirse en <strong class="text-megaDark font-bold">Socios-Operadores</strong> de unidades físicas reales financiadas por el Holding, expandiendo la marca y asegurando empleo de altísimo nivel.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="escuelas" class="py-20 lg:py-28 bg-gradient-to-b from-megaDark to-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                    <span class="bg-megaYellow text-megaDark px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest inline-block">Especialización Vertical</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight">
+                        Nuestras Escuelas de Conocimiento
+                    </h2>
+                    <p class="text-slate-400 font-light">
+                        Una Marca Madre fuerte que garantiza la calidad pedagógica y empresarial, dividida en unidades de alta especialización técnica para darte máxima autoridad en el mercado de tu elección.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <div class="bg-slate-900/80 p-6 rounded-3xl border-2 border-white/5 hover:border-megaYellow transition-all flex flex-col justify-between group shadow-xl">
+                        <div class="space-y-6">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl shadow-inner border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Escuela de Negocios" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <span class="text-[9px] text-megaYellow font-mono tracking-widest uppercase bg-megaYellow/10 backdrop-blur-md px-2.5 py-1 rounded border border-megaYellow/20 inline-block mb-1">EJE TRANSVERSAL MASTER</span>
+                                    <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-megaYellow transition-colors">Escuela de Negocios</h3>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Formaciones estratégicas diseñadas para estructurar la base comercial de cualquier proyecto independiente.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-300 border-t border-white/5 pt-4">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-megaYellow text-[10px]"></i> Marketing Digital Local</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-megaYellow text-[10px]"></i> Finanzas y Estructura de Costos</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-megaYellow text-[10px]"></i> Gestión Empresarial Básica</li>
+                            </ul>
+                        </div>
+                        <div class="pt-6">
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20Escuela%20de%20Negocios." 
+                               target="_blank" rel="noopener"
+                               class="w-full block text-center bg-white/5 hover:bg-megaYellow hover:text-megaDark transition-all text-[11px] font-black uppercase tracking-widest py-3 rounded-xl border border-white/10">
+                                Ver Programas
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-6 rounded-3xl border-2 border-white/5 hover:border-megaBlue transition-all flex flex-col justify-between group shadow-xl">
+                        <div class="space-y-6">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl shadow-inner border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Escuela Técnica" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <span class="text-[9px] text-blue-400 font-mono tracking-widest uppercase bg-megaBlue/20 backdrop-blur-md px-2.5 py-1 rounded border border-megaBlue/40 inline-block mb-1">ALTA DEMANDA INFRAESTRUCTURA</span>
+                                    <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-megaBlue transition-colors">Escuela Técnica</h3>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Oficios de alta necesidad técnica y operativa con inmediata salida al mercado y cobro por servicios directos.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-300 border-t border-white/5 pt-4">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-megaBlue text-[10px]"></i> Refrigeración y Climatización</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-megaBlue text-[10px]"></i> Electricidad y Electrónica</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-megaBlue text-[10px]"></i> CCTV y Circuitos Cerrados</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-megaBlue text-[10px]"></i> Desarrollo de Software</li>
+                            </ul>
+                        </div>
+                        <div class="pt-6">
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20Escuela%20de%20Tecnolog%C3%ADa." 
+                               target="_blank" rel="noopener"
+                               class="w-full block text-center bg-white/5 hover:bg-megaBlue hover:text-white transition-all text-[11px] font-black uppercase tracking-widest py-3 rounded-xl border border-white/10">
+                                Ver Programas
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-6 rounded-3xl border-2 border-white/5 hover:border-red-500 transition-all flex flex-col justify-between group shadow-xl">
+                        <div class="space-y-6">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl shadow-inner border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Escuela de Salud" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <span class="text-[9px] text-red-400 font-mono tracking-widest uppercase bg-red-500/10 backdrop-blur-md px-2.5 py-1 rounded border border-red-500/20 inline-block mb-1">BIENESTAR Y RESPONSABILIDAD</span>
+                                    <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-red-400 transition-colors">Escuela de Salud</h3>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Capacitaciones esenciales bajo estrictos estándares asistenciales para asistencia y soporte profesional.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-300 border-t border-white/5 pt-4">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-400 text-[10px]"></i> Área Farmacéutica</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-400 text-[10px]"></i> Primeros Auxilios Técnicos</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-red-400 text-[10px]"></i> Paramédicos y Soporte Vital</li>
+                            </ul>
+                        </div>
+                        <div class="pt-6">
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20Escuela%20de%20Salud." 
+                               target="_blank" rel="noopener"
+                               class="w-full block text-center bg-white/5 hover:bg-red-600 hover:text-white transition-all text-[11px] font-black uppercase tracking-widest py-3 rounded-xl border border-white/10">
+                                Ver Programas
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-6 rounded-3xl border-2 border-white/5 hover:border-purple-400 transition-all flex flex-col justify-between group shadow-xl">
+                        <div class="space-y-6">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl shadow-inner border border-white/10">
+                                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Escuela Estética" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <span class="text-[9px] text-purple-400 font-mono tracking-widest uppercase bg-purple-500/10 backdrop-blur-md px-2.5 py-1 rounded border border-purple-500/20 inline-block mb-1">ALTA RENTABILIDAD LOCAL</span>
+                                    <h3 class="text-xl font-black uppercase tracking-tight text-white group-hover:text-purple-400 transition-colors">Escuela Estética</h3>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Técnicas de alta tendencia visual y cuidado personal con retorno de inversión acelerado desde el mes de inicio.
+                            </p>
+                            <ul class="space-y-2.5 text-xs text-slate-300 border-t border-white/5 pt-4">
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-[10px]"></i> Manicuristas Profesionales</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-[10px]"></i> Especialistas en Cejas y Pestañas</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-[10px]"></i> Barbería Profesional Avanzada</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-check text-purple-400 text-[10px]"></i> Peluquería y Estilismo</li>
+                            </ul>
+                        </div>
+                        <div class="pt-6">
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20Escuela%20de%20Est%C3%A9tica." 
+                               target="_blank" rel="noopener"
+                               class="w-full block text-center bg-white/5 hover:bg-purple-600 hover:text-white transition-all text-[11px] font-black uppercase tracking-widest py-3 rounded-xl border border-white/10">
+                                Ver Programas
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-16 bg-slate-900 border-2 border-dashed border-white/10 p-8 rounded-3xl max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-6 justify-between shadow-2xl">
+                    <div class="space-y-2 text-center sm:text-left">
+                        <h4 class="font-extrabold text-lg text-megaYellow uppercase tracking-wider"><i class="fas fa-graduation-cap mr-2"></i>¿Buscas otra área de formación técnica?</h4>
+                        <p class="text-slate-400 text-sm font-light">Estructuramos constantemente nuevas escuelas con el mismo estándar de transformación e Ingeniería Humana.</p>
+                    </div>
+                    <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20no%20veo%20el%20oficio%20espec%C3%ADfico%20que%20busco%20en%20la%20web%20y%20quiero%20consultar%20disponibilidad." 
+                       target="_blank" rel="noopener"
+                       class="w-full sm:w-auto bg-megaYellow text-megaDark font-black text-xs uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-md hover:bg-yellow-500 whitespace-nowrap text-center">
+                        Consultar Nuevas Escuelas
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="programas-populares" class="py-20 lg:py-28 bg-white relative text-slate-800">
+            <div class="absolute top-1/4 right-0 w-80 h-80 bg-megaYellow/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-1/4 left-0 w-80 h-80 bg-megaBlue/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
+                    <span class="text-xs font-black tracking-widest text-megaBlue uppercase bg-megaBlue/10 px-4 py-1.5 rounded-full border border-megaBlue/20">
+                        Oferta Académica Élite
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 mt-4 mb-6 leading-tight">
+                        Los Programas de Mayor <br class="hidden sm:inline">
+                        Demanda y Retorno Económico
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-600 font-light max-w-2xl mx-auto">
+                        Selecciona la especialidad que se alinee con tu pasión. Cada programa incluye de forma obligatoria el ecosistema transversal de Negocios, Ventas y Mentalidad.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-slate-50 rounded-3xl border border-slate-200 p-5 flex flex-col justify-between shadow-md hover:shadow-xl hover:border-megaBlue/30 transition-all duration-300 group">
+                        <div class="space-y-4">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Técnico en Refrigeración" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                                <div class="absolute top-3 left-3 right-3 flex justify-between items-center">
+                                    <div class="w-8 h-8 bg-white/90 text-megaBlue rounded-lg flex items-center justify-center text-sm font-bold shadow-sm border border-slate-200/50">
+                                        <i class="fas fa-snowflake"></i>
+                                    </div>
+                                    <span class="text-[9px] font-mono font-bold bg-green-500 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Alta Demanda</span>
+                                </div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <p class="text-[9px] font-mono text-slate-300 tracking-wider uppercase mb-0.5">Escuela de Ingeniería Aplicada</p>
+                                    <h3 class="text-lg font-black text-white group-hover:text-megaBlue transition-colors uppercase tracking-tight leading-tight">Técnico en Refrigeración</h3>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed px-1">
+                                Domina el diagnóstico, reparación y mantenimiento integral de sistemas de climatización residencial y comercial. Un sector altamente lucrativo con facturación inmediata.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-slate-200 flex items-center justify-between px-1">
+                            <div class="text-[11px] font-mono text-slate-500">
+                                <i class="far fa-clock mr-1"></i> Práctico / Presencial
+                            </div>
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20consultar%20disponibilidad%20y%20becas%20para%20el%20programa%20de%20Refrigeraci%C3%B3n." target="_blank" rel="noopener" class="text-xs font-bold text-megaBlue hover:text-slate-900 transition-colors flex items-center gap-1">
+                                Ver Cupos <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-3xl border border-slate-200 p-5 flex flex-col justify-between shadow-md hover:shadow-xl hover:border-megaBlue/30 transition-all duration-300 group">
+                        <div class="space-y-4">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Especialista en Mirada" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                                <div class="absolute top-3 left-3 right-3 flex justify-between items-center">
+                                    <div class="w-8 h-8 bg-white/90 text-purple-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-sm border border-slate-200/50">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <span class="text-[9px] font-mono font-bold bg-purple-600 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Margen +80%</span>
+                                </div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <p class="text-[9px] font-mono text-slate-300 tracking-wider uppercase mb-0.5">Escuela de Estética y Cosmetología</p>
+                                    <h3 class="text-lg font-black text-white group-hover:text-megaBlue transition-colors uppercase tracking-tight leading-tight">Especialista en Mirada</h3>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed px-1">
+                                Aprende técnicas avanzadas de diseño de cejas, micropigmentación sutil, extensión de pestañas y visajismo profesional para el sector de la belleza de alta gama.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-slate-200 flex items-center justify-between px-1">
+                            <div class="text-[11px] font-mono text-slate-500">
+                                <i class="far fa-clock mr-1"></i> Intensivo Práctico
+                            </div>
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20consultar%20disponibilidad%20y%20becas%20para%20el%20programa%20de%20Especialista%20en%20Mirada." target="_blank" rel="noopener" class="text-xs font-bold text-megaBlue hover:text-slate-900 transition-colors flex items-center gap-1">
+                                Ver Cupos <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-3xl border border-slate-200 p-5 flex flex-col justify-between shadow-md hover:shadow-xl hover:border-megaBlue/30 transition-all duration-300 group">
+                        <div class="space-y-4">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Soporte Técnico Digital" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                                <div class="absolute top-3 left-3 right-3 flex justify-between items-center">
+                                    <div class="w-8 h-8 bg-white/90 text-amber-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-sm border border-slate-200/50">
+                                        <i class="fas fa-laptop-medical"></i>
+                                    </div>
+                                    <span class="text-[9px] font-mono font-bold bg-amber-500 text-slate-950 px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Independencia</span>
+                                </div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <p class="text-[9px] font-mono text-slate-300 tracking-wider uppercase mb-0.5">Escuela de Tecnología y Sistemas</p>
+                                    <h3 class="text-lg font-black text-white group-hover:text-megaBlue transition-colors uppercase tracking-tight leading-tight">Soporte Técnico</h3>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed px-1">
+                                Especialízate en arquitectura de hardware, reparación de placas madre, optimización de sistemas operativos y blindaje cibernético para equipos comerciales.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-slate-200 flex items-center justify-between px-1">
+                            <div class="text-[11px] font-mono text-slate-500">
+                                <i class="far fa-clock mr-1"></i> Teórico-Práctico
+                            </div>
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20consultar%20disponibilidad%20y%20becas%20para%20el%20programa%20de%20Soporte%20T%C3%A9cnico." target="_blank" rel="noopener" class="text-xs font-bold text-megaBlue hover:text-slate-900 transition-colors flex items-center gap-1">
+                                Ver Cupos <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-3xl border border-slate-200 p-5 flex flex-col justify-between shadow-md hover:shadow-xl hover:border-megaBlue/30 transition-all duration-300 group">
+                        <div class="space-y-4">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Barbería e Imagen" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                                <div class="absolute top-3 left-3 right-3 flex justify-between items-center">
+                                    <div class="w-8 h-8 bg-white/90 text-red-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-sm border border-slate-200/50">
+                                        <i class="fas fa-scissors"></i>
+                                    </div>
+                                    <span class="text-[9px] font-mono font-bold bg-blue-600 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Retorno Rápido</span>
+                                </div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <p class="text-[9px] font-mono text-slate-300 tracking-wider uppercase mb-0.5">Escuela de Estética Masculina</p>
+                                    <h3 class="text-lg font-black text-white group-hover:text-megaBlue transition-colors uppercase tracking-tight leading-tight">Barbería e Imagen</h3>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed px-1">
+                                Domina técnicas de corte clásico y urbano, texturizados, perfilados de barba milimétricos y la administración estratégica de tu propio local o servicio premium a domicilio.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-slate-200 flex items-center justify-between px-1">
+                            <div class="text-[11px] font-mono text-slate-500">
+                                <i class="far fa-clock mr-1"></i> 100% Práctico
+                            </div>
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20consultar%20disponibilidad%20y%20becas%20para%20el%20programa%20de%20Barber%C3%ADa." target="_blank" rel="noopener" class="text-xs font-bold text-megaBlue hover:text-slate-900 transition-colors flex items-center gap-1">
+                                Ver Cupos <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-3xl border border-slate-200 p-5 flex flex-col justify-between shadow-md hover:shadow-xl hover:border-megaBlue/30 transition-all duration-300 group">
+                        <div class="space-y-4">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1584515901187-601030572d1f?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Atención de Salud" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                                <div class="absolute top-3 left-3 right-3 flex justify-between items-center">
+                                    <div class="w-8 h-8 bg-white/90 text-emerald-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-sm border border-slate-200/50">
+                                        <i class="fas fa-user-nurse"></i>
+                                    </div>
+                                    <span class="text-[9px] font-mono font-bold bg-emerald-600 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Alto Impacto</span>
+                                </div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <p class="text-[9px] font-mono text-slate-300 tracking-wider uppercase mb-0.5">Escuela de Salud y Cuidado Social</p>
+                                    <h3 class="text-lg font-black text-white group-hover:text-megaBlue transition-colors uppercase tracking-tight leading-tight">Atención de Salud</h3>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed px-1">
+                                Prepárate en protocolos de atención primaria, inyectología, signos vitales y cuidados especializados a domicilio. Un oficio de profunda vocación y demanda ininterrumpida.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-slate-200 flex items-center justify-between px-1">
+                            <div class="text-[11px] font-mono text-slate-500">
+                                <i class="far fa-clock mr-1"></i> Clínico Avalado
+                            </div>
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20consultar%20disponibilidad%20y%20becas%20para%20el%20programa%20de%20Salud." target="_blank" rel="noopener" class="text-xs font-bold text-megaBlue hover:text-slate-900 transition-colors flex items-center gap-1">
+                                Ver Cupos <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-3xl border border-slate-200 p-5 flex flex-col justify-between shadow-md hover:shadow-xl hover:border-megaBlue/30 transition-all duration-300 group">
+                        <div class="space-y-4">
+                            <div class="relative h-48 w-full overflow-hidden rounded-2xl border border-slate-200/60 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Técnico en Smartphones" 
+                                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                                <div class="absolute top-3 left-3 right-3 flex justify-between items-center">
+                                    <div class="w-8 h-8 bg-white/90 text-sky-600 rounded-lg flex items-center justify-center text-sm font-bold shadow-sm border border-slate-200/50">
+                                        <i class="fas fa-mobile-screen-button"></i>
+                                    </div>
+                                    <span class="text-[9px] font-mono font-bold bg-sky-600 text-white px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Rubro Vital</span>
+                                </div>
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <p class="text-[9px] font-mono text-slate-300 tracking-wider uppercase mb-0.5">Escuela de Microelectrónica</p>
+                                    <h3 class="text-lg font-black text-white group-hover:text-megaBlue transition-colors uppercase tracking-tight leading-tight">Técnico en Smartphones</h3>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed px-1">
+                                Domina la micro-soldadura, el cambio de cristales y pantallas complejas, soluciones de software y la detección de fallas eléctricas críticas en Android y dispositivos iOS.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-5 border-t border-slate-200 flex items-center justify-between px-1">
+                            <div class="text-[11px] font-mono text-slate-500">
+                                <i class="far fa-clock mr-1"></i> Prácticas de Taller
+                            </div>
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20consultar%20disponibilidad%20y%20becas%20para%20el%20programa%20de%20Smartphones." target="_blank" rel="noopener" class="text-xs font-bold text-megaBlue hover:text-slate-900 transition-colors flex items-center gap-1">
+                                Ver Cupos <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-16 text-center">
+                    <p class="text-xs font-mono text-slate-500 uppercase tracking-wider mb-3">
+                        ¿No encuentras el oficio que te apasiona en esta lista?
+                    </p>
+                    <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20estoy%20viendo%20la%20lista%20de%20programas%20populares%20pero%20me%20gustar%C3%ADa%20conocer%20la%20cartera%20completa%20de%20opciones." 
+                       target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 bg-slate-900 hover:bg-megaBlue text-white text-xs font-black px-6 py-3.5 rounded-xl shadow-md transition-all uppercase tracking-widest">
+                        <i class="fas fa-list-check mr-1"></i> Consultar cartera completa de opciones
+                    </a>
+                </div>
+
+            </div>
+        </section> 
+
+        <section class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden border-t-2 border-b-2 border-white/5">
+        
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-stretch min-h-[650px]">
+                
+                <div class="w-full lg:w-3/5 p-8 sm:p-12 lg:p-16 flex flex-col justify-center space-y-8 relative z-10">
+                    
+                    <div class="space-y-4">
+                        <span class="text-[10px] md:text-xs font-mono font-black text-megaBlue uppercase tracking-widest bg-megaBlue/10 border border-megaBlue/20 px-3 py-1 rounded-full inline-block">
+                            El Umbral del Éxito
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-none">
+                            NO es solo certificarse <span class="text-transparent bg-clip-text bg-gradient-to-r from-megaBlue to-blue-400">es lo que alcanzarás</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-400 max-w-2xl font-light leading-relaxed">
+                            Invertir en tu educación y dominar el oficio que te apasiona transforma por completo tu vida personal, económica y profesional. No compras un curso; adquieres un sistema de evolución.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-1 gap-6 pt-2">
+                        
+                        <div class="flex gap-4 items-start bg-white/5 p-5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-10 h-10 bg-megaBlue/20 text-megaBlue rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-megaBlue/30">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">Transformación Personal y Confianza</h3>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-400 font-light pt-1">
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-megaBlue text-[6px]"></i> <span><strong>Alta autoestima:</strong> Rompes el miedo.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-megaBlue text-[6px]"></i> <span><strong>Seguridad laboral:</strong> Cero impostor.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-megaBlue text-[6px]"></i> <span><strong>Satisfacción:</strong> Trabajas con propósito.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-megaBlue text-[6px]"></i> <span><strong>Resiliencia:</strong> Resuelves sin depender.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start bg-white/5 p-5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-10 h-10 bg-purple-500/10 text-purple-400 rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-purple-500/20">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">El Valor de la Red de Contactos (Networking)</h3>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-400 font-light pt-1">
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-purple-400 text-[6px]"></i> <span><strong>Soporte técnico:</strong> Mentores expertos.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-purple-400 text-[6px]"></i> <span><strong>Validación:</strong> Respaldo de marca.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-purple-400 text-[6px]"></i> <span><strong>Oportunidades:</strong> Vacantes exclusivas.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-purple-400 text-[6px]"></i> <span><strong>Aceleración:</strong> Meses en vez de años.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 items-start bg-white/5 p-5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-lg flex-shrink-0 border border-emerald-500/20">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="space-y-1">
+                                <h3 class="text-sm font-extrabold uppercase tracking-wider text-white">De Autoempleado a Empresario Exitoso</h3>
+                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-400 font-light pt-1">
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-emerald-400 text-[6px]"></i> <span><strong>Control financiero:</strong> Precios justos.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-emerald-400 text-[6px]"></i> <span><strong>Sostenibilidad:</strong> Evitas quebrar pronto.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-emerald-400 text-[6px]"></i> <span><strong>Atracción:</strong> Marketing por valor.</span></li>
+                                    <li class="flex items-center gap-2"><i class="fas fa-circle text-emerald-400 text-[6px]"></i> <span><strong>Escala:</strong> Creas un sistema real.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="pt-2">
+                        <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20estoy%20listo%20para%20dar%20el%20paso%20hacia%20mi%20transformaci%C3%B3n." 
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center gap-2 bg-gradient-to-r from-megaBlue to-blue-600 hover:from-blue-600 hover:to-megaBlue text-white font-black uppercase tracking-widest text-xs px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-500/20 transform hover:-translate-y-0.5">
+                            Iniciar Mi Transformación <i class="fas fa-rocket text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/5 min-h-[300px] lg:min-h-full relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" 
+                         alt="Transformación Profesional Mega Escuela" 
+                         class="w-full h-full object-cover object-center absolute inset-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent lg:bg-gradient-to-r lg:from-slate-950 lg:via-slate-950/20 lg:to-transparent"></div>
+                </div>
+
+            </div>
+        </section>       
+
+       <section id="beneficios-sistema" class="py-20 lg:py-28 bg-slate-50 relative overflow-hidden text-slate-800">
+            <div class="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 bg-megaBlue/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-megaYellow/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
+                    <span class="text-xs font-black tracking-widest text-megaBlue uppercase bg-megaBlue/10 px-4 py-1.5 rounded-full border border-megaBlue/20">
+                        HERRAMIENTAS PARA LA TRANSFORMACIÓN MEGA
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 mt-4 mb-6 leading-tight">
+                        ¿Qué ganas exactamente al dar el paso y <br class="hidden sm:inline">
+                        activar nuestro sistema educativo?
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-600 font-light max-w-2xl mx-auto">
+                        A diferencia de los cursos tradicionales que te llenan de teoría inútil, el Método Mega te entrega un ecosistema completo para garantizar que puedas monetizar desde el primer mes.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <div class="lg:col-span-5 order-2 lg:order-1 flex justify-center">
+                        <div class="relative w-full max-w-md group">
+                            <div class="absolute inset-0 bg-gradient-to-r from-megaBlue to-megaYellow rounded-3xl opacity-10 blur-xl group-hover:opacity-20 transition-opacity duration-500"></div>
+                            
+                            <div class="relative bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xl overflow-hidden">
+                                <div class="flex items-center justify-between pb-6 border-b border-slate-100 mb-6">
+                                    <div class="flex gap-1.5">
+                                        <span class="w-3 h-3 rounded-full bg-slate-200"></span>
+                                        <span class="w-3 h-3 rounded-full bg-slate-200"></span>
+                                        <span class="w-3 h-3 rounded-full bg-slate-200"></span>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-megaBlue font-bold tracking-widest">MEGA_DASHBOARD_2026</span>
+                                </div>
+
+                                <div class="space-y-6">
+                                    <div class="bg-slate-900 rounded-2xl p-5 relative overflow-hidden shadow-inner text-white">
+                                        <div class="absolute top-0 right-0 bg-green-500/20 text-green-400 text-[10px] font-mono px-2.5 py-1 rounded-bl-xl font-bold">
+                                            +340% RETORNO
+                                        </div>
+                                        <p class="text-xs text-slate-400 font-mono uppercase tracking-wider mb-1">Índice de Independencia</p>
+                                        <h4 class="text-2xl font-black text-white mb-4">Alumno Graduado</h4>
+                                        
+                                        <div class="space-y-3">
+                                            <div>
+                                                <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                                                    <span>Habilidad Técnica (Oficio)</span>
+                                                    <span class="text-white font-bold">95%</span>
+                                                </div>
+                                                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                                    <div class="bg-megaBlue h-full w-[95%] rounded-full"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                                                    <span>Estrategia de Negocio (Ventas)</span>
+                                                    <span class="text-megaYellow font-bold">88%</span>
+                                                </div>
+                                                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                                    <div class="bg-megaYellow h-full w-[88%] rounded-full"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                                                    <span>Ingeniería Humana (Hábitos)</span>
+                                                    <span class="text-green-400 font-bold">90%</span>
+                                                </div>
+                                                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                                    <div class="bg-green-500 h-full w-[90%] rounded-full"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                        <div class="w-12 h-12 bg-megaBlue text-white rounded-xl flex items-center justify-center text-xl shadow-md">
+                                            <i class="fas fa-award"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-sm font-bold text-slate-900">Certificación con Aval Nacional</h5>
+                                            <p class="text-xs text-slate-500">Código de validación QR único por alumno.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="text-center pt-2">
+                                        <p class="text-[11px] font-mono text-slate-400 uppercase tracking-widest">
+                                            <i class="fas fa-shield-alt text-megaBlue mr-1"></i> Respaldado por el Holding de Alianzas Mega
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 order-1 lg:order-2 space-y-8">
+                        
+                        <div class="flex gap-4 sm:gap-6 items-start group">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-megaBlue/10 rounded-2xl flex items-center justify-center border border-megaBlue/20 text-megaBlue text-xl sm:text-2xl font-black shrink-0 group-hover:bg-megaBlue group-hover:text-white transition-all duration-300 shadow-md">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-megaBlue transition-colors">
+                                    Doble Certificación Profesional calificada
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+                                    No recibes un papel impreso genérico. Al culminar, obtienes tu certificado técnico en el oficio elegido y un diploma en <strong class="text-slate-900 font-semibold">Gestión de Micro-Negocios y Marketing de Servicios</strong> que valida tu capacidad para liderar tu sector.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 sm:gap-6 items-start group">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-megaYellow/20 rounded-2xl flex items-center justify-center border border-megaYellow/40 text-megaDark text-xl sm:text-2xl font-black shrink-0 group-hover:bg-megaYellow group-hover:text-megaDark transition-all duration-300 shadow-md">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#cca300] transition-colors">
+                                    Kit "Llave en Mano" para captación de clientes
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+                                    Te entregamos plantillas listas para calcular tus costos reales sin equivocarte, guías de mensajes de WhatsApp structured para cerrar ventas y diseños listos para que promociones tus servicios en redes sociales desde el primer día.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 sm:gap-6 items-start group">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-green-500/10 rounded-2xl flex items-center justify-center border border-green-500/20 text-green-600 text-xl sm:text-2xl font-black shrink-0 group-hover:bg-green-600 group-hover:text-white transition-all duration-300 shadow-md">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors">
+                                    Acceso a la Bolsa de Aliados Estratégicos
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+                                    Formas parte de la comunidad privada de egresados de Mega Escuela. Esto te permite conectar con proveedores de materiales con descuentos mayoristas, alianzas comerciales y acceso exclusivo a ofertas de empleo en empresas aliadas.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 sm:gap-6 items-start group">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center border border-purple-500/20 text-purple-600 text-xl sm:text-2xl font-black shrink-0 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-md">
+                                <i class="fas fa-shield-heart"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors">
+                                    Blindaje Mental ante entornos de crisis
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+                                    Ganas control sobre tus finanzas personales y un cambio radical de mentalidad. Te entrenamos para gestionar el estrés, erradicar hábitos de escasez y construir la resiliencia psicológica necesaria para facturar con éxito en la economía actual.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-20 max-w-5xl mx-auto bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/10 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <div class="flex flex-col md:flex-row items-center gap-6 relative z-10">
+                        <div class="w-16 h-16 bg-green-500/20 text-green-400 rounded-2xl flex items-center justify-center text-3xl shrink-0 border border-green-500/30 shadow-lg shadow-green-950/50">
+                            <i class="fas fa-bolt-lightning"></i>
+                        </div>
+                        
+                        <div class="space-y-2 text-center md:text-left flex-1">
+                            <div class="inline-block bg-green-500 text-slate-950 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-md mb-1 shadow-md">
+                                Monetización Inmediata
+                            </div>
+                            <h4 class="text-lg sm:text-xl font-black tracking-tight text-white uppercase">
+                                Retorno Veloz: Comienza a generar ingresos desde el primer día
+                            </h4>
+                            <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                                Al registrarte y activar tu acceso, desbloqueas de inmediato nuestro <strong class="text-megaYellow font-medium">Módulo de Monetización Express</strong>. Te enseñamos a identificar activos que ya posees y a aplicar estrategias de captación rápida para que puedas levantar capital y cerrar tus primeros clientes <strong class="text-green-400 font-semibold">incluso en tus primeras 24 horas</strong> dentro de la escuela.
+                            </p>
+                        </div>
+                        
+                        <div class="hidden lg:flex flex-col items-center justify-center pl-6 border-l border-slate-800 text-center shrink-0">
+                            <span class="text-2xl font-black text-green-400 font-mono tracking-tighter">01_DÍA</span>
+                            <span class="text-[9px] text-slate-400 uppercase tracking-widest font-bold">Plan de Acción</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="costo-inaccion" class="py-20 lg:py-28 bg-slate-950 relative overflow-hidden text-white border-y border-slate-900">
+            <div class="absolute top-0 right-1/4 w-96 h-96 bg-red-950/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-slate-900/40 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
+                    <span class="text-xs font-black tracking-widest text-red-400 uppercase bg-red-950/50 px-4 py-1.5 rounded-full border border-red-900/30">
+                        <i class="fas fa-exclamation-triangle mr-1.5 text-red-500"></i> Una Verdad Incómoda
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-6 leading-tight">
+                        ¿Cuál es el precio real de no tomar <br class="hidden sm:inline">
+                        acción y quedarte donde estás hoy?
+                    </h2>
+                    <p class="text-base sm:text-lg text-slate-400 font-light max-w-2xl mx-auto">
+                        Ignorar la realidad no te protege de ella. El sistema tradicional está diseñado para mantenerte atrapado. Esto es lo que arriesgas cada día que dejas pasar sin aprender a dominar el juego.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="w-full max-w-md bg-gradient-to-b from-slate-900 to-slate-950 rounded-3xl border border-white/5 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                            
+                            <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+                                <span class="text-[10px] font-mono text-red-400 font-bold uppercase tracking-wider">PROYECCIÓN_ESTANCAMIENTO</span>
+                                <span class="text-[10px] font-mono text-slate-500">ALUMNO_X</span>
+                            </div>
+
+                            <div class="relative pl-6 border-l-2 border-slate-800 space-y-8">
+                                
+                                <div class="relative">
+                                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-800 rounded-full border-4 border-slate-950"></div>
+                                    <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400">Mes 01: La Decisión</h4>
+                                    <p class="text-sm font-bold text-white mt-1">"Esperar el momento perfecto"</p>
+                                    <p class="text-xs text-slate-500 mt-1">Sigues dependiendo de los mismos ingresos mientras los costos básicos en el mercado suben.</p>
+                                </div>
+
+                                <div class="relative">
+                                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-700 rounded-full border-4 border-slate-950"></div>
+                                    <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400">Mes 06: La Pérdida</h4>
+                                    <p class="text-sm font-bold text-red-400 mt-1">La inflación devora el poder adquisitivo</p>
+                                    <p class="text-xs text-slate-500 mt-1">Has gastado en gastos corrientes lo que costaba tu capacitación. Tu conocimiento sigue siendo el mismo.</p>
+                                </div>
+
+                                <div class="relative">
+                                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-red-500 rounded-full border-4 border-slate-950 animate-pulse"></div>
+                                    <h4 class="text-xs font-mono uppercase tracking-wider text-red-400">Año 2027: El Ciclo de Dependencia</h4>
+                                    <p class="text-sm font-bold text-white mt-1">Frustración y estancamiento familiar</p>
+                                    <p class="text-xs text-slate-400 mt-1 font-light">Mismo empleo, más estrés, menor capacidad de ahorro. La ventana de oportunidad se reduce mientras otros ya montaron sus negocios.</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-4 border-t border-slate-900 bg-red-950/10 p-4 rounded-xl border border-red-900/20 text-center">
+                                <p class="text-xs text-red-300 font-medium">
+                                    <i class="fas fa-clock mr-1"></i> El tiempo pasa igual. Tú decides si te cuesta dinero o te genera libertad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 space-y-8">
+                        
+                        <div class="flex gap-4 sm:gap-6 items-start">
+                            <div class="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center border border-white/5 text-slate-500 text-xl shrink-0">
+                                <i class="fas fa-chain-broken"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="text-lg sm:text-xl font-bold text-white">
+                                    1. Quedarte atrapado en la trampa del sueldo básico
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-400 font-light leading-relaxed">
+                                    En la economía actual, depender de una sola fuente de ingresos fija es extremadamente riesgoso. Sin un oficio técnico cotizado ni habilidades para venderlo por tu cuenta, estás entregando el control de tu estabilidad económica a las decisiones de un jefe.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 sm:gap-6 items-start">
+                            <div class="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center border border-white/5 text-slate-500 text-xl shrink-0">
+                                <i class="fas fa-heart-circle-xmark"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="text-lg sm:text-xl font-bold text-white">
+                                    2. El desgaste mental de "trabajar duro" sin ver frutos
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-400 font-light leading-relaxed">
+                                    El cansancio más destructivo no es el físico, sino el mental. El estrés de llegar a fin de mes ajustado, de no poder darle una sorpresa a tu familia o de postergar tus metas genera una frustración silenciosa que drena tu mentalidad y apaga tu ambición día tras día.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 sm:gap-6 items-start">
+                            <div class="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center border border-white/5 text-slate-500 text-xl shrink-0">
+                                <i class="fas fa-user-slash"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="text-lg sm:text-xl font-bold text-white">
+                                    3. Obsolescencia y pérdida de autoridad en tu entorno
+                                </h3>
+                                <p class="text-sm sm:text-base text-slate-400 font-light leading-relaxed">
+                                    Mientras dudas, cientos de nuevos profesionales se están capacitando en el *Método Mega*, adquiriendo herramientas de marketing digital y dominando la mentalidad de negocios. Cada mes que esperas, el mercado se vuelve más competitivo y tú te quedas un paso atrás.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 text-center md:text-left">
+                            <a href="#hero-mega-slider" 
+                               class="inline-flex items-center gap-3 bg-white text-slate-950 font-black px-8 py-4 rounded-xl shadow-xl hover:bg-megaYellow hover:text-megaDark hover:scale-105 transition-all uppercase tracking-widest text-xs">
+                                Romper el ciclo hoy <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="agenda" class="py-20 lg:py-28 bg-white text-megaDark">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center space-y-4 mb-16">
+                    <span class="bg-megaBlue/10 text-megaBlue px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest inline-block">Planificación Estratégica</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight">Agenda de Eventos y Cohortes 2026</h2>
+                    <p class="text-slate-500 font-light">Planifica tu ruta formativa. Nuestras aperturas están estrictamente limitadas a grupos reducidos para garantizar el acompañamiento y mentoría personalizada.</p>
+                </div>
+
+                <div class="space-y-6">
+                    
+                    <div class="bg-megaLight p-6 sm:p-8 rounded-3xl border-2 border-slate-100 shadow-xl hover:shadow-2xl transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-megaBlue/30">
+                        <div class="flex items-center gap-5">
+                            <div class="bg-megaDark text-megaYellow p-4 rounded-2xl font-black text-center min-w-[70px] border border-white/10 shadow-md">
+                                <span class="block text-2xl leading-none">MAI</span>
+                                <span class="text-[10px] tracking-widest uppercase text-slate-400 mt-1 block">2026</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] bg-megaYellow/20 text-megaDark font-black px-2 py-0.5 rounded uppercase tracking-wider">PRESENCIAL / DIGITAL</span>
+                                <h3 class="text-xl font-extrabold uppercase tracking-tight mt-1 text-megaBlue">Eventos Intensivos Full-Day</h3>
+                                <p class="text-slate-600 text-xs mt-1 leading-relaxed">Jornadas prácticas inmersivas mecánicas y de alta exigencia técnica en sedes oficiales de soporte.</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20quiero%20conocer%20fechas%20y%20reservar%20cupo%20para%20el%20pr%C3%B3ximo%20Evento%20Intensivo%20Full-Day." 
+                           target="_blank" rel="noopener"
+                           class="w-full sm:w-auto text-center bg-megaBlue hover:bg-[#004d6e] text-white font-black text-xs uppercase tracking-widest px-5 py-3 rounded-xl transition-colors shadow-md">
+                            Reservar Cupo
+                        </a>
+                    </div>
+
+                    <div class="bg-megaLight p-6 sm:p-8 rounded-3xl border-2 border-slate-100 shadow-xl hover:shadow-2xl transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-megaYellow/50">
+                        <div class="flex items-center gap-5">
+                            <div class="bg-megaBlue text-white p-4 rounded-2xl font-black text-center min-w-[70px] shadow-md">
+                                <span class="block text-2xl leading-none">JUN</span>
+                                <span class="text-[10px] tracking-widest uppercase text-blue-200 mt-1 block">2026</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] bg-megaDark text-megaYellow font-black px-2 py-0.5 rounded uppercase tracking-wider">MÉTODO ENVOLTORIO HÍBRIDO</span>
+                                <h3 class="text-xl font-extrabold uppercase tracking-tight mt-1 text-megaDark">Apertura Oficial Cohorte II</h3>
+                                <p class="text-slate-600 text-xs mt-1 leading-relaxed">Inicio integral del trípode formativo: Oficio, Estructura de Negocios y Mentorías de Mentalidad Humana.</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20y%20precios%20de%20inscripci%C3%B3n%20para%20la%20Cohorte%20de%20Junio%202026." 
+                           target="_blank" rel="noopener"
+                           class="w-full sm:w-auto text-center bg-megaYellow hover:bg-yellow-500 text-megaDark font-black text-xs uppercase tracking-widest px-5 py-3 rounded-xl transition-colors shadow-md">
+                            Ver Precios
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="py-20 lg:py-28 bg-gradient-to-b from-slate-50 to-megaLight border-t border-slate-200 text-megaDark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                    <span class="bg-megaBlue/10 text-megaBlue px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest inline-block">Resultados Reales</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight">Casos de Éxito: Alumnos que Rompieron el Ciclo</h2>
+                    <p class="text-slate-600 font-light">Nuestra mejor reputación es la transformación de nuestros egresados. Conoce historias reales de personas que pasaron de cero a dueños independientes de sus propios negocios técnicos.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    
+                    <div class="bg-white p-8 rounded-3xl shadow-xl border-b-8 border-megaBlue flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-5 text-megaBlue text-9xl font-black font-serif leading-none select-none pointer-events-none">“</div>
+                        <div class="space-y-4 relative z-10">
+                            <div class="flex text-megaYellow gap-1 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-sm text-slate-600 italic leading-relaxed font-light">
+                                "Llegué buscando un curso simple de refrigeración comercial porque estaba desempleado. En Mega Escuela no solo me enseñaron a reparar neveras y aires a nivel experto; me obligaron a entender mis costos y a vender por redes sociales. Hoy tengo mi propio taller independiente y superé con creces mi sueldo anterior."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6 pt-4 border-t border-slate-100">
+                            <div class="w-11 h-11 bg-megaBlue text-white font-black text-xs uppercase rounded-full flex items-center justify-center border-2 border-megaYellow">
+                                RC
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-sm uppercase text-megaDark tracking-tight">Carlos Mendoza</h4>
+                                <p class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Egresado Escuela Técnica / Socio-Operador</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl shadow-xl border-b-8 border-megaYellow flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-5 text-megaYellow text-9xl font-black font-serif leading-none select-none pointer-events-none">“</div>
+                        <div class="space-y-4 relative z-10">
+                            <div class="flex text-megaYellow gap-1 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-sm text-slate-600 italic leading-relaxed font-light">
+                                "Tenía miedo porque soy muy introvertida y el marketing digital me abrumaba. Gracias a la estrategia faceless que me enseñaron y al soporte constante del grupo de Peer-Tutoring, logré lanzar mi marca estética. Recuperé toda la inversión de materiales antes de terminar la tercera semana de clases."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-6 pt-4 border-t border-slate-100">
+                            <div class="w-11 h-11 bg-megaDark text-megaYellow font-black text-xs uppercase rounded-full flex items-center justify-center border-2 border-megaBlue">
+                                AM
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-sm uppercase text-megaDark tracking-tight">Anamarina Silva</h4>
+                                <p class="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Egresada Escuela Estética / Técnica Especialista</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="certificacion" class="py-20 lg:py-28 bg-white text-megaDark">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-12 items-center">
+                
+                <div class="md:col-span-7 space-y-6">
+                    <span class="bg-megaBlue/10 text-megaBlue px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest inline-block">Validación Curricular</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-megaDark tracking-tight uppercase leading-tight">
+                        Certificación de Alto Impacto Profesional
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
+                        Nuestras certificaciones no son simples hojas de asistencia en formato PDF. El diploma emitido por <strong class="text-megaDark font-bold">Mega Escuela Venezuela</strong> avala que has superado evaluaciones teóricas estrictas, que has demostrado excelencia operativa en tus prácticas reales en vivo y que posees las competencias de gestión comercial necesarias para operar de forma legal, rentable y ética en todo el territorio nacional.
+                    </p>
+                    <div class="p-4 bg-megaLight rounded-2xl border-2 border-dashed border-slate-200 text-xs text-slate-500 leading-relaxed flex items-start gap-3">
+                        <i class="fas fa-shield-alt text-megaBlue text-lg mt-0.5"></i>
+                        <span><strong class="text-megaDark font-bold">Blindaje contra la Piratería:</strong> El valor real está en nuestra comunidad y en el acompañamiento diario interactivo de la red de técnicos. No vendemos videos pregrabados vacíos; certificamos habilidades reales en el campo de trabajo.</span>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="bg-gradient-to-tr from-slate-950 to-slate-900 text-white p-8 rounded-3xl shadow-2xl border-4 border-megaYellow text-center relative max-w-xs w-full overflow-hidden">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-megaBlue/20 rounded-full blur-2xl"></div>
+                        <i class="fas fa-medal text-5xl text-megaYellow mb-4 animate-bounce"></i>
+                        <h3 class="text-md font-extrabold uppercase tracking-widest text-white">Aval Oficial</h3>
+                        <p class="text-[11px] text-slate-400 font-mono uppercase tracking-widest mt-1">Mega Escuela Holding</p>
+                        <div class="w-full border-b border-white/5 my-4"></div>
+                        <p class="text-xs text-slate-300 leading-relaxed font-light">
+                            Documento codificado con firma digital centralizada verificable por empresas, clínicas y centros estéticos contratantes de la industria.
+                        </p>
+                        <div class="mt-6 bg-black/40 py-2.5 px-4 rounded-xl border border-white/5 inline-block text-[10px] font-mono tracking-widest text-green-400 uppercase">
+                            CÓDIGO ÚNICO: ME-2026-VAL
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="planes" class="py-20 lg:py-28 bg-white text-slate-800 relative">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-megaBlue/5 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                    <span class="bg-megaBlue text-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest inline-block shadow-md">
+                        Admisiones 2026
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 uppercase tracking-tight leading-tight">
+                        Asegura tu entrada al ecosistema
+                    </h2>
+                    <p class="text-slate-600 font-light text-base">
+                        No estás comprando un curso aislado. Estás aplicando a una infraestructura de transformación económica estructurada para tu éxito.
+                    </p>
+                </div>
+
+                <div class="max-w-xl mx-auto bg-slate-50 rounded-3xl border-2 border-slate-100 overflow-hidden shadow-xl transform hover:scale-[1.01] transition-transform">
+                    
+                    <div class="bg-megaBlue text-white px-6 py-3 text-center text-xs font-black uppercase tracking-widest">
+                        <i class="fas fa-graduation-cap mr-2"></i> Evaluación de Perfil y Otorgamiento de Becas
+                    </div>
+                    
+                    <div class="p-8 sm:p-10 space-y-6">
+                        <div class="text-center space-y-2">
+                            <h3 class="text-2xl font-black uppercase tracking-tight text-slate-900">Acceso Profesional Guiado</h3>
+                            <p class="text-slate-500 text-xs font-medium">Plan de Carrera Personalizado + Sistema de Tres Dimensiones</p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center space-y-3 shadow-inner">
+                            <span class="text-[11px] text-megaBlue font-mono font-bold uppercase tracking-widest block">
+                                Postulación Directa
+                            </span>
+                            <h4 class="text-xl font-black text-slate-900 leading-tight">
+                                Consulta Financiera con un Asesor Académico
+                            </h4>
+                            <p class="text-xs text-slate-600 font-light leading-relaxed">
+                                Nuestros asesores están capacitados para estructurar tu plan de estudio y validar si calificas para nuestros <strong class="text-megaBlue font-bold">Precios de Oportunidad por Lanzamiento</strong> o el programa de <strong class="text-green-600 font-bold">Becas de Impulso Económico</strong>.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-2">
+                            <h4 class="text-xs font-black uppercase tracking-widest text-slate-900 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-megaYellow"></span> Lo que resolverás en tu sesión:
+                            </h4>
+                            <ul class="space-y-3 text-xs sm:text-sm text-slate-600">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-megaBlue mt-0.5 shrink-0"></i> 
+                                    <span><strong>Diagnóstico de Perfil:</strong> Evaluación del oficio más rentable según tu zona y capital inicial.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-megaBlue mt-0.5 shrink-0"></i> 
+                                    <span><strong>Estructura de Financiamiento:</strong> Opciones de pago y validación de subsidios de becas disponibles.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-check-circle text-megaBlue mt-0.5 shrink-0"></i> 
+                                    <span><strong>Garantía de Ubicación:</strong> Coordinación de horarios prácticos y fechas de inicio de cohorte.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="pt-4">
+                            <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20deseo%20comunicarme%20con%20un%20asesor%20acad%C3%A9mico%20para%20recibir%20orientaci%C3%B3n%20sobre%20las%20carreras,%20precios%20de%20oportunidad%20y%20opciones%20de%20becas." 
+                               target="_blank" rel="noopener"
+                               class="w-full text-center flex items-center justify-center gap-3 bg-megaYellow hover:bg-yellow-500 text-megaDark font-black text-base py-4 rounded-xl shadow-lg hover:shadow-xl transition-all uppercase tracking-wider">
+                                <i class="fab fa-whatsapp text-xl"></i> Hablar con un Asesor de Admisiones
+                            </a>
+                            <span class="text-[10px] text-slate-400 font-mono text-center block mt-3 uppercase tracking-tighter">
+                                *Sin compromisos financieros obligatorios en la llamada.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 max-w-3xl mx-auto bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden border-2 border-megaYellow">
+                    <div class="absolute -right-10 -bottom-10 text-white/5 text-[180px] pointer-events-none">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+
+                    <div class="grid md:grid-cols-12 gap-8 items-center relative z-10">
+                        <div class="md:col-span-4 flex flex-col items-center justify-center text-center md:border-r border-slate-800 md:pr-6">
+                            <div class="w-20 h-20 bg-megaYellow text-megaDark rounded-full flex items-center justify-center text-3xl font-black shadow-xl mb-3 animate-[pulse_3s_infinite]">
+                                7
+                            </div>
+                            <p class="text-xs font-mono font-black text-megaYellow uppercase tracking-widest">Días de Garantía</p>
+                            <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tight">100% Incondicional</p>
+                        </div>
+
+                        <div class="md:col-span-8 text-center md:text-left space-y-3">
+                            <span class="text-[10px] bg-megaBlue text-white font-mono uppercase tracking-widest px-2.5 py-1 rounded-md border border-white/10">
+                                Compromiso de Satisfacción Total
+                            </span>
+                            <h4 class="font-black text-xl sm:text-2xl uppercase text-white tracking-tight">
+                                Tu Inversión Respaldada al 100%
+                            </h4>
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-light">
+                                Estamos tan absolutamente seguros de que nuestro sistema es la alternativa definitiva para convertirte no solo en un profesional excepcional en el oficio que te apasiona, sino para <strong class="text-megaYellow font-medium">darte las herramientas reales para que puedas vivir de él con total libertad</strong>, que asumimos todo el riesgo.
+                            </p>
+                            <p class="text-[11px] text-slate-400 font-mono italic">
+                                *Si durante los primeros 7 días sientes que este ecosistema no es para ti, nos lo comunicas y procesamos tu devolución inmediatamente. Sin preguntas incómodas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black text-slate-400 py-16 border-t border-white/10 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12">
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 bg-megaYellow rounded flex items-center justify-center font-black text-megaDark text-sm">M</div>
+                    <span class="text-white font-extrabold tracking-wider uppercase">MEGA ESCUELA HOLDING</span>
+                </div>
+                <p class="text-slate-500 leading-relaxed">
+                    Ecosistema educativo e institucional enfocado en el desarrollo de micro-empresarios técnicos independientes capaces de generar riqueza sustentable en Venezuela.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-white font-black text-xs uppercase tracking-widest text-megaYellow">Sedes de Soporte Físico</h4>
+                <ul class="space-y-2 text-slate-400">
+                    <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-megaBlue text-[10px]"></i> Sede Valencia: Av. Bolívar Norte, CC Camoruco, Piso 2. Lun-Sáb 8:00 AM - 5:00 PM.</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-megaBlue text-[10px]"></i> Sede Caracas: Av. Francisco de Miranda, Torre Delta, Local N° 4B. Lun-Sáb 8:00 AM - 5:00 PM.</li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="text-white font-black text-xs uppercase tracking-widest text-megaBlue">Contacto Centralizado</h4>
+                <p class="text-slate-500 leading-relaxed">Para garantizar la calidad de atención, todas nuestras comunicaciones se derivan al canal matriz de soporte:</p>
+                <a href="https://wa.me/584120000000?text=Hola%20Mega%20Escuela,%20escribo%20desde%20el%20footer%20de%20la%20web%20para%20contacto%20general." 
+                   target="_blank" rel="noopener"
+                   class="w-full text-center sm:text-left bg-slate-900 hover:bg-slate-800 text-white font-bold px-4 py-3 rounded-xl border border-slate-800 hover:border-megaYellow inline-block transition-colors tracking-wide uppercase text-[10px]">
+                    <i class="fab fa-whatsapp mr-2 text-green-400 text-sm"></i>WhatsApp Matriz: +58 (412) 000-0000
+                </a>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 mt-12 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-600 gap-4">
+            <p>© 2026 Mega Escuela Holding. Todos los derechos reservados. Desarrollado para alta conversión profesional.</p>
+            <div class="flex gap-6 uppercase tracking-wider font-mono text-[10px]">
+                <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                <a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
