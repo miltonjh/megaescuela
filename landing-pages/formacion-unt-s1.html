@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Viewport optimizado para rotación automática y mirroring a Smart TV -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Formación Marketing Político - UNT San Francisco | Milton Hurtado</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons CDN -->
@@ -39,7 +41,6 @@
     </script>
     <style>
         [x-cloak] { display: none !important; }
-        /* Custom Scrollbar for Presentation */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -59,11 +60,11 @@
         }
     </style>
 </head>
-<body class="bg-unt-dark text-slate-100 font-sans antialiased min-h-screen flex flex-col md:flex-row overflow-x-hidden" 
+<body class="bg-unt-dark text-slate-100 font-sans antialiased min-h-screen flex flex-col md:flex-row landscape:flex-row overflow-x-hidden" 
       x-data="dashboardApp()">
 
-    <!-- Mobile Header Navigation -->
-    <header class="md:hidden bg-unt-darkblue border-b-2 border-unt-border p-4 flex justify-between items-center sticky top-0 z-50">
+    <!-- Header Móvil Solo en Retrato Vertical -->
+    <header class="md:hidden landscape:hidden bg-unt-darkblue border-b-2 border-unt-border p-4 flex justify-between items-center sticky top-0 z-50">
         <div class="flex items-center space-x-3">
             <div class="bg-unt-orange text-white font-extrabold px-3 py-1.5 rounded-lg text-base shadow">UNT</div>
             <div>
@@ -76,14 +77,14 @@
         </button>
     </header>
 
-    <!-- Sidebar Navigation -->
-    <aside class="w-full md:w-80 bg-slate-900 border-r-2 border-unt-border flex-shrink-0 md:min-h-screen flex flex-col justify-between"
-           :class="{'block': mobileMenuOpen, 'hidden md:flex': !mobileMenuOpen}">
+    <!-- Sidebar Navegación Adaptable a Horizontal (TV / Landscape) -->
+    <aside class="w-full md:w-80 landscape:w-72 bg-slate-900 border-r-2 border-unt-border flex-shrink-0 md:min-h-screen landscape:min-h-screen flex flex-col justify-between"
+           :class="{'block': mobileMenuOpen, 'hidden md:flex landscape:flex': !mobileMenuOpen}">
         <div>
-            <!-- Sidebar Header / Logo -->
-            <div class="p-6 border-b-2 border-unt-border bg-unt-darkblue">
+            <!-- Header Logo -->
+            <div class="p-5 border-b-2 border-unt-border bg-unt-darkblue">
                 <div class="flex items-center space-x-3 mb-2">
-                    <div class="bg-gradient-to-tr from-unt-blue to-unt-orange text-white p-3 rounded-xl font-black text-xl shadow-lg border border-white/20">
+                    <div class="bg-gradient-to-tr from-unt-blue to-unt-orange text-white p-2.5 rounded-xl font-black text-xl shadow-lg border border-white/20">
                         UNT
                     </div>
                     <div>
@@ -91,81 +92,81 @@
                         <p class="text-xs text-unt-yellow font-bold tracking-wider uppercase">San Francisco</p>
                     </div>
                 </div>
-                <div class="mt-3 pt-3 border-t border-slate-700/80 flex items-center justify-between">
-                    <span class="inline-block px-2.5 py-1 text-xs font-black tracking-wider uppercase bg-unt-orange text-white rounded-md shadow">
+                <div class="mt-2 pt-2 border-t border-slate-700/80 flex items-center justify-between">
+                    <span class="inline-block px-2.5 py-0.5 text-[11px] font-black tracking-wider uppercase bg-unt-orange text-white rounded shadow">
                         Programa Adaptado
                     </span>
                     <span class="text-xs font-bold text-slate-300">Sesión 1</span>
                 </div>
             </div>
 
-            <!-- Instructor Highlight Card -->
-            <div class="mx-4 mt-4 p-3.5 bg-gradient-to-r from-slate-800 to-unt-darkblue rounded-xl border border-unt-lightblue/40 shadow-md">
+            <!-- Ficha Instructor -->
+            <div class="mx-3 mt-3 p-3 bg-gradient-to-r from-slate-800 to-unt-darkblue rounded-xl border border-unt-lightblue/40 shadow">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-unt-orange text-white flex items-center justify-center font-bold text-lg shadow-md border border-white/30">
+                    <div class="w-9 h-9 rounded-full bg-unt-orange text-white flex items-center justify-center font-bold text-base shadow border border-white/30">
                         <i class="fa-solid fa-chalkboard-user"></i>
                     </div>
                     <div>
-                        <p class="text-[11px] font-bold uppercase tracking-wider text-unt-accent">Facilitador / Instructor</p>
-                        <p class="text-base font-extrabold text-white">Milton Hurtado</p>
+                        <p class="text-[10px] font-bold uppercase tracking-wider text-unt-accent">Facilitador / Instructor</p>
+                        <p class="text-sm font-extrabold text-white">Milton Hurtado</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Navigation Links with High Contrast Legibility -->
-            <nav class="p-4 space-y-2">
+            <!-- Links de Menú con Alto Contraste para Proyección -->
+            <nav class="p-3 space-y-1.5 overflow-y-auto max-h-[calc(100vh-220px)]">
                 <template x-for="(item, idx) in menuItems" :key="item.id">
                     <button @click="activeTab = item.id; mobileMenuOpen = false" 
-                            class="w-full flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-bold transition-all duration-150 border-2"
+                            class="w-full flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-bold transition-all duration-150 border-2"
                             :class="activeTab === item.id 
-                                ? 'bg-unt-blue border-unt-accent text-white shadow-lg shadow-blue-950 scale-[1.02]' 
+                                ? 'bg-unt-blue border-unt-accent text-white shadow-lg shadow-blue-950 scale-[1.01]' 
                                 : 'bg-slate-800/80 border-slate-700/80 text-slate-200 hover:bg-slate-700 hover:border-slate-500 hover:text-white'">
                         <div class="flex items-center space-x-3">
-                            <i :class="item.icon" class="w-6 text-center text-lg text-unt-yellow"></i>
-                            <span x-text="item.label" class="tracking-wide"></span>
+                            <i :class="item.icon" class="w-5 text-center text-base text-unt-yellow"></i>
+                            <span x-text="item.label" class="tracking-wide text-xs sm:text-sm"></span>
                         </div>
-                        <i x-show="activeTab === item.id" class="fa-solid fa-circle-chevron-right text-sm text-unt-yellow animate-pulse"></i>
+                        <i x-show="activeTab === item.id" class="fa-solid fa-circle-chevron-right text-xs text-unt-yellow animate-pulse"></i>
                     </button>
                 </template>
             </nav>
         </div>
 
         <!-- Presenter Footer -->
-        <div class="p-4 border-t-2 border-unt-border bg-slate-950">
-            <div class="text-center space-y-1">
-                <p class="text-xs font-bold text-slate-400">Marketing Político & Contenido</p>
-                <p class="text-[11px] text-unt-accent font-semibold">Organismos Políticos - UNT 2026</p>
+        <div class="p-3 border-t-2 border-unt-border bg-slate-950">
+            <div class="text-center">
+                <p class="text-xs font-bold text-slate-300">Marketing Político UNT 2026</p>
             </div>
         </div>
     </aside>
 
-    <!-- Main Content Container -->
+    <!-- Área Principal del Dashboard -->
     <main class="flex-1 bg-unt-dark p-4 sm:p-6 lg:p-8 overflow-y-auto min-h-screen">
         
-        <!-- Top Status Bar Optimized for Projectors -->
-        <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-900 border-2 border-unt-border p-5 rounded-2xl shadow-xl">
+        <!-- Status Bar Transmisión TV -->
+        <div class="mb-6 flex flex-col sm:flex-row landscape:flex-row sm:items-center landscape:items-center justify-between gap-4 bg-slate-900 border-2 border-unt-border p-4 rounded-2xl shadow-xl">
             <div>
                 <div class="flex items-center gap-2">
-                    <span class="px-2.5 py-0.5 bg-unt-orange text-white text-xs font-black uppercase rounded tracking-wider">UNT San Francisco</span>
+                    <span class="px-2 py-0.5 bg-unt-orange text-white text-[10px] font-black uppercase rounded tracking-wider">UNT San Francisco</span>
                     <span class="text-xs text-slate-300 font-bold">Dictado por: <strong class="text-white">Milton Hurtado</strong></span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-black text-white mt-1 flex items-center gap-3 projector-text-shadow">
+                <h2 class="text-xl sm:text-2xl font-black text-white mt-1 flex items-center gap-2 projector-text-shadow">
                     <span x-text="getCurrentTitle()"></span>
                 </h2>
             </div>
-            <div class="flex items-center space-x-2 bg-unt-darkblue px-4 py-2 rounded-xl border border-unt-lightblue self-start sm:self-auto shadow-inner">
-                <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
-                <span class="text-sm font-extrabold text-white tracking-wide">MODO PROYECCIÓN EN VIVO</span>
+            <div class="flex items-center space-x-2 bg-unt-darkblue px-3.5 py-1.5 rounded-xl border border-unt-lightblue self-start sm:self-auto shadow-inner">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-xs font-extrabold text-white tracking-wide">MODO PROYECCIÓN TV EN VIVO</span>
             </div>
         </div>
 
-        <!-- TAB 0: OVERVIEW / RESUMEN -->
+        <!-- VISTAS / TABS DEL PROGRAMA -->
+
+        <!-- TAB 0: OVERVIEW -->
         <section x-show="activeTab === 'overview'" x-transition:enter="transition opacity ease-out duration-300" class="space-y-6">
-            <!-- Hero Presentation Banner -->
-            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-unt-darkblue via-slate-900 to-unt-blue p-6 sm:p-10 border-2 border-unt-lightblue/50 shadow-2xl">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-unt-darkblue via-slate-900 to-unt-blue p-6 sm:p-8 border-2 border-unt-lightblue/50 shadow-2xl">
                 <div class="relative z-10 max-w-4xl space-y-4">
-                    <div class="flex flex-wrap items-center gap-3">
-                        <span class="px-4 py-1.5 bg-unt-orange text-white text-sm font-black rounded-full shadow-md uppercase tracking-wide">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-3 py-1 bg-unt-orange text-white text-xs font-black rounded-full shadow-md uppercase">
                             Jornada Intensiva de Capacitación
                         </span>
                         <span class="px-3 py-1 bg-slate-800 text-unt-yellow text-xs font-extrabold rounded-full border border-unt-yellow/40">
@@ -173,51 +174,50 @@
                         </span>
                     </div>
                     
-                    <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight projector-text-shadow">
+                    <h1 class="text-2xl sm:text-4xl font-black text-white leading-tight projector-text-shadow">
                         Marketing Político & Creación de Contenido
                     </h1>
                     
-                    <div class="p-4 bg-slate-950/80 rounded-2xl border border-slate-700/80 max-w-3xl">
-                        <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-medium">
-                            Bienvenido a la sesión de entrenamiento oficial para activistas y comunicadores de <strong class="text-unt-yellow font-extrabold">Un Nuevo Tiempo - San Francisco</strong>.
+                    <div class="p-4 bg-slate-950/80 rounded-2xl border border-slate-700/80">
+                        <p class="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+                            Entrenamiento oficial para los equipos de comunicación de <strong class="text-unt-yellow">Un Nuevo Tiempo - San Francisco</strong>.
                         </p>
-                        <p class="text-unt-accent text-sm sm:text-base font-bold mt-2 flex items-center gap-2">
-                            <i class="fa-solid fa-user-check text-unt-orange"></i>
-                            Facilitador principal: <span class="text-white font-extrabold underline decoration-unt-orange underline-offset-4">Milton Hurtado</span>
+                        <p class="text-unt-accent text-xs sm:text-sm font-bold mt-1">
+                            Facilitador: <span class="text-white font-extrabold underline decoration-unt-orange">Milton Hurtado</span>
                         </p>
                     </div>
 
-                    <div class="flex flex-wrap gap-4 pt-2">
-                        <button @click="activeTab = 'funnel'" class="px-6 py-3.5 bg-unt-orange hover:bg-orange-600 text-white font-black text-base rounded-xl transition shadow-xl flex items-center gap-3 border border-orange-400">
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button @click="activeTab = 'funnel'" class="px-5 py-3 bg-unt-orange hover:bg-orange-600 text-white font-black text-sm rounded-xl transition shadow-xl flex items-center gap-2 border border-orange-400">
                             <span>Iniciar Módulo 1: Embudo</span>
-                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
                         </button>
-                        <button @click="activeTab = 'practica'" class="px-6 py-3.5 bg-unt-blue hover:bg-blue-600 text-white font-black text-base rounded-xl transition shadow-xl border border-unt-accent flex items-center gap-3">
+                        <button @click="activeTab = 'practica'" class="px-5 py-3 bg-unt-blue hover:bg-blue-600 text-white font-black text-sm rounded-xl transition shadow-xl border border-unt-accent flex items-center gap-2">
                             <i class="fa-solid fa-video text-unt-yellow"></i>
-                            <span>Ir al Taller Práctico Central</span>
+                            <span>Ir al Taller Práctico</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Program Grid Cards for Projection -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Grilla de Módulos para TV -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 landscape:grid-cols-3 gap-5">
                 <template x-for="(module, index) in modulesList" :key="module.id">
                     <div @click="activeTab = module.id" 
-                         class="bg-slate-900 border-2 border-unt-border hover:border-unt-accent p-6 rounded-2xl transition duration-200 hover:scale-[1.02] cursor-pointer flex flex-col justify-between shadow-xl group">
+                         class="bg-slate-900 border-2 border-unt-border hover:border-unt-accent p-5 rounded-2xl transition duration-200 hover:scale-[1.01] cursor-pointer flex flex-col justify-between shadow-xl group">
                         <div>
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="text-sm font-black px-3 py-1 bg-unt-darkblue text-unt-accent rounded-lg border border-unt-border" x-text="'Punto ' + (index + 1)"></span>
-                                <div class="w-12 h-12 rounded-xl bg-slate-800 text-unt-yellow flex items-center justify-center text-2xl group-hover:bg-unt-orange group-hover:text-white transition duration-200 border border-slate-700">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-xs font-black px-2.5 py-1 bg-unt-darkblue text-unt-accent rounded border border-unt-border" x-text="'Punto ' + (index + 1)"></span>
+                                <div class="w-10 h-10 rounded-xl bg-slate-800 text-unt-yellow flex items-center justify-center text-xl group-hover:bg-unt-orange group-hover:text-white transition duration-200 border border-slate-700">
                                     <i :class="module.icon"></i>
                                 </div>
                             </div>
-                            <h3 class="text-xl font-black text-white mb-2 group-hover:text-unt-accent transition" x-text="module.title"></h3>
-                            <p class="text-slate-300 text-sm leading-relaxed mb-4 font-medium" x-text="module.desc"></p>
+                            <h3 class="text-lg font-black text-white mb-1 group-hover:text-unt-accent transition" x-text="module.title"></h3>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-3 font-medium" x-text="module.desc"></p>
                         </div>
-                        <div class="pt-4 border-t-2 border-slate-800 flex items-center justify-between text-sm font-extrabold text-unt-yellow">
+                        <div class="pt-3 border-t-2 border-slate-800 flex items-center justify-between text-xs font-extrabold text-unt-yellow">
                             <span x-text="module.tag"></span>
-                            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-2 transition"></i>
+                            <i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition"></i>
                         </div>
                     </div>
                 </template>
@@ -226,181 +226,98 @@
 
         <!-- TAB 1: EMBUDO POLITICO -->
         <section x-show="activeTab === 'funnel'" x-transition:enter="transition opacity ease-out duration-300" class="space-y-6">
-            <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl shadow-xl">
-                <h3 class="text-2xl font-black text-white mb-2 flex items-center gap-3">
+            <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl shadow-xl">
+                <h3 class="text-xl font-black text-white mb-1 flex items-center gap-2">
                     <i class="fa-solid fa-filter text-unt-orange"></i>
                     1. El Embudo de Conversión Político (Political Funnel)
                 </h3>
-                <p class="text-base text-slate-200 font-medium leading-relaxed">
-                    Estructura estratégica en 3 niveles diseñada para transformar la indiferencia del ciudadano de San Francisco en simpatía, credibilidad y movilización para la organización.
+                <p class="text-sm text-slate-200 font-medium">
+                    Estructura en 3 niveles para transformar la apatía en simpatía y movilización política en San Francisco.
                 </p>
             </div>
 
-            <!-- Interactive Funnel Component -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- Funnel Visual Stack -->
-                <div class="lg:col-span-5 space-y-4">
-                    <!-- TOFU -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 landscape:grid-cols-12 gap-5">
+                <div class="lg:col-span-5 landscape:col-span-5 space-y-3">
                     <button @click="selectedFunnelStage = 'tofu'" 
-                            class="w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 relative overflow-hidden group shadow-lg"
-                            :class="selectedFunnelStage === 'tofu' ? 'bg-blue-950 border-blue-400 shadow-blue-950/80 scale-[1.02]' : 'bg-slate-900 border-slate-700 hover:border-slate-500'">
+                            class="w-full text-left p-4 rounded-2xl border-2 transition relative overflow-hidden shadow-lg"
+                            :class="selectedFunnelStage === 'tofu' ? 'bg-blue-950 border-blue-400 shadow-blue-950/80 scale-[1.01]' : 'bg-slate-900 border-slate-700'">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-black px-3 py-1 bg-blue-500 text-white rounded-md uppercase tracking-wider">TOFU - Parte Alta</span>
-                            <i class="fa-solid fa-eye text-blue-400 text-xl"></i>
+                            <span class="text-[10px] font-black px-2.5 py-0.5 bg-blue-500 text-white rounded uppercase">TOFU - Alcance</span>
+                            <i class="fa-solid fa-eye text-blue-400 text-lg"></i>
                         </div>
-                        <h4 class="text-xl font-black text-white mt-3">1. Reconocimiento & Alcance</h4>
-                        <p class="text-sm text-slate-300 mt-1 font-medium">Captar la atención masiva de los vecinos del municipio.</p>
-                        <div class="mt-4 w-full bg-slate-800 h-3 rounded-full overflow-hidden border border-slate-700">
-                            <div class="bg-blue-400 h-full w-full"></div>
-                        </div>
+                        <h4 class="text-lg font-black text-white mt-2">1. Reconocimiento</h4>
+                        <p class="text-xs text-slate-300 mt-1 font-medium">Captar atención masiva del municipio.</p>
                     </button>
 
-                    <!-- MOFU -->
                     <button @click="selectedFunnelStage = 'mofu'" 
-                            class="w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 relative overflow-hidden group shadow-lg"
-                            :class="selectedFunnelStage === 'mofu' ? 'bg-amber-950 border-amber-400 shadow-amber-950/80 scale-[1.02]' : 'bg-slate-900 border-slate-700 hover:border-slate-500'">
+                            class="w-full text-left p-4 rounded-2xl border-2 transition relative overflow-hidden shadow-lg"
+                            :class="selectedFunnelStage === 'mofu' ? 'bg-amber-950 border-amber-400 shadow-amber-950/80 scale-[1.01]' : 'bg-slate-900 border-slate-700'">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-black px-3 py-1 bg-amber-500 text-black rounded-md uppercase tracking-wider">MOFU - Parte Media</span>
-                            <i class="fa-solid fa-comments text-amber-400 text-xl"></i>
+                            <span class="text-[10px] font-black px-2.5 py-0.5 bg-amber-500 text-black rounded uppercase">MOFU - Conexión</span>
+                            <i class="fa-solid fa-comments text-amber-400 text-lg"></i>
                         </div>
-                        <h4 class="text-xl font-black text-white mt-3">2. Conexión & Consideración</h4>
-                        <p class="text-sm text-slate-300 mt-1 font-medium">Demostrar capacidad técnica, empatía y generar confianza.</p>
-                        <div class="mt-4 w-full bg-slate-800 h-3 rounded-full overflow-hidden border border-slate-700">
-                            <div class="bg-amber-400 h-full w-2/3 mx-auto"></div>
-                        </div>
+                        <h4 class="text-lg font-black text-white mt-2">2. Consideración</h4>
+                        <p class="text-xs text-slate-300 mt-1 font-medium">Generar confianza y demostrar propuestas.</p>
                     </button>
 
-                    <!-- BOFU -->
                     <button @click="selectedFunnelStage = 'bofu'" 
-                            class="w-full text-left p-6 rounded-2xl border-2 transition-all duration-200 relative overflow-hidden group shadow-lg"
-                            :class="selectedFunnelStage === 'bofu' ? 'bg-orange-950 border-unt-orange shadow-orange-950/80 scale-[1.02]' : 'bg-slate-900 border-slate-700 hover:border-slate-500'">
+                            class="w-full text-left p-4 rounded-2xl border-2 transition relative overflow-hidden shadow-lg"
+                            :class="selectedFunnelStage === 'bofu' ? 'bg-orange-950 border-unt-orange shadow-orange-950/80 scale-[1.01]' : 'bg-slate-900 border-slate-700'">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-black px-3 py-1 bg-unt-orange text-white rounded-md uppercase tracking-wider">BOFU - Parte Baja</span>
-                            <i class="fa-solid fa-bullhorn text-unt-orange text-xl"></i>
+                            <span class="text-[10px] font-black px-2.5 py-0.5 bg-unt-orange text-white rounded uppercase">BOFU - Activación</span>
+                            <i class="fa-solid fa-bullhorn text-unt-orange text-lg"></i>
                         </div>
-                        <h4 class="text-xl font-black text-white mt-3">3. Activación & Movilización</h4>
-                        <p class="text-sm text-slate-300 mt-1 font-medium">Llevar la simpatía digital a la acción política de calle.</p>
-                        <div class="mt-4 w-full bg-slate-800 h-3 rounded-full overflow-hidden border border-slate-700">
-                            <div class="bg-unt-orange h-full w-1/3 mx-auto"></div>
-                        </div>
+                        <h4 class="text-lg font-black text-white mt-2">3. Movilización</h4>
+                        <p class="text-xs text-slate-300 mt-1 font-medium">Llevar la simpatía digital a la calle.</p>
                     </button>
                 </div>
 
-                <!-- Funnel Stage Details Panel -->
-                <div class="lg:col-span-7 bg-slate-900 border-2 border-unt-border p-6 sm:p-8 rounded-2xl flex flex-col justify-between shadow-xl">
+                <div class="lg:col-span-7 landscape:col-span-7 bg-slate-900 border-2 border-unt-border p-5 rounded-2xl shadow-xl flex flex-col justify-between">
                     <template x-if="selectedFunnelStage === 'tofu'">
-                        <div class="space-y-5">
-                            <div class="flex items-center justify-between border-b-2 border-slate-800 pb-4">
-                                <h4 class="text-2xl font-black text-blue-400 flex items-center gap-3">
-                                    <i class="fa-solid fa-bullseye text-3xl"></i>
-                                    Fase TOFU: Reconocimiento
-                                </h4>
-                                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-extrabold rounded-md border border-blue-400">Electorado General</span>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Objetivo Político Clave:</h5>
-                                <p class="text-base text-white bg-slate-950 p-4 rounded-xl border border-slate-800 font-semibold">
-                                    Que las denuncias, recorridos y la imagen de UNT San Francisco sean vistas por miles de vecinos en redes sociales.
-                                </p>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Formatos de Contenido Sugeridos:</h5>
-                                <ul class="space-y-2 text-base text-slate-200 font-medium">
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Reels y TikToks virales de fallas en servicios públicos.</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Memes y humor político contextualizado en San Francisco.</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Ganchos de 3 segundos para frenar el desplazamiento del dedo.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="p-4 bg-unt-darkblue rounded-xl border border-unt-lightblue">
-                                <span class="text-xs font-black text-unt-yellow uppercase tracking-wider">Ejemplo San Francisco:</span>
-                                <p class="text-sm text-white mt-1 font-bold italic">"Video de 20s grabado en Domitila Flores mostrando un bote de agua sin reparar con la pregunta: ¿Hasta cuándo los vecinos van a padecer sin respuesta?"</p>
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-black text-blue-400 border-b border-slate-800 pb-2">Fase TOFU: Reconocimiento</h4>
+                            <p class="text-sm text-white bg-slate-950 p-3 rounded-xl border border-slate-800 font-semibold">
+                                Que las denuncias y recorridos de UNT San Francisco sean vistos por miles de vecinos en redes sociales.
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-200 font-medium">
+                                <li class="flex items-center gap-2 bg-slate-800/60 p-2 rounded-lg"><i class="fa-solid fa-check text-emerald-400"></i> Reels de fallas en servicios públicos.</li>
+                                <li class="flex items-center gap-2 bg-slate-800/60 p-2 rounded-lg"><i class="fa-solid fa-check text-emerald-400"></i> Memes y humor político local.</li>
+                            </ul>
+                            <div class="p-3 bg-unt-darkblue rounded-xl border border-unt-lightblue text-xs">
+                                <span class="font-black text-unt-yellow uppercase">Ejemplo:</span>
+                                <p class="text-white mt-1 italic">"Video corto en Domitila Flores mostrando un bote de agua sin reparar con pregunta impactante."</p>
                             </div>
                         </div>
                     </template>
-
                     <template x-if="selectedFunnelStage === 'mofu'">
-                        <div class="space-y-5">
-                            <div class="flex items-center justify-between border-b-2 border-slate-800 pb-4">
-                                <h4 class="text-2xl font-black text-amber-400 flex items-center gap-3">
-                                    <i class="fa-solid fa-handshake text-3xl"></i>
-                                    Fase MOFU: Conexión
-                                </h4>
-                                <span class="px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-extrabold rounded-md border border-amber-400">Vecinos Interesados / Indecisos</span>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Objetivo Político Clave:</h5>
-                                <p class="text-base text-white bg-slate-950 p-4 rounded-xl border border-slate-800 font-semibold">
-                                    Construir credibilidad y demostrar que el partido cuenta con las soluciones técnicas que requiere el municipio.
-                                </p>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Formatos de Contenido Sugeridos:</h5>
-                                <ul class="space-y-2 text-base text-slate-200 font-medium">
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Carruseles de Instagram explicando propuestas de ordenanza municipal.</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Testimoniales de vecinos beneficiados en jornadas comunitarias.</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Debates y vocerías institucionales explicativas.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="p-4 bg-unt-darkblue rounded-xl border border-unt-lightblue">
-                                <span class="text-xs font-black text-unt-yellow uppercase tracking-wider">Ejemplo San Francisco:</span>
-                                <p class="text-sm text-white mt-1 font-bold italic">"Carrusel informativo de 5 láminas en Instagram con el plan de recolección de desechos sólidos propuesto para la parroquia San Francisco."</p>
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-black text-amber-400 border-b border-slate-800 pb-2">Fase MOFU: Conexión</h4>
+                            <p class="text-sm text-white bg-slate-950 p-3 rounded-xl border border-slate-800 font-semibold">
+                                Demostrar credibilidad y soluciones técnicas reales para el municipio.
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-200 font-medium">
+                                <li class="flex items-center gap-2 bg-slate-800/60 p-2 rounded-lg"><i class="fa-solid fa-check text-emerald-400"></i> Carruseles con propuestas de ordenanzas.</li>
+                                <li class="flex items-center gap-2 bg-slate-800/60 p-2 rounded-lg"><i class="fa-solid fa-check text-emerald-400"></i> Testimoniales de jornadas comunitarias.</li>
+                            </ul>
+                            <div class="p-3 bg-unt-darkblue rounded-xl border border-unt-lightblue text-xs">
+                                <span class="font-black text-unt-yellow uppercase">Ejemplo:</span>
+                                <p class="text-white mt-1 italic">"Carrusel de 5 láminas en Instagram con el plan de recolección de desechos sólidos."</p>
                             </div>
                         </div>
                     </template>
-
                     <template x-if="selectedFunnelStage === 'bofu'">
-                        <div class="space-y-5">
-                            <div class="flex items-center justify-between border-b-2 border-slate-800 pb-4">
-                                <h4 class="text-2xl font-black text-unt-orange flex items-center gap-3">
-                                    <i class="fa-solid fa-users-gear text-3xl"></i>
-                                    Fase BOFU: Activación
-                                </h4>
-                                <span class="px-3 py-1 bg-unt-orange/20 text-unt-orange text-xs font-extrabold rounded-md border border-unt-orange">Simpatizantes / Activistas</span>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Objetivo Político Clave:</h5>
-                                <p class="text-base text-white bg-slate-950 p-4 rounded-xl border border-slate-800 font-semibold">
-                                    Convertir la interacción digital en participación real: asistencia a asambleas, difusión en WhatsApp y defensa del voto.
-                                </p>
-                            </div>
-                            <div>
-                                <h5 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Formatos de Contenido Sugeridos:</h5>
-                                <ul class="space-y-2 text-base text-slate-200 font-medium">
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Convocatorias con lugar, hora y fecha bien visibles.</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Llamados directos a unirse al canal de WhatsApp de la parroquia.</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700">
-                                        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
-                                        <span>Kits de difusión rápida para coordinadores de centros y movilizadores.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="p-4 bg-unt-darkblue rounded-xl border border-unt-lightblue">
-                                <span class="text-xs font-black text-unt-yellow uppercase tracking-wider">Ejemplo San Francisco:</span>
-                                <p class="text-sm text-white mt-1 font-bold italic">"Flyer y nota de voz institucional del Secretario General convocando al Encuentro Parroquial este sábado a las 9:00 AM."</p>
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-black text-unt-orange border-b border-slate-800 pb-2">Fase BOFU: Activación</h4>
+                            <p class="text-sm text-white bg-slate-950 p-3 rounded-xl border border-slate-800 font-semibold">
+                                Convertir likes en movilización real: asambleas, WhatsApp y defensa del voto.
+                            </p>
+                            <ul class="space-y-2 text-xs sm:text-sm text-slate-200 font-medium">
+                                <li class="flex items-center gap-2 bg-slate-800/60 p-2 rounded-lg"><i class="fa-solid fa-check text-emerald-400"></i> Convocatorias con fecha, lugar y hora.</li>
+                                <li class="flex items-center gap-2 bg-slate-800/60 p-2 rounded-lg"><i class="fa-solid fa-check text-emerald-400"></i> Kits de difusión para grupos de activistas.</li>
+                            </ul>
+                            <div class="p-3 bg-unt-darkblue rounded-xl border border-unt-lightblue text-xs">
+                                <span class="font-black text-unt-yellow uppercase">Ejemplo:</span>
+                                <p class="text-white mt-1 italic">"Flyer y nota de voz llamando al Encuentro Parroquial este sábado a las 9:00 AM."</p>
                             </div>
                         </div>
                     </template>
@@ -410,44 +327,35 @@
 
         <!-- TAB 2: PILARES DE CONTENIDO -->
         <section x-show="activeTab === 'pillars'" x-transition:enter="transition opacity ease-out duration-300" class="space-y-6">
-            <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl shadow-xl">
-                <h3 class="text-2xl font-black text-white mb-2 flex items-center gap-3">
+            <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl shadow-xl">
+                <h3 class="text-xl font-black text-white mb-1 flex items-center gap-2">
                     <i class="fa-solid fa-layer-group text-unt-yellow"></i>
                     2. Pilares de Contenido Fundamentales en el Ámbito Político
                 </h3>
-                <p class="text-base text-slate-200 font-medium leading-relaxed">
-                    Toda pieza comunicacional emitida por UNT San Francisco debe alinearse a uno de estos 4 ejes para mantener la coherencia y efectividad del mensaje.
-                </p>
+                <p class="text-sm text-slate-200 font-medium">4 ejes estratégicos indispensables para alinear las publicaciones del partido.</p>
             </div>
 
-            <!-- Pillars Grid Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 landscape:grid-cols-2 gap-5">
                 <template x-for="(pillar, idx) in pillarsList" :key="pillar.id">
-                    <div class="bg-slate-900 border-2 border-unt-border rounded-2xl p-6 hover:border-unt-accent transition space-y-4 shadow-xl flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between border-b-2 border-slate-800 pb-3">
+                    <div class="bg-slate-900 border-2 border-unt-border rounded-2xl p-5 space-y-3 shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-black shadow-md"
-                                         :class="pillar.bgClass">
+                                    <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl font-black shadow" :class="pillar.bgClass">
                                         <i :class="pillar.icon"></i>
                                     </div>
-                                    <div>
-                                        <span class="text-xs font-black text-slate-400 uppercase tracking-wider" x-text="'Eje ' + (idx + 1)"></span>
-                                        <h4 class="text-xl font-black text-white" x-text="pillar.title"></h4>
-                                    </div>
+                                    <h4 class="text-lg font-black text-white" x-text="pillar.title"></h4>
                                 </div>
-                                <span class="text-xs px-3 py-1 rounded-md border font-extrabold uppercase" :class="pillar.badgeClass" x-text="pillar.tag"></span>
+                                <span class="text-[10px] px-2 py-0.5 rounded border font-extrabold uppercase" :class="pillar.badgeClass" x-text="pillar.tag"></span>
                             </div>
-
-                            <p class="text-sm sm:text-base text-slate-200 font-medium leading-relaxed" x-text="pillar.description"></p>
+                            <p class="text-xs sm:text-sm text-slate-200 font-medium" x-text="pillar.description"></p>
                         </div>
-
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
-                            <span class="text-xs font-black text-unt-yellow uppercase tracking-wider block">Ejemplos de Aplicación Local:</span>
-                            <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 font-medium">
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1">
+                            <span class="text-[10px] font-black text-unt-yellow uppercase block">Ejemplos Locales:</span>
+                            <ul class="space-y-1 text-xs text-slate-300 font-medium">
                                 <template x-for="item in pillar.examples" :key="item">
-                                    <li class="flex items-start gap-2">
-                                        <i class="fa-solid fa-caret-right text-unt-orange text-sm mt-0.5"></i>
+                                    <li class="flex items-start gap-1.5">
+                                        <i class="fa-solid fa-caret-right text-unt-orange mt-0.5"></i>
                                         <span x-text="item"></span>
                                     </li>
                                 </template>
@@ -458,69 +366,46 @@
             </div>
         </section>
 
-        <!-- TAB 3: HERRAMIENTAS DIGITALES TECNICAS -->
+        <!-- TAB 3: HERRAMIENTAS DIGITALES -->
         <section x-show="activeTab === 'tools'" x-transition:enter="transition opacity ease-out duration-300" class="space-y-6">
-            <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl shadow-xl">
-                <h3 class="text-2xl font-black text-white mb-2 flex items-center gap-3">
+            <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl shadow-xl">
+                <h3 class="text-xl font-black text-white mb-1 flex items-center gap-2">
                     <i class="fa-solid fa-laptop-code text-unt-accent"></i>
                     3. Herramientas Digitales Técnicas para Creación y Edición
                 </h3>
-                <p class="text-base text-slate-200 font-medium leading-relaxed">
-                    Selección actualizada de aplicaciones móviles, plataformas web especializadas e inteligencias artificiales recomendadas para la producción política de UNT San Francisco.
-                </p>
+                <p class="text-sm text-slate-200 font-medium">Selección técnica de software de IA, editores de video y diseño móvil.</p>
             </div>
 
-            <!-- Tool Category Filter Tabs -->
+            <!-- Filtro de Categorías -->
             <div class="flex flex-wrap gap-2 pb-2 border-b-2 border-slate-800">
-                <button @click="toolCategory = 'all'" 
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition border"
-                        :class="toolCategory === 'all' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'">
-                    Todas las Herramientas
-                </button>
-                <button @click="toolCategory = 'ia'" 
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition border"
-                        :class="toolCategory === 'ia' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'">
-                    Modelos de Inteligencia Artificial
-                </button>
-                <button @click="toolCategory = 'video'" 
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition border"
-                        :class="toolCategory === 'video' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'">
-                    Creadores / Editores de Video
-                </button>
-                <button @click="toolCategory = 'audio'" 
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition border"
-                        :class="toolCategory === 'audio' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'">
-                    Optimización de Audio & Fondo
-                </button>
-                <button @click="toolCategory = 'design'" 
-                        class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition border"
-                        :class="toolCategory === 'design' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'">
-                    Plantillas & Diseño
-                </button>
+                <button @click="toolCategory = 'all'" class="px-3.5 py-1.5 rounded-xl text-xs font-black transition border" :class="toolCategory === 'all' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700'">Todas</button>
+                <button @click="toolCategory = 'ia'" class="px-3.5 py-1.5 rounded-xl text-xs font-black transition border" :class="toolCategory === 'ia' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700'">Modelos IA</button>
+                <button @click="toolCategory = 'video'" class="px-3.5 py-1.5 rounded-xl text-xs font-black transition border" :class="toolCategory === 'video' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700'">Video / Editores</button>
+                <button @click="toolCategory = 'audio'" class="px-3.5 py-1.5 rounded-xl text-xs font-black transition border" :class="toolCategory === 'audio' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700'">Audio / Fondo</button>
+                <button @click="toolCategory = 'design'" class="px-3.5 py-1.5 rounded-xl text-xs font-black transition border" :class="toolCategory === 'design' ? 'bg-unt-blue text-white border-unt-accent' : 'bg-slate-900 text-slate-300 border-slate-700'">Plantillas / Diseño</button>
             </div>
 
-            <!-- Tools Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 landscape:grid-cols-3 gap-5">
                 <template x-for="tool in filteredTools" :key="tool.name">
-                    <div class="bg-slate-900 border-2 border-unt-border rounded-2xl p-6 hover:border-unt-accent transition flex flex-col justify-between shadow-xl">
+                    <div class="bg-slate-900 border-2 border-unt-border rounded-2xl p-4 flex flex-col justify-between shadow-xl">
                         <div>
-                            <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-12 h-12 rounded-xl bg-unt-darkblue border border-unt-lightblue flex items-center justify-center text-2xl text-unt-yellow shadow">
+                            <div class="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-10 h-10 rounded-xl bg-unt-darkblue border border-unt-lightblue flex items-center justify-center text-xl text-unt-yellow shadow">
                                         <i :class="tool.icon"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-black text-white text-lg" x-text="tool.name"></h4>
-                                        <span class="text-xs text-unt-accent uppercase font-black tracking-wider" x-text="tool.type"></span>
+                                        <h4 class="font-black text-white text-base" x-text="tool.name"></h4>
+                                        <span class="text-[10px] text-unt-accent uppercase font-black" x-text="tool.type"></span>
                                     </div>
                                 </div>
-                                <span class="px-2.5 py-1 text-xs rounded bg-slate-800 text-emerald-400 border border-slate-700 font-extrabold" x-text="tool.platform"></span>
+                                <span class="px-2 py-0.5 text-[10px] rounded bg-slate-800 text-emerald-400 font-extrabold" x-text="tool.platform"></span>
                             </div>
-                            <p class="text-sm text-slate-200 font-medium mb-4 leading-relaxed" x-text="tool.description"></p>
+                            <p class="text-xs text-slate-200 font-medium mb-3" x-text="tool.description"></p>
                         </div>
-                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
-                            <span class="text-xs font-black text-unt-yellow uppercase tracking-wider block mb-1">Caso de Uso Político:</span>
-                            <p class="text-xs sm:text-sm text-slate-300 font-semibold italic" x-text="tool.useCase"></p>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] font-black text-unt-yellow uppercase block">Uso Político:</span>
+                            <p class="text-xs text-slate-300 italic font-semibold" x-text="tool.useCase"></p>
                         </div>
                     </div>
                 </template>
@@ -529,224 +414,148 @@
 
         <!-- TAB 4: ECOSISTEMA RRSS -->
         <section x-show="activeTab === 'ecosystem'" x-transition:enter="transition opacity ease-out duration-300" class="space-y-6">
-            <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl shadow-xl">
-                <h3 class="text-2xl font-black text-white mb-2 flex items-center gap-3">
+            <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl shadow-xl">
+                <h3 class="text-xl font-black text-white mb-1 flex items-center gap-2">
                     <i class="fa-solid fa-share-nodes text-emerald-400"></i>
                     4. Ecosistema de Redes Sociales (RRSS) Políticas
                 </h3>
-                <p class="text-base text-slate-200 font-medium leading-relaxed">
-                    Matriz de canales clave. Cada plataforma digital responde a un perfil demográfico específico dentro de las parroquias del municipio San Francisco.
-                </p>
+                <p class="text-sm text-slate-200 font-medium">Matriz de distribución según los perfiles de votantes del municipio San Francisco.</p>
             </div>
 
-            <!-- Social Media Cards Matrix -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 landscape:grid-cols-3 gap-5">
                 <template x-for="social in socialList" :key="social.name">
-                    <div class="bg-slate-900 border-2 border-unt-border rounded-2xl p-6 hover:border-unt-accent transition space-y-4 shadow-xl flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between border-b-2 border-slate-800 pb-3">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl text-white shadow-md" :class="social.colorClass">
-                                        <i :class="social.icon"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-black text-white text-xl" x-text="social.name"></h4>
-                                        <span class="text-xs text-unt-yellow font-extrabold" x-text="social.target"></span>
-                                    </div>
+                    <div class="bg-slate-900 border-2 border-unt-border rounded-2xl p-5 space-y-3 shadow-xl flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3 border-b border-slate-800 pb-2">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl text-white shadow" :class="social.colorClass">
+                                    <i :class="social.icon"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-white text-lg" x-text="social.name"></h4>
+                                    <span class="text-[11px] text-unt-yellow font-extrabold block" x-text="social.target"></span>
                                 </div>
                             </div>
-
                             <div>
-                                <span class="text-xs font-black text-slate-400 uppercase tracking-wider block mb-1">Función Estratégica:</span>
-                                <p class="text-sm sm:text-base text-white font-bold leading-relaxed" x-text="social.function"></p>
+                                <span class="text-[10px] font-black text-slate-400 uppercase block">Función Estratégica:</span>
+                                <p class="text-xs sm:text-sm text-white font-bold leading-relaxed" x-text="social.function"></p>
                             </div>
                         </div>
-
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                            <span class="text-xs font-black text-unt-orange uppercase tracking-wider block mb-1">Formato de Contenido Ideal:</span>
-                            <p class="text-xs sm:text-sm text-slate-200 font-medium" x-text="social.contentType"></p>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                            <span class="text-[10px] font-black text-unt-orange uppercase block">Formato Sugerido:</span>
+                            <p class="text-xs text-slate-200 font-medium" x-text="social.contentType"></p>
                         </div>
                     </div>
                 </template>
             </div>
         </section>
 
-        <!-- TAB 5: PRODUCCION AUDIOVISUAL MOVIL -->
+        <!-- TAB 5: PRODUCCION AUDIOVISUAL -->
         <section x-show="activeTab === 'production'" x-transition:enter="transition opacity ease-out duration-300" class="space-y-6">
-            <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl shadow-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                 <div>
-                    <span class="px-3 py-1 bg-unt-orange text-white text-xs font-black rounded uppercase tracking-wider inline-block mb-2">
-                        Carga Principal de Hoy
-                    </span>
-                    <h3 class="text-2xl font-black text-white">5. Producción Audiovisual con Dispositivos Móviles</h3>
-                    <p class="text-base text-slate-200 font-medium mt-1">
-                        Técnicas esenciales para la captura de video en campo, encuadre vertical, microfonía y edición exprés.
-                    </p>
+                    <span class="px-2.5 py-0.5 bg-unt-orange text-white text-[10px] font-black rounded uppercase">Carga Principal</span>
+                    <h3 class="text-xl font-black text-white mt-1">5. Producción Audiovisual con Dispositivos Móviles</h3>
                 </div>
-                <button @click="activeTab = 'practica'" class="px-6 py-3 bg-unt-orange hover:bg-orange-600 text-white font-black text-sm rounded-xl transition shadow-lg flex items-center gap-2 whitespace-nowrap">
-                    <i class="fa-solid fa-play"></i>
-                    <span>Ir al Simulador y Cronómetro</span>
+                <button @click="activeTab = 'practica'" class="px-4 py-2.5 bg-unt-orange hover:bg-orange-600 text-white font-black text-xs rounded-xl transition shadow flex items-center gap-2">
+                    <i class="fa-solid fa-play"></i> Ir al Ensayador
                 </button>
             </div>
 
-            <!-- Technical Steps Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Step 1 -->
-                <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl space-y-4 shadow-xl">
-                    <div class="w-10 h-10 rounded-xl bg-blue-500 text-white font-black flex items-center justify-center text-lg shadow">1</div>
-                    <h4 class="font-black text-white text-xl">Técnica de Grabación</h4>
-                    <ul class="text-xs sm:text-sm text-slate-200 space-y-3 font-medium">
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-microphone text-unt-yellow text-base mt-0.5"></i>
-                            <span><strong>Audio Solapero:</strong> Usar micrófono inalámbrico de solapa. Orientar la cápsula lejos del viento.</span>
-                        </li>
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-sun text-unt-yellow text-base mt-0.5"></i>
-                            <span><strong>Iluminación:</strong> Evitar sol directo sobre los ojos. Posicionar al vocero hacia la luz natural de frente.</span>
-                        </li>
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-mobile-button text-unt-yellow text-base mt-0.5"></i>
-                            <span><strong>Encuadre 9:16:</strong> Video vertical. Mantener los ojos en la línea del tercio superior.</span>
-                        </li>
+            <div class="grid grid-cols-1 md:grid-cols-3 landscape:grid-cols-3 gap-5">
+                <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl space-y-3 shadow-xl">
+                    <div class="w-8 h-8 rounded-lg bg-blue-500 text-white font-black flex items-center justify-center text-sm">1</div>
+                    <h4 class="font-black text-white text-base">Técnica de Grabación</h4>
+                    <ul class="text-xs text-slate-200 space-y-2 font-medium">
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Audio Solapero:</strong> Micrófono inalámbrico lejos del viento.</li>
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Iluminación:</strong> Vocero de frente a la luz natural.</li>
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Encuadre 9:16:</strong> Ojos en la línea superior de la pantalla.</li>
                     </ul>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl space-y-4 shadow-xl">
-                    <div class="w-10 h-10 rounded-xl bg-amber-500 text-black font-black flex items-center justify-center text-lg shadow">2</div>
-                    <h4 class="font-black text-white text-xl">Estructura Narrativa (30s)</h4>
-                    <ul class="text-xs sm:text-sm text-slate-200 space-y-3 font-medium">
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-bolt text-amber-400 text-base mt-0.5"></i>
-                            <span><strong>Gancho (0-3s):</strong> Pregunta o afirmación contundente para detener el desplazamiento.</span>
-                        </li>
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-layer-group text-amber-400 text-base mt-0.5"></i>
-                            <span><strong>Cuerpo (4-25s):</strong> Mostrar la problemática en sitio (b-roll) con la propuesta de UNT.</span>
-                        </li>
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-bullhorn text-amber-400 text-base mt-0.5"></i>
-                            <span><strong>Cierre / CTA (26-30s):</strong> Llamado a la acción claro e invitación a comentar o unirse.</span>
-                        </li>
+                <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl space-y-3 shadow-xl">
+                    <div class="w-8 h-8 rounded-lg bg-amber-500 text-black font-black flex items-center justify-center text-sm">2</div>
+                    <h4 class="font-black text-white text-base">Estructura Narrativa (30s)</h4>
+                    <ul class="text-xs text-slate-200 space-y-2 font-medium">
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Gancho (0-3s):</strong> Pregunta contundente para frenar el dedo.</li>
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Cuerpo (4-25s):</strong> Mostrar problema en sitio con la propuesta UNT.</li>
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Cierre / CTA (26-30s):</strong> Llamado directo a comentar o unirse.</li>
                     </ul>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl space-y-4 shadow-xl">
-                    <div class="w-10 h-10 rounded-xl bg-unt-orange text-white font-black flex items-center justify-center text-lg shadow">3</div>
-                    <h4 class="font-black text-white text-xl">Edición Rápida Móvil</h4>
-                    <ul class="text-xs sm:text-sm text-slate-200 space-y-3 font-medium">
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-scissors text-emerald-400 text-base mt-0.5"></i>
-                            <span><strong>Cortes (CapCut / VN):</strong> Eliminar silencios muertos, vacilaciones y muletillas.</span>
-                        </li>
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-closed-captioning text-emerald-400 text-base mt-0.5"></i>
-                            <span><strong>Subtítulos Automáticos:</strong> Agregar texto animado con resaltado de palabras clave.</span>
-                        </li>
-                        <li class="flex items-start gap-2 bg-slate-950 p-2.5 rounded-lg border border-slate-800">
-                            <i class="fa-solid fa-shield-halved text-emerald-400 text-base mt-0.5"></i>
-                            <span><strong>Marca de Agua:</strong> Insertar isotipo oficial de UNT en la esquina superior.</span>
-                        </li>
+                <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl space-y-3 shadow-xl">
+                    <div class="w-8 h-8 rounded-lg bg-unt-orange text-white font-black flex items-center justify-center text-sm">3</div>
+                    <h4 class="font-black text-white text-base">Edición Rápida Móvil</h4>
+                    <ul class="text-xs text-slate-200 space-y-2 font-medium">
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Cortes (CapCut / VN):</strong> Eliminar silencios y vacilaciones.</li>
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Subtítulos:</strong> Texto animado resaltado.</li>
+                        <li class="bg-slate-950 p-2 rounded-lg border border-slate-800"><strong>Isotipo UNT:</strong> Isotipo en la esquina superior.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 6: PRACTICA EN AULA (INTERACTIVE WORKSHOP & TELEPROMPTER TOOL) -->
+        <!-- TAB 6: PRACTICA EN AULA (CRONOMETRO Y TELEPROMPTER EN TV) -->
         <section x-show="activeTab === 'practica'" x-transition:enter="transition opacity ease-out duration-300" class="space-y-6">
-            <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-xl">
-                <div>
-                    <span class="px-3 py-1 bg-unt-yellow text-black text-xs font-black rounded-full uppercase tracking-wider inline-block mb-2">
-                        Ejercicio En Vivo con Milton Hurtado
-                    </span>
-                    <h3 class="text-2xl font-black text-white">Taller Práctico: Generador y Ensayador de Vocería</h3>
-                    <p class="text-base text-slate-200 mt-1 font-medium">Diseña la pauta de tu video y utiliza el cronómetro en pantalla gigante para medir los 30 segundos.</p>
-                </div>
+            <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl shadow-xl">
+                <span class="px-2.5 py-0.5 bg-unt-yellow text-black text-[10px] font-black rounded uppercase">Ejercicio En Vivo</span>
+                <h3 class="text-xl font-black text-white mt-1">Taller Práctico: Generador y Ensayador de Vocería</h3>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- Script Builder Form -->
-                <div class="lg:col-span-7 bg-slate-900 border-2 border-unt-border p-6 rounded-2xl space-y-4 shadow-xl">
-                    <h4 class="font-black text-white text-lg flex items-center gap-2 border-b-2 border-slate-800 pb-3">
-                        <i class="fa-solid fa-pen-to-square text-unt-orange"></i>
-                        Creador de Guion Político
-                    </h4>
+            <div class="grid grid-cols-1 lg:grid-cols-12 landscape:grid-cols-12 gap-5">
+                <!-- Formulario -->
+                <div class="lg:col-span-6 landscape:col-span-6 bg-slate-900 border-2 border-unt-border p-5 rounded-2xl space-y-3 shadow-xl">
+                    <h4 class="font-black text-white text-base border-b border-slate-800 pb-2">Creador de Guion Político</h4>
 
-                    <!-- Pilar Selector -->
                     <div>
-                        <label class="block text-xs font-black text-unt-yellow uppercase tracking-wider mb-2">1. Pilar de Contenido:</label>
-                        <select x-model="scriptPillar" class="w-full bg-slate-950 border-2 border-slate-700 text-white text-sm font-bold rounded-xl p-3 focus:border-unt-accent focus:outline-none">
-                            <option value="Social / Comunitario">Social / Comunitario (Presencia en calle, asambleas)</option>
-                            <option value="Fiscalización / Denuncia">Fiscalización / Denuncia (Agua, luz, vialidad)</option>
-                            <option value="Ideológico / Formativo">Ideológico / Formativo (Valores de UNT, principios)</option>
-                            <option value="Gestión / Propuesta">Gestión / Propuesta (Ordenanzas, soluciones locales)</option>
+                        <label class="block text-[10px] font-black text-unt-yellow uppercase mb-1">Pilar de Contenido:</label>
+                        <select x-model="scriptPillar" class="w-full bg-slate-950 border border-slate-700 text-white text-xs font-bold rounded-xl p-2.5">
+                            <option value="Social / Comunitario">Social / Comunitario</option>
+                            <option value="Fiscalización / Denuncia">Fiscalización / Denuncia</option>
+                            <option value="Ideológico / Formativo">Ideológico / Formativo</option>
+                            <option value="Gestión / Propuesta">Gestión / Propuesta</option>
                         </select>
                     </div>
 
-                    <!-- Sector / Parroquia -->
                     <div>
-                        <label class="block text-xs font-black text-unt-yellow uppercase tracking-wider mb-2">2. Parroquia / Sector de San Francisco:</label>
-                        <input type="text" x-model="scriptSector" placeholder="Ej. Parroquia Domitila Flores / El Silencio" class="w-full bg-slate-950 border-2 border-slate-700 text-white text-sm font-bold rounded-xl p-3 focus:border-unt-accent focus:outline-none">
+                        <label class="block text-[10px] font-black text-unt-yellow uppercase mb-1">Gancho (0-3 Segundos):</label>
+                        <input type="text" x-model="scriptHook" placeholder="Ej. ¿Hasta cuándo los vecinos padecerán sin agua?" class="w-full bg-slate-950 border border-slate-700 text-white text-xs font-bold rounded-xl p-2.5">
                     </div>
 
-                    <!-- Hook Input -->
                     <div>
-                        <label class="block text-xs font-black text-unt-yellow uppercase tracking-wider mb-2">3. Gancho de Entrada (0-3 Segundos):</label>
-                        <input type="text" x-model="scriptHook" placeholder="Ej. ¿Hasta cuándo los vecinos van a padecer sin agua en Domitila Flores?" class="w-full bg-slate-950 border-2 border-slate-700 text-white text-sm font-bold rounded-xl p-3 focus:border-unt-accent focus:outline-none">
+                        <label class="block text-[10px] font-black text-unt-yellow uppercase mb-1">Mensaje Central (4-25 Segundos):</label>
+                        <textarea x-model="scriptBody" rows="2" placeholder="Ej. Llevamos 15 días sin servicio en la comunidad..." class="w-full bg-slate-950 border border-slate-700 text-white text-xs font-bold rounded-xl p-2.5"></textarea>
                     </div>
 
-                    <!-- Body Input -->
                     <div>
-                        <label class="block text-xs font-black text-unt-yellow uppercase tracking-wider mb-2">4. Mensaje Central y Solución (4-25 Segundos):</label>
-                        <textarea x-model="scriptBody" rows="3" placeholder="Ej. Llevamos más de 15 días sin suministro. Desde UNT estamos acompañando a las familias y exigiendo respuestas a los organismos encargados." class="w-full bg-slate-950 border-2 border-slate-700 text-white text-sm font-bold rounded-xl p-3 focus:border-unt-accent focus:outline-none"></textarea>
-                    </div>
-
-                    <!-- CTA Input -->
-                    <div>
-                        <label class="block text-xs font-black text-unt-yellow uppercase tracking-wider mb-2">5. Llamado a la Acción (26-30 Segundos):</label>
-                        <input type="text" x-model="scriptCTA" placeholder="Ej. Comenta aquí tu sector y sigamos organizándonos por un mejor San Francisco." class="w-full bg-slate-950 border-2 border-slate-700 text-white text-sm font-bold rounded-xl p-3 focus:border-unt-accent focus:outline-none">
+                        <label class="block text-[10px] font-black text-unt-yellow uppercase mb-1">Llamado a la Acción (26-30 Segundos):</label>
+                        <input type="text" x-model="scriptCTA" placeholder="Ej. Comenta aquí abajo y sigamos organizándonos." class="w-full bg-slate-950 border border-slate-700 text-white text-xs font-bold rounded-xl p-2.5">
                     </div>
                 </div>
 
-                <!-- Live Teleprompter & Stopwatch Panel -->
-                <div class="lg:col-span-5 space-y-6">
-                    <!-- Script Teleprompter Card -->
-                    <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl space-y-3 shadow-xl">
-                        <div class="flex items-center justify-between border-b-2 border-slate-800 pb-2">
-                            <span class="text-xs font-black text-unt-orange uppercase tracking-wider">Teleprompter en Pantalla</span>
-                            <span class="text-xs font-bold text-unt-accent" x-text="scriptPillar"></span>
-                        </div>
-
-                        <div class="bg-slate-950 p-5 rounded-xl border-2 border-slate-800 space-y-3 text-slate-100 font-bold text-base sm:text-lg leading-relaxed">
-                            <p class="text-amber-400 font-black" x-text="scriptHook || '[Gancho inicial de 3 segundos]'"></p>
-                            <p class="text-slate-200" x-text="scriptBody || '[Planteamiento del problema y propuesta del partido]'"></p>
-                            <p class="text-unt-accent font-black" x-text="scriptCTA || '[Llamado a la acción final]'"></p>
+                <!-- Prompter y Cronómetro Gigante en TV -->
+                <div class="lg:col-span-6 landscape:col-span-6 space-y-5">
+                    <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl space-y-2 shadow-xl">
+                        <span class="text-[10px] font-black text-unt-orange uppercase block border-b border-slate-800 pb-1">Teleprompter en Pantalla</span>
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 text-slate-100 font-bold text-sm sm:text-base leading-relaxed">
+                            <p class="text-amber-400 font-black" x-text="scriptHook || '[Gancho]'"></p>
+                            <p class="text-slate-200" x-text="scriptBody || '[Planteamiento]'"></p>
+                            <p class="text-unt-accent font-black" x-text="scriptCTA || '[CTA]'"></p>
                         </div>
                     </div>
 
-                    <!-- Large Projector Stopwatch -->
-                    <div class="bg-slate-900 border-2 border-unt-border p-6 rounded-2xl text-center space-y-4 shadow-xl">
-                        <span class="text-xs font-black text-slate-400 uppercase tracking-wider">Cronómetro de Ensayo de Vocería</span>
+                    <div class="bg-slate-900 border-2 border-unt-border p-5 rounded-2xl text-center space-y-3 shadow-xl">
+                        <span class="text-[10px] font-black text-slate-400 uppercase">Cronómetro Gigante de Vocería</span>
                         
-                        <div class="text-6xl font-black font-mono tracking-widest text-white py-3 bg-slate-950 rounded-2xl border-2 border-slate-800 shadow-inner projector-text-shadow"
+                        <div class="text-5xl font-black font-mono text-white py-2 bg-slate-950 rounded-xl border border-slate-800 projector-text-shadow"
                              :class="timerSeconds > 35 ? 'text-red-400 animate-pulse' : (timerSeconds >= 25 ? 'text-emerald-400' : 'text-white')">
                             <span x-text="formatTime(timerSeconds)">00:00</span>
                         </div>
 
-                        <div class="flex justify-center space-x-3">
-                            <button @click="startTimer()" x-show="!timerRunning" class="px-5 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm rounded-xl transition flex items-center gap-2 border border-emerald-400 shadow-lg">
-                                <i class="fa-solid fa-play"></i> Iniciar Ensayo
-                            </button>
-                            <button @click="stopTimer()" x-show="timerRunning" class="px-5 py-3 bg-amber-600 hover:bg-amber-500 text-white font-black text-sm rounded-xl transition flex items-center gap-2 border border-amber-400 shadow-lg">
-                                <i class="fa-solid fa-pause"></i> Pausar
-                            </button>
-                            <button @click="resetTimer()" class="px-5 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-black text-sm rounded-xl border border-slate-600 transition flex items-center gap-2 shadow-md">
-                                <i class="fa-solid fa-rotate-right"></i> Reiniciar
-                            </button>
+                        <div class="flex justify-center space-x-2">
+                            <button @click="startTimer()" x-show="!timerRunning" class="px-4 py-2 bg-emerald-600 text-white font-black text-xs rounded-xl flex items-center gap-1"><i class="fa-solid fa-play"></i> Iniciar</button>
+                            <button @click="stopTimer()" x-show="timerRunning" class="px-4 py-2 bg-amber-600 text-white font-black text-xs rounded-xl flex items-center gap-1"><i class="fa-solid fa-pause"></i> Pausar</button>
+                            <button @click="resetTimer()" class="px-4 py-2 bg-slate-800 text-slate-200 font-black text-xs rounded-xl border border-slate-600 flex items-center gap-1"><i class="fa-solid fa-rotate-right"></i> Reiniciar</button>
                         </div>
-
-                        <p class="text-xs text-slate-300 font-bold italic">Meta ideal de grabación: Entre 25 y 35 segundos para Reels/TikTok.</p>
                     </div>
                 </div>
             </div>
@@ -762,16 +571,14 @@
                 selectedFunnelStage: 'tofu',
                 toolCategory: 'all',
 
-                // Timer state for Module 5
                 timerSeconds: 0,
                 timerRunning: false,
                 timerInterval: null,
 
-                // Script generator state
                 scriptPillar: 'Fiscalización / Denuncia',
                 scriptSector: 'Parroquia Domitila Flores',
                 scriptHook: '¿Hasta cuándo los vecinos van a padecer por la falta de agua en San Francisco?',
-                scriptBody: 'Hoy estamos recorriendo la comunidad junto a nuestros activistas. La falta de mantenimiento en la red de distribución mantiene a cientos de familias sin respuesta.',
+                scriptBody: 'Hoy estamos recorriendo la comunidad junto a nuestros activistas. La falta de mantenimiento en la red mantiene a cientos de familias sin servicio.',
                 scriptCTA: 'Comenta aquí abajo tu sector y sigamos organizando a las comunidades.',
 
                 menuItems: [
@@ -836,7 +643,6 @@
                     }
                 ],
 
-                // Updated Tools list as requested
                 toolsList: [
                     { name: 'ChatGPT / Gemini / Claude', category: 'ia', type: 'Modelos de Inteligencia Artificial', platform: 'Web / App', icon: 'fa-solid fa-brain', description: 'Modelos de lenguaje para estructurar guiones de 30s, redactar ganchos virales y corregir estilo de comunicados.', useCase: 'Generar 5 variantes de ganchos impactantes para un video de denuncia.' },
                     { name: 'CapCut', category: 'video', type: 'Creador / Editor de Video', platform: 'iOS / Android / PC', icon: 'fa-solid fa-scissors', description: 'Edición rápida en celular: elimina silencios, agrega subtítulos automáticos en español y coloca logos.', useCase: 'Cortar muletillas y colocar el isotipo de UNT en la esquina.' },
@@ -865,7 +671,6 @@
                     return item ? item.label : 'Formación Marketing Político';
                 },
 
-                // Timer functions
                 startTimer() {
                     if (this.timerRunning) return;
                     this.timerRunning = true;
