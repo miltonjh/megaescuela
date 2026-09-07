@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperio Digital - Mega Escuela | Domina el Marketing Estratégico</title>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1055826550382661');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1055826550382661&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#F3BA11',
+                        brandYellowDark: '#d9a309',
+                        brandBlue: '#006699',
+                        brandBlueDark: '#004c73',
+                        brandDark: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brandYellow selection:text-slate-900" x-data="{ openModal: false, selectedPlan: '' }">
+
+    <!-- BARRA SUPERIOR DE URGENCIA, CONTADOR REGRESIVO Y BOTÓN PERSISTENTE -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 text-white py-2 px-4 border-b-2 border-brandYellow sticky top-0 z-50 shadow-2xl backdrop-blur-md" x-data="countdown()">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs md:text-sm gap-2 md:gap-4">
+            
+            <!-- Bloque Izquierdo: Indicador de Estado y Fecha de Inicio -->
+            <div class="flex items-center gap-2 font-semibold">
+                <span class="relative flex h-3 w-3 shrink-0">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandYellow opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-brandYellow"></span>
+                </span>
+                <span class="text-brandYellow font-extrabold uppercase tracking-wider text-[11px] md:text-xs">¡Inscripciones Abiertas!</span>
+                <span class="hidden xl:inline text-slate-300 text-xs">| Inicio Teleclases: 20 de Septiembre</span>
+            </div>
+            
+            <!-- Bloque Centro: Contador Digital Destacado -->
+            <div class="flex items-center gap-1.5 md:gap-2 font-mono text-center">
+                <span class="text-slate-300 text-[10px] md:text-[11px] uppercase font-sans font-bold hidden sm:inline mr-1">El descuento expira en:</span>
+                <div class="bg-brandYellow text-slate-950 px-2 py-0.5 md:py-1 rounded font-black text-xs md:text-sm shadow">
+                    <span x-text="days">00</span><span class="text-[9px] uppercase ml-0.5">d</span>
+                </div>
+                <span class="text-brandYellow font-bold text-xs">:</span>
+                <div class="bg-brandYellow text-slate-950 px-2 py-0.5 md:py-1 rounded font-black text-xs md:text-sm shadow">
+                    <span x-text="hours">00</span><span class="text-[9px] uppercase ml-0.5">h</span>
+                </div>
+                <span class="text-brandYellow font-bold text-xs">:</span>
+                <div class="bg-brandYellow text-slate-950 px-2 py-0.5 md:py-1 rounded font-black text-xs md:text-sm shadow">
+                    <span x-text="minutes">00</span><span class="text-[9px] uppercase ml-0.5">m</span>
+                </div>
+                <span class="text-brandYellow font-bold text-xs">:</span>
+                <div class="bg-brandYellow text-slate-950 px-2 py-0.5 md:py-1 rounded font-black text-xs md:text-sm shadow">
+                    <span x-text="seconds">00</span><span class="text-[9px] uppercase ml-0.5">s</span>
+                </div>
+            </div>
+
+            <!-- Bloque Derecho: Botón de Acción Inmediata (CTA) -->
+            <div class="w-full md:w-auto flex justify-center md:justify-end">
+                <a href="#inversion" class="w-full md:w-auto text-center bg-brandYellow text-slate-950 hover:bg-yellow-400 font-black text-[11px] uppercase tracking-wider px-4 py-1.5 rounded-lg shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-1.5">
+                    <span>Inscribirme Ahora</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- HERO SECTION - MÉTODO IMPERIO DIGITAL -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        
+        <!-- Badge de Respaldo e Identidad -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-sm font-semibold mb-6">
+          <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+          El Método Práctico de Mega Escuela
+        </div>
+
+        <!-- H1: Titular Principal Enfocado en Marketing y Transformación -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+          Domina el <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Marketing Digital y las Ventas</span> para Construir Tu<br> <strong><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">IMPERIO DIGITAL</span></strong> <br>y Conquistar Tu Independencia
+        </h1>
+
+        <!-- H2: Subtítulo Cercano y Empático -->
+        <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+          No importa en qué punto te encuentres hoy. Con nuestro acompañamiento paso a paso, dominarás las técnicas comerciales exactas para solucionar tus necesidades y alcanzar 1, varios o estos 3 objetivos:
+        </p>
+
+        <!-- BLOQUES DE LAS 3 SALIDAS PROFESIONALES (Jerarquía Definida) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
+          
+          <!-- Opción 1: Impulsar Negocio Propio -->
+          <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl hover:border-blue-500/50 transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-xl mb-4">
+                01
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Impulsar Tu Propio Negocio</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Multiplica tus ventas locales o servicios actuales y pasa de un autoempleo agotador a un negocio rentable y estructurado.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 text-xs font-semibold text-blue-400 flex items-center gap-1">
+              ✓ Para Emprendedores y Técnicos
+            </div>
+          </div>
+
+          <!-- Opción 2: Prestar Servicios de Marketer -->
+          <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl hover:border-emerald-500/50 transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-xl mb-4">
+                02
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Prestar Servicios como Marketer</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Gestiona la publicidad y las estrategias de ventas para otros comercios y profesionales, cobrando por tus servicios.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 text-xs font-semibold text-emerald-400 flex items-center gap-1">
+              ✓ Para Futuros Consultores
+            </div>
+          </div>
+
+          <!-- Opción 3: Productos Digitales / Afiliados -->
+          <div class="bg-slate-800/80 border border-slate-700/80 p-6 rounded-2xl shadow-xl hover:border-amber-500/50 transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-xl mb-4">
+                03
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Vender Productos Digitales</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Genera ingresos vendiendo infoproductos desde cero, sin necesidad de tener inventario físico ni experiencia previa.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50 text-xs font-semibold text-amber-400 flex items-center gap-1">
+              ✓ Para Principiantes y Afiliados
+            </div>
+          </div>
+
+        </div>
+
+        <!-- BOTÓN DE LLAMADO A LA ACCIÓN (CTA) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#inversion" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-white bg-gradient-to-r from-blue-600 to-emerald-500 hover:from-blue-500 hover:to-emerald-400 shadow-lg shadow-blue-500/25 transition duration-300 transform hover:-translate-y-0.5">
+            Asegura Tu Cupo Ahora Mismo
+            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Garantía y Respaldo Institucional -->
+        <p class="mt-4 text-xs text-slate-400">
+          Capacitación práctica presencial en El Molino (San Francisco) y transmisión VIP en vivo. Con el respaldo continuo de Mega Escuela.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- BARRA DE PRUEBA SOCIAL / AUTORIDAD -->
+    <section class="bg-brandBlue text-white py-6 px-4 border-y border-brandYellow/30">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-2">
+                <div class="text-2xl md:text-3xl font-extrabold text-brandYellow">+500</div>
+                <div class="text-xs md:text-sm text-sky-100 font-medium">Emprendedores Formados</div>
+            </div>
+            <div class="p-2">
+                <div class="text-2xl md:text-3xl font-extrabold text-brandYellow">4 Semanas</div>
+                <div class="text-xs md:text-sm text-sky-100 font-medium">Acompañamiento Intensivo</div>
+            </div>
+            <div class="p-2">
+                <div class="text-2xl md:text-3xl font-extrabold text-brandYellow">2 Titulaciones</div>
+                <div class="text-xs md:text-sm text-sky-100 font-medium">Avaladas por Mega Escuela</div>
+            </div>
+            <div class="p-2">
+                <div class="text-2xl md:text-3xl font-extrabold text-brandYellow">1 Full Day</div>
+                <div class="text-xs md:text-sm text-sky-100 font-medium">Inmersión Presencial + Almuerzo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DIAGNÓSTICO DEL DOLOR (AVATARES) -->
+    <section class="py-16 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-brandBlue font-bold text-xs uppercase tracking-widest">¿Te Identificas Con Esto?</span>
+                <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mt-2">Publicar en redes sin una estrategia no es marketing. Es perder tiempo y dinero.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tarjeta Avatar 1 -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="./img/img2.jpeg" alt="Emprendedor Operativo" class="w-full h-full object-cover">
+                            <span class="absolute bottom-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Emprendedor Operativo</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-slate-800 text-lg mb-2">Atrapado en tu propio negocio</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">Trabajas más de 12 horas al día atendiendo la operatividad, pero no logras atraer clientes constantes porque careces de un sistema de ventas automatizado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Avatar 2 -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="./img/img3.jpeg" alt="Técnico Estancado" class="w-full h-full object-cover">
+                            <span class="absolute bottom-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Técnico Estancado</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-slate-800 text-lg mb-2">Saber hacer el trabajo no basta</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">Eres un excelente profesional en tu área, pero la falta de habilidades en ventas y marketing te obliga a cobrar precios muy bajos por temor a perder clientes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Avatar 3 -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="img/img4.jpeg" class="w-full h-full object-cover">
+                            <span class="absolute bottom-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Aspirante Principiante</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-slate-800 text-lg mb-2">Quieres emprender sin producto</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">Deseas generar ingresos por internet pero no tienes un capital inicial ni un producto propio para vender, y no sabes qué ruta tomar para comenzar desde cero.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: LAS 3 RUTAS DE MONETIZACIÓN (RECUPERADA) -->
+    <section class="py-16 px-4 bg-slate-900 text-white relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-brandYellow font-bold text-xs uppercase tracking-widest">Un Solo Núcleo Técnico • 3 Vías de Monetización</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-2">Aprende el Motor del Marketing Estratégico y Elige Tu Propia Ruta</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto mt-4 text-sm md:text-base">No necesitas crear tres negocios distintos. Aprenderás la ciencia exacta de atracción y ventas por internet para aplicarla según tu objetivo personal:</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Ruta A -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border-t-4 border-brandYellow relative flex flex-col justify-between shadow-xl">
+                    <div>
+                        <span class="bg-brandYellow/20 text-brandYellow text-xs font-bold px-2.5 py-1 rounded-full uppercase">Ruta A</span>
+                        <h3 class="text-xl font-bold mt-4 mb-2">Impulsa Tu Propio Negocio</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Aplica las estrategias de atracción masiva directamente a tu empresa actual. Pasa de buscar clientes desesperadamente a recibir mensajes calificados todos los días a tu WhatsApp o generar ventas automáticas.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700 text-xs text-slate-400">
+                        <i class="fa-solid fa-circle-check text-brandYellow mr-1"></i> Ideal para dueños de comercios, marcas personales y técnicos.
+                    </div>
+                </div>
+
+                <!-- Ruta B -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border-t-4 border-brandBlue relative flex flex-col justify-between shadow-xl">
+                    <div>
+                        <span class="bg-brandBlue/30 text-sky-300 text-xs font-bold px-2.5 py-1 rounded-full uppercase">Ruta B</span>
+                        <h3 class="text-xl font-bold mt-4 mb-2">Ofrece Servicios como Marketer</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Domina la gestión de anuncios, embudos y copywriting para gestionar las redes y ventas de otros negocios locales o internacionales, cobrando tarifas mensuales recurrentes.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700 text-xs text-slate-400">
+                        <i class="fa-solid fa-circle-check text-brandBlue mr-1"></i> Ideal para freelancers y prestadores de servicios digitales.
+                    </div>
+                </div>
+
+                <!-- Ruta C -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border-t-4 border-emerald-500 relative flex flex-col justify-between shadow-xl">
+                    <div>
+                        <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2.5 py-1 rounded-full uppercase">Ruta C</span>
+                        <h3 class="text-xl font-bold mt-4 mb-2">Monetiza como Afiliado Digital</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">¿No tienes producto? Comercializa infoproductos y cursos de terceros (incluyendo el catálogo de Mega Escuela y sus Empresas Aliadas) utilizando nuestro sistema de ventas y gana comisiones por cada transacción.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-700 text-xs text-slate-400">
+                        <i class="fa-solid fa-circle-check text-emerald-400 mr-1"></i> Ideal para apasionados principiantes sin capital inicial.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: POR QUÉ CERTIFICARSE CON MEGA ESCUELA -->
+    <section class="relative bg-white text-slate-900 border-t border-slate-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto pl-4 sm:pl-6 lg:pl-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+                
+                <!-- Columna Izquierda: Mensaje Directo y Propuesta de Valor -->
+                <div class="lg:col-span-7 py-12 md:py-16 pr-4 sm:pr-6 lg:pr-0 flex flex-col justify-center space-y-6">
+                    <div>
+                        <span class="text-brandBlue font-extrabold text-xs uppercase tracking-widest block mb-2">Tu Respaldo Real en el Mercado</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
+                            No Solo Te Certificamos: Te Integramos a Nuestro Equipo de Trabajo
+                        </h2>
+                    </div>
+
+                    <p class="text-slate-700 text-base md:text-lg leading-relaxed">
+                        Sé lo frustrante que es terminar una capacitación y sentir que quedas completamente solo frente al mercado, intentando descifrar cómo conseguir tu primer cliente o dónde demostrar lo que sabes. Por eso, en <strong>Mega Escuela</strong> cambiamos las reglas del juego para ti.
+                    </p>
+
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                        Al formarte y certificarte con nosotros, no solo reconocemos y premiamos tu avance en cada etapa técnica; te acompañamos en todo el camino, respaldamos tu trabajo profesionalmente y <strong>te hacemos parte activa de nuestro equipo</strong>. Aquí no tienes que salir a rogar por una oportunidad ocupacional: nosotros te preparamos, te damos el ecosistema comercial y te abrimos la puerta directa para desenvolverte en el mercado desde el primer momento.
+                    </p>
+
+                    <!-- Puntos de Conexión y Respaldo -->
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="p-2.5 bg-brandBlue text-white rounded-xl shrink-0 mt-1 shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-sm md:text-base">Reconocimiento y Acompañamiento Continuo</h3>
+                                <p class="text-xs md:text-sm text-slate-600 mt-0.5">Evaluamos y celebramos cada nivel que superas, asegurando que nunca camines a ciegas ni te sientas estancado.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="p-2.5 bg-brandBlue text-white rounded-xl shrink-0 mt-1 shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-sm md:text-base">Integración Inmediata al Sistema</h3>
+                                <p class="text-xs md:text-sm text-slate-600 mt-0.5">Te conectamos con nuestra red comercial y oportunidades reales para que ejerzas tu oficio sin la angustia de buscar clientes desde cero.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200/80 shadow-sm">
+                            <div class="p-2.5 bg-brandBlue text-white rounded-xl shrink-0 mt-1 shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-sm md:text-base">Respaldo de Marca e Institucional</h3>
+                                <p class="text-xs md:text-sm text-slate-600 mt-0.5">Sientes la tranquilidad de prestar servicios o emprender contando con la credibilidad y la estructura de Mega Escuela detrás de ti.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Imagen Vertical a Alto Completo -->
+                <div class="lg:col-span-5 relative min-h-[450px] lg:min-h-full w-full">
+                    <div class="lg:absolute lg:inset-0 w-full h-full">
+                        <img 
+                            src="img/img5.jpeg" 
+                            alt="Respaldo profesional y trabajo en equipo en Mega Escuela" 
+                            class="w-full h-full object-cover object-center"
+                        />
+                        <!-- Overlay degradado para lectura del texto flotante -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+                        
+                        <!-- Badge flotante inferior -->
+                        <div class="absolute bottom-8 left-6 right-6 bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-700/60 text-white shadow-2xl">
+                            <span class="text-brandYellow font-extrabold text-xs uppercase tracking-wider block mb-1">Tu Aliado Estratégico</span>
+                            <p class="text-sm font-semibold leading-snug">"En Mega Escuela no estudias para estar solo; te formas para crecer con nosotros."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: LO ÚNICO QUE TE HACE FALTA PARA TRIUNFAR -->
+    <section class="relative bg-white text-slate-900 py-16 px-4 md:px-8 border-b border-slate-200 overflow-hidden">
+        <!-- Elemento Decorativo sutil de fondo -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-slate-50 to-transparent pointer-events-none -z-10"></div>
+
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Insignia de Posicionamiento -->
+            <div class="text-center mb-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs md:text-sm font-extrabold tracking-wide uppercase shadow-sm">
+                    <i class="fa-solid fa-unlock-keyhole text-amber-500"></i>
+                    Sin Barreras de Entrada
+                </div>
+            </div>
+
+            <!-- Titular de Alta Conversión -->
+            <div class="text-center max-w-4xl mx-auto mb-10">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight tracking-tight">
+                    ¿Qué es lo <span class="text-blue-600 underline decoration-amber-400 decoration-4">único que necesitas</span> para aprovechar esta oportunidad?
+                </h2>
+                
+                <p class="text-slate-600 text-base md:text-lg font-medium leading-relaxed max-w-3xl mx-auto mt-4">
+                    Olvídate de títulos universitarios costosos o presupuestos inalcanzables. En Mega Escuela eliminamos la complejidad para que comiences a construir tu independencia hoy mismo.
+                </p>
+            </div>
+
+            <!-- GRID DE IMPACTO VISUAL -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
+                
+                <!-- Columna Izquierda: Los 3 Requisitos Mínimos (Tarjetas de Beneficios Clave) -->
+                <div class="lg:col-span-5 space-y-4">
+                    
+                    <!-- Requisito 1: Celular -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-sm hover:border-blue-500 transition duration-300 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 font-bold text-xl shadow-md">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900 text-sm md:text-base">Tu Teléfono Celular</h3>
+                            <p class="text-xs text-slate-600">Sin computadoras costosas ni herramientas complejas. Todo el sistema está diseñado para operarse desde tu smartphone.</p>
+                        </div>
+                    </div>
+
+                    <!-- Requisito 2: Tiempo -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-sm hover:border-amber-500 transition duration-300 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500 text-slate-900 flex items-center justify-center shrink-0 font-bold text-xl shadow-md">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900 text-sm md:text-base">2 Horas Diarias de Enfoque</h3>
+                            <p class="text-xs text-slate-600">Avanza a tu propio ritmo sin interrumpir tu empleo o negocio actual. Estructura adaptada a tu rutina.</p>
+                        </div>
+                    </div>
+
+                    <!-- Requisito 3: Disposición con Acompañamiento -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-sm hover:border-emerald-500 transition duration-300 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 font-bold text-xl shadow-md">
+                            <i class="fa-solid fa-handshake font-bold"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900 text-sm md:text-base">Deseo de Dejar de Estar Solo</h3>
+                            <p class="text-xs text-slate-600">Te tomamos de la mano en cada nivel del Método Imperio Digital hasta integrar tu talento a nuestro ecosistema.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Columna Derecha: Tarjeta / Imagen Promocional de Alta Conversión -->
+                <div class="lg:col-span-7">
+                    <div class="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl bg-slate-900 group">
+                        <img 
+                            src="img/img1.jpeg" 
+                            alt="Acompañamiento en vivo e Incubación Digital con Mega Escuela" 
+                            class="w-full h-[380px] md:h-[420px] object-cover object-center group-hover:scale-105 transition duration-700 opacity-90"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        
+                        <!-- Capa de Información sobre la Imagen -->
+                        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+                            <div>
+                                <span class="bg-amber-400 text-slate-900 font-black text-[10px] md:text-xs uppercase px-3 py-1 rounded-md tracking-wider">
+                                    RUTA EVOLUTIVA 100% PRÁCTICA
+                                </span>
+                                <h3 class="text-white text-xl md:text-2xl font-extrabold mt-2 leading-snug">
+                                    Aprende > Ejecuta > Factura
+                                </h3>
+                                <p class="text-slate-300 text-xs md:text-sm mt-1">
+                                    Pasa de Estudiante a Socio: Transita con el respaldo continuo de Mega Escuela.
+                                </p>
+                            </div>
+                            <div class="shrink-0 bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-white text-center">
+                                <span class="block text-xs font-bold text-amber-300">Acompañamiento</span>
+                                <span class="text-sm font-extrabold">Paso a Paso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botón CTA de Apoyo -->
+            <div class="text-center">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+                    <a href="#inversion" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black text-lg px-8 py-4 rounded-2xl shadow-xl hover:shadow-blue-500/20 transform hover:-translate-y-0.5 transition duration-200 text-center flex items-center justify-center gap-3">
+                        <span>Asegura Tu Cupo Ahora Mismo</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Sellos de Confianza -->
+                <div class="flex items-center justify-center gap-6 mt-4 text-xs text-slate-500 font-semibold flex-wrap">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved text-blue-600"></i> Formación Presencial y VIP en Vivo
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-users text-amber-500"></i> Cupos Limitados por Cohorte
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE AUTORIDAD Y LIDERAZGO (MILTON HURTADO) -->
+    <section class="py-16 px-4 bg-slate-900 text-white border-t border-slate-800 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Foto / Marca Personal -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-3xl overflow-hidden border-2 border-brandYellow shadow-2xl bg-slate-800">
+                        <img 
+                            src="img/img6.jpeg" 
+                            alt="Milton Hurtado - Director de Mega Escuela" 
+                            class="w-full h-[450px] object-cover object-top"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        
+                        <div class="absolute bottom-6 left-6 right-6 bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-slate-700">
+                            <span class="text-brandYellow font-extrabold text-xs uppercase tracking-wider block">Fundador & Director</span>
+                            <h3 class="text-white text-xl font-black">Milton Hurtado</h3>
+                            <p class="text-slate-300 text-xs mt-0.5">Estratega de Negocios y Consultor de Emprendimiento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manifiesto e Historia de Autoridad -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-brandYellow font-extrabold text-xs uppercase tracking-widest block mb-2">
+                            Liderazgo con Propósito
+                        </span>
+                        <h2 class="text-3xl md:text-4xl font-black text-white leading-tight">
+                            "Mi Misión Es Que Vivas de Tu Pasión y Construyas Un Negocio Libre"
+                        </h2>
+                    </div>
+
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                        Hola, soy <strong>Milton Hurtado</strong>. Durante años he acompañado a muchos técnicos, profesionales y emprendedores a romper el techo de cristal de la operatividad diaria mediante la formación y el acompañamiento. Entiendo perfectamente la frustración de dominar un oficio o producto pero no saber cómo venderlo de forma constante.
+                    </p>
+
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                        Por eso creé <strong>Mega Escuela</strong> y el <strong>Método Imperio Digital</strong>: para entregarte no solo la teoría, sino las herramientas exactas de marketing, ventas y estrategia financiera que te llevarán desde tus primeras ventas como afiliado o independiente, hasta la consolidación de tu propia empresa con respaldo institucional.
+                    </p>
+
+                    <!-- Tarjetas de Métricas de Experiencia -->
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-800">
+                        <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700 text-center">
+                            <span class="block text-xl md:text-2xl font-black text-brandYellow">+20 Años</span>
+                            <span class="text-[10px] md:text-xs text-slate-400">Trayectoria Técnica y Empresarial</span>
+                        </div>
+                        <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700 text-center">
+                            <span class="block text-xl md:text-2xl font-black text-brandYellow">+1.500</span>
+                            <span class="text-[10px] md:text-xs text-slate-400">Alumnos Acompañados</span>
+                        </div>
+                        <div class="bg-slate-800/60 p-3 rounded-xl border border-slate-700 text-center">
+                            <span class="block text-xl md:text-2xl font-black text-brandYellow">100%</span>
+                            <span class="text-[10px] md:text-xs text-slate-400">Enfoque Práctico</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- METODOLOGÍA Y RUTA DE APRENDIZAJE DE 4 SEMANAS -->
+    <section class="py-16 px-4 bg-slate-100">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-brandBlue font-bold text-xs uppercase tracking-widest">Acompañamiento Real de 0 a 100</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Estructura Práctica del Programa</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Fase 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-12 h-12 bg-brandYellow/20 text-brandYellowDark rounded-xl flex-shrink-0 flex items-center justify-center font-bold text-xl">01</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Semanas 1 y 2: Preparación Digital + Sesiones Zoom</h3>
+                        <p class="text-slate-600 text-sm mt-1">Acceso inmediato a la plataforma educativa con clases en video estructuradas. 2 clases grupales en vivo por Zoom para revisión de fundamentos, creación de ofertas y configuración inicial con smartphone.</p>
+                    </div>
+                </div>
+
+                <!-- Fase 2 (Full Day) -->
+                <div class="bg-gradient-to-r from-brandBlue to-brandBlueDark text-white p-6 rounded-2xl shadow-md flex flex-col md:flex-row gap-6 items-start border border-sky-400/30">
+                    <div class="w-12 h-12 bg-brandYellow text-slate-900 rounded-xl flex-shrink-0 flex items-center justify-center font-extrabold text-xl">02</div>
+                    <div>
+                        <div class="inline-block bg-brandYellow/20 text-brandYellow text-xs font-bold px-2 py-0.5 rounded mb-2 uppercase">Día Presencial: 04 de Octubre</div>
+                        <h3 class="text-xl font-bold">Full Day Presencial Práctico (8:00 AM - 4:00 PM)</h3>
+                        <p class="text-sky-100 text-sm mt-1">Inmersión 100% práctica en el <strong>Salón de Eventos El Molino (San Francisco, Zulia)</strong>. Construcción en tiempo real de tu embudo de ventas. Incluye almuerzo corporativo de networking y entrega de tu primera acreditación.</p>
+                        <p class="text-xs text-sky-200 mt-2 italic">*Si estás fuera de la ciudad o país, accederás a la transmisión en vivo VIP y grabaciones HD en alta fidelidad.</p>
+                    </div>
+                </div>
+
+                <!-- Fase 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-12 h-12 bg-brandYellow/20 text-brandYellowDark rounded-xl flex-shrink-0 flex items-center justify-center font-bold text-xl">03</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Semanas 3 y 4: Incubación + 4 Mentorías Individuales 1 a 1</h3>
+                        <p class="text-slate-600 text-sm mt-1">2 semanas de acompañamiento constante para lanzar tus campañas. Dispondrás de 4 sesiones personalizadas en privado con el equipo de Mega Escuela para optimizar tus anuncios y asegurar ventas reales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CRONOGRAMA, UBICACIÓN Y MODALIDAD -->
+    <section class="py-16 px-4 bg-white border-t border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Encabezado con Énfasis en la Hoja de Ruta -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-brandBlue font-extrabold text-xs uppercase tracking-widest block mb-2">
+                    Hoja de Ruta Confirmada
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    ¿Cómo y Cuándo Inicia Tu Transformación?
+                </h2>
+                <p class="text-slate-600 text-sm md:text-base mt-3 leading-relaxed">
+                    Diseñamos una experiencia en dos tiempos: inicia de inmediato con tus bases técnicas digitales y consolida tu negocio en una jornada intensiva de alto impacto.
+                </p>
+            </div>
+
+            <!-- TARJETA DOBLE: CRONOGRAMA DE INICIO Y FULL DAY -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-10">
+                
+                <!-- Etapa 1: Teleclases Digitales -->
+                <div class="md:col-span-6 bg-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-brandBlue/20 text-brandBlue border border-brandBlue/30 text-[10px] font-extrabold uppercase tracking-wider rounded-full">
+                                Paso 1 • Capacitación Técnica
+                            </span>
+                            <i class="fa-solid fa-laptop-code text-brandBlue text-xl"></i>
+                        </div>
+                        <span class="text-amber-400 font-extrabold text-xs uppercase tracking-wider block mb-1">
+                            Inicio de Formación
+                        </span>
+                        <h3 class="text-2xl font-black text-white">Domingo 20 de Septiembre</h3>
+                        <p class="text-slate-300 text-xs md:text-sm mt-3 leading-relaxed">
+                            Inicias tu ruta bajo la modalidad de <strong>Teleclases</strong> desde la primera hora del día. Accedes al contenido fundamental para preparar tus competencias operativas antes del encuentro intensivo.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2 text-slate-400 text-xs">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                        <span>Acceso digital desde cualquier lugar</span>
+                    </div>
+                </div>
+
+                <!-- Etapa 2: Encuentro Full Day Presencial / En Vivo -->
+                <div class="md:col-span-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 text-white rounded-3xl p-6 md:p-8 shadow-xl border border-amber-400/30 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl"></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-amber-400 text-slate-950 text-[10px] font-black uppercase tracking-wider rounded-full">
+                                Paso 2 • Aceleración Presencial
+                            </span>
+                            <i class="fa-solid fa-bolt text-amber-400 text-xl"></i>
+                        </div>
+                        <span class="text-amber-400 font-extrabold text-xs uppercase tracking-wider block mb-1">
+                            Jornada Intensiva Full Day
+                        </span>
+                        <h3 class="text-2xl font-black text-white">Domingo 04 de Octubre</h3>
+                        <p class="text-slate-300 text-xs md:text-sm font-semibold mt-1 flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-amber-400"></i> Jornada Completa: 8:00 AM a 4:00 PM
+                        </p>
+                        <p class="text-slate-300 text-xs md:text-sm mt-3 leading-relaxed">
+                            Viviremos la experiencia práctica de aceleración, estructuración de oferta y networking directo. *(Si no puedes asistir en persona, accedes a la Transmisión Interactiva En Vivo)*.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2 text-slate-400 text-xs">
+                        <i class="fa-solid fa-location-dot text-amber-400"></i>
+                        <span>Sede Confirmada + Opción En Vivo</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GRID DE UBICACIÓN: FACHADA Y MAPA -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+                <!-- Columna Izquierda: Información de Sede y Fachada -->
+                <div class="md:col-span-5 flex flex-col justify-between bg-slate-50 p-6 rounded-3xl border border-slate-200">
+                    <div>
+                        <div class="flex items-start gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-amber-400/20 text-slate-900 flex items-center justify-center shrink-0 mt-1 font-bold">
+                                <i class="fa-solid fa-location-dot text-amber-600 text-lg"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-extrabold uppercase tracking-wider text-slate-400 block">Sede del Full Day (04 Oct)</span>
+                                <h4 class="font-extrabold text-slate-900 text-lg">Salón de Eventos El Molino</h4>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                                    Municipio San Francisco, Estado Zulia, Venezuela.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Visualización de la Fachada -->
+                        <div class="mt-6">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-building text-brandBlue"></i> Fachada del Establecimiento
+                            </span>
+                            <div class="relative h-48 rounded-2xl overflow-hidden border border-slate-300 shadow-sm group">
+                                <img 
+                                    src="img/img7.jpeg" 
+                                    alt="Fachada Salón de Eventos El Molino" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                                <span class="absolute bottom-3 left-3 bg-slate-900/90 text-white text-[11px] font-semibold px-3 py-1 rounded-lg backdrop-blur-md">
+                                    Reconocimiento fácil al llegar
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200 text-center md:text-left">
+                        <p class="text-xs font-bold text-slate-500">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mr-1"></i> Recibirás las indicaciones exactas de llegada tras confirmar tu cupo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Mapa Interactivo -->
+                <div class="md:col-span-7 min-h-[320px] rounded-3xl overflow-hidden border border-slate-300 shadow-md relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1961.166966536024!2d-71.63463250154952!3d10.553020342219337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8996e5667e2161%3A0x32dfe16ef74788f8!2sEl%20Rinc%C3%B3n%20del%20Molino%20Hotel%20y%20Eventos!5e0!3m2!1ses!2sve!4v1788646450619!5m2!1ses!2sve" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN: SISTEMA DE DOBLE TITULACIÓN Y GAMIFICACIÓN (RECUPERADA) -->
+    <section class="py-16 px-4 bg-white border-t border-slate-200">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-brandBlue font-bold text-xs uppercase tracking-widest">Reconocimiento e Impacto Profesional</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Recibe Dos Certificaciones + Sistema de Logros</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Certificado 1 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-md transition">
+                    <img src="img/img8.jpeg?auto=format&fit=crop&w=600&q=80" alt="Certificado Marketer Afiliado Digital" class="w-full h-48 object-cover rounded-xl mb-4 border border-slate-300">
+                    <span class="text-xs font-bold bg-brandBlue/10 text-brandBlue px-3 py-1 rounded-full uppercase mb-2">Etapa Técnica</span>
+                    <h3 class="font-bold text-lg text-slate-900">Marketer Afiliado Digital</h3>
+                    <p class="text-slate-600 text-xs mt-2 leading-relaxed">Acredita tus competencias operativas para diseñar estructuras publicitarias, crear copys persuasivos y gestionar ventas digitales con herramientas móviles. (Entrega al finalizar el Evento Full Day)</p>
+                </div>
+
+                <!-- Certificado 2 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col items-center text-center hover:shadow-md transition">
+                    <img src="img/img9.jpeg?auto=format&fit=crop&w=600&q=80" alt="Certificado Especialista en Estrategia Digital" class="w-full h-48 object-cover rounded-xl mb-4 border border-slate-300">
+                    <span class="text-xs font-bold bg-brandYellow/20 text-brandYellowDark px-3 py-1 rounded-full uppercase mb-2">Etapa Empresarial</span>
+                    <h3 class="font-bold text-lg text-slate-900">Estratega de Negocios Digitales</h3>
+                    <p class="text-slate-600 text-xs mt-2 leading-relaxed">Otorga el aval corporativo como estratega capacitado para auditar negocios, estructurar ofertas de alto valor y escalar embudos comerciales. (AL conseguir tu Primera Venta)</p>
+                </div>
+            </div>
+
+            <!-- Sistema de Reconocimiento "Huella de Imperio" -->
+            <div class="mt-12 bg-gradient-to-r from-slate-900 to-brandDark text-white p-8 rounded-2xl text-center shadow-xl">
+                <i class="fa-solid fa-trophy text-brandYellow text-4xl mb-3"></i>
+                <h3 class="text-xl font-bold">Programa de Reconocimiento "Huella de Imperio"</h3>
+                <p class="text-slate-300 text-sm max-w-2xl mx-auto mt-2 leading-relaxed">Premiamos tu disciplina y resultados. Al lograr tus primeros hitos de facturación ($100, $500, $1,000, $5,000 USD) o volumen de ventas (Desde la Primera Venta) dentro de la Red de Socios de Mega Escuela, recibirás insignias de honor e invitaciones exclusivas al Nivel 1 (Socio / Instructor).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: EL SISTEMA DE RESPALDO EN 3 PASOS -->
+    <section class="py-16 px-4 bg-slate-950 text-white border-t border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Encabezado de la Sección -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brandYellow font-extrabold text-xs uppercase tracking-widest block mb-2">
+                    Un Sistema Diseñado Para Tu Éxito
+                </span>
+                <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
+                    No Solo Te Enseñamos: Te Respaldamos En Cada Paso
+                </h2>
+                <p class="text-slate-400 text-sm md:text-base mt-3">
+                    Eliminamos la incertidumbre del "qué hacer después". Nuestro modelo está estructurado para que monetices desde las primeras semanas.
+                </p>
+            </div>
+
+            <!-- Diagrama Visual de 3 Pasos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                
+                <!-- Línea Conectora (Visible solo en escritorio) -->
+                <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-brandBlue via-brandYellow to-emerald-500 -translate-y-8 z-0"></div>
+
+                <!-- PASO 1 -->
+                <div class="relative z-10 bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-brandBlue transition-all duration-300 shadow-xl flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-brandBlue/10 border border-brandBlue text-brandBlue flex items-center justify-center text-2xl font-black mb-6 shadow-lg">
+                        01
+                    </div>
+                    <div class="inline-block px-3 py-1 bg-brandBlue/20 text-brandBlue rounded-full text-[10px] font-bold uppercase tracking-wider mb-3">
+                        Etapa Técnica
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Aprendes el Oficio</h3>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+                        Dominas la habilidad técnica con metodología 100% práctica y asesoría directa de mentores activos en el mercado.
+                    </p>
+                </div>
+
+                <!-- PASO 2 -->
+                <div class="relative z-10 bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-brandYellow transition-all duration-300 shadow-xl flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-brandYellow/10 border border-brandYellow text-brandYellow flex items-center justify-center text-2xl font-black mb-6 shadow-lg">
+                        02
+                    </div>
+                    <div class="inline-block px-3 py-1 bg-brandYellow/20 text-brandYellow rounded-full text-[10px] font-bold uppercase tracking-wider mb-3">
+                        Etapa de Negocio
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Construyes tu Embudo</h3>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+                        Configuras tu sistema de atracción y ventas (oferta, WhatsApp y redes) para presentar tus servicios como un profesional cotizado.
+                    </p>
+                </div>
+
+                <!-- PASO 3 -->
+                <div class="relative z-10 bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-emerald-500 transition-all duration-300 shadow-xl flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500 text-emerald-400 flex items-center justify-center text-2xl font-black mb-6 shadow-lg">
+                        03
+                    </div>
+                    <div class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3">
+                        Monetización Directa
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Conexión o Afiliación</h3>
+                    <p class="text-slate-400 text-xs md:text-sm leading-relaxed">
+                        Te conectamos con clientes reales de nuestra red o ganas comisiones directas promoviendo nuestras formaciones como Afiliado (Nivel 5).
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Banner de Garantía de Acompañamiento -->
+            <div class="mt-12 bg-slate-900/80 border border-slate-800 p-4 md:p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4 text-center sm:text-left">
+                    <div class="w-12 h-12 rounded-full bg-brandYellow/20 text-brandYellow flex items-center justify-center text-xl shrink-0 mx-auto sm:mx-0">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm md:text-base">Respaldo Institucional Continuo</h4>
+                        <p class="text-slate-400 text-xs">Nunca caminas solo: tienes acceso a la comunidad raíz para soporte de ventas y proyectos reales.</p>
+                    </div>
+                </div>
+                <a href="#inversion" class="px-6 py-3 bg-brandYellow text-slate-950 font-black text-xs uppercase tracking-wider rounded-xl hover:bg-yellow-400 transition-colors shrink-0">
+                    Asegurar Mi Cupo
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE TESTIMONIOS Y HISTORIAS DE ÉXITO (AVATARES) -->
+    <section class="py-16 px-4 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brandBlue font-extrabold text-xs uppercase tracking-widest block mb-2">
+                    Casos Reales de Transformación
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    Emprendedores Que Ya Están Construyendo Su Imperio
+                </h2>
+                <p class="text-slate-600 text-sm md:text-base mt-2">
+                    Conoce la experiencia de quienes transitaron el camino desde la incertidumbre hasta la independencia ocupacional.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Testimonio 1: Avatar Técnico Estancado -> Especialista (Nivel 2) -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed italic mb-6">
+                            "Te voy a ser bien sincera: llegué al Full Day totalmente quemada. Llevaba meses haciendo diseños y manejando redes para tres clientes, y terminaba el día con dolor de cabeza y ganando una miseria. Lo de la mentoría 1 a 1 fue lo que me acomodó el cerebro. Me ayudaron a botar a los clientes tóxicos, subir mis tarifas y armar un embudo básico para no estar respondiendo mensajes a las 10 de la noche. Ahora trabajo las mismas horas, pero gano el triple y los fines de semana son míos. Gracias totales."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <img src="img/elena.jpeg" alt="Caso de éxito" class="w-10 h-10 rounded-full object-cover border border-brandYellow">
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 text-xs">Elena Mendoza</h4>
+                            <span class="text-[10px] text-brandBlue font-bold block">Técnico Especialista</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2: Avatar Apasionado Principiante -> Afiliado/Profesional (Nivel 3) -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed italic mb-6">
+                            "Inicié desde cero sin saber qué vender. Gracias al acompañamiento en vivo y al programa de afiliados logré mi primera venta digital en la segunda semana. El respaldo de Mega Escuela te da muchísima seguridad. Lo que me voló la cabeza fue la parte de cómo armar la oferta y el guion para WhatsApp."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <img src="img/carlos.jpeg" alt="Caso de éxito" class="w-10 h-10 rounded-full object-cover border border-brandYellow">
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 text-xs">Carlos Gutiérrez</h4>
+                            <span class="text-[10px] text-brandBlue font-bold block">Marketer Afiliado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3: Avatar Emprendedor Operativo -> Socio/Líder (Nivel 1) -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-xs md:text-sm leading-relaxed italic mb-6">
+                            "Estaba atrapado trabajando 14 horas al día en la operatividad. Las mentorías 1 a 1 con Milton me permitieron estructurar mi equipo y delegar. Pasé de ser un autoempleado a gestionar una empresa rentable.Mira, yo no sabía ni cómo crear un link de afiliado, te lo juro por Dios. Mi miedo era quedarme grabadO en vivo o que la gente me dijera que no. Lo mejor es que si te trabas, escribes al grupo y te responden al tiro."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <img src="img/roberto.jpeg" alt="Caso de éxito" class="w-10 h-10 rounded-full object-cover border border-brandYellow">
+                        <div>
+                            <h4 class="font-extrabold text-slate-900 text-xs">Roberto Briceño</h4>
+                            <span class="text-[10px] text-brandBlue font-bold block">Socio Comercial</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN: BONOS EXCLUSIVOS (RECUPERADA) -->
+    <section class="py-16 px-4 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-brandYellow font-bold text-xs uppercase tracking-widest">Valor Agregado Sin Costo Adicional</span>
+                <h2 class="text-3xl font-extrabold mt-2">Acelera Tu Camino Con Estos 3 Bonos Especiales</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Bono 1 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 flex flex-col md:flex-row gap-4 items-center">
+                    <div class="w-16 h-16 bg-brandYellow/10 text-brandYellow rounded-xl flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <div class="text-xs font-bold text-brandYellow uppercase">Bono #1 • Valor $97 USD (GRATIS)</div>
+                        <h3 class="text-lg font-bold">Pack de Creación de Contenido Express y Copywriting</h3>
+                        <p class="text-slate-400 text-xs mt-1">Guías paso a paso con plantillas de guiones AIDA y PAS para grabar videos con tu teléfono que atraigan prospectos diariamente sin pena a la cámara.</p>
+                    </div>
+                </div>
+
+                <!-- Bono 2 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 flex flex-col md:flex-row gap-4 items-center">
+                    <div class="w-16 h-16 bg-brandYellow/10 text-brandYellow rounded-xl flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                        <i class="fa-solid fa-boxes-packing"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <div class="text-xs font-bold text-brandYellow uppercase">Bono #2 • Valor $147 USD (GRATIS)</div>
+                        <h3 class="text-lg font-bold">Kit de Plantillas "Llave en Mano"</h3>
+                        <p class="text-slate-400 text-xs mt-1">Estructuras prefabricadas de páginas de ventas, scripts de cierre de ventas para WhatsApp y configuraciones de anuncios para copiar y pegar.</p>
+                    </div>
+                </div>
+
+                <!-- Bono VIP -->
+                <div class="bg-gradient-to-r from-brandBlue/40 to-slate-800 p-6 rounded-2xl border border-brandBlue flex flex-col md:flex-row gap-4 items-center">
+                    <div class="w-16 h-16 bg-brandBlue text-white rounded-xl flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                        <i class="fa-solid fa-infinity"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <div class="text-xs font-bold text-sky-300 uppercase">Bono VIP • Acceso De Por Vida</div>
+                        <h3 class="text-lg font-bold">Pase VIP a la Red de Socios y Afiliados Mega Escuela</h3>
+                        <p class="text-slate-300 text-xs mt-1">Soporte continuo y permanente en nuestra comunidad privada (Forochat 24/7), actualización constante de estrategias y derecho a comercializar todos nuestros programas educativos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE INVERSIÓN Y MÉTODOS DE PAGO DIRECTOS - METODO IMPERIO DIGITAL -->
+    <section id="inversion" class="py-20 px-4 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Encabezado de la Sección -->
+            <div class="text-center mb-10 max-w-3xl mx-auto">
+                <span class="text-brandBlue font-extrabold text-xs uppercase tracking-widest block mb-2">
+                    Inscripciones Abiertas - Método Imperio Digital
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    Matriz de Inversión y Becas de Co-Emprendimiento
+                </h2>
+                <p class="text-slate-600 text-sm md:text-base mt-3 leading-relaxed">
+                    Acompañamos tu transformación desde la capacitación técnica inicial hasta la aceleración de tu propio negocio. Selecciona el pase que mejor se adapte a tu meta actual.
+                </p>
+            </div>
+
+            <!-- ALERTA DE CUPOS LIMITADOS -->
+            <div class="bg-amber-50 border border-amber-300 rounded-2xl p-4 mb-10 max-w-3xl mx-auto flex items-center justify-center gap-3 text-amber-900 shadow-sm">
+                <i class="fa-solid fa-triangle-exclamation text-amber-600 text-xl shrink-0 animate-pulse"></i>
+                <p class="text-xs md:text-sm font-bold text-center">
+                    ¡ATENCIÓN! Cupos estrictamente limitados por capacidad de mentoría personalizada y espacio presencial. La beca especial caduca al agotar la disponibilidad.
+                </p>
+            </div>
+
+            <!-- BLOQUE UNIFICADO DE BENEFICIOS (INCLUIDOS EN TODOS LOS PASES POR ALUMNO) -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-12 max-w-4xl mx-auto">
+                <div class="text-center mb-6">
+                    <span class="bg-brandBlue/10 text-brandBlue font-extrabold text-[11px] px-3 py-1 rounded-full uppercase tracking-wider">
+                        Programa Académico Integral
+                    </span>
+                    <h3 class="text-xl font-black text-slate-900 mt-2">Lo que recibe cada participante inscrito:</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4 text-xs text-slate-700">
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>Formación Híbrida Completa:</strong> Teleclases en vivo (20 Sep) + Jornada Presencial Full Day (04 Oct).</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>4 Sesiones de Mentoría Privada 1 a 1:</strong> Estructuración de modelo de negocio, costos y ventas.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>Doble Acreditación Oficial:</strong> Certificación avalada e independiente expedida por Mega Escuela.</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>Paquete de Bonos e Implementación:</strong> Plantillas financieras, scripts de venta y recursos técnicos.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>Acceso a la Red Privada:</strong> Ecosistema de afiliados, clientes reales y bolsa de oportunidades.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-sm shrink-0 mt-0.5"></i>
+                            <span><strong>Acompañamiento Evolutivo:</strong> Ruta clara dentro de los 5 Niveles del Método Imperio Digital.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETAS DE PRECIO CON OPCIONES DE PAGO DIRECTAS POR PLAN -->
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- TARJETA 1: INDIVIDUAL ($47 USD) -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all duration-300">
+                    <div>
+                        <span class="text-slate-400 font-extrabold text-[11px] uppercase tracking-wider block mb-1">Entrada Individual</span>
+                        <h3 class="text-2xl font-black text-slate-900">1 Cupo Individual</h3>
+                        <p class="text-slate-500 text-xs mt-1">Para el emprendedor que inicia su ruta de independencia en solitario.</p>
+                        
+                        <div class="my-6 pt-4 border-t border-slate-100">
+                            <span class="text-4xl font-black text-slate-900">$47</span>
+                            <span class="text-slate-500 text-xs font-bold">USD</span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-6">
+                            Incluye todos los beneficios, mentorías y acreditaciones para <strong>1 participante</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Opciones de Pago Integradas Directamente en la Tarjeta -->
+                    <div class="space-y-2.5 pt-4 border-t border-slate-100">
+                        <span class="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider block text-center mb-1">Elige tu método de pago:</span>
+                        
+                        <!-- Botón Hotmart ($47 USD) 
+                        <a href="https://pay.hotmart.com/LINK_HOTMART_47USD" target="_blank" class="flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3 px-3 rounded-xl text-xs transition shadow-sm">
+                            <i class="fa-solid fa-credit-card text-brandYellow"></i>
+                            <span>Tarjeta Crédito / Débito (Hotmart)</span>
+                        </a>-->
+
+                        <!-- Botón Pago Local ($47 USD) -->
+                        <a href="https://wa.me/584127639970?text=Hola%20Milton%2C%20deseo%20realizar%20el%20pago%20local%20%28PagoM%C3%B3vil%2FBinance%2FPayPal%2FEfectivo%29%20para%20el%20plan%20Individual%20de%201%20Cupo%20%28%2447%20USD%29." 
+                           target="_blank" 
+                           onclick="fbq('track', 'Lead', {content_name: 'Plan Individual 1 Cupo', value: 47.00, currency: 'USD'});"
+                           class="flex items-center justify-center gap-2 w-full bg-brandBlue hover:bg-slate-900 text-white font-extrabold py-3 px-3 rounded-xl text-xs transition shadow-sm">
+                            <i class="fa-solid fa-mobile-screen-button text-brandYellow"></i>
+                            <span>PagoMóvil, Binance, PayPal o Efectivo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TARJETA 2: DÚO ($77 USD) -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-slate-300 transition-all duration-300 relative">
+                    <span class="absolute -top-3 right-6 bg-brandBlue text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                        Ahorras $17 USD / cupo
+                    </span>
+
+                    <div>
+                        <span class="text-brandBlue font-extrabold text-[11px] uppercase tracking-wider block mb-1">Beca Socio de Negocios</span>
+                        <h3 class="text-2xl font-black text-slate-900">Pase Dúo (2 Cupos)</h3>
+                        <p class="text-slate-500 text-xs mt-1">Para emprender en pareja o capacitar a tu socio estratégico ($38.50 USD c/u).</p>
+                        
+                        <div class="my-6 pt-4 border-t border-slate-100">
+                            <span class="text-4xl font-black text-slate-900">$77</span>
+                            <span class="text-slate-500 text-xs font-bold">USD Total</span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 bg-sky-50 p-3 rounded-xl border border-sky-100 mb-6">
+                            Multiplica x2 los accesos, mentorías independientes y doble acreditación oficial.
+                        </p>
+                    </div>
+
+                    <!-- Opciones de Pago Integradas Directamente en la Tarjeta -->
+                    <div class="space-y-2.5 pt-4 border-t border-slate-100">
+                        <span class="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider block text-center mb-1">Elige tu método de pago:</span>
+                        
+                        <!-- Botón Hotmart ($77 USD) 
+                        <a href="https://pay.hotmart.com/LINK_HOTMART_77USD" target="_blank" class="flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3 px-3 rounded-xl text-xs transition shadow-sm">
+                            <i class="fa-solid fa-credit-card text-brandYellow"></i>
+                            <span>Tarjeta Crédito / Débito (Hotmart)</span>
+                        </a>-->
+
+                        <!-- Botón Pago Local ($77 USD) -->
+                        <a href="https://wa.me/584127639970?text=Hola%20Milton%2C%20deseo%20realizar%20el%20pago%20local%20%28PagoM%C3%B3vil%2FBinance%2FPayPal%2FEfectivo%29%20para%20el%20Pase%20D%C3%BAo%20de%202%20Cupos%20%28%2477%20USD%29." 
+                           target="_blank" 
+                           onclick="fbq('track', 'Lead', {content_name: 'Pase Duo 2 Cupos', value: 77.00, currency: 'USD'});"
+                           class="flex items-center justify-center gap-2 w-full bg-brandBlue hover:bg-slate-900 text-white font-extrabold py-3 px-3 rounded-xl text-xs transition shadow-sm">
+                            <i class="fa-solid fa-mobile-screen-button text-brandYellow"></i>
+                            <span>PagoMóvil, Binance, PayPal o Efectivo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TARJETA 3: EQUIPO ($97 USD) -->
+                <div class="bg-slate-900 text-white rounded-3xl p-8 border-2 border-brandYellow shadow-2xl flex flex-col justify-between relative transform md:-translate-y-2">
+                    <span class="absolute -top-3 right-6 bg-brandYellow text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                        Máximo Ahorro (32% OFF)
+                    </span>
+
+                    <div>
+                        <span class="text-brandYellow font-extrabold text-[11px] uppercase tracking-wider block mb-1">Beca Co-Emprendimiento</span>
+                        <h3 class="text-2xl font-black text-white">Equipo (3 Cupos)</h3>
+                        <p class="text-slate-400 text-xs mt-1">Capacita a todo tu equipo operativo o de trabajo técnico ($32.33 USD c/u).</p>
+                        
+                        <div class="my-6 pt-4 border-t border-slate-800">
+                            <span class="text-5xl font-black text-brandYellow">$97</span>
+                            <span class="text-slate-400 text-xs font-bold">USD Total</span>
+                        </div>
+
+                        <p class="text-xs text-slate-300 bg-slate-800/80 p-3 rounded-xl border border-slate-700 mb-6">
+                            Multiplica x3 accesos, mentorías y doble certificación + Mesa reservada en el Full Day.
+                        </p>
+                    </div>
+
+                    <!-- Opciones de Pago Integradas Directamente en la Tarjeta -->
+                    <div class="space-y-2.5 pt-4 border-t border-slate-800">
+                        <span class="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider block text-center mb-1">Elige tu método de pago:</span>
+                        
+                        <!-- Botón Hotmart ($97 USD)                         <a href="https://pay.hotmart.com/LINK_HOTMART_97USD" target="_blank" class="flex items-center justify-center gap-2 w-full bg-brandYellow hover:bg-yellow-400 text-slate-950 font-black py-3 px-3 rounded-xl text-xs transition shadow-md">
+                            <i class="fa-solid fa-credit-card text-slate-950"></i>
+                            <span>Tarjeta Crédito / Débito (Hotmart)</span>
+                        </a>-->
+
+
+                        <!-- Botón Pago Local ($97 USD) -->
+                        <a href="https://wa.me/584127639970?text=Hola%20Milton%2C%20deseo%20realizar%20el%20pago%20local%20%28PagoM%C3%B3vil%2FBinance%2FPayPal%2FEfectivo%29%20para%20la%20Escuadra%20de%20Imperio%20de%203%20Cupos%20%28%2497%20USD%29." 
+                           target="_blank" 
+                           onclick="fbq('track', 'Lead', {content_name: 'Escuadra de Imperio 3 Cupos', value: 97.00, currency: 'USD'});"
+                           class="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-700 text-white font-extrabold py-3 px-3 rounded-xl text-xs transition shadow-sm border border-slate-700">
+                            <i class="fa-solid fa-mobile-screen-button text-brandYellow"></i>
+                            <span>PagoMóvil, Binance, PayPal o Efectivo</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- NOTA DE ATENCIÓN POR ASESOR ACADÉMICO -->
+            <div class="mt-12 text-center bg-white p-6 rounded-2xl border border-slate-200 shadow-sm max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3 text-left">
+                    <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-headset text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider">Atención Directa y Personalizada</h4>
+                        <p class="text-xs text-slate-500">Serás atendido directamente por un Asesor Académico de Mega Escuela para responder tus dudas antes de inscribirte.</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/584127639970?text=Hola%20Milton%2C%20tengo%20dudas%20y%20deseo%20hablar%20con%20un%20Asesor%20Acad%C3%A9mico%20sobre%20el%20M%C3%A9todo%20Imperio%20Digital." target="_blank" class="shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs py-3 px-5 rounded-xl transition shadow-md flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Hablar con un Asesor</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN: GARANTÍA (RECUPERADA) -->
+    <section class="py-12 px-4 bg-white border-y border-slate-200">
+        <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-6">
+            <div class="w-24 h-24 bg-brandYellow/20 text-brandYellowDark rounded-full flex items-center justify-center flex-shrink-0 text-4xl">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-slate-900">Garantía Incondicional de 7 Días</h3>
+                <p class="text-slate-600 text-xs md:text-sm mt-1 leading-relaxed">Prueba el programa, accede a las primeras lecciones y asiste a las primeras sesiones. Si aúnque hayas hecho el mejor intento sientes que este programa no cumple tus expectativas, te devolvemos el 100% de tu dinero sin preguntas ni complicaciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: PREGUNTAS FRECUENTES FAQ (RECUPERADA) -->
+    <section class="py-16 px-4 bg-slate-50">
+        <div class="max-w-3xl mx-auto" x-data="{ active: null }">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl font-extrabold text-slate-900">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <button @click="active = (active === 1 ? null : 1)" class="w-full p-4 text-left font-bold text-slate-800 text-sm flex justify-between items-center">
+                        <span>¿Necesito una computadora o experiencia previa para asistir?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition transform" :class="{'rotate-180': active === 1}"></i>
+                    </button>
+                    <div x-show="active === 1" class="px-4 pb-4 text-xs text-slate-600 leading-relaxed">
+                        No. El único requerimiento técnico es tu teléfono inteligente (Smartphone). La metodología está diseñada desde cero para que puedas gestionar tus campañas, publicaciones y ventas desde tu celular.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <button @click="active = (active === 2 ? null : 2)" class="w-full p-4 text-left font-bold text-slate-800 text-sm flex justify-between items-center">
+                        <span>¿Qué pasa si no vivo en San Francisco, Zulia y no puedo ir al Full Day?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition transform" :class="{'rotate-180': active === 2}"></i>
+                    </button>
+                    <div x-show="active === 2" class="px-4 pb-4 text-xs text-slate-600 leading-relaxed">
+                        Tendrás acceso en tiempo real a la transmisión en vivo VIP y las grabaciones procesadas en alta definición, asegurando exactamente el mismo nivel de aprendizaje y acompañamiento interactivo.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <button @click="active = (active === 3 ? null : 3)" class="w-full p-4 text-left font-bold text-slate-800 text-sm flex justify-between items-center">
+                        <span>¿Cómo funciona el acompañamiento después del evento presencial?</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition transform" :class="{'rotate-180': active === 3}"></i>
+                    </button>
+                    <div x-show="active === 3" class="px-4 pb-4 text-xs text-slate-600 leading-relaxed">
+                        Tendrás 2 semanas adicionales de incubación directa donde programaremos tus 4 sesiones individuales 1 a 1 para corregir tus campañas. Después, quedas integrado de por vida en la Red de Socios de Mega Escuela.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+            <div>
+                <div class="text-white font-extrabold text-xl tracking-tight">MEGA ESCUELA</div>
+                <p class="text-xs text-slate-500 mt-1">Impulsando emprendedores hacia su independencia ocupacional y financiera.</p>
+            </div>
+            <div class="text-xs text-slate-500">
+                Ubicación del Evento: Salón de Eventos El Molino, San Francisco, Zulia.<br>
+                © 2026 Mega Escuela. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE CHECKOUT MULTI-OPCIÓN CON ENLACES DINÁMICOS POR PLAN -->
+    <div x-data="{ 
+            openModal: false, 
+            selectedPlan: '1 Cupo Individual ($47 USD)',
+
+            // Configuración de rutas específicas por plan
+            planRoutes: {
+                '1 Cupo Individual ($47 USD)': {
+                    hotmart: 'https://pay.hotmart.com/LINK_HOTMART_47USD',
+                    pagoLocal: '#pago-personalizado-47',
+                    whatsappMsg: 'Hola Milton, deseo inscribirme en el plan Individual ($47 USD). Tengo algunas dudas antes de realizar mi pago.'
+                },
+                'Pase Dúo - 2 Cupos ($77 USD)': {
+                    hotmart: 'https://pay.hotmart.com/LINK_HOTMART_77USD',
+                    pagoLocal: '#pago-personalizado-77',
+                    whatsappMsg: 'Hola Milton, me interesa el Pase Dúo ($77 USD). Quisiera hablar con un Asesor para concretar la inscripción.'
+                },
+                'Escuadra de Imperio - 3 Cupos ($97 USD)': {
+                    hotmart: 'https://pay.hotmart.com/LINK_HOTMART_97USD',
+                    pagoLocal: '#pago-personalizado-97',
+                    whatsappMsg: 'Hola Milton, quiero inscribir a mi equipo en la Escuadra de Imperio ($97 USD). Necesito asistencia con el pago.'
+                }
+            },
+
+            // Getter para obtener la configuración activa según selectedPlan
+            get activeRoute() {
+                return this.planRoutes[this.selectedPlan] || this.planRoutes['1 Cupo Individual ($47 USD)'];
+            }
+        }" 
+        x-show="openModal" 
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4" 
+        x-cloak 
+        x-transition>
+
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 text-center relative shadow-2xl border border-slate-100" @click.away="openModal = false">
+            
+            <!-- Botón para cerrar -->
+            <button @click="openModal = false" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            
+            <div class="w-14 h-14 bg-brandYellow/20 text-brandYellowDark rounded-2xl flex items-center justify-center mx-auto text-2xl mb-3">
+                <i class="fa-solid fa-credit-card"></i>
+            </div>
+            
+            <h3 class="text-xl font-extrabold text-slate-900">Selecciona Tu Método de Pago</h3>
+            <p class="text-xs text-slate-500 mt-1 mb-6">Plan seleccionado: <strong x-text="selectedPlan" class="text-brandBlue font-bold"></strong></p>
+            
+            <div class="space-y-3">
+                <!-- BOTÓN 1: TARJETAS / HOTMART (ENLACE DINÁMICO) -->
+                <a :href="activeRoute.hotmart" target="_blank" class="flex items-center justify-between w-full bg-slate-900 hover:bg-slate-800 text-white font-bold p-4 rounded-xl text-xs md:text-sm transition group shadow-md">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-credit-card text-brandYellow text-lg"></i>
+                        <span class="text-left">
+                            <span class="block">Tarjeta de Crédito / Débito</span>
+                            <span class="text-[10px] text-slate-400 font-normal">Checkout Seguro Hotmart Internacional</span>
+                        </span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition"></i>
+                </a>
+
+                <!-- BOTÓN 2: PAGOS LOCALES / CHECKOUT PROPIO (ENLACE DINÁMICO) -->
+                <a :href="activeRoute.pagoLocal" @click="openModal = false" class="flex items-center justify-between w-full bg-brandBlue hover:bg-brandBlueDark text-white font-bold p-4 rounded-xl text-xs md:text-sm transition group shadow-md">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-mobile-screen-button text-brandYellow text-lg"></i>
+                        <span class="text-left">
+                            <span class="block">PagoMóvil, Binance, PayPal o Efectivo</span>
+                            <span class="text-[10px] text-sky-200 font-normal">Procesamiento Local Mega Escuela</span>
+                        </span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-sky-300 group-hover:translate-x-1 transition"></i>
+                </a>
+
+                <!-- BOTÓN 3: ASESOR ACADÉMICO EN VIVO (MENSAJE DINÁMICO) -->
+                <a :href="'https://wa.me/58416907152?text=' + encodeURIComponent(activeRoute.whatsappMsg)" target="_blank" class="flex items-center justify-between w-full bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 text-emerald-800 font-bold p-3.5 rounded-xl text-xs md:text-sm transition group">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-emerald-600 text-xl"></i>
+                        <span class="text-left">
+                            <span class="block">Hablar con un Asesor Académico</span>
+                            <span class="text-[10px] text-emerald-600 font-normal">Resuelve dudas por WhatsApp antes de inscribirte</span>
+                        </span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-emerald-500 group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
+
+            <p class="text-[10px] text-slate-400 mt-4">Transacciones encriptadas y protegidas por la Garantía de 7 días de Mega Escuela.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPT DEL CONTADOR REGRESIVO -->
+    <script>
+        function countdown() {
+            return {
+                targetDate: new Date('2026-09-20T08:00:00').getTime(),
+                days: '00',
+                hours: '00',
+                minutes: '00',
+                seconds: '00',
+                init() {
+                    this.updateCountdown();
+                    setInterval(() => { this.updateCountdown(); }, 1000);
+                },
+                updateCountdown() {
+                    const now = new Date().getTime();
+                    const distance = this.targetDate - now;
+
+                    if (distance < 0) {
+                        this.days = '00';
+                        this.hours = '00';
+                        this.minutes = '00';
+                        this.seconds = '00';
+                        return;
+                    }
+
+                    this.days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                    this.hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                    this.minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                    this.seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
