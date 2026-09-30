@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Maestro Comunicacional | UNT San Francisco</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        unt: {
+                            blue: '#0055A5',
+                            darkBlue: '#003366',
+                            lightBlue: '#0088FF',
+                            accent: '#FFB800',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        [x-cloak] { display: none !important; }
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="h-full font-sans antialiased bg-slate-950 text-slate-100 flex flex-col md:flex-row overflow-hidden" x-data="{ currentTab: 'presentacion', mobileMenuOpen: false }">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="w-full md:w-96 bg-slate-900 border-r border-slate-800 flex flex-col justify-between shrink-0 z-20">
+        <div>
+            <!-- Header Branding -->
+            <div class="p-6 border-b border-slate-800 bg-slate-900/50">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-unt-darkBlue flex items-center justify-center font-black text-xl text-white shadow-lg shadow-blue-900/50 border border-blue-400/40">
+                            UNT
+                        </div>
+                        <div>
+                            <h1 class="text-lg font-black leading-tight text-white tracking-wide">UN NUEVO TIEMPO</h1>
+                            <p class="text-xs text-blue-400 font-bold uppercase tracking-wider">Municipio San Francisco</p>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu Button -->
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-slate-400 hover:text-white focus:outline-none text-2xl">
+                        <i class="fa-solid" :class="mobileMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Navigation Links -->
+            <nav class="p-4 space-y-2 custom-scrollbar overflow-y-auto max-h-[calc(100vh-230px)]" :class="{ 'block': mobileMenuOpen, 'hidden md:block': !mobileMenuOpen }">
+                <div class="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                    Navegación Estratégica
+                </div>
+
+                <button @click="currentTab = 'presentacion'; mobileMenuOpen = false" 
+                        :class="currentTab === 'presentacion' ? 'bg-blue-600/30 text-blue-300 border-l-4 border-blue-500 font-bold shadow-md' : 'text-slate-300 hover:bg-slate-800 hover:text-white'" 
+                        class="w-full flex items-center space-x-3 px-4 py-3 rounded-r-xl text-base transition-all duration-150 text-left">
+                    <i class="fa-solid fa-compass w-6 text-center text-lg text-blue-400"></i>
+                    <span>1. Marco Estratégico</span>
+                </button>
+
+                <button @click="currentTab = 'arquitectura'; mobileMenuOpen = false" 
+                        :class="currentTab === 'arquitectura' ? 'bg-blue-600/30 text-blue-300 border-l-4 border-blue-500 font-bold shadow-md' : 'text-slate-300 hover:bg-slate-800 hover:text-white'" 
+                        class="w-full flex items-center space-x-3 px-4 py-3 rounded-r-xl text-base transition-all duration-150 text-left">
+                    <i class="fa-solid fa-sitemap w-6 text-center text-lg text-blue-400"></i>
+                    <span>2. Arquitectura Organigrama</span>
+                </button>
+
+                <button @click="currentTab = 'modelo'; mobileMenuOpen = false" 
+                        :class="currentTab === 'modelo' ? 'bg-blue-600/30 text-blue-300 border-l-4 border-blue-500 font-bold shadow-md' : 'text-slate-300 hover:bg-slate-800 hover:text-white'" 
+                        class="w-full flex items-center space-x-3 px-4 py-3 rounded-r-xl text-base transition-all duration-150 text-left">
+                    <i class="fa-solid fa-bolt w-6 text-center text-lg text-amber-400"></i>
+                    <span>3. Modelo Militancia ACTIVA</span>
+                </button>
+
+                <button @click="currentTab = 'entregables'; mobileMenuOpen = false" 
+                        :class="currentTab === 'entregables' ? 'bg-blue-600/30 text-blue-300 border-l-4 border-blue-500 font-bold shadow-md' : 'text-slate-300 hover:bg-slate-800 hover:text-white'" 
+                        class="w-full flex items-center space-x-3 px-4 py-3 rounded-r-xl text-base transition-all duration-150 text-left">
+                    <i class="fa-solid fa-file-contract w-6 text-center text-lg text-purple-400"></i>
+                    <span>4. Entregables y Normativa</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Meta Info & Credits Footer -->
+        <div class="p-5 border-t border-slate-800 bg-slate-900/90 text-xs text-slate-300 space-y-3">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-user-gear text-blue-400 text-lg"></i>
+                <div>
+                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-bold">Diseño & Metodología:</span>
+                    <span class="font-bold text-slate-100 text-sm">Estratega Milton Hurtado</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3 pt-2 border-t border-slate-800/80">
+                <i class="fa-solid fa-shield-halved text-amber-400 text-lg"></i>
+                <div>
+                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-bold">Revisado por:</span>
+                    <span class="font-bold text-slate-100 text-sm">Consejo Consultivo Municipal</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden bg-slate-950">
+        
+        <!-- Top App Bar -->
+        <header class="h-20 border-b border-slate-800 bg-slate-900/60 backdrop-blur px-8 flex items-center justify-between shrink-0">
+            <div class="flex items-center space-x-4">
+                <span class="text-xs px-3 py-1.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/40 font-bold tracking-widest uppercase">DEOD</span>
+                <h2 class="text-lg md:text-xl font-extrabold text-white tracking-wide">Plan Maestro Comunicacional e Institucional</h2>
+            </div>
+            <div class="flex items-center space-x-4 text-sm font-semibold text-slate-300">
+                <span class="hidden sm:inline-block"><i class="fa-solid fa-location-dot text-red-500 mr-2"></i>San Francisco, Zulia</span>
+            </div>
+        </header>
+
+        <!-- Dynamic Content Body -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-8 space-y-8">
+
+            <!-- TAB 1: PRESENTACIÓN Y MARCO ESTRATÉGICO -->
+            <section x-show="currentTab === 'presentacion'" x-cloak class="space-y-8">
+                <!-- Banner Header -->
+                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-900/80 via-slate-900 to-slate-900 border border-blue-500/40 p-10 shadow-2xl">
+                    <div class="relative z-10 max-w-4xl space-y-4">
+                        <span class="inline-block px-4 py-1.5 bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold rounded-full uppercase tracking-widest">
+                            Plan Maestro DEOD
+                        </span>
+                        <h3 class="text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">
+                            Estrategia Integral de Desarrollo Político y Activación Orgánica de Masas
+                        </h3>
+                        <p class="text-base md:text-lg text-slate-200 leading-relaxed font-normal">
+                            Resuelve el reto de la sostenibilidad operativa al convertir la formación técnica y política en el motor principal de la captación, cohesión y permanencia de la militancia de Un Nuevo Tiempo en San Francisco.
+                        </p>
+                    </div>
+                    <div class="absolute -right-10 -bottom-10 opacity-10 text-blue-400 text-[12rem] pointer-events-none">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                </div>
+
+                <!-- Credential Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex items-center space-x-5 shadow-lg">
+                        <div class="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 text-2xl shrink-0">
+                            <i class="fa-solid fa-user-ninja"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Diseño & Autoría Metodológica</span>
+                            <h4 class="text-xl font-extrabold text-slate-100">Estratega Milton Hurtado</h4>
+                            <p class="text-sm text-slate-400">Arquitectura de procesos y operativización digital</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex items-center space-x-5 shadow-lg">
+                        <div class="w-16 h-16 rounded-2xl bg-amber-600/20 border border-amber-500/40 flex items-center justify-center text-amber-400 text-2xl shrink-0">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider">Aprobación e Institucionalidad</span>
+                            <h4 class="text-xl font-extrabold text-slate-100">Consejo Consultivo Municipal</h4>
+                            <p class="text-sm text-slate-400">Alineación política y supervisión institucional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategic Pillars Grid -->
+                <div>
+                    <h4 class="text-2xl font-extrabold text-white mb-6 flex items-center">
+                        <i class="fa-solid fa-cubes text-blue-400 mr-3"></i> Principios Fundamentales del Sistema
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition rounded-2xl p-6 space-y-3">
+                            <div class="text-blue-400 text-xl font-bold flex items-center">
+                                <i class="fa-solid fa-users text-blue-500 mr-3"></i> Inclusión Universal
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Todo militante tiene cabida sin distinción. Cada integrante asume el rol donde aporte mayor valor o se sienta cómodo.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition rounded-2xl p-6 space-y-3">
+                            <div class="text-blue-400 text-xl font-bold flex items-center">
+                                <i class="fa-solid fa-arrows-split-up-and-left text-blue-500 mr-3"></i> Pasantía Dinámica
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Movilidad funcional interna. La militancia explora distintos roles adaptándose a medida que adquiere nuevas destrezas.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition rounded-2xl p-6 space-y-3">
+                            <div class="text-blue-400 text-xl font-bold flex items-center">
+                                <i class="fa-solid fa-award text-blue-500 mr-3"></i> Formación de Vocerías
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Capacitación técnica para liderazgos con cargos de representación pública, potenciando sus habilidades discursivas.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition rounded-2xl p-6 space-y-3">
+                            <div class="text-blue-400 text-xl font-bold flex items-center">
+                                <i class="fa-solid fa-chart-line text-blue-500 mr-3"></i> Crecimiento Escalable
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Despliegue secuencial por fases de formación consecuentes para evitar el caos, la improvisación y la dispersión.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-800 hover:border-amber-500/50 transition rounded-2xl p-6 space-y-3 md:col-span-2">
+                            <div class="text-amber-400 text-xl font-bold flex items-center">
+                                <i class="fa-solid fa-star mr-3"></i> Modelo Piloto Homologable Regional
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Desarrollado bajo estándares institucionales de máxima rigurosidad, el modelo implantado en San Francisco servirá como referente metodológico para su posterior homologación en la Directiva Regional del Estado Zulia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: ARQUITECTURA ORGANIGRAMA -->
+            <section x-show="currentTab === 'arquitectura'" x-cloak class="space-y-8" x-data="{ selectedCoord: 'deod', activeDetailTab: 'proposito' }">
+                <div class="border-b border-slate-800 pb-5">
+                    <span class="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-1">Estructura Orgánica Institucional</span>
+                    <h3 class="text-3xl font-black text-white">Arquitectura Organigrama de la DEOD</h3>
+                    <p class="text-base text-slate-300 mt-1">Estructura funcional de 8 coordinaciones articuladas bajo mando jerárquico e inteligencia independiente.</p>
+                </div>
+
+                <!-- Interactive Hierarchy View -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Structure Map (Left Column) -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <!-- Top Level -->
+                        <div class="p-4 bg-slate-900 border border-amber-500/50 rounded-2xl text-center shadow-lg">
+                            <span class="text-xs font-extrabold text-amber-400 uppercase tracking-wider block">Supervisión Política</span>
+                            <span class="text-base font-black text-slate-100">Consejo Consultivo Municipal</span>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-lg"></i></div>
+
+                        <!-- Executive Level -->
+                        <button @click="selectedCoord = 'deod'" 
+                                :class="selectedCoord === 'deod' ? 'border-blue-500 bg-blue-900/40 shadow-blue-900/30' : 'border-slate-800 bg-slate-900'"
+                                class="w-full p-4 border rounded-2xl text-left transition shadow-lg flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block">Mando Ejecutivo</span>
+                                <span class="text-lg font-black text-white">1. Dirección DEOD</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-sm text-slate-400"></i>
+                        </button>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-lg"></i></div>
+
+                        <!-- Transversal & Intelligence Level -->
+                        <div class="grid grid-cols-3 gap-3">
+                            <button @click="selectedCoord = 'formacion'" 
+                                    :class="selectedCoord === 'formacion' ? 'border-blue-500 bg-blue-900/40' : 'border-slate-800 bg-slate-900'"
+                                    class="p-3 border rounded-2xl text-center transition shadow-md">
+                                <i class="fa-solid fa-graduation-cap text-blue-400 text-xl block mb-1"></i>
+                                <span class="text-xs font-bold text-slate-200 block leading-tight">2. Formación</span>
+                            </button>
+                            <button @click="selectedCoord = 'auditoria'" 
+                                    :class="selectedCoord === 'auditoria' ? 'border-blue-500 bg-blue-900/40' : 'border-slate-800 bg-slate-900'"
+                                    class="p-3 border rounded-2xl text-center transition shadow-md">
+                                <i class="fa-solid fa-shield-cat text-purple-400 text-xl block mb-1"></i>
+                                <span class="text-xs font-bold text-slate-200 block leading-tight">3. Auditoría</span>
+                            </button>
+                            <button @click="selectedCoord = 'datos'" 
+                                    :class="selectedCoord === 'datos' ? 'border-blue-500 bg-blue-900/40' : 'border-slate-800 bg-slate-900'"
+                                    class="p-3 border rounded-2xl text-center transition shadow-md">
+                                <i class="fa-solid fa-chart-pie text-emerald-400 text-xl block mb-1"></i>
+                                <span class="text-xs font-bold text-slate-200 block leading-tight">4. Datos</span>
+                            </button>
+                        </div>
+
+                        <div class="flex justify-center"><i class="fa-solid fa-arrow-down text-slate-600 text-lg"></i></div>
+
+                        <!-- Operational Executing Level -->
+                        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
+                            <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block text-center">Coordinaciones Ejecutoras</span>
+                            <div class="space-y-2">
+                                <button @click="selectedCoord = 'comunidades'" 
+                                        :class="selectedCoord === 'comunidades' ? 'border-blue-500 bg-blue-900/40' : 'border-slate-800 bg-slate-900'"
+                                        class="w-full p-3 border rounded-xl text-left text-sm text-slate-200 font-bold flex justify-between items-center transition">
+                                    <span>5. Gestión Comunidades y Blindaje</span>
+                                    <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                                </button>
+                                <button @click="selectedCoord = 'audiovisual'" 
+                                        :class="selectedCoord === 'audiovisual' ? 'border-blue-500 bg-blue-900/40' : 'border-slate-800 bg-slate-900'"
+                                        class="w-full p-3 border rounded-xl text-left text-sm text-slate-200 font-bold flex justify-between items-center transition">
+                                    <span>6. Producción Audiovisual</span>
+                                    <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                                </button>
+                                <button @click="selectedCoord = 'rrss'" 
+                                        :class="selectedCoord === 'rrss' ? 'border-blue-500 bg-blue-900/40' : 'border-slate-800 bg-slate-900'"
+                                        class="w-full p-3 border rounded-xl text-left text-sm text-slate-200 font-bold flex justify-between items-center transition">
+                                    <span>7. Gestión Redes Sociales (RRSS)</span>
+                                    <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                                </button>
+                                <button @click="selectedCoord = 'territorial'" 
+                                        :class="selectedCoord === 'territorial' ? 'border-blue-500 bg-blue-900/40' : 'border-slate-800 bg-slate-900'"
+                                        class="w-full p-3 border rounded-xl text-left text-sm text-slate-200 font-bold flex justify-between items-center transition">
+                                    <span>8. Comunicación Territorial</span>
+                                    <i class="fa-solid fa-chevron-right text-xs text-slate-500"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Details Inspector Panel (Right Column) -->
+                    <div class="lg:col-span-7 bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between shadow-2xl">
+                        <div class="space-y-6">
+                            <!-- Inner Navigation Tabs -->
+                            <div class="flex space-x-2 border-b border-slate-800 pb-3">
+                                <button @click="activeDetailTab = 'proposito'" 
+                                        :class="activeDetailTab === 'proposito' ? 'bg-blue-600 text-white font-bold' : 'bg-slate-800/60 text-slate-400 hover:text-slate-200'" 
+                                        class="px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition">
+                                    Propósito y Operación
+                                </button>
+                                <button @click="activeDetailTab = 'perfil'" 
+                                        :class="activeDetailTab === 'perfil' ? 'bg-blue-600 text-white font-bold' : 'bg-slate-800/60 text-slate-400 hover:text-slate-200'" 
+                                        class="px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition">
+                                    Perfil del Coordinador
+                                </button>
+                            </div>
+
+                            <!-- DEOD -->
+                            <div x-show="selectedCoord === 'deod'" class="space-y-5">
+                                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                                    <div class="p-4 bg-blue-600/20 text-blue-400 rounded-2xl text-2xl"><i class="fa-solid fa-building-flag"></i></div>
+                                    <div>
+                                        <h4 class="text-2xl font-extrabold text-white">Dirección DEOD</h4>
+                                        <span class="text-sm text-blue-400 font-bold">Mando Ejecutivo y Estratégico</span>
+                                    </div>
+                                </div>
+                                
+                                <div x-show="activeDetailTab === 'proposito'" class="space-y-3">
+                                    <p class="text-base text-slate-200 leading-relaxed">
+                                        Traduce las líneas políticas aprobadas por el Consejo Consultivo Municipal en planes tácticos operativos. Aprueba la planificación general, dicta instrucciones y coordina la ejecución global del sistema comunicacional.
+                                    </p>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'perfil'" class="space-y-4" x-cloak>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Competencias Estratégicas</h5>
+                                        <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                            <li>Liderazgo político institucional y visión analítica de entorno.</li>
+                                            <li>Capacidad de toma de decisiones bajo presión y gestión de crisis.</li>
+                                            <li>Planificación estratégica de comunicación pública y articulación de equipos.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Requisitos Deseables</h5>
+                                        <p class="text-sm text-slate-300">Experiencia demostrable en dirección de equipos de comunicación, gestión política municipal o conducción de proyectos instruccionales masivos.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FORMACION -->
+                            <div x-show="selectedCoord === 'formacion'" class="space-y-5" x-cloak>
+                                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                                    <div class="p-4 bg-blue-600/20 text-blue-400 rounded-2xl text-2xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <div>
+                                        <h4 class="text-2xl font-extrabold text-white">Coordinación de Formación y Ejecución Operativa</h4>
+                                        <span class="text-sm text-blue-400 font-bold">Eje Transversal & Administrador del Modelo ACTIVA</span>
+                                    </div>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'proposito'" class="space-y-3">
+                                    <p class="text-base text-slate-200 leading-relaxed">
+                                        Ejecuta las fases de Diagnóstico Triage y Capacitación Continua en Acción. Conforma la Red de Instructores Comunicacionales en las parroquias y garantiza que las prácticas se conviertan en productos publicados.
+                                    </p>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'perfil'" class="space-y-4" x-cloak>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Competencias Estratégicas</h5>
+                                        <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                            <li>Diseño instruccional y metodología de enseñanza práctica (aprender-haciendo).</li>
+                                            <li>Habilidades pedagógicas, oratoria y facilitación de talleres dinámicos.</li>
+                                            <li>Pensamiento estructurado para la estandarización del modelo ACTIVA.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Requisitos Deseables</h5>
+                                        <p class="text-sm text-slate-300">Perfil docente, educador popular o capacitador corporativo con experiencia en formación territorial de voceros.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AUDITORIA -->
+                            <div x-show="selectedCoord === 'auditoria'" class="space-y-5" x-cloak>
+                                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                                    <div class="p-4 bg-purple-600/20 text-purple-400 rounded-2xl text-2xl"><i class="fa-solid fa-shield-cat"></i></div>
+                                    <div>
+                                        <h4 class="text-2xl font-extrabold text-white">Coordinación de Auditoría Comunicacional</h4>
+                                        <span class="text-sm text-purple-400 font-bold">Seguimiento & Control Narrativo</span>
+                                    </div>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'proposito'" class="space-y-3">
+                                    <p class="text-base text-slate-200 leading-relaxed">
+                                        Órgano supervisor transversal. Audita la calidad técnica y la fidelidad discursiva de los contenidos elaborados e instructores capacitados antes y después de su emisión, corrigiendo desviaciones del mensaje institucional.
+                                    </p>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'perfil'" class="space-y-4" x-cloak>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Competencias Estratégicas</h5>
+                                        <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                            <li>Criterio editorial riguroso y análisis del discurso político.</li>
+                                            <li>Atención al detalle discursivo y técnico en piezas de comunicación.</li>
+                                            <li>Imparcialidad, asertividad en la corrección de desviaciones y enfoque de cumplimiento.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Requisitos Deseables</h5>
+                                        <p class="text-sm text-slate-300">Periodista, corrector de estilo o analista político con experiencia en control de calidad institucional.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- COMUNIDADES -->
+                            <div x-show="selectedCoord === 'comunidades'" class="space-y-5" x-cloak>
+                                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                                    <div class="p-4 bg-indigo-600/20 text-indigo-400 rounded-2xl text-2xl"><i class="fa-solid fa-comments"></i></div>
+                                    <div>
+                                        <h4 class="text-2xl font-extrabold text-white">Gestión de Comunidades y Blindaje Digital</h4>
+                                        <span class="text-sm text-indigo-400 font-bold">Contención & Respuesta Operativa</span>
+                                    </div>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'proposito'" class="space-y-3">
+                                    <p class="text-base text-slate-200 leading-relaxed">
+                                        Administra el diálogo en plataformas interactivas y grupos de WhatsApp/Telegram comunitarios. Ejecuta los protocolos de contención, desarma desinformación y defiende la reputación del partido ante campañas de detractores.
+                                    </p>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'perfil'" class="space-y-4" x-cloak>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Competencias Estratégicas</h5>
+                                        <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                            <li>Manejo asertivo de objeciones y moderación de comunidades digitales.</li>
+                                            <li>Rapidez de respuesta frente a matrices de desinformación o ataques.</li>
+                                            <li>Inteligencia emocional y empatía para la resolución de conflictos online.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Requisitos Deseables</h5>
+                                        <p class="text-sm text-slate-300">Community Manager o gestor de atención al usuario con experiencia en moderación de grupos masivos e incidencias.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AUDIOVISUAL -->
+                            <div x-show="selectedCoord === 'audiovisual'" class="space-y-5" x-cloak>
+                                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                                    <div class="p-4 bg-cyan-600/20 text-cyan-400 rounded-2xl text-2xl"><i class="fa-solid fa-video"></i></div>
+                                    <div>
+                                        <h4 class="text-2xl font-extrabold text-white">Coordinación de Producción Audiovisual</h4>
+                                        <span class="text-sm text-cyan-400 font-bold">Generación de Contenidos & Filmmaking</span>
+                                    </div>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'proposito'" class="space-y-3">
+                                    <p class="text-base text-slate-200 leading-relaxed">
+                                        Diseña y produce las piezas gráficas y de video (orgánicas e institucionales). Aporta el equipo técnico de campo capacitado en Filmmaking móvil para la cobertura profesional de las actividades del Líder Municipal y voceros.
+                                    </p>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'perfil'" class="space-y-4" x-cloak>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Competencias Estratégicas</h5>
+                                        <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                            <li>Dominio de producción y edición rápida de video móvil (Reels, TikTok, Shorts).</li>
+                                            <li>Criterio de composición visual, encuadre, iluminación básica y narrativa rápida.</li>
+                                            <li>Capacidad de agilidad técnica para coberturas de eventos en tiempo real.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Requisitos Deseables</h5>
+                                        <p class="text-sm text-slate-300">Filmmaker móvil, diseñador gráfico o creador de contenido con experiencia en reportajes o eventos de campo.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- RRSS -->
+                            <div x-show="selectedCoord === 'rrss'" class="space-y-5" x-cloak>
+                                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                                    <div class="p-4 bg-sky-600/20 text-sky-400 rounded-2xl text-2xl"><i class="fa-solid fa-share-nodes"></i></div>
+                                    <div>
+                                        <h4 class="text-2xl font-extrabold text-white">Coordinación de Gestión de Redes Sociales (RRSS)</h4>
+                                        <span class="text-sm text-sky-400 font-bold">Distribución & Optimización Algorítmica</span>
+                                    </div>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'proposito'" class="space-y-3">
+                                    <p class="text-base text-slate-200 leading-relaxed">
+                                        Administra la publicación, calendarización, optimización de algoritmos (copies, hashtags, portadas) y mantenimiento estético de los perfiles oficiales de la organización.
+                                    </p>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'perfil'" class="space-y-4" x-cloak>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Competencias Estratégicas</h5>
+                                        <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                            <li>Conocimiento técnico de algoritmos de plataformas Meta, TikTok y X.</li>
+                                            <li>Redacción persuasiva (copywriting), uso de ganchos y curaduría de tendencias.</li>
+                                            <li>Planificación, calendarización y disciplina operacional de publicación.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Requisitos Deseables</h5>
+                                        <p class="text-sm text-slate-300">Social Media Manager o ejecutor publicitario digital con historial en crecimiento orgánico de cuentas institucionales.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TERRITORIAL -->
+                            <div x-show="selectedCoord === 'territorial'" class="space-y-5" x-cloak>
+                                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                                    <div class="p-4 bg-emerald-600/20 text-emerald-400 rounded-2xl text-2xl"><i class="fa-solid fa-street-view"></i></div>
+                                    <div>
+                                        <h4 class="text-2xl font-extrabold text-white">Coordinación de Comunicación Territorial</h4>
+                                        <span class="text-sm text-emerald-400 font-bold">Anclaje de Base & Testimonios</span>
+                                    </div>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'proposito'" class="space-y-3">
+                                    <p class="text-base text-slate-200 leading-relaxed">
+                                        Conecta la estrategia digital con el trabajo en el territorio. Despliega el mensaje en asambleas comunitarias bajo la premisa "No están solos" y recolecta testimonios orgánicos de validación social en las comunidades.
+                                    </p>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'perfil'" class="space-y-4" x-cloak>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Competencias Estratégicas</h5>
+                                        <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                            <li>Sensibilidad social y facilidad de conexión directa con la dirigencia parroquial.</li>
+                                            <li>Habilidad para captar testimonios genuinos y llevar el mensaje político a lenguaje de calle.</li>
+                                            <li>Mapeo y movilización de voceros comunitarios.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Requisitos Deseables</h5>
+                                        <p class="text-sm text-slate-300">Activista social, movilizador de base o comunicador popular con amplio conocimiento del territorio de San Francisco.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- DATOS -->
+                            <div x-show="selectedCoord === 'datos'" class="space-y-5" x-cloak>
+                                <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                                    <div class="p-4 bg-emerald-600/20 text-emerald-400 rounded-2xl text-2xl"><i class="fa-solid fa-chart-pie"></i></div>
+                                    <div>
+                                        <h4 class="text-2xl font-extrabold text-white">Coordinación de Análisis de Datos</h4>
+                                        <span class="text-sm text-emerald-400 font-bold">Inteligencia Autónoma sin Intermediación</span>
+                                    </div>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'proposito'" class="space-y-3">
+                                    <p class="text-base text-slate-200 leading-relaxed">
+                                        Consolida las métricas y datos cuantitativos/cualitativos de todas las coordinaciones ejecutoras. Reporta directamente a la DEOD sin intermediación, garantizando objetividad e imparcialidad.
+                                    </p>
+                                </div>
+
+                                <div x-show="activeDetailTab === 'perfil'" class="space-y-4" x-cloak>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Competencias Estratégicas</h5>
+                                        <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                                            <li>Pensamiento analítico, sistemático e interpretación objetiva de datos.</li>
+                                            <li>Manejo de herramientas de reportería, tabulación (Excel/Google Sheets) y dashboards.</li>
+                                            <li>Capacidad de síntesis para la elaboración de reportes ejecutivos.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Requisitos Deseables</h5>
+                                        <p class="text-sm text-slate-300">Analista de datos, estadístico, administrador o profesional con orientación cuantitativa e independencia de criterio.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 font-bold">
+                            <span>Estructura Homologada UNT</span>
+                            <span>San Francisco, Zulia</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: MODELO MILITANCIA ACTIVA (A.C.T.I.V.A.) -->
+            <section x-show="currentTab === 'modelo'" x-cloak class="space-y-8">
+                <!-- Header Component -->
+                <div class="border-b border-slate-800 pb-5">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Metodología Operativa de Poblamiento y Captación</span>
+                    <h3 class="text-3xl font-black text-white">MODELO MILITANCIA ACTIVA</h3>
+                    <p class="text-base text-slate-300 mt-1">Aceleración y Capacitación de Talentos para su Inserción y Valor Aplicado (<strong>A.C.T.I.V.A.</strong>)</p>
+                </div>
+
+                <!-- Strategic Position Banner -->
+                <div class="bg-gradient-to-r from-amber-950/40 via-slate-900 to-blue-950/40 border border-amber-500/30 rounded-3xl p-8 space-y-4 shadow-xl">
+                    <h4 class="text-2xl font-bold text-amber-400 flex items-center">
+                        <i class="fa-solid fa-bullseye mr-3"></i> Propósito Político y Dinámica de Activación
+                    </h4>
+                    <p class="text-base text-slate-200 leading-relaxed">
+                        Este modelo es la herramienta clave para <strong>poblar, dinamizar y hacer funcional la estructura del organigrama</strong>. Se impulsa entre las bases como un movimiento organizado de movilización permanente para posicionar al partido, visibilizar sus liderazgos emergentes y construir una base de participación real con impacto directo en el respaldo comunitario.
+                    </p>
+                </div>
+
+                <!-- INCENTIVO PROFESIONAL Y CURRICULAR (NUEVO BLOQUE REFORZADO) -->
+                <div class="bg-slate-900 border-2 border-emerald-500/40 rounded-3xl p-8 space-y-6 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 text-3xl shrink-0">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-extrabold text-emerald-400 uppercase tracking-widest">Incentivo y Propuesta de Valor</span>
+                            <h4 class="text-2xl font-black text-white">Valor Curricular y Oportunidad Ocupacional</h4>
+                        </div>
+                    </div>
+
+                    <p class="text-base text-slate-200 leading-relaxed">
+                        Como incentivo de alto impacto para potenciar la atracción, compromiso y retención de talentos dentro del partido, el programa reconoce formalmente el esfuerzo y desempeño de sus integrantes a través de dos mecanismos clave:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                        <div class="bg-slate-950/80 p-6 rounded-2xl border border-slate-800 space-y-3">
+                            <div class="flex items-center space-x-3 text-emerald-400 font-extrabold text-lg">
+                                <i class="fa-solid fa-graduation-cap text-xl"></i>
+                                <span>Certificaciones de Peso Curricular</span>
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Cada ciclo formativo concluido otorga avales con rigor técnico en áreas clave (*Marketing Político, Filmmaking Móvil, Gestión de Comunidades, Redacción y Estrategia Digital*), enriqueciendo sustancialmente el perfil profesional del militante.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950/80 p-6 rounded-2xl border border-slate-800 space-y-3">
+                            <div class="flex items-center space-x-3 text-amber-400 font-extrabold text-lg">
+                                <i class="fa-solid fa-briefcase text-xl"></i>
+                                <span>Acreditación de Trayectoria Técnica</span>
+                            </div>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Se expiden avales institucionales que respaldan la experiencia práctica adquirida en proyectos reales, abriendo oportunidades tangibles en el mercado laboral y ocupacional para los jóvenes y cuadros del partido.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Autonomous Phases Grid -->
+                <div>
+                    <h4 class="text-2xl font-extrabold text-white mb-6 flex items-center">
+                        <i class="fa-solid fa-diagram-project text-blue-400 mr-3"></i> Las 4 Fases Autónomas del Modelo
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- FASE 1 -->
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 relative overflow-hidden">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">FASE 1</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/30 font-bold">Autónoma</span>
+                            </div>
+                            <h5 class="text-xl font-bold text-white">Reclutamiento Territorial</h5>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Captación directa y continua de activistas y liderazgos comunitarios en cada parroquia y centro de votación.
+                            </p>
+                            <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 text-xs text-amber-300 font-semibold flex items-center space-x-2">
+                                <i class="fa-solid fa-users-gear text-amber-400 text-base"></i>
+                                <span>Responsabilidad: Líderes de los distintos equipos de la estructura política desplegados en el territorio.</span>
+                            </div>
+                        </div>
+
+                        <!-- FASE 2 -->
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 relative overflow-hidden">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                <span class="text-xs font-extrabold text-cyan-400 uppercase tracking-widest">FASE 2</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 font-bold">Autónoma</span>
+                            </div>
+                            <h5 class="text-xl font-bold text-white">Diagnóstico Triage</h5>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                Instrumento de evaluación independiente para clasificar el talento captado según sus competencias iniciales:
+                            </p>
+                            <div class="space-y-2 text-xs">
+                                <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+                                    <strong class="text-emerald-400">Nivel A:</strong> Perfil Operativo Directo (Listo para el despliegue).
+                                </div>
+                                <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+                                    <strong class="text-amber-400">Nivel B:</strong> Perfil con Brecha Especializada (Requiere nivelación puntual).
+                                </div>
+                                <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200">
+                                    <strong class="text-blue-400">Nivel C:</strong> Base Territorial y Difusión Directa.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FASE 3 -->
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 relative overflow-hidden md:col-span-2">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">FASE 3</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 font-bold">Núcleo Central</span>
+                            </div>
+                            <h5 class="text-2xl font-bold text-white">Capacitación Continua y en Acción</h5>
+                            <p class="text-base text-slate-300 leading-relaxed">
+                                Unifica la micro-formación progresiva con la **práctica sobre tareas reales del partido**. La capacitación se adapta a las brechas específicas identificadas: algunos recibirán formaciones avanzadas y otros módulos de nivelación.
+                            </p>
+                            <div class="bg-gradient-to-r from-blue-900/40 to-slate-950 p-5 rounded-xl border border-blue-500/30 space-y-2">
+                                <h6 class="text-sm font-bold text-blue-300 flex items-center">
+                                    <i class="fa-solid fa-heart-pulse text-amber-400 mr-2"></i> Factor Clave de Incentivo y Pertenencia:
+                                </h6>
+                                <p class="text-sm text-slate-200 leading-relaxed">
+                                    Las prácticas **no son ejercicios hipotéticos**. Los contenidos, videos y piezas gráficas generados en los talleres **son publicados e implementados de inmediato en la comunicación oficial del partido**. Ver el resultado de su esfuerzo en acción real, respaldado con **certificaciones curriculares**, genera pertenencia, orgullo y crecimiento profesional.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FASE 4 -->
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 relative overflow-hidden md:col-span-2">
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                <span class="text-xs font-extrabold text-emerald-400 uppercase tracking-widest">FASE 4</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-bold">Consolidación</span>
+                            </div>
+                            <h5 class="text-2xl font-bold text-white">Despliegue Operativo y Consolidación</h5>
+                            <p class="text-base text-slate-300 leading-relaxed">
+                                Inserción formal de los cuadros capacitados en las distintas coordinaciones del organigrama (*Producción Audiovisual, Redes Sociales, Blindaje Digital y Comunicación Territorial*), activando la maquinaria institucional a su máxima capacidad.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: MANUALES Y NORMATIVA -->
+            <section x-show="currentTab === 'entregables'" x-cloak class="space-y-8">
+                <div class="border-b border-slate-800 pb-5">
+                    <h3 class="text-3xl font-black text-white">Manuales, Instrumentos y Normativas Post-Aprobación</h3>
+                    <p class="text-base text-slate-300 mt-1">Los instrumentos, manuales y políticas que servirán de base operacional tras la validación final del Consejo Consultivo Municipal.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 flex items-start space-x-5 shadow-lg">
+                        <div class="p-4 bg-blue-600/20 text-blue-400 rounded-2xl text-2xl shrink-0"><i class="fa-solid fa-book"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-100">1. Manuales Operativos de Normas y Procedimientos</h4>
+                            <p class="text-sm text-slate-300">Cuerpo normativo detallado para cada una de las 8 coordinaciones constitutivas de la DEOD.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 flex items-start space-x-5 shadow-lg">
+                        <div class="p-4 bg-red-600/20 text-red-400 rounded-2xl text-2xl shrink-0"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-100">2. Manual de Contingencia Digital</h4>
+                            <p class="text-sm text-slate-300">Matrices de respuesta rápida, protocolos ante ataques de detractores y contención de desinformación.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 flex items-start space-x-5 shadow-lg">
+                        <div class="p-4 bg-emerald-600/20 text-emerald-400 rounded-2xl text-2xl shrink-0"><i class="fa-solid fa-file-pen"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-100">3. Instrumentos y Formularios Técnicos</h4>
+                            <p class="text-sm text-slate-300">Fichas del Diagnóstico Triage, planillas de cobertura y hojas de consolidación de datos.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3 flex items-start space-x-5 shadow-lg">
+                        <div class="p-4 bg-amber-600/20 text-amber-400 rounded-2xl text-2xl shrink-0"><i class="fa-solid fa-certificate"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-100">4. Reglamento de Acreditación, Currículo y Estímulos</h4>
+                            <p class="text-sm text-slate-300">Normativa para expedir certitificados con aval técnico y respaldar la trayectoria de la militancia activa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-950 via-slate-900 to-slate-900 border border-blue-500/40 rounded-3xl p-8 text-center space-y-3 shadow-2xl">
+                    <h4 class="text-xl font-black text-white">Conclusión Estratégica</h4>
+                    <p class="text-base text-slate-200 max-w-3xl mx-auto leading-relaxed">
+                        Al vincular la formación técnica con la práctica real, el reconocimiento curricular y el respaldo de la trayectoria laboral, Un Nuevo Tiempo - San Francisco construye una maquinaria comunicacional altamente capacitada, motivada y sostenible.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
