@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 Años - Valentina 💖</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { pink:{DEFAULT:'#FF2E93'}, grape:{DEFAULT:'#7C3AED',deep:'#2A0A5E'}, aqua:{DEFAULT:'#22D3EE'}, lime:{DEFAULT:'#C6F432'}, sun:{DEFAULT:'#FFD93D'} },
+  fontFamily: { display:['Unbounded','sans-serif'], script:['Caveat','cursive'], sans:['Poppins','sans-serif'] }
+}}}
+</script>
+<style>
+  /* ---------- Reveal (fade in / fade out al hacer scroll) ---------- */
+  .rv{opacity:0;transform:translateY(46px);filter:blur(8px);transition:opacity .9s ease var(--d,0s),transform .9s cubic-bezier(.2,.7,.2,1) var(--d,0s),filter .9s ease var(--d,0s)}
+  .rv.l{transform:translateX(-70px)} .rv.r{transform:translateX(70px)}
+  .rv.z{transform:scale(.8)} .rv.rot{transform:rotate(-8deg) scale(.9)}
+  .rv.in{opacity:1;transform:none;filter:none}
+  .ph{background:linear-gradient(135deg,#FF2E93,#7C3AED,#22D3EE)} /* fondo si una imagen no carga */
+  .grad-text{background:linear-gradient(90deg,#FF2E93,#FFD93D,#22D3EE,#FF2E93);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite}
+  .mesh{background:linear-gradient(120deg,#2A0A5E,#7C3AED,#FF2E93,#2A0A5E);background-size:300% 300%;animation:flow 14s ease infinite}
+  .mesh-lite{background:linear-gradient(120deg,#FFF1F8,#EEF9FF,#F7FFD6,#FFF1F8);background-size:300% 300%;animation:flow 16s ease infinite}
+  .blob{border-radius:60% 40% 55% 45%/50% 60% 40% 50%;animation:morph 9s ease-in-out infinite}
+  .float{animation:float 5s ease-in-out infinite} .float2{animation:float 7s ease-in-out infinite reverse}
+  .spin-slow{animation:spin 18s linear infinite}
+  .pulse-ring{animation:ring 2s ease-out infinite}
+  .tick{animation:tick .45s ease}
+  .marq{display:flex;gap:1.25rem;width:max-content;animation:marq 40s linear infinite}
+  .marq.rev{animation-direction:reverse}
+  .marq:hover{animation-play-state:paused}
+  @keyframes shimmer{to{background-position:300% 0}}
+  @keyframes flow{50%{background-position:100% 50%}}
+  @keyframes morph{50%{border-radius:40% 60% 45% 55%/60% 40% 60% 40%}}
+  @keyframes float{50%{transform:translateY(-18px) rotate(4deg)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,46,147,.6)}100%{box-shadow:0 0 0 22px rgba(255,46,147,0)}}
+  @keyframes tick{0%{transform:translateY(-12px) scale(1.25);opacity:.3}100%{transform:none;opacity:1}}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  @keyframes fall{0%{transform:translateY(-10vh) rotate(0)}100%{transform:translateY(110vh) rotate(540deg)}}
+  .confetti{position:absolute;top:0;animation:fall linear infinite}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+
+<body x-data="app()" @scroll.window.passive="y = window.scrollY; p = y / (document.body.scrollHeight - innerHeight) * 100"
+      class="bg-white text-slate-700 font-sans antialiased overflow-x-hidden selection:bg-pink selection:text-white">
+
+  <!-- PRELOADER -->
+  <div x-show="loading" x-transition:leave="transition duration-700" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-110"
+       class="fixed inset-0 z-[100] mesh flex flex-col items-center justify-center text-white">
+    <div class="font-display text-7xl font-black float">15</div>
+    <p class="font-script text-3xl mt-2">Valentina está llegando…</p>
+  </div>
+
+  <!-- Barra de progreso -->
+  <div class="fixed top-0 left-0 h-1.5 z-50 bg-gradient-to-r from-pink via-sun to-aqua" :style="`width:${p}%`"></div>
+
+  <!-- ================= HERO ================= -->
+  <header class="relative min-h-screen mesh text-white flex items-center py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <!-- confeti -->
+    <template x-for="c in confetti" :key="c.i">
+      <span class="confetti text-xl" :style="`left:${c.x}%;animation-duration:${c.t}s;animation-delay:-${c.d}s`" x-text="c.e"></span>
+    </template>
+    <div class="absolute -top-20 -left-20 w-96 h-96 bg-aqua/40 blur-3xl blob"></div>
+    <div class="absolute -bottom-24 -right-16 w-96 h-96 bg-sun/30 blur-3xl blob"></div>
+
+    <div class="relative max-w-6xl w-full mx-auto grid lg:grid-cols-12 gap-12 items-center">
+      <!-- Foto -->
+      <div class="lg:col-span-6 order-2 lg:order-1 relative flex justify-center" x-reveal.l>
+        <div class="absolute inset-0 m-auto w-[88%] aspect-square rounded-full border-4 border-dashed border-lime/70 spin-slow"></div>
+        <div class="relative w-[78%] max-w-md aspect-[3/4] blob overflow-hidden border-4 border-white shadow-2xl ph" :style="`transform:translateY(${y*-0.06}px)`">
+          <img :src="photos[0].src" alt="Valentina" class="w-full h-full object-cover hover:scale-110 transition duration-700" onerror="this.style.opacity=0">
+        </div>
+        <span class="absolute top-4 right-4 sm:right-10 bg-sun text-grape-deep font-display text-xs px-4 py-2 rounded-full rotate-6 float">¡Fiesta! 🎉</span>
+        <span class="absolute bottom-10 left-0 sm:left-8 bg-lime text-grape-deep font-display text-xs px-4 py-2 rounded-full -rotate-6 float2">Sweet 15 💖</span>
+        <span class="absolute bottom-0 right-8 bg-aqua text-grape-deep font-display text-xs px-4 py-2 rounded-full rotate-3 float">¡Acompáñame!</span>
+      </div>
+
+      <!-- Texto -->
+      <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left space-y-6">
+        <div x-reveal style="--d:.2s">
+          <span class="font-script text-5xl text-sun block">Te invito a mis</span>
+          <h1 class="font-display font-black text-6xl sm:text-8xl leading-none grad-text pb-2">15 Años</h1>
+          <p class="font-display text-2xl sm:text-3xl mt-2">
+            Valentina <span class="text-lime" x-text="words[w]" x-transition></span>
+          </p>
+        </div>
+        <p class="font-light text-base sm:text-lg max-w-lg mx-auto lg:mx-0 text-white/90" x-reveal style="--d:.35s">
+          Hay momentos especiales que se vuelven inolvidables cuando los compartes con las personas que más quieres. Quiero que seas parte de esta noche tan mágica para mí.
+        </p>
+
+        <!-- Contador -->
+        <div x-data="countdown('2026-11-27T20:00:00')" x-reveal.z style="--d:.5s">
+          <p class="text-xs uppercase font-semibold tracking-widest mb-3 text-white/70">La cuenta regresiva ha comenzado</p>
+          <div class="grid grid-cols-4 gap-3 max-w-md mx-auto lg:mx-0">
+            <template x-for="(u,i) in [['days','Días','bg-pink'],['hours','Horas','bg-aqua'],['minutes','Min','bg-sun'],['seconds','Seg','bg-lime']]">
+              <div class="p-3 rounded-2xl text-center text-grape-deep shadow-lg hover:-translate-y-1 transition" :class="u[2]">
+                <span class="block font-display text-2xl sm:text-3xl font-bold" :class="u[0]=='seconds' && tick ? 'tick' : ''" x-text="v[u[0]]">00</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider" x-text="u[1]"></span>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" x-reveal style="--d:.65s">
+          <a href="#confirmar" class="pulse-ring w-full sm:w-auto px-8 py-4 bg-pink text-white font-semibold text-sm rounded-full hover:scale-105 hover:rotate-1 transition text-center">Confirmar Asistencia</a>
+          <a href="#ubicacion" class="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur border border-white/50 font-semibold text-sm rounded-full hover:bg-white hover:text-grape transition text-center">Ver Ubicación</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ FRANJA DE FOTOS 1 (marquee) ============ -->
+  <section class="py-10 bg-lime overflow-hidden">
+    <div class="marq">
+      <template x-for="(ph,i) in [...photos,...photos]" :key="i">
+        <figure class="relative shrink-0 w-44 h-60 sm:w-56 sm:h-72 rounded-3xl overflow-hidden ph shadow-lg hover:scale-105 hover:-rotate-2 transition duration-500" :class="i%2 ? 'mt-6' : ''">
+          <img :src="ph.src" :alt="ph.label" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+          <figcaption class="absolute bottom-2 left-2 bg-white/90 text-grape-deep font-display text-[10px] px-3 py-1 rounded-full" x-text="ph.label"></figcaption>
+        </figure>
+      </template>
+    </div>
+  </section>
+
+  <!-- ============ VESTIMENTA ============ -->
+  <section class="py-24 mesh-lite relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="bg-white rounded-[40px] p-8 sm:p-14 shadow-2xl shadow-grape/10 border-2 border-pink/20 grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-7 space-y-5">
+          <span class="font-script text-4xl text-pink block" x-reveal>Código de Vestimenta</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-grape-deep" x-reveal style="--d:.1s">Gala Formal & <span class="grad-text">Glamour</span></h2>
+          <p class="text-slate-600 text-sm sm:text-base font-light leading-relaxed" x-reveal style="--d:.2s">
+            Queremos que esta noche sea deslumbrante. Te invitamos a lucir tu mejor traje o vestido de gala para celebrar juntos en grande.
+          </p>
+          <div class="p-5 bg-aqua/10 rounded-3xl border-2 border-aqua/40 flex gap-4 hover:scale-[1.02] transition" x-reveal.z style="--d:.3s">
+            <span class="text-2xl float">✨</span>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <strong class="text-grape-deep">Nota Especial:</strong> El tono <span class="text-aqua font-semibold">Azul Celeste</span> es exclusivo para el vestido de Valentina. ¡Los colores vivos, el verde esmeralda y la paleta elegante son bienvenidos!
+            </p>
+          </div>
+        </div>
+        <!-- Collage de looks -->
+        <div class="md:col-span-5 relative h-80">
+          <div class="absolute left-0 top-6 w-36 sm:w-40 aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-xl ph -rotate-6 hover:rotate-0 hover:z-20 transition duration-500" x-reveal.rot>
+            <img :src="photos[1].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+          </div>
+          <div class="absolute right-0 top-0 w-36 sm:w-40 aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-xl ph rotate-6 hover:rotate-0 hover:z-20 transition duration-500" x-reveal.rot style="--d:.15s">
+            <img :src="photos[2].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+          </div>
+          <div class="absolute left-1/2 -translate-x-1/2 bottom-0 w-32 sm:w-36 aspect-[3/4] rounded-3xl overflow-hidden border-4 border-white shadow-xl ph float hover:z-20" x-reveal.z style="--d:.3s">
+            <img :src="photos[3].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UNA NOCHE INOLVIDABLE ============ -->
+  <section class="py-24 bg-grape-deep text-white relative overflow-hidden">
+    <div class="absolute top-10 right-0 w-80 h-80 bg-pink/40 blur-3xl blob"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="font-script text-4xl text-sun block" x-reveal>Lo que nos espera</span>
+        <h2 class="font-display font-bold text-4xl sm:text-5xl mt-1" x-reveal style="--d:.1s">Una Noche <span class="grad-text">Inolvidable</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <template x-for="(c,i) in cards" :key="i">
+          <div x-reveal style="--d:0s" :style="`--d:${i*.15}s`">
+            <div class="h-full p-8 rounded-[35px] text-center space-y-3 text-grape-deep hover:-translate-y-3 hover:rotate-1 transition duration-500 shadow-xl" :class="c.bg">
+              <div class="w-16 h-16 bg-white/70 rounded-2xl flex items-center justify-center mx-auto text-3xl float" x-text="c.i"></div>
+              <h3 class="font-display font-bold text-lg" x-text="c.t"></h3>
+              <p class="text-sm font-light leading-relaxed" x-text="c.d"></p>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- Espacios + foto de Valentina entre ellos -->
+      <div class="grid lg:grid-cols-2 gap-8 relative">
+        <template x-for="(s,i) in spaces" :key="i">
+          <div x-reveal :class="i ? 'r' : 'l'" class="relative">
+            <div class="group relative h-80 sm:h-96 rounded-[40px] overflow-hidden ph shadow-2xl">
+              <img :src="s.src" :alt="s.t" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition duration-1000" onerror="this.style.opacity=0">
+              <div class="absolute inset-0 bg-gradient-to-t from-grape-deep/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-8 left-8 right-8">
+                <span class="text-xs uppercase font-semibold tracking-widest" :class="i ? 'text-lime' : 'text-aqua'" x-text="s.k"></span>
+                <h4 class="font-display text-2xl mt-1" x-text="s.t"></h4>
+              </div>
+            </div>
+          </div>
+        </template>
+        <div class="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full overflow-hidden border-4 border-sun ph shadow-2xl z-10 float" x-reveal.z>
+          <img :src="photos[4].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FRANJA DE FOTOS 2 (sentido contrario) ============ -->
+  <section class="py-10 bg-aqua overflow-hidden">
+    <div class="marq rev">
+      <template x-for="(ph,i) in [...photos.slice().reverse(),...photos.slice().reverse()]" :key="i">
+        <figure class="relative shrink-0 w-56 h-40 sm:w-72 sm:h-48 rounded-3xl overflow-hidden ph shadow-lg hover:scale-105 hover:rotate-2 transition duration-500" :class="i%2 ? 'mt-5' : ''">
+          <img :src="ph.src" :alt="ph.label" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+          <figcaption class="absolute top-2 right-2 bg-pink text-white font-display text-[10px] px-3 py-1 rounded-full" x-text="ph.label"></figcaption>
+        </figure>
+      </template>
+    </div>
+  </section>
+
+  <!-- ============ ÁLBUM ============ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="relative mesh text-white p-10 sm:p-16 rounded-[45px] shadow-2xl space-y-6 overflow-hidden" x-reveal.z>
+        <img :src="photos[5].src" alt="" loading="lazy" class="hidden sm:block absolute -left-6 -bottom-6 w-40 h-52 object-cover rounded-3xl border-4 border-white -rotate-12 float ph" onerror="this.style.opacity=0">
+        <img :src="photos[6].src" alt="" loading="lazy" class="hidden sm:block absolute -right-6 -top-6 w-40 h-52 object-cover rounded-3xl border-4 border-white rotate-12 float2 ph" onerror="this.style.opacity=0">
+        <span class="font-script text-4xl text-sun block">Álbum Interactivo</span>
+        <h2 class="font-display font-bold text-3xl sm:text-5xl">Comparte tus Fotos y Videos</h2>
+        <p class="font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed text-white/90">
+          ¡Tu perspectiva hace la fiesta completa! Podrás subir todas las imágenes y clips que tomes durante la celebración a la aplicación del evento.
+        </p>
+        <a href="#" class="pulse-ring inline-flex items-center gap-3 px-8 py-4 bg-lime text-grape-deep font-semibold text-sm rounded-full hover:scale-110 hover:-rotate-2 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+          Subir Contenido al Evento
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UBICACIÓN ============ -->
+  <section id="ubicacion" class="py-24 mesh-lite">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <span class="font-script text-4xl text-pink block" x-reveal>¿Cómo llegar?</span>
+        <h2 class="font-display font-bold text-4xl text-grape-deep mt-1" x-reveal style="--d:.1s">Ubicación del Evento</h2>
+      </div>
+      <div class="bg-white rounded-[40px] p-6 sm:p-8 shadow-2xl shadow-grape/10 grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 space-y-4 text-center lg:text-left" x-reveal.l>
+          <span class="px-4 py-1.5 bg-pink/10 text-pink rounded-full text-xs font-semibold uppercase tracking-wider inline-block">Lugar de la Recepción</span>
+          <h3 class="font-display font-bold text-2xl sm:text-3xl text-grape-deep">Quinta Las Esmeraldas</h3>
+          <p class="text-slate-500 text-sm font-light">Av. Los Naranjos #102, Sector Residencial, Ciudad</p>
+          <div>
+            <p class="text-xs font-semibold text-grape">Viernes, 27 de Noviembre de 2026</p>
+            <p class="text-xs text-slate-400 mt-0.5">Recepción: 8:00 PM</p>
+          </div>
+          <a href="https://maps.google.com" target="_blank" class="inline-block px-6 py-3 bg-grape hover:bg-pink text-white font-medium text-xs rounded-full hover:scale-105 transition">Abrir en Google Maps</a>
+        </div>
+        <div class="lg:col-span-7 h-80 rounded-[30px] overflow-hidden border-4 border-aqua/40" x-reveal.r>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.598285918731!2d-71.642145!3d10.686888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQxJzEyLjgiTiA3McKwMzgnMzEuNyJX!5e0!3m2!1ses!2s!4v1620000000000!5m2!1ses!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="confirmar" class="relative py-24 mesh text-white text-center overflow-hidden">
+    <div class="absolute inset-0 flex justify-center items-center opacity-20 pointer-events-none">
+      <img :src="photos[7].src" alt="" loading="lazy" class="h-full w-full object-cover" onerror="this.style.opacity=0">
+    </div>
+    <div class="relative max-w-md mx-auto px-4 space-y-6">
+      <span class="font-script text-6xl text-sun block float" x-reveal.z>Valentina</span>
+      <h3 class="font-display font-bold text-3xl" x-reveal style="--d:.1s">¿Nos acompañarás?</h3>
+      <p class="font-light text-sm text-white/90" x-reveal style="--d:.2s">Agradecemos confirmar tu asistencia antes del 15 de Noviembre de 2026.</p>
+      <a href="https://wa.me/1234567890?text=Hola%20Valentina,%20confirmo%20mi%20asistencia%20a%20tus%2015%20Años" target="_blank"
+         class="pulse-ring inline-flex items-center justify-center w-full py-4 bg-lime text-grape-deep font-semibold text-sm rounded-full hover:scale-105 transition" x-reveal style="--d:.3s">
+        Confirmar Asistencia por WhatsApp 💬
+      </a>
+      <p class="pt-10 text-white/60 font-display text-xs">Mis 15 Años • 2026</p>
+    </div>
+  </footer>
+
+<script>
+  // Directiva x-reveal: fade in al entrar, fade out al salir. Modificadores: .l .r .z .rot
+  document.addEventListener('alpine:init', () => {
+    Alpine.directive('reveal', (el, { modifiers }) => {
+      el.classList.add('rv', ...modifiers);
+      const io = new IntersectionObserver(([e]) => el.classList.toggle('in', e.isIntersecting), { threshold: 0.15 });
+      io.observe(el);
+    });
+  });
+
+  // Reemplaza los src por tus fotos originales cuando las tengas.
+  const U = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=700`;
+
+  function app() {
+    return {
+      y: 0, p: 0, loading: true, w: 0,
+      words: ['✨', '💖', '🎉', '🦋'],
+      photos: [
+        { src: U('1529626455594-4ff0802cfb7e'), label: 'Gala' },
+        { src: U('1494790108377-be9c29b29330'), label: 'Casual' },
+        { src: U('1524504388940-b1c1722653e1'), label: 'Street' },
+        { src: U('1515886657613-9f3515b0c78f'), label: 'Fashion' },
+        { src: U('1534528741775-53994a69daeb'), label: 'Natural' },
+        { src: U('1496747611176-843222e1e57c'), label: 'Vestido' },
+        { src: U('1517841905240-472988babdf9'), label: 'Urbano' },
+        { src: U('1438761681033-6461ffad8d80'), label: 'Sonrisa' },
+      ],
+      spaces: [
+        { src: U('1519167758481-83f550bb49b3'), k: 'Espacio Principal', t: 'Gran Salón de Recepciones' },
+        { src: U('1464366400600-7168b8af9bc3'), k: 'Área Social', t: 'Jardín & Photo Spots' },
+      ],
+      cards: [
+        { i: '🎵', t: 'Música & DJ', bg: 'bg-pink text-white', d: 'Luces, sonido de alta definición y una selección musical pensada para mantener la pista llena.' },
+        { i: '🥂', t: 'Cocktail & Gastronomía', bg: 'bg-aqua', d: 'Estaciones con bebidas y platillos especiales para disfrutar toda la noche.' },
+        { i: '✨', t: 'Momentos Sorpresa', bg: 'bg-sun', d: 'Puntos fotográficos, show de luces y detalles diseñados para inmortalizar el recuerdo.' },
+      ],
+      confetti: Array.from({ length: 18 }, (_, i) => ({ i, x: Math.random() * 100, t: 8 + Math.random() * 8, d: Math.random() * 12, e: ['✨', '💖', '🎊', '⭐', '🦋'][i % 5] })),
+      init() {
+        setTimeout(() => this.loading = false, 1400);
+        setInterval(() => this.w = (this.w + 1) % this.words.length, 2200);
+      }
+    }
+  }
+
+  function countdown(expiry) {
+    return {
+      end: new Date(expiry).getTime(), tick: false,
+      v: { days: '00', hours: '00', minutes: '00', seconds: '00' },
+      init() { this.update(); setInterval(() => this.update(), 1000); },
+      update() {
+        const r = Math.max(0, this.end - Date.now()), pad = n => String(n).padStart(2, '0');
+        this.v = { days: pad(Math.floor(r / 864e5)), hours: pad(Math.floor(r % 864e5 / 36e5)), minutes: pad(Math.floor(r % 36e5 / 6e4)), seconds: pad(Math.floor(r % 6e4 / 1e3)) };
+        this.tick = false; requestAnimationFrame(() => this.tick = true);
+      }
+    }
+  }
+</script>
+</body>
+</html>

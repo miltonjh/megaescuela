@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Años - Valentina ✨</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        esmeralda: {
+                            DEFAULT: '#0D5C46',
+                            soft: '#E8F5F1',
+                            light: '#1B8265',
+                            mint: '#A3E2CE',
+                        },
+                        celeste: {
+                            DEFAULT: '#38BDF8',
+                            soft: '#F0F9FF',
+                            light: '#BAE6FD',
+                            accent: '#7DD3FC',
+                        }
+                    },
+                    fontFamily: {
+                        script: ['Alex Brush', 'cursive'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .shadow-soft {
+            box-shadow: 0 20px 40px -15px rgba(13, 92, 70, 0.07);
+        }
+        .shadow-glow-celeste {
+            box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700 font-sans antialiased overflow-x-hidden selection:bg-celeste-light selection:text-slate-800">
+
+    <!-- HERO SECTION: IMAGEN DE LA CUMPLEAÑERA NÍTIDA Y DE CARTA INVITACIÓN -->
+    <header class="relative min-h-screen bg-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl w-full mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Foto Clara y Protagonista de la Cumpleañera -->
+            <div class="lg:col-span-6 relative order-2 lg:order-1">
+                <!-- Adorno sutil de fondo -->
+                <div class="absolute -top-6 -left-6 w-72 h-72 bg-celeste-soft rounded-full blur-3xl opacity-70"></div>
+                <div class="absolute -bottom-6 -right-6 w-72 h-72 bg-esmeralda-soft rounded-full blur-3xl opacity-70"></div>
+                
+                <div class="relative rounded-[50px] overflow-hidden shadow-2xl shadow-emerald-950/10 border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=1000" 
+                         alt="Valentina te invita a sus 15 años" 
+                         class="w-full h-[520px] sm:h-[620px] object-cover object-top transform hover:scale-102 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 text-center">
+                        <span class="inline-block px-5 py-2 bg-white/90 backdrop-blur-md rounded-full text-esmeralda font-medium text-xs tracking-widest uppercase shadow-sm">
+                            ¡Acompáñame a celebrar!
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido de Invitación Delicado -->
+            <div class="lg:col-span-6 text-center lg:text-left order-1 lg:order-2 space-y-6">
+                
+                <div>
+                    <span class="font-script text-4xl sm:text-5xl text-esmeralda block mb-1">Te invito a mis</span>
+                    <h1 class="font-serif text-6xl sm:text-8xl text-slate-900 font-normal tracking-wide">
+                        15 Años
+                    </h1>
+                    <p class="font-serif italic text-3xl sm:text-4xl text-celeste font-light mt-1">
+                        Valentina
+                    </p>
+                </div>
+
+                <p class="text-slate-600 text-base sm:text-lg font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
+                    Hay momentos especiales en la vida que se vuelven inolvidables cuando los compartes con las personas que más quieres. Quiero que seas parte de esta noche tan mágica para mí.
+                </p>
+
+                <!-- CONTADOR EN DECREMENTO SUAVE Y DELICADO -->
+                <div x-data="countdown('2026-11-27T20:00:00')" class="pt-2">
+                    <p class="text-xs uppercase font-semibold text-slate-400 tracking-widest mb-3">La cuenta regresiva ha comenzado</p>
+                    <div class="grid grid-cols-4 gap-3 max-w-md mx-auto lg:mx-0">
+                        <div class="bg-esmeralda-soft/60 backdrop-blur-sm p-3 rounded-2xl border border-esmeralda-mint/30 text-center">
+                            <span x-text="days" class="block font-serif text-2xl sm:text-3xl font-semibold text-esmeralda">00</span>
+                            <span class="text-[10px] font-medium uppercase text-slate-500 tracking-wider">Días</span>
+                        </div>
+                        <div class="bg-celeste-soft p-3 rounded-2xl border border-celeste-light/40 text-center">
+                            <span x-text="hours" class="block font-serif text-2xl sm:text-3xl font-semibold text-celeste">00</span>
+                            <span class="text-[10px] font-medium uppercase text-slate-500 tracking-wider">Horas</span>
+                        </div>
+                        <div class="bg-esmeralda-soft/60 backdrop-blur-sm p-3 rounded-2xl border border-esmeralda-mint/30 text-center">
+                            <span x-text="minutes" class="block font-serif text-2xl sm:text-3xl font-semibold text-esmeralda">00</span>
+                            <span class="text-[10px] font-medium uppercase text-slate-500 tracking-wider">Min</span>
+                        </div>
+                        <div class="bg-celeste-soft p-3 rounded-2xl border border-celeste-light/40 text-center">
+                            <span x-text="seconds" class="block font-serif text-2xl sm:text-3xl font-semibold text-celeste">00</span>
+                            <span class="text-[10px] font-medium uppercase text-slate-500 tracking-wider">Seg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón CTA sutil -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#confirmar" class="w-full sm:w-auto px-8 py-4 bg-esmeralda hover:bg-esmeralda-light text-white font-medium text-sm rounded-full shadow-lg shadow-esmeralda/20 transition-all duration-300 transform hover:-translate-y-0.5 text-center">
+                        Confirmar Asistencia
+                    </a>
+                    <a href="#ubicacion" class="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 text-slate-600 hover:text-esmeralda hover:border-esmeralda-mint font-medium text-sm rounded-full transition-all duration-300 text-center">
+                        Ver Ubicación
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+    <!-- SECCIÓN VESTIMENTA & EL VESTIDO CELESTE -->
+    <section class="py-20 bg-white relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="bg-gradient-to-r from-esmeralda-soft/50 via-white to-celeste-soft/50 rounded-[40px] p-8 sm:p-14 border border-slate-100 shadow-soft relative overflow-hidden">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="md:col-span-7 space-y-4">
+                        <span class="font-script text-3xl text-esmeralda">Código de Vestimenta</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-slate-900 font-normal">Gala Formal & Glamour</h2>
+                        <p class="text-slate-600 text-sm sm:text-base font-light leading-relaxed">
+                            Queremos que esta noche sea deslumbrante. Te invitamos a lucir tu mejor traje o vestido de gala para celebrar juntos en grande.
+                        </p>
+                        
+                        <div class="p-5 bg-white rounded-3xl border border-celeste-light/50 flex items-start gap-4 shadow-sm">
+                            <span class="text-2xl">✨</span>
+                            <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                                <strong class="font-medium text-slate-800">Nota Especial:</strong> El tono <span class="text-celeste font-semibold">Azul Celeste</span> es el elegido exclusivamente para el vestido de Valentina. ¡El verde esmeralda y la paleta de colores elegantes son bienvenidos!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-5 relative">
+                        <div class="rounded-[35px] overflow-hidden border-4 border-white shadow-md">
+                            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Detalles del evento" 
+                                 class="w-full h-64 object-cover">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DINÁMICA DE LA FIESTA Y ESPACIOS (SECCIONES DE ANCHO COMPLETO) -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="font-script text-4xl text-esmeralda">Lo que nos espera</span>
+                <h2 class="font-serif text-4xl sm:text-5xl text-slate-900 font-normal mt-1">Una Noche Inolvidable</h2>
+                <div class="w-12 h-0.5 bg-esmeralda-mint mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Bloque 1: Dinámica de la Fiesta -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-[35px] shadow-soft border border-slate-100 text-center space-y-3 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-esmeralda-soft text-esmeralda rounded-2xl flex items-center justify-center mx-auto text-2xl">
+                        🎵
+                    </div>
+                    <h3 class="font-serif text-xl text-slate-800">Música & DJ</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm font-light leading-relaxed">
+                        Luces, sonido de alta definición y una selección musical pensada para mantener la pista llena.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-[35px] shadow-soft border border-slate-100 text-center space-y-3 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-celeste-soft text-celeste rounded-2xl flex items-center justify-center mx-auto text-2xl">
+                        🥂
+                    </div>
+                    <h3 class="font-serif text-xl text-slate-800">Cocktail & Gastronomía</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm font-light leading-relaxed">
+                        Estaciones delicadas con opciones de bebidas y platillos especiales para disfrutar toda la noche.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-[35px] shadow-soft border border-slate-100 text-center space-y-3 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-esmeralda-soft text-esmeralda rounded-2xl flex items-center justify-center mx-auto text-2xl">
+                        ✨
+                    </div>
+                    <h3 class="font-serif text-xl text-slate-800">Momentos Sorpresa</h3>
+                    <p class="text-slate-500 text-xs sm:text-sm font-light leading-relaxed">
+                        Puntos fotográficos, show de luces y detalles diseñados para inmortalizar el recuerdo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bloque 2: Imágenes de Espacios Amplias -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="relative h-80 sm:h-96 rounded-[40px] overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1000" 
+                         alt="Salón Principal" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 text-white">
+                        <span class="text-xs uppercase font-medium tracking-widest text-celeste-light">Espacio Principal</span>
+                        <h4 class="font-serif text-2xl sm:text-3xl font-normal mt-1">Gran Salón de Recepciones</h4>
+                    </div>
+                </div>
+
+                <div class="relative h-80 sm:h-96 rounded-[40px] overflow-hidden shadow-md group">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=1000" 
+                         alt="Jardines Iluminados" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 text-white">
+                        <span class="text-xs uppercase font-medium tracking-widest text-esmeralda-mint">Área Social</span>
+                        <h4 class="font-serif text-2xl sm:text-3xl font-normal mt-1">Jardín & Photo Spots</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BOTÓN / SECCIÓN PARA APLICACIÓN DE FOTOS Y VIDEOS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <div class="bg-gradient-to-b from-celeste-soft to-white p-10 sm:p-16 rounded-[45px] border border-celeste-light/40 shadow-soft space-y-6">
+                <span class="font-script text-4xl text-celeste">Álbum Interactivo</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-slate-800 font-normal">Comparte tus Fotos y Videos</h2>
+                <p class="text-slate-600 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                    ¡Tu perspectiva hace la fiesta completa! Podrás subir todas las imágenes y clips que tomes durante la celebración a la aplicación del evento.
+                </p>
+
+                <div class="pt-2">
+                    <a href="#" class="inline-flex items-center gap-3 px-8 py-4 bg-celeste hover:bg-celeste-accent text-white font-medium text-sm rounded-full shadow-glow-celeste transition-all duration-300 transform hover:-translate-y-0.5">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                        <span>Subir Contenido al Evento</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACIÓN CON MAPA CLARO Y REAL -->
+    <section id="ubicacion" class="py-20 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <span class="font-script text-4xl text-esmeralda">¿Cómo llegar?</span>
+                <h2 class="font-serif text-4xl text-slate-900 font-normal mt-1">Ubicación del Evento</h2>
+            </div>
+
+            <div class="bg-white rounded-[40px] p-6 sm:p-8 shadow-soft border border-slate-100 grid lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-5 space-y-4 text-center lg:text-left">
+                    <span class="px-4 py-1.5 bg-esmeralda-soft text-esmeralda rounded-full text-xs font-semibold uppercase tracking-wider inline-block">
+                        Lugar de la Recepción
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl text-slate-800">Quinta Las Esmeraldas</h3>
+                    <p class="text-slate-500 text-sm font-light">Av. Los Naranjos #102, Sector Residencial, Ciudad</p>
+                    
+                    <div class="pt-2">
+                        <p class="text-xs font-medium text-esmeralda">Viernes, 27 de Noviembre de 2026</p>
+                        <p class="text-xs text-slate-400 font-light mt-0.5">Recepción: 8:00 PM</p>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://maps.google.com" target="_blank" class="inline-block px-6 py-3 bg-esmeralda hover:bg-esmeralda-light text-white font-medium text-xs rounded-full shadow-sm transition">
+                            Abrir en Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mapa Visible -->
+                <div class="lg:col-span-7 h-80 rounded-[30px] overflow-hidden shadow-inner border border-slate-100">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.598285918731!2d-71.642145!3d10.686888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQxJzEyLjgiTiA3McKwMzgnMzEuNyJX!5e0!3m2!1ses!2s!4v1620000000000!5m2!1ses!2s" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONFIRMACIÓN VÍA WHATSAPP -->
+    <footer id="confirmar" class="py-20 bg-white border-t border-slate-100 text-center">
+        <div class="max-w-md mx-auto px-4 space-y-6">
+            <span class="font-script text-5xl text-esmeralda">Valentina</span>
+            <h3 class="font-serif text-3xl text-slate-800 font-normal">¿Nos acompañarás?</h3>
+            <p class="text-slate-500 font-light text-sm">
+                Agradecemos confirmar tu asistencia antes del 15 de Noviembre de 2026.
+            </p>
+
+            <div class="pt-2">
+                <a href="https://wa.me/1234567890?text=Hola%20Valentina,%20confirmo%20mi%20asistencia%20a%20tus%2015%20Años" 
+                   target="_blank" 
+                   class="inline-flex items-center justify-center gap-3 w-full py-4 bg-esmeralda hover:bg-esmeralda-light text-white font-medium text-sm rounded-full shadow-lg shadow-esmeralda/20 transition-all duration-300">
+                    <span>Confirmar Asistencia por WhatsApp</span>
+                </a>
+            </div>
+
+            <p class="pt-10 text-slate-400 font-serif italic text-xs">
+                Mis 15 Años • 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- Alpine.js Script del Contador -->
+    <script>
+        function countdown(expiry) {
+            return {
+                expiry: new Date(expiry).getTime(),
+                remaining: null,
+                days: '00',
+                hours: '00',
+                minutes: '00',
+                seconds: '00',
+                init() {
+                    this.updateCountdown();
+                    setInterval(() => { this.updateCountdown(); }, 1000);
+                },
+                updateCountdown() {
+                    const now = new Date().getTime();
+                    this.remaining = this.expiry - now;
+
+                    if (this.remaining > 0) {
+                        this.days = String(Math.floor(this.remaining / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                        this.hours = String(Math.floor((this.remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                        this.minutes = String(Math.floor((this.remaining % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                        this.seconds = String(Math.floor((this.remaining % (1000 * 60)) / 1000)).padStart(2, '0');
+                    } else {
+                        this.days = '00';
+                        this.hours = '00';
+                        this.minutes = '00';
+                        this.seconds = '00';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Años - Valentina ✨ Un Cuento de Princesa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Cormorant Garamond', 'serif'],
+                        'display': ['Playfair Display', 'serif'],
+                        'script': ['Great Vibes', 'cursive'],
+                        'sans': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'blush': '#f8c8dc',
+                        'rose': '#e8a4b8',
+                        'lavender': '#c8a2c8',
+                        'sage': '#9caf88',
+                        'gold': '#d4af37',
+                        'cream': '#fff8e7',
+                        'champagne': '#f7e7ce',
+                        'mauve': '#b784a7',
+                        'petal': '#ffd1dc',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-slow': 'float 10s ease-in-out infinite',
+                        'fall': 'fall 15s linear infinite',
+                        'fall-slow': 'fall 20s linear infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                        'shimmer': 'shimmer 3s infinite',
+                        'butterfly': 'butterfly 8s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(5deg)' },
+                        },
+                        fall: {
+                            '0%': { transform: 'translateY(-10vh) translateX(0) rotate(0deg)', opacity: '0' },
+                            '10%': { opacity: '1' },
+                            '90%': { opacity: '1' },
+                            '100%': { transform: 'translateY(110vh) translateX(100px) rotate(720deg)', opacity: '0' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-1000px 0' },
+                            '100%': { backgroundPosition: '1000px 0' },
+                        },
+                        butterfly: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '25%': { transform: 'translate(30px, -20px) rotate(10deg)' },
+                            '50%': { transform: 'translate(60px, 0) rotate(-5deg)' },
+                            '75%': { transform: 'translate(30px, 20px) rotate(5deg)' },
+                        },
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(212, 175, 55, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(212, 175, 55, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(180deg, #fff8e7 0%, #ffd1dc 50%, #f8c8dc 100%);
+        }
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #f7e7ce 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+        }
+        .gradient-text-rose {
+            background: linear-gradient(135deg, #e8a4b8 0%, #b784a7 50%, #c8a2c8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass-cream {
+            background: rgba(255, 248, 231, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 32px rgba(232, 164, 184, 0.2);
+        }
+        .glass-rose {
+            background: rgba(255, 209, 220, 0.4);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(183, 132, 167, 0.15);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .scale-in.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .fade-soft {
+            opacity: 0;
+            transition: opacity 1.5s ease-in;
+        }
+        .fade-soft.active {
+            opacity: 1;
+        }
+        .ornament::before,
+        .ornament::after {
+            content: '❦';
+            display: inline-block;
+            margin: 0 1rem;
+            color: #d4af37;
+            font-size: 1.2em;
+        }
+        .divider-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: #d4af37;
+        }
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            max-width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+        .petal {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle at 30% 30%, #ffd1dc, #e8a4b8);
+            border-radius: 150% 0 150% 0;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .flower-bg {
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 209, 220, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(200, 162, 200, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(247, 231, 206, 0.4) 0%, transparent 50%);
+        }
+        .crown-icon {
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 40px rgba(183, 132, 167, 0.2);
+        }
+        .hover-lift {
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(183, 132, 167, 0.3);
+        }
+        .image-frame {
+            position: relative;
+            padding: 8px;
+            background: linear-gradient(135deg, #d4af37, #f7e7ce, #d4af37);
+            border-radius: 1.5rem;
+        }
+        .image-frame::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, #e8a4b8, #c8a2c8, #9caf88, #d4af37);
+            border-radius: 1.7rem;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(15px);
+        }
+        .vintage-border {
+            border: 2px solid transparent;
+            background: 
+                linear-gradient(#fff8e7, #fff8e7) padding-box,
+                linear-gradient(135deg, #d4af37, #e8a4b8, #d4af37) border-box;
+            border-radius: 1rem;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        .sparkle {
+            animation: sparkle 3s ease-in-out infinite;
+        }
+        .scroll-indicator {
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(10px); opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 overflow-x-hidden" x-data="appData()" x-init="init()">
+
+    <!-- Falling Petals Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <template x-for="i in 20">
+            <div class="petal animate-fall" 
+                 :style="`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 15}s; animation-duration: ${10 + Math.random() * 15}s; transform: scale(${0.5 + Math.random() * 1});`">
+            </div>
+        </template>
+    </div>
+
+    <!-- Decorative Butterflies -->
+    <div class="fixed top-20 right-10 text-3xl animate-butterfly pointer-events-none z-0 opacity-60 hidden md:block">🦋</div>
+    <div class="fixed bottom-40 left-10 text-2xl animate-butterfly pointer-events-none z-0 opacity-60 hidden md:block" style="animation-delay: 2s;">🦋</div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden z-10 flower-bg">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Valentina" 
+                 class="w-full h-full object-cover object-center"
+                 :class="loaded ? 'opacity-40 scale-100' : 'opacity-0 scale-110'"
+                 style="transition: all 2s ease-out;">
+            <div class="absolute inset-0 bg-gradient-to-b from-cream/60 via-petal/40 to-blush/70"></div>
+        </div>
+
+        <!-- Sparkles -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 text-gold sparkle text-2xl">✦</div>
+            <div class="absolute top-1/3 right-1/4 text-gold sparkle text-xl" style="animation-delay: 1s;">✦</div>
+            <div class="absolute bottom-1/3 left-1/3 text-gold sparkle text-2xl" style="animation-delay: 2s;">✦</div>
+            <div class="absolute bottom-1/4 right-1/3 text-gold sparkle text-xl" style="animation-delay: 0.5s;">✦</div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto py-20">
+            <div class="reveal" :class="{'active': loaded}">
+                <!-- Crown -->
+                <div class="mb-6 animate-float">
+                    <span class="text-6xl md:text-7xl crown-icon">👑</span>
+                </div>
+
+                <p class="text-mauve text-lg md:text-xl mb-4 tracking-[0.3em] uppercase font-light">
+                    ✨ Acompáñame a celebrar ✨
+                </p>
+                
+                <p class="font-script text-4xl md:text-6xl text-mauve mb-4">Te invito a mis</p>
+                
+                <h1 class="font-display text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-tight">
+                    <span class="block gradient-text-gold">15 Años</span>
+                </h1>
+                
+                <div class="divider-ornament my-8">
+                    <span class="text-2xl">❦</span>
+                </div>
+                
+                <h2 class="font-script text-6xl md:text-8xl lg:text-9xl gradient-text-rose mb-8">
+                    Valentina
+                </h2>
+                
+                <div class="max-w-2xl mx-auto">
+                    <p class="font-serif text-lg md:text-xl leading-relaxed text-gray-700 italic fade-soft" :class="{'active': loaded}">
+                        "Hay momentos especiales en la vida que se vuelven inolvidables cuando los compartes con las personas que más quieres. 
+                        <span class="text-mauve font-semibold not-italic">Quiero que seas parte de esta noche mágica en mi cuento de princesa.</span>"
+                    </p>
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="mt-16 reveal" :class="{'active': loaded}" style="transition-delay: 500ms">
+                <p class="text-mauve text-sm md:text-base mb-6 tracking-widest uppercase font-serif">La cuenta regresiva ha comenzado</p>
+                <div class="grid grid-cols-4 gap-3 md:gap-6 max-w-2xl mx-auto">
+                    <template x-for="item in countdown">
+                        <div class="vintage-border p-3 md:p-6 hover-lift text-center">
+                            <div class="text-3xl md:text-5xl font-display font-bold gradient-text-gold" x-text="item.value"></div>
+                            <div class="text-xs md:text-sm text-mauve mt-2 uppercase tracking-wider font-serif" x-text="item.label"></div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="mt-12 flex flex-col md:flex-row gap-4 justify-center reveal" :class="{'active': loaded}" style="transition-delay: 800ms">
+                <a href="#confirmar" 
+                   class="px-8 py-4 bg-gradient-to-r from-rose via-mauve to-lavender rounded-full font-serif font-semibold text-lg text-white hover:scale-105 transform transition-all duration-500 soft-shadow animate-glow">
+                    💌 Confirmar Asistencia
+                </a>
+                <a href="#ubicacion" 
+                   class="px-8 py-4 glass-cream rounded-full font-serif font-semibold text-lg text-mauve hover:scale-105 transform transition-all duration-500">
+                    📍 Ver Ubicación
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <div class="flex flex-col items-center text-mauve">
+                <span class="text-xs tracking-widest uppercase mb-2 font-serif">Descubre más</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Separator 1 - Field with flowers -->
+    <section class="relative h-[70vh] overflow-hidden z-10">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Campo con flores" 
+                 class="w-full h-full object-cover parallax-img">
+            <div class="absolute inset-0 bg-gradient-to-b from-blush/40 via-transparent to-cream/60"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center h-full">
+            <div class="text-center reveal scale-in px-4">
+                <p class="font-script text-5xl md:text-7xl text-white mb-4" style="text-shadow: 2px 2px 10px rgba(183, 132, 167, 0.5);">Un Cuento</p>
+                <p class="font-display text-3xl md:text-5xl text-white font-bold tracking-wider" style="text-shadow: 2px 2px 10px rgba(183, 132, 167, 0.5);">
+                    De Princesa Campestre
+                </p>
+                <div class="mt-6 text-4xl">🌸 ✨ 🌷 ✨ 🌸</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="relative py-24 px-4 z-10 flower-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-script text-4xl md:text-5xl text-mauve mb-2">Código de</p>
+                <h3 class="font-display text-5xl md:text-7xl font-bold gradient-text-rose">Vestimenta</h3>
+                <div class="divider-ornament mt-6">
+                    <span class="text-2xl">👑</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal-left order-2 md:order-1">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="image-frame hover-lift">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Vestido elegante" 
+                                 class="rounded-xl w-full h-80 object-cover">
+                        </div>
+                        <div class="image-frame hover-lift mt-12">
+                            <img src="https://images.unsplash.com/photo-1566173295-228a21b30ab8?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Vestido campestre" 
+                                 class="rounded-xl w-full h-80 object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 reveal-right">
+                    <div class="glass-cream rounded-3xl p-8 md:p-12 soft-shadow">
+                        <div class="text-center mb-6">
+                            <span class="text-6xl animate-float">👗</span>
+                        </div>
+                        <h4 class="font-display text-3xl md:text-4xl font-bold text-center mb-6 gradient-text-rose">
+                            Gala Formal & Glamour Campestre
+                        </h4>
+                        <p class="font-serif text-lg text-gray-700 leading-relaxed mb-6 text-center italic">
+                            Queremos que esta noche sea deslumbrante. Te invitamos a lucir tu mejor traje o vestido de gala para celebrar juntos en grande, bajo las estrellas del campo.
+                        </p>
+                        
+                        <div class="vintage-border p-6 mt-6">
+                            <div class="flex items-start">
+                                <span class="text-3xl mr-4 animate-float">✨</span>
+                                <div>
+                                    <h5 class="font-display text-xl font-bold text-mauve mb-2">Nota Especial</h5>
+                                    <p class="font-serif text-gray-700 leading-relaxed">
+                                        El tono <span class="font-bold text-sky-500">Azul Celeste</span> es el elegido exclusivamente para el vestido de Valentina. 
+                                        ¡El <span class="font-bold text-emerald-600">verde esmeralda</span> y la paleta de colores elegantes son bienvenidos!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex justify-center gap-2 text-2xl">
+                            <span class="animate-float" style="animation-delay: 0s;">🌸</span>
+                            <span class="animate-float" style="animation-delay: 0.3s;">🌷</span>
+                            <span class="animate-float" style="animation-delay: 0.6s;">🌹</span>
+                            <span class="animate-float" style="animation-delay: 0.9s;">🌺</span>
+                            <span class="animate-float" style="animation-delay: 1.2s;">💐</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Separator 2 - Garden -->
+    <section class="relative h-[60vh] overflow-hidden z-10">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Jardín de flores" 
+                 class="w-full h-full object-cover parallax-img">
+            <div class="absolute inset-0 bg-gradient-to-r from-lavender/50 via-transparent to-blush/50"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center h-full">
+            <div class="text-center reveal">
+                <div class="glass-cream rounded-3xl px-8 py-6 inline-block">
+                    <p class="font-script text-4xl md:text-5xl text-mauve">Donde los sueños florecen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Expect Section -->
+    <section class="relative py-24 px-4 z-10 flower-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-script text-4xl md:text-5xl text-mauve mb-2">Lo que nos espera</p>
+                <h3 class="font-display text-5xl md:text-7xl font-bold gradient-text-rose">Una Noche Inolvidable</h3>
+                <div class="divider-ornament mt-6">
+                    <span class="text-2xl">✦</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Music -->
+                <div class="scale-in group">
+                    <div class="glass-cream rounded-3xl p-8 h-full hover-lift text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 text-6xl opacity-20 animate-float">🎵</div>
+                        <div class="relative z-10">
+                            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-rose to-lavender flex items-center justify-center text-4xl animate-float">
+                                🎵
+                            </div>
+                            <h4 class="font-display text-2xl md:text-3xl font-bold mb-4 gradient-text-rose">Música & DJ</h4>
+                            <p class="font-serif text-gray-700 leading-relaxed italic">
+                                Luces, sonido de alta definición y una selección musical pensada para mantener la pista llena bajo las estrellas.
+                            </p>
+                            <div class="mt-6 flex justify-center gap-2">
+                                <span class="text-xl">♪</span>
+                                <span class="text-xl animate-float">♫</span>
+                                <span class="text-xl">♪</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food -->
+                <div class="scale-in group" style="transition-delay: 200ms">
+                    <div class="glass-rose rounded-3xl p-8 h-full hover-lift text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 text-6xl opacity-20 animate-float">🥂</div>
+                        <div class="relative z-10">
+                            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-lavender to-mauve flex items-center justify-center text-4xl animate-float" style="animation-delay: 0.5s;">
+                                🥂
+                            </div>
+                            <h4 class="font-display text-2xl md:text-3xl font-bold mb-4 gradient-text-rose">Cocktail & Gastronomía</h4>
+                            <p class="font-serif text-gray-700 leading-relaxed italic">
+                                Estaciones delicadas con opciones de bebidas y platillos especiales para disfrutar toda la noche.
+                            </p>
+                            <div class="mt-6 flex justify-center gap-2">
+                                <span class="text-xl">🌸</span>
+                                <span class="text-xl animate-float">🍾</span>
+                                <span class="text-xl">🌸</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Surprises -->
+                <div class="scale-in group" style="transition-delay: 400ms">
+                    <div class="glass-cream rounded-3xl p-8 h-full hover-lift text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 text-6xl opacity-20 animate-float">✨</div>
+                        <div class="relative z-10">
+                            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-gold to-champagne flex items-center justify-center text-4xl animate-float" style="animation-delay: 1s;">
+                                ✨
+                            </div>
+                            <h4 class="font-display text-2xl md:text-3xl font-bold mb-4 gradient-text-gold">Momentos Sorpresa</h4>
+                            <p class="font-serif text-gray-700 leading-relaxed italic">
+                                Puntos fotográficos, show de luces y detalles diseñados para inmortalizar el recuerdo de esta noche mágica.
+                            </p>
+                            <div class="mt-6 flex justify-center gap-2">
+                                <span class="text-xl">🦋</span>
+                                <span class="text-xl animate-float">💫</span>
+                                <span class="text-xl">🦋</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Separator 3 - Princess in field -->
+    <section class="relative h-[70vh] overflow-hidden z-10">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Valentina princesa" 
+                 class="w-full h-full object-cover parallax-img">
+            <div class="absolute inset-0 bg-gradient-to-b from-cream/30 via-transparent to-mauve/40"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center h-full">
+            <div class="text-center reveal scale-in px-4">
+                <div class="glass-cream rounded-3xl px-10 py-8 inline-block">
+                    <p class="font-script text-5xl md:text-7xl text-mauve mb-2">Un Palacio</p>
+                    <p class="font-display text-3xl md:text-5xl text-mauve font-bold">Rodeado de Flores</p>
+                    <div class="mt-4 text-3xl">🌷 🏰 🌹</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section class="relative py-24 px-4 z-10 flower-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-script text-4xl md:text-5xl text-mauve mb-2">El escenario de mi cuento</p>
+                <h3 class="font-display text-5xl md:text-7xl font-bold gradient-text-rose">Espacios Mágicos</h3>
+                <div class="divider-ornament mt-6">
+                    <span class="text-2xl">🏰</span>
+                </div>
+            </div>
+
+            <!-- Main Hall -->
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+                <div class="reveal-left">
+                    <div class="image-frame hover-lift">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Salón Principal" 
+                             class="rounded-xl w-full h-96 object-cover">
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <div class="glass-cream rounded-3xl p-8 md:p-12 soft-shadow">
+                        <div class="text-center mb-6">
+                            <span class="text-6xl animate-float">🏰</span>
+                        </div>
+                        <h3 class="font-display text-3xl md:text-4xl font-bold mb-4 text-center gradient-text-rose">Gran Salón de Recepciones</h3>
+                        <p class="font-serif text-lg text-gray-700 leading-relaxed mb-6 italic text-center">
+                            Un salón diseñado para crear momentos mágicos, con una decoración elegante y campestre, iluminación ambiental y todo el espacio necesario para que disfrutes sin límites.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center font-serif text-gray-700">
+                                <span class="text-gold mr-3">✦</span>
+                                Decoración floral campestre
+                            </li>
+                            <li class="flex items-center font-serif text-gray-700">
+                                <span class="text-gold mr-3">✦</span>
+                                Pista de baile bajo las estrellas
+                            </li>
+                            <li class="flex items-center font-serif text-gray-700">
+                                <span class="text-gold mr-3">✦</span>
+                                Escenario para el vals
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garden Area -->
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal-left order-2 md:order-1">
+                    <div class="glass-rose rounded-3xl p-8 md:p-12 soft-shadow">
+                        <div class="text-center mb-6">
+                            <span class="text-6xl animate-float">🌺</span>
+                        </div>
+                        <h3 class="font-display text-3xl md:text-4xl font-bold mb-4 text-center gradient-text-rose">Jardín & Photo Spots</h3>
+                        <p class="font-serif text-lg text-gray-700 leading-relaxed mb-6 italic text-center">
+                            Un jardín encantador con áreas fotográficas únicas entre flores delicadas, iluminación romántica y espacios perfectos para compartir con tus amigos.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center font-serif text-gray-700">
+                                <span class="text-gold mr-3">✦</span>
+                                Photo spots temáticos de princesa
+                            </li>
+                            <li class="flex items-center font-serif text-gray-700">
+                                <span class="text-gold mr-3">✦</span>
+                                Jardín de flores delicadas
+                            </li>
+                            <li class="flex items-center font-serif text-gray-700">
+                                <span class="text-gold mr-3">✦</span>
+                                Zona de cocktails al aire libre
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="reveal-right order-1 md:order-2">
+                    <div class="image-frame hover-lift">
+                        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=1200" 
+                             alt="Jardín" 
+                             class="rounded-xl w-full h-96 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Separator 4 - Sunset field -->
+    <section class="relative h-[60vh] overflow-hidden z-10">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Atardecer en el campo" 
+                 class="w-full h-full object-cover parallax-img">
+            <div class="absolute inset-0 bg-gradient-to-b from-mauve/40 via-transparent to-rose/50"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center h-full">
+            <div class="text-center reveal scale-in px-4">
+                <div class="glass-cream rounded-3xl px-10 py-8 inline-block">
+                    <p class="font-script text-4xl md:text-6xl text-mauve mb-2">Captura Cada Momento</p>
+                    <p class="font-display text-xl md:text-2xl text-mauve">Sé parte del álbum interactivo</p>
+                    <div class="mt-4 text-3xl">📸 🌸 ✨</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Album Section -->
+    <section class="relative py-24 px-4 z-10 flower-bg">
+        <div class="max-w-5xl mx-auto">
+            <div class="glass-cream rounded-3xl p-8 md:p-16 text-center soft-shadow reveal scale-in">
+                <div class="text-7xl mb-6 animate-float">📸</div>
+                <h3 class="font-display text-4xl md:text-6xl font-bold mb-4 gradient-text-rose">Álbum Interactivo</h3>
+                <div class="divider-ornament mb-8">
+                    <span class="text-2xl">💐</span>
+                </div>
+                <p class="font-serif text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed italic max-w-3xl mx-auto">
+                    "¡Tu perspectiva hace la fiesta completa! Podrás subir todas las imágenes y clips que tomes durante la celebración a la aplicación del evento."
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button class="px-8 py-4 bg-gradient-to-r from-rose via-mauve to-lavender rounded-full font-serif font-semibold text-lg text-white hover:scale-105 transform transition-all duration-500 soft-shadow animate-glow">
+                        📲 Descargar App
+                    </button>
+                    <button class="px-8 py-4 glass-rose rounded-full font-serif font-semibold text-lg text-mauve hover:scale-105 transform transition-all duration-500">
+                        🔗 Ver Galería
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="ubicacion" class="relative py-24 px-4 z-10 flower-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-script text-4xl md:text-5xl text-mauve mb-2">¿Cómo llegar?</p>
+                <h3 class="font-display text-5xl md:text-7xl font-bold gradient-text-rose">Ubicación del Evento</h3>
+                <div class="divider-ornament mt-6">
+                    <span class="text-2xl">📍</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal-left">
+                    <div class="glass-cream rounded-3xl p-8 md:p-12 soft-shadow">
+                        <div class="flex items-start mb-6">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose to-lavender flex items-center justify-center text-3xl mr-4 transform hover:rotate-12 transition-transform duration-300 animate-float">
+                                📍
+                            </div>
+                            <div>
+                                <h4 class="font-display text-2xl md:text-3xl font-bold text-mauve mb-2">Quinta Las Esmeraldas</h4>
+                                <p class="font-serif text-gray-700 italic">Av. Los Naranjos #102, Sector Residencial, Ciudad</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="vintage-border p-4 hover-lift">
+                                <div class="flex items-center">
+                                    <span class="text-3xl mr-4">📅</span>
+                                    <div>
+                                        <p class="text-sm text-mauve uppercase tracking-wider font-serif">Fecha</p>
+                                        <p class="font-display text-lg font-bold text-gray-800">Viernes, 27 de Noviembre de 2026</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vintage-border p-4 hover-lift">
+                                <div class="flex items-center">
+                                    <span class="text-3xl mr-4">🕐</span>
+                                    <div>
+                                        <p class="text-sm text-mauve uppercase tracking-wider font-serif">Hora</p>
+                                        <p class="font-display text-lg font-bold text-gray-800">Recepción: 8:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://maps.google.com" target="_blank" 
+                           class="block w-full py-4 bg-gradient-to-r from-rose via-mauve to-lavender rounded-xl font-serif font-semibold text-center text-white hover:scale-105 transform transition-all duration-500 soft-shadow">
+                            🗺️ Abrir en Google Maps
+                        </a>
+                    </div>
+                </div>
+                <div class="reveal-right">
+                    <div class="image-frame hover-lift">
+                        <div class="rounded-xl overflow-hidden h-[400px] bg-cream">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.888006632976!2d-99.1686946850935!3d19.42702098688392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzM3LjMiTiA5OcKwMTAnMDAuMCJX!5e0!3m2!1ses!2smx!4v1234567890"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Separator 5 - Final princess image -->
+    <section class="relative h-[70vh] overflow-hidden z-10">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1512474932049-78ac69ede12c?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Valentina elegante" 
+                 class="w-full h-full object-cover parallax-img">
+            <div class="absolute inset-0 bg-gradient-to-b from-blush/50 via-mauve/30 to-cream/70"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center h-full">
+            <div class="text-center reveal scale-in px-4">
+                <div class="glass-cream rounded-3xl px-10 py-8 inline-block">
+                    <p class="font-script text-5xl md:text-7xl text-mauve mb-2">Mi Cuento</p>
+                    <p class="font-display text-3xl md:text-5xl text-mauve font-bold">Comienza Contigo</p>
+                    <div class="mt-4 text-4xl animate-float">👑</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="confirmar" class="relative py-24 px-4 z-10 flower-bg">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-cream rounded-3xl p-8 md:p-16 text-center soft-shadow reveal scale-in">
+                <div class="text-8xl mb-6 animate-float crown-icon">👑</div>
+                <p class="font-script text-5xl md:text-7xl gradient-text-rose mb-4">Valentina</p>
+                <div class="divider-ornament mb-6">
+                    <span class="text-2xl">💖</span>
+                </div>
+                <h4 class="font-display text-3xl md:text-4xl font-bold text-mauve mb-6">¿Nos acompañarás?</h4>
+                <p class="font-serif text-xl text-gray-700 mb-8 italic">
+                    Agradecemos confirmar tu asistencia antes del <span class="text-mauve font-bold not-italic">15 de Noviembre de 2026</span>
+                </p>
+                
+                <a href="https://wa.me/1234567890?text=Hola%20Valentina,%20confirmo%20mi%20asistencia%20a%20tus%2015%20Años" 
+                   target="_blank"
+                   class="inline-flex items-center px-10 py-5 bg-gradient-to-r from-rose via-mauve to-lavender rounded-full font-serif font-semibold text-xl text-white hover:scale-110 transform transition-all duration-500 soft-shadow animate-glow group">
+                    <svg class="w-8 h-8 mr-3 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Confirmar Asistencia
+                </a>
+
+                <div class="mt-12 pt-8 border-t border-gold/30">
+                    <p class="font-serif text-mauve text-lg italic">Mis 15 Años • 2026</p>
+                    <div class="flex justify-center gap-4 mt-4">
+                        <span class="text-3xl animate-float" style="animation-delay: 0s;">🌸</span>
+                        <span class="text-3xl animate-float" style="animation-delay: 0.3s;">✨</span>
+                        <span class="text-3xl animate-float" style="animation-delay: 0.6s;">👑</span>
+                        <span class="text-3xl animate-float" style="animation-delay: 0.9s;">✨</span>
+                        <span class="text-3xl animate-float" style="animation-delay: 1.2s;">🌸</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-12 px-4 z-10 text-center bg-gradient-to-t from-blush/50 to-transparent">
+        <div class="divider-ornament mb-6">
+            <span class="text-2xl">❦</span>
+        </div>
+        <p class="font-script text-3xl text-mauve mb-2">Valentina</p>
+        <p class="font-serif text-sm text-mauve/70 italic">Hecho con 💖 para mi cuento de princesa</p>
+        <div class="mt-4 flex justify-center gap-2 text-xl">
+            <span>🌸</span>
+            <span>🌷</span>
+            <span>🌹</span>
+            <span>🌺</span>
+            <span>💐</span>
+        </div>
+    </footer>
+
+    <script>
+        function appData() {
+            return {
+                loaded: false,
+                scrolled: 0,
+                countdown: [
+                    { value: '00', label: 'Días' },
+                    { value: '00', label: 'Horas' },
+                    { value: '00', label: 'Min' },
+                    { value: '00', label: 'Seg' }
+                ],
+                init() {
+                    setTimeout(() => this.loaded = true, 300);
+                    this.updateCountdown();
+                    setInterval(() => this.updateCountdown(), 1000);
+                    
+                    window.addEventListener('scroll', () => {
+                        this.scrolled = window.scrollY;
+                        this.handleScrollAnimations();
+                        this.handleParallax();
+                    });
+
+                    // Initial check
+                    setTimeout(() => this.handleScrollAnimations(), 100);
+                },
+                updateCountdown() {
+                    const eventDate = new Date('November 27, 2026 20:00:00').getTime();
+                    const now = new Date().getTime();
+                    const distance = eventDate - now;
+
+                    if (distance > 0) {
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        this.countdown = [
+                            { value: String(days).padStart(2, '0'), label: 'Días' },
+                            { value: String(hours).padStart(2, '0'), label: 'Horas' },
+                            { value: String(minutes).padStart(2, '0'), label: 'Min' },
+                            { value: String(seconds).padStart(2, '0'), label: 'Seg' }
+                        ];
+                    }
+                },
+                handleScrollAnimations() {
+                    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .scale-in, .fade-soft');
+                    
+                    reveals.forEach(element => {
+                        const windowHeight = window.innerHeight;
+                        const elementTop = element.getBoundingClientRect().top;
+                        const elementVisible = 100;
+                        
+                        if (elementTop < windowHeight - elementVisible) {
+                            element.classList.add('active');
+                        }
+                    });
+                },
+                handleParallax() {
+                    const scrolled = window.pageYOffset;
+                    const parallaxElements = document.querySelectorAll('.parallax-img');
+                    parallaxElements.forEach(el => {
+                        const rect = el.getBoundingClientRect();
+                        if (rect.top < window.innerHeight && rect.bottom > 0) {
+                            const speed = 0.3;
+                            const yPos = (rect.top - window.innerHeight) * speed;
+                            el.style.transform = `translateY(${yPos}px) scale(1.1)`;
+                        }
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

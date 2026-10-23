@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bautizo de Mateo Alejandro</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{colors:{ivory:'#FAF7F0',mist:'#E9F0F6',gold:'#B08D57',navy:'#1E3352',sage:'#A9BDAA'},fontFamily:{serif:['"Cormorant Garamond"','serif'],script:['"Pinyon Script"','cursive'],sans:['Jost','sans-serif']}}}}
+</script>
+<style type="text/tailwindcss">
+@layer components{
+.sec{@apply py-24 px-4 sm:px-6 relative overflow-hidden}
+.wrap{@apply max-w-5xl mx-auto relative}
+.kick{@apply font-script text-3xl text-gold block}
+.h2{@apply font-serif text-4xl sm:text-5xl text-navy mt-1 leading-tight}
+.btn{@apply inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-navy text-ivory text-sm tracking-widest uppercase hover:bg-gold transition duration-500}
+.btn2{@apply inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-gold text-navy text-sm tracking-widest uppercase hover:bg-gold hover:text-white transition duration-500}
+.card{@apply bg-white/80 rounded-3xl border border-gold/30 shadow-xl shadow-navy/5}
+.inp{@apply w-full px-4 py-3 rounded-xl border border-navy/15 focus:border-gold outline-none text-sm bg-white}
+.chip{@apply px-4 py-2 rounded-full text-xs border transition}
+.arch{border-radius:999px 999px 0 0}
+}
+.rv{opacity:0;transform:translateY(30px);transition:opacity 1s ease var(--d,0s),transform 1s ease var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.ph{background:linear-gradient(160deg,#E9F0F6,#F3EBDD)}
+.marq{display:flex;gap:1rem;width:max-content;animation:marq 45s linear infinite}.marq.rev{animation-direction:reverse}.marq:hover{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes fall{0%{transform:translateY(-10vh) translateX(0) rotate(0)}100%{transform:translateY(110vh) translateX(40px) rotate(360deg)}}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.fall{position:absolute;top:0;animation:fall linear infinite;pointer-events:none;opacity:.7}
+.fl{animation:fl 6s ease-in-out infinite}
+.glow{background:radial-gradient(circle,#fff 0,transparent 70%)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body x-data="app()" @scroll.window.passive="p=scrollY/(document.body.scrollHeight-innerHeight)*100" class="bg-ivory text-navy/80 font-sans font-light antialiased overflow-x-hidden selection:bg-gold selection:text-white">
+
+<!-- PRELOADER -->
+<div x-show="loading" x-transition:leave="transition duration-1000" x-transition:leave-end="opacity-0" class="fixed inset-0 z-[100] bg-mist flex flex-col items-center justify-center">
+  <div class="glow absolute w-96 h-96"></div>
+  <div class="relative text-6xl text-gold fl">✝</div>
+  <p class="relative font-script text-3xl text-navy mt-3">Mateo te espera…</p>
+</div>
+<div class="fixed top-0 left-0 h-1 z-50 bg-gold" :style="`width:${p}%`"></div>
+
+<!-- 1. PORTADA -->
+<header class="relative min-h-screen bg-gradient-to-b from-mist via-ivory to-ivory flex items-center py-16 px-4 overflow-hidden">
+  <template x-for="c in petals" :key="c.i"><span class="fall text-gold/70" :style="`left:${c.x}%;animation-duration:${c.t}s;animation-delay:-${c.d}s;font-size:${c.s}px`">✦</span></template>
+  <div class="glow absolute -top-20 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem]"></div>
+  <div class="relative max-w-5xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
+    <div class="relative mx-auto" x-reveal>
+      <div class="absolute -inset-4 arch border border-gold/50"></div>
+      <div class="arch ph overflow-hidden w-72 sm:w-80 aspect-[3/4] relative shadow-2xl"><img :src="ph.hero.src" alt="Mateo" class="w-full h-full object-cover" onerror="this.style.opacity=0"></div>
+      <span class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-ivory border border-gold text-gold px-5 py-1.5 rounded-full text-xs tracking-widest uppercase whitespace-nowrap">Sacramento del Bautismo</span>
+    </div>
+    <div class="space-y-5">
+      <div x-reveal style="--d:.2s"><span class="kick">Con alegría te invitamos al bautizo de</span>
+        <h1 class="font-serif text-6xl sm:text-7xl text-navy leading-none">Mateo<br><span class="italic text-gold text-5xl sm:text-6xl">Alejandro</span></h1></div>
+      <p class="max-w-md mx-auto lg:mx-0" x-reveal style="--d:.3s">«Dejen que los niños vengan a mí». Con el corazón lleno de gratitud, queremos que nos acompañes a recibir esta bendición.</p>
+      <div x-data="countdown('2026-11-21T11:00:00')" x-reveal style="--d:.4s">
+        <div class="grid grid-cols-4 gap-2 max-w-sm mx-auto lg:mx-0">
+          <template x-for="u in [['days','Días'],['hours','Horas'],['minutes','Min'],['seconds','Seg']]"><div class="card py-3"><span class="block font-serif text-3xl text-navy" x-text="v[u[0]]">00</span><span class="text-[10px] uppercase tracking-widest text-gold" x-text="u[1]"></span></div></template>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start" x-reveal style="--d:.5s"><a href="#confirmar" class="btn">Confirmar asistencia</a><a href="#ubicacion" class="btn2">Ver ubicación</a></div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. INVITACIÓN PERSONALIZADA -->
+<section id="invitacion" class="sec bg-ivory"><div class="wrap max-w-3xl">
+  <div class="text-center mb-10"><span class="kick" x-reveal>Invitación personalizada</span><h2 class="h2" x-reveal>Un lugar reservado para ti</h2>
+    <p class="text-sm mt-3" x-reveal>Escribe tu nombre y mira cómo se completa tu tarjeta de invitación.</p></div>
+  <div class="max-w-sm mx-auto mb-10" x-reveal><input class="inp text-center" x-model="guest.name" maxlength="40" placeholder="Ej: Familia Gómez"></div>
+  <div class="card p-3 relative" x-reveal>
+    <div class="border border-gold/50 rounded-[20px] grid sm:grid-cols-3 overflow-hidden">
+      <div class="sm:col-span-2 p-8 sm:p-10 text-center space-y-2">
+        <span class="kick">Con cariño invitamos a</span>
+        <p class="font-serif text-4xl text-navy break-words" x-text="guest.name||'Querido invitado'"></p>
+        <p class="font-serif italic text-xl text-gold">al bautizo de Mateo Alejandro</p>
+        <p class="text-sm">Sábado 21 de Noviembre de 2026 · 11:00 AM<br>Parroquia San José · Recepción en Jardín Los Olivos</p>
+        <span class="inline-block mt-2 px-4 py-1.5 rounded-full bg-mist text-xs tracking-widest uppercase"><span x-text="guest.pases"></span> pases</span>
+      </div>
+      <div class="p-6 flex flex-col items-center justify-center bg-mist/60 border-t sm:border-t-0 sm:border-l border-dashed border-gold/60">
+        <div class="grid gap-[2px] p-2.5 bg-white rounded-xl w-32" style="grid-template-columns:repeat(11,1fr)"><template x-for="(c,i) in qr" :key="i"><span class="aspect-square" :class="c?'bg-navy':''"></span></template></div>
+        <p class="text-[10px] uppercase tracking-widest mt-3 text-gold">Código de acceso</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-10" x-reveal><a href="#pases" class="btn">Confirmar mis pases</a>
+    <p class="text-[11px] text-navy/50 mt-3">Enlace único por invitado: <span class="text-gold">?invitado=Familia Gómez&amp;pases=4</span></p></div>
+</div></section>
+
+<!-- 3. FRANJA 1 -->
+<section class="py-8 bg-mist overflow-hidden"><div class="marq">
+  <template x-for="(f,i) in [...strip,...strip]" :key="i"><figure class="relative shrink-0 w-44 h-60 sm:w-56 sm:h-72 arch ph overflow-hidden shadow-md" :class="i%2?'mt-6':''"><img :src="f.src" :alt="f.label" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"><figcaption class="absolute bottom-3 inset-x-6 bg-white/85 text-center text-[10px] tracking-widest uppercase py-1 rounded-full" x-text="f.label"></figcaption></figure></template>
+</div></section>
+
+<!-- 4. CRONOGRAMA -->
+<section id="cronograma" class="sec bg-ivory"><div class="wrap max-w-3xl">
+  <div class="text-center mb-14"><span class="kick" x-reveal>Itinerario</span><h2 class="h2" x-reveal>Cronograma del día</h2></div>
+  <div class="relative border-l border-gold/50 ml-6 space-y-10">
+    <template x-for="(e,i) in timeline" :key="i"><div class="relative pl-10" x-reveal :style="`--d:${i*.05}s`">
+      <span class="absolute -left-6 top-0 w-12 h-12 rounded-full bg-ivory border border-gold flex items-center justify-center text-xl" x-text="e.i"></span>
+      <p class="font-serif text-2xl text-gold" x-text="e.t"></p><h3 class="font-serif text-2xl text-navy" x-text="e.h"></h3><p class="text-sm mt-1" x-text="e.d"></p></div></template>
+  </div>
+</div></section>
+
+<!-- 5. VESTIMENTA -->
+<section class="sec bg-mist/70"><div class="wrap grid md:grid-cols-2 gap-12 items-center">
+  <div class="space-y-5"><span class="kick" x-reveal>Código de vestimenta</span><h2 class="h2" x-reveal>Elegante, en tonos claros</h2>
+    <p x-reveal>Te invitamos a vestir de forma sobria y elegante, con tonos suaves que acompañen la serenidad de la ceremonia.</p>
+    <div class="flex gap-3" x-reveal><template x-for="c in ['#FFFFFF','#E9F0F6','#F3EBDD','#A9BDAA','#B08D57']"><span class="w-12 h-12 rounded-full border border-navy/10 shadow" :style="`background:${c}`"></span></template></div>
+    <div class="card p-5 text-sm" x-reveal><strong class="text-navy">Nota especial:</strong> el <span class="text-gold">blanco total</span> está reservado para Mateo. Sugerimos evitar el negro y los colores neón.</div></div>
+  <div class="relative h-96" x-reveal>
+    <div class="absolute left-0 top-8 w-40 aspect-[3/4] arch ph overflow-hidden border-4 border-white shadow-xl -rotate-3"><img :src="ph.f1.src" class="w-full h-full object-cover" loading="lazy" alt="" onerror="this.style.opacity=0"></div>
+    <div class="absolute right-0 top-0 w-40 aspect-[3/4] arch ph overflow-hidden border-4 border-white shadow-xl rotate-3"><img :src="ph.f2.src" class="w-full h-full object-cover" loading="lazy" alt="" onerror="this.style.opacity=0"></div>
+    <div class="absolute left-1/2 -translate-x-1/2 bottom-0 w-36 aspect-[3/4] arch ph overflow-hidden border-4 border-white shadow-xl fl"><img :src="ph.f3.src" class="w-full h-full object-cover" loading="lazy" alt="" onerror="this.style.opacity=0"></div>
+  </div>
+</div></section>
+
+<!-- 6. UN DÍA DE BENDICIÓN -->
+<section class="sec bg-navy text-ivory"><div class="wrap max-w-6xl">
+  <div class="text-center mb-14"><span class="kick" x-reveal>Lo que nos espera</span><h2 class="font-serif text-4xl sm:text-5xl mt-1" x-reveal>Un día de bendición</h2></div>
+  <div class="grid md:grid-cols-3 gap-6 mb-14">
+    <template x-for="(c,i) in cards" :key="i"><div class="p-8 text-center rounded-3xl border border-gold/40 bg-white/5 space-y-3 hover:bg-white/10 transition" x-reveal :style="`--d:${i*.12}s`"><div class="w-16 h-16 mx-auto rounded-full border border-gold flex items-center justify-center text-3xl" x-text="c.i"></div><h3 class="font-serif text-2xl" x-text="c.t"></h3><p class="text-sm text-ivory/70" x-text="c.d"></p></div></template>
+  </div>
+  <div class="grid lg:grid-cols-2 gap-6 relative">
+    <template x-for="(s,i) in spaces" :key="i"><div class="group relative h-80 sm:h-96 rounded-t-[200px] rounded-b-3xl overflow-hidden ph" x-reveal><img :src="s.src" :alt="s.t" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-1000" onerror="this.style.opacity=0"><div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent"></div><div class="absolute bottom-8 inset-x-8 text-center"><span class="text-xs uppercase tracking-widest text-gold" x-text="s.k"></span><h4 class="font-serif text-3xl" x-text="s.t"></h4></div></div></template>
+    <div class="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full overflow-hidden border-4 border-gold ph shadow-2xl z-10"><img :src="ph.p4.src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"></div>
+  </div>
+</div></section>
+
+<!-- 7. SESIÓN DE FOTOS -->
+<section id="sesion" class="sec bg-ivory"><div class="wrap max-w-6xl">
+  <div class="text-center mb-12"><span class="kick" x-reveal>Galería previa</span><h2 class="h2" x-reveal>Sesión de fotos</h2><p class="text-sm mt-3" x-reveal>Un adelanto de nuestra sesión familiar. Toca una foto para verla en grande.</p></div>
+  <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[10rem] sm:auto-rows-[13rem] gap-3">
+    <template x-for="(s,i) in shoot" :key="i"><figure class="group relative rounded-2xl overflow-hidden ph cursor-pointer shadow" :class="s.s" x-reveal :style="`--d:${i*.06}s`" @click="!s.lock&&(lb=i)">
+      <img :src="ph[s.k].src" :alt="s.l" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-1000" :class="s.lock?'blur-md scale-110':''" onerror="this.style.opacity=0">
+      <div x-show="s.lock" class="absolute inset-0 bg-navy/50 flex flex-col items-center justify-center text-ivory text-xs tracking-widest uppercase"><span class="text-2xl">🔒</span>Próximamente</div>
+      <figcaption x-show="!s.lock" class="absolute bottom-2 left-2 bg-white/85 text-[10px] tracking-widest uppercase px-3 py-1 rounded-full" x-text="s.l"></figcaption></figure></template>
+  </div>
+  <div class="text-center mt-10"><button @click="lb=0" class="btn2">Ver en pantalla completa</button></div>
+</div></section>
+
+<!-- 8. FRANJA 2 -->
+<section class="py-8 bg-sage/30 overflow-hidden"><div class="marq rev">
+  <template x-for="(f,i) in [...strip.slice().reverse(),...strip.slice().reverse()]" :key="i"><figure class="relative shrink-0 w-64 h-44 sm:w-80 sm:h-52 rounded-2xl ph overflow-hidden shadow-md" :class="i%2?'mt-4':''"><img :src="f.src" :alt="f.label" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"><figcaption class="absolute top-2 right-2 bg-white/85 text-[10px] tracking-widest uppercase px-3 py-1 rounded-full" x-text="f.label"></figcaption></figure></template>
+</div></section>
+
+<!-- 9. PASES -->
+<section id="pases" class="sec bg-mist/70"><div class="wrap">
+  <div class="text-center mb-12"><span class="kick" x-reveal>¿Cuántos nos acompañan?</span><h2 class="h2" x-reveal>Control de pases</h2></div>
+  <div class="card p-6 sm:p-10 grid lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-4 text-center space-y-4" x-reveal>
+      <span class="text-xs uppercase tracking-widest text-gold">Tu invitación</span>
+      <div class="font-serif text-8xl text-navy leading-none" x-text="guest.pases"></div>
+      <p class="text-sm">pases para <strong class="text-navy" x-text="guest.name||'tu invitación'"></strong></p>
+      <div class="flex flex-wrap gap-2 justify-center"><template x-for="n in guest.pases" :key="n"><span class="w-10 h-10 rounded-full flex items-center justify-center border transition duration-500" :class="(rsvp=='si'&&n<=attend)?'bg-gold border-gold text-white':'border-navy/20 opacity-40'">✝</span></template></div>
+      <p class="text-xs text-gold" x-text="rsvp=='si'?attend+' de '+guest.pases+' confirmados':'Pases liberados'"></p>
+    </div>
+    <div class="lg:col-span-8 space-y-5" x-reveal>
+      <div class="grid grid-cols-2 gap-3"><button @click="rsvp='si'" class="chip py-3.5 text-sm" :class="rsvp=='si'?'bg-navy border-navy text-ivory':'border-navy/20'">Sí, asistiré</button><button @click="rsvp='no'" class="chip py-3.5 text-sm" :class="rsvp=='no'?'bg-navy border-navy text-ivory':'border-navy/20'">No podré asistir</button></div>
+      <div x-show="rsvp=='si'" x-transition class="space-y-4">
+        <div class="flex items-center justify-between p-4 rounded-2xl bg-mist/70"><span class="text-sm text-navy">¿Cuántas personas asistirán?</span><div class="flex items-center gap-3"><button @click="setAttend(attend-1)" class="w-9 h-9 rounded-full bg-white shadow hover:bg-gold hover:text-white transition">−</button><span class="font-serif text-2xl w-6 text-center" x-text="attend"></span><button @click="setAttend(attend+1)" class="w-9 h-9 rounded-full bg-white shadow hover:bg-gold hover:text-white transition">+</button></div></div>
+        <template x-for="(g,i) in guests" :key="i"><div class="grid sm:grid-cols-12 gap-3 items-center"><span class="sm:col-span-1 font-serif text-xl text-gold" x-text="i+1"></span><input class="inp sm:col-span-6" x-model="g.name" :placeholder="i==0?'Tu nombre completo':'Nombre del acompañante'"><select class="inp sm:col-span-5" x-model="g.menu"><template x-for="m in menus" :key="m"><option :value="m" x-text="m"></option></template></select></div></template>
+        <p class="text-[11px] text-navy/50">Los pases que no uses se liberan automáticamente.</p></div>
+      <div x-show="rsvp=='no'" x-transition class="p-5 rounded-2xl bg-mist/70 text-sm">Lamentamos que no puedas acompañarnos. Gracias por avisar; puedes dejar tu bendición en el libro más abajo. 🕊️</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 10. MENÚ Y ALERGIAS -->
+<section id="menu" class="sec bg-ivory"><div class="wrap max-w-6xl">
+  <div class="text-center mb-12"><span class="kick" x-reveal>Cuidamos de ti</span><h2 class="h2" x-reveal>Menú y alergias</h2><p class="text-sm mt-3" x-reveal>Marca tus restricciones: los platos que sí puedes disfrutar se resaltan al instante.</p></div>
+  <div class="grid lg:grid-cols-12 gap-8">
+    <div class="lg:col-span-4 space-y-5" x-reveal>
+      <div class="card p-6 space-y-3"><h3 class="font-serif text-xl text-navy">Tipo de dieta</h3><div class="flex flex-wrap gap-2"><template x-for="d in ['Todos','Vegetariano','Vegano']"><button @click="diet=d" class="chip" :class="diet==d?'bg-navy border-navy text-ivory':'border-navy/20 bg-white'" x-text="d"></button></template></div></div>
+      <div class="card p-6 space-y-3"><h3 class="font-serif text-xl text-navy">Alergias e intolerancias</h3><div class="flex flex-wrap gap-2"><template x-for="a in allergyList"><button @click="allergies.includes(a)?allergies=allergies.filter(x=>x!=a):allergies.push(a)" class="chip" :class="allergies.includes(a)?'bg-gold border-gold text-white':'border-navy/20 bg-white'" x-text="a"></button></template></div><input class="inp text-xs" x-model="otherAllergy" placeholder="Otra alergia o comentario…"></div>
+    </div>
+    <div class="lg:col-span-8 grid sm:grid-cols-3 gap-5">
+      <template x-for="cat in cats" :key="cat"><div class="space-y-3"><h3 class="text-xs uppercase tracking-widest text-gold" x-text="cat"></h3>
+        <template x-for="d in dishes.filter(x=>x.c==cat)" :key="d.n"><div class="p-4 rounded-2xl border transition duration-500" :class="dishOk(d)?'border-sage bg-sage/15':'border-navy/10 bg-white/50 opacity-50 grayscale'"><div class="flex gap-3 items-start"><span class="text-2xl" x-text="d.i"></span><p class="text-sm font-normal text-navy leading-snug" x-text="d.n"></p></div><p class="text-[11px] mt-1" x-show="dishOk(d)" x-text="d.tags.length?d.tags.join(' · '):'Plato tradicional'"></p><p class="text-[11px] mt-1 text-gold" x-show="!dishOk(d)" x-text="conflicts(d).length?'Contiene: '+conflicts(d).join(', '):'No apto para tu dieta'"></p></div></template>
+        <p x-show="okCount(cat)==0" class="text-xs p-3 rounded-xl bg-gold/15">Ninguna opción coincide. Avísanos y prepararemos algo especial para ti.</p></div></template>
+    </div>
+  </div>
+  <div class="mt-12 max-w-xl mx-auto text-center space-y-4" x-reveal>
+    <div class="p-4 rounded-2xl bg-mist/70 text-xs"><strong class="text-navy">Tu resumen:</strong> <span x-text="rsvp=='si'?attend+' persona(s)':'No asistirás'"></span> · Dieta: <span x-text="diet"></span> · Alergias: <span x-text="[...allergies,otherAllergy].filter(Boolean).join(', ')||'ninguna'"></span></div>
+    <a :href="waLink" target="_blank" class="btn">Enviar confirmación por WhatsApp</a></div>
+</div></section>
+
+<!-- 11. REGALO DESEADO -->
+<section id="regalos" class="sec bg-mist/70"><div class="wrap max-w-6xl">
+  <div class="text-center mb-12"><span class="kick" x-reveal>Si deseas tener un detalle</span><h2 class="h2" x-reveal>Regalo deseado</h2><p class="text-sm mt-3 max-w-xl mx-auto" x-reveal>Tu presencia es el mejor regalo. Si quieres obsequiar algo a Mateo, estas ideas nos harían muy felices. Reserva una para que nadie la repita.</p></div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <template x-for="(g,i) in gifts" :key="i"><div class="card overflow-hidden flex flex-col" x-reveal :style="`--d:${i*.1}s`">
+      <div class="relative h-44 ph flex items-center justify-center"><span class="absolute text-5xl" x-text="g.e"></span><img :src="g.src" :alt="g.t" loading="lazy" class="relative w-full h-full object-cover" :class="g.reserved?'grayscale opacity-60':''" onerror="this.style.opacity=0"><span x-show="g.reserved" class="absolute top-3 right-3 bg-gold text-white text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">Reservado</span></div>
+      <div class="p-5 flex flex-col gap-3 flex-1"><div><h3 class="font-serif text-xl text-navy" x-text="g.t"></h3><p class="text-xs mt-1" x-text="g.d"></p></div>
+        <div class="mt-auto flex flex-col gap-2"><a :href="g.url" target="_blank" class="btn !py-2.5 !text-[11px]" x-text="'Ver en '+g.store"></a><button @click="g.reserved=!g.reserved" class="chip border-gold text-navy hover:bg-gold hover:text-white py-2.5" x-text="g.reserved?'Quitar reserva':'Reservar este regalo'"></button></div></div></div></template>
+  </div>
+</div></section>
+
+<!-- 12. LLUVIA DE SOBRES -->
+<section id="sobres" class="sec bg-navy text-ivory">
+  <template x-for="n in 8" :key="n"><span class="fall text-xl" :style="`left:${n*11}%;animation-duration:${10+n%4*3}s;animation-delay:-${n*1.7}s`" x-text="n%2?'✉️':'🕊️'"></span></template>
+  <div class="wrap">
+    <div class="text-center mb-12"><span class="kick" x-reveal>Un detalle con cariño</span><h2 class="font-serif text-4xl sm:text-5xl mt-1" x-reveal>Lluvia de sobres</h2><p class="text-sm text-ivory/75 mt-3 max-w-xl mx-auto" x-reveal>Si deseas contribuir al futuro de Mateo, puedes hacerlo con un sobre durante la celebración o por transferencia. Lo recibiremos con gratitud.</p></div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="p-8 rounded-3xl border border-gold/50 bg-white/5 text-center space-y-3" x-reveal><div class="w-16 h-16 mx-auto rounded-full border border-gold flex items-center justify-center text-3xl">💌</div><h3 class="font-serif text-2xl">El día de la celebración</h3><p class="text-sm text-ivory/70">Habrá un buzón decorado en la entrada del jardín. Deposita tu sobre con tu nombre para que podamos agradecerte personalmente.</p></div>
+      <div class="p-8 rounded-3xl bg-ivory text-navy space-y-3" x-reveal><div class="text-center"><div class="w-16 h-16 mx-auto rounded-full border border-gold flex items-center justify-center text-3xl">💳</div><h3 class="font-serif text-2xl mt-2">Por transferencia</h3></div>
+        <template x-for="b in bank" :key="b.k"><div class="flex items-center justify-between gap-3 p-3 rounded-xl bg-mist/70"><div class="min-w-0"><p class="text-[10px] uppercase tracking-widest text-gold" x-text="b.k"></p><p class="text-sm font-normal truncate" x-text="b.v"></p></div><button @click="copy(b.k,b.v)" class="chip shrink-0" :class="copied==b.k?'bg-gold border-gold text-white':'border-navy/30 hover:bg-navy hover:text-ivory'" x-text="copied==b.k?'¡Copiado!':'Copiar'"></button></div></template></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. SUGERENCIAS MUSICALES (DJ) -->
+<section id="dj" class="sec bg-ivory"><div class="wrap">
+  <div class="text-center mb-12"><span class="kick" x-reveal>Tú pones la música</span><h2 class="h2" x-reveal>Sugerencias al DJ</h2><p class="text-sm mt-3" x-reveal>Pide una canción y vota por las de los demás. Las más votadas suben en la lista.</p></div>
+  <div class="grid lg:grid-cols-12 gap-8">
+    <div class="lg:col-span-5 card p-6 space-y-3 !bg-mist/70" x-reveal><h3 class="font-serif text-2xl text-navy">🎶 Pide tu canción</h3>
+      <input class="inp" x-model="dj.t" placeholder="Nombre de la canción"><input class="inp" x-model="dj.a" placeholder="Artista"><input class="inp" x-model="dj.by" placeholder="Tu nombre (opcional)">
+      <div class="flex flex-wrap gap-2"><template x-for="m in moods"><button @click="dj.m=m" class="chip" :class="dj.m==m?'bg-navy border-navy text-ivory':'border-navy/20 bg-white'" x-text="m"></button></template></div>
+      <button @click="addSong()" :disabled="!dj.t.trim()" class="btn w-full disabled:opacity-40">Enviar al DJ</button></div>
+    <div class="lg:col-span-7 space-y-3" x-reveal><h3 class="text-xs uppercase tracking-widest text-gold">Cola del DJ</h3>
+      <template x-for="(s,i) in queue" :key="s.id"><div class="card flex items-center gap-4 p-4"><span class="w-10 h-10 shrink-0 rounded-full flex items-center justify-center font-serif text-lg" :class="i<3?'bg-gold text-white':'bg-mist'" x-text="i+1"></span><div class="min-w-0 flex-1"><p class="text-sm font-normal text-navy truncate" x-text="s.t"></p><p class="text-xs truncate" x-text="s.a+' · '+s.m+(s.by?' · de '+s.by:'')"></p></div><button @click="vote(s)" class="chip shrink-0" :class="s.voted?'bg-gold border-gold text-white':'border-gold text-gold'">♥ <span x-text="s.votes"></span></button></div></template></div>
+  </div>
+</div></section>
+
+<!-- 14. LIBRO DE BENDICIONES (FIRMAS) -->
+<section id="firmas" class="sec bg-mist/70"><div class="wrap max-w-6xl">
+  <div class="text-center mb-12"><span class="kick" x-reveal>Déjanos unas palabras</span><h2 class="h2" x-reveal>Libro de bendiciones</h2></div>
+  <div class="card max-w-xl mx-auto p-6 sm:p-8 space-y-4 mb-14" x-reveal>
+    <input class="inp" x-model="note.n" maxlength="30" placeholder="Tu nombre"><textarea class="inp resize-none" rows="3" x-model="note.m" maxlength="240" placeholder="Escribe una oración, un deseo o un consejo para Mateo…"></textarea>
+    <div class="flex items-center justify-between flex-wrap gap-3"><div class="flex items-center gap-2"><span class="text-xs mr-1">Color:</span><template x-for="(c,i) in noteColors"><button @click="note.c=i" class="w-7 h-7 rounded-full border-2 transition" :class="[c.split(' ')[0],note.c==i?'border-navy scale-110':'border-white']"></button></template></div>
+      <button @click="addNote()" :disabled="!note.m.trim()" class="btn disabled:opacity-40">Firmar el libro</button></div></div>
+  <div class="columns-1 sm:columns-2 lg:columns-3 gap-5"><template x-for="(n,i) in notes" :key="n.id"><div class="break-inside-avoid mb-5" x-reveal><div class="p-6 rounded-2xl shadow-lg space-y-3 hover:rotate-0 transition duration-500" :class="noteColors[n.c]" :style="`transform:rotate(${n.r}deg)`"><p class="text-sm leading-relaxed" x-text="n.m"></p><p class="font-script text-2xl" x-text="'— '+(n.n||'Anónimo')"></p></div></div></template></div>
+</div></section>
+
+<!-- 15. ÁLBUM -->
+<section class="sec bg-ivory"><div class="wrap max-w-4xl text-center">
+  <div class="relative bg-navy text-ivory p-10 sm:p-16 rounded-[40px] shadow-2xl space-y-5 overflow-hidden" x-reveal>
+    <img :src="ph.p5.src" alt="" loading="lazy" class="hidden sm:block absolute -left-6 -bottom-6 w-36 h-48 object-cover arch border-4 border-ivory -rotate-6 ph" onerror="this.style.opacity=0">
+    <img :src="ph.p6.src" alt="" loading="lazy" class="hidden sm:block absolute -right-6 -top-6 w-36 h-48 object-cover arch border-4 border-ivory rotate-6 ph" onerror="this.style.opacity=0">
+    <span class="kick">Álbum interactivo</span><h2 class="font-serif text-4xl sm:text-5xl">Comparte tus fotos y videos</h2>
+    <p class="max-w-xl mx-auto text-sm text-ivory/80">Tu mirada completa este día. Sube las imágenes y clips que captures durante la celebración al álbum del evento.</p>
+    <a href="#" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gold text-white text-sm tracking-widest uppercase hover:bg-ivory hover:text-navy transition">⬆ Subir contenido</a></div>
+  <div class="mt-16"><span class="kick" x-reveal>Más formas de guardar este día</span><h3 class="h2" x-reveal>Álbum de recuerdos</h3></div>
+  <div class="grid md:grid-cols-2 gap-6 mt-10 text-left">
+    <div class="card p-8 space-y-3 !bg-gold/15" x-reveal><div class="text-4xl">⏳</div><h4 class="font-serif text-2xl text-navy">Cápsula del tiempo</h4><p class="text-sm">Escribe un mensaje para Mateo. Quedará sellado y se abrirá el <strong>21 de Noviembre de 2027</strong>, en su primer cumpleaños.</p>
+      <ul class="text-xs space-y-1"><li>✓ Mensajes, fotos y videos cortos</li><li>✓ Sellado digital hasta la fecha</li><li>✓ Entrega a Mateo y sus papás</li></ul>
+      <template x-if="!sealed"><div class="space-y-3 pt-2"><textarea class="inp resize-none" rows="3" maxlength="300" x-model="capsule" placeholder="Querido Mateo, dentro de un año espero que…"></textarea><button @click="capsule.trim()&&(sealed=true)" :disabled="!capsule.trim()" class="btn w-full disabled:opacity-40">Sellar mi mensaje</button></div></template>
+      <template x-if="sealed"><div class="p-4 rounded-xl bg-white/80 text-sm text-center">¡Mensaje sellado! Se abrirá el 21/11/2027. 🎁</div></template></div>
+    <div class="card p-8 space-y-3 !bg-sage/25" x-reveal><div class="text-4xl">🎞️</div><h4 class="font-serif text-2xl text-navy">Memoria colectiva</h4><p class="text-sm">Todas las fotos y videos de los invitados se reúnen en un álbum digital y un video resumen del día.</p>
+      <ul class="text-xs space-y-1"><li>✓ Álbum compartido con todos</li><li>✓ Video resumen de la celebración</li><li>✓ Descarga en alta calidad</li></ul><a href="#" class="btn mt-2">Aportar a la memoria</a></div>
+  </div>
+</div></section>
+
+<!-- 16. UBICACIÓN -->
+<section id="ubicacion" class="sec bg-mist/70"><div class="wrap">
+  <div class="text-center mb-10"><span class="kick" x-reveal>¿Cómo llegar?</span><h2 class="h2" x-reveal>Ubicación</h2></div>
+  <div class="flex justify-center gap-2 mb-6"><template x-for="(l,i) in places" :key="i"><button @click="pl=i" class="chip" :class="pl==i?'bg-navy border-navy text-ivory':'border-navy/20 bg-white'" x-text="l.tag"></button></template></div>
+  <div class="card p-6 sm:p-8 grid lg:grid-cols-12 gap-8 items-center" x-reveal>
+    <div class="lg:col-span-5 space-y-3 text-center lg:text-left"><span class="text-xs uppercase tracking-widest text-gold" x-text="places[pl].tag"></span><h3 class="font-serif text-3xl text-navy" x-text="places[pl].n"></h3><p class="text-sm" x-text="places[pl].a"></p><p class="text-sm text-navy" x-text="places[pl].h"></p><a :href="'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(places[pl].n+' '+places[pl].a)" target="_blank" class="btn">Abrir en Google Maps</a></div>
+    <div class="lg:col-span-7 h-80 rounded-2xl overflow-hidden border border-gold/40"><iframe :src="'https://www.google.com/maps?q='+encodeURIComponent(places[pl].a)+'&output=embed'" width="100%" height="100%" style="border:0" allowfullscreen loading="lazy"></iframe></div>
+  </div>
+</div></section>
+
+<!-- 17. FOOTER / CONFIRMAR -->
+<footer id="confirmar" class="relative py-24 bg-navy text-ivory text-center overflow-hidden">
+  <div class="absolute inset-0 opacity-20"><img :src="ph.p7.src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"></div>
+  <div class="relative max-w-md mx-auto px-4 space-y-5">
+    <div class="text-5xl text-gold fl">✝</div><span class="font-script text-6xl text-gold block">Mateo Alejandro</span>
+    <h3 class="font-serif text-3xl">¿Nos acompañarás?</h3><p class="text-sm text-ivory/80">Agradecemos confirmar tu asistencia antes del 10 de Noviembre de 2026.</p>
+    <a href="https://wa.me/1234567890?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20bautizo%20de%20Mateo" target="_blank" class="inline-flex w-full justify-center py-4 rounded-full bg-gold text-white text-sm tracking-widest uppercase hover:bg-ivory hover:text-navy transition">Confirmar por WhatsApp</a>
+    <p class="pt-8 text-ivory/50 text-xs tracking-widest uppercase">Daniel &amp; Laura · Bautizo · 2026</p></div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div x-show="lb!==null" x-transition.opacity style="display:none" @keydown.escape.window="lb=null" @keydown.arrow-right.window="lb!==null&&next(1)" @keydown.arrow-left.window="lb!==null&&next(-1)" @click.self="lb=null" class="fixed inset-0 z-[90] bg-navy/95 flex items-center justify-center p-4">
+  <button @click="lb=null" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-ivory text-navy hover:bg-gold hover:text-white transition">✕</button>
+  <button @click="next(-1)" class="absolute left-3 sm:left-8 w-11 h-11 rounded-full bg-ivory text-navy text-xl hover:bg-gold hover:text-white transition">‹</button>
+  <button @click="next(1)" class="absolute right-3 sm:right-8 w-11 h-11 rounded-full bg-ivory text-navy text-xl hover:bg-gold hover:text-white transition">›</button>
+  <template x-if="lb!==null"><figure class="max-w-lg w-full relative"><img :src="ph[shoot[lb].k].src" :alt="shoot[lb].l" class="w-full max-h-[80vh] object-cover rounded-3xl border-4 border-ivory ph"><figcaption class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-gold text-white text-xs tracking-widest uppercase px-5 py-2 rounded-full" x-text="shoot[lb].l"></figcaption></figure></template>
+</div>
+
+<script>
+document.addEventListener('alpine:init',()=>{Alpine.directive('reveal',el=>{el.classList.add('rv');new IntersectionObserver(([e],o)=>{if(e.isIntersecting){el.classList.add('in');o.disconnect()}},{threshold:.12}).observe(el)})});
+
+/* ===== IMÁGENES: reemplaza cada src por tus fotos reales =====
+   Fuentes gratuitas: Pexels (hero) y LoremFlickr (palabras clave, imágenes CC). */
+const L=(k,n)=>`https://loremflickr.com/800/1000/${k}?lock=${n}`;
+const IMG={
+  hero:{src:'https://images.pexels.com/photos/6263084/pexels-photo-6263084.jpeg?auto=compress&cs=tinysrgb&w=900',label:'Bautizo'},
+  f1:{src:L('baby,white',1),label:'Familia'}, f2:{src:L('christening,gown',2),label:'Vestido'}, f3:{src:L('baby,portrait',3),label:'Mateo'},
+  p4:{src:L('baby,smile',4),label:'Sonrisa'}, p5:{src:L('family,portrait',5),label:'Familia'}, p6:{src:L('baby,feet',6),label:'Detalles'}, p7:{src:L('church,light',7),label:'Iglesia'},
+  c1:{src:L('baptism,church',8),label:'Ceremonia'}, c2:{src:L('candle,church',9),label:'Vela'}, c3:{src:L('white,flowers',10),label:'Flores'}, c4:{src:L('dove,white',11),label:'Paloma'}
+};
+
+function app(){return{
+  p:0,loading:true,lb:null,pl:0,ph:IMG,
+  strip:['hero','f1','c1','c3','p4','c2','c4','p6'].map(k=>IMG[k]),
+  petals:Array.from({length:16},(_,i)=>({i,x:Math.random()*100,t:10+Math.random()*10,d:Math.random()*14,s:10+Math.random()*10})),
+  cards:[{i:'✝️',t:'Ceremonia sagrada',d:'Recibiremos el sacramento del bautismo rodeados de familia, padrinos y amigos.'},{i:'🥂',t:'Almuerzo y brindis',d:'Una comida especial en el jardín para compartir y celebrar con alegría.'},{i:'📸',t:'Momentos para recordar',d:'Rincones fotográficos y detalles para guardar este día para siempre.'}],
+  spaces:[{src:L('church,altar',12),k:'La ceremonia',t:'Parroquia San José'},{src:L('garden,reception',13),k:'La recepción',t:'Jardín Los Olivos'}],
+  timeline:[{t:'10:30 AM',i:'⛪',h:'Llegada y bienvenida',d:'Recibimiento de invitados a las puertas de la parroquia.'},{t:'11:00 AM',i:'💧',h:'Ceremonia bautismal',d:'Liturgia de la palabra y sacramento del bautismo de Mateo.'},{t:'12:15 PM',i:'📸',h:'Fotos familiares',d:'Retratos con padrinos, familia y amigos.'},{t:'1:00 PM',i:'🌿',h:'Recepción en el jardín',d:'Cóctel de bienvenida y almuerzo.'},{t:'2:30 PM',i:'🎂',h:'Brindis y pastel',d:'Palabras de agradecimiento y corte del pastel.'},{t:'3:30 PM',i:'🎶',h:'Música y convivencia',d:'Tus canciones favoritas y tiempo para compartir.'},{t:'5:00 PM',i:'🕊️',h:'Despedida',d:'Gracias por acompañarnos en este día de bendición.'}],
+  shoot:[{k:'hero',s:'col-span-2 row-span-2',l:'Bendición'},{k:'f1',s:'',l:'Familia'},{k:'c3',s:'',l:'Flores'},{k:'f2',s:'col-span-2',l:'Vestido'},{k:'c2',s:'',l:'Luz'},{k:'p4',s:'',l:'Sonrisa'},{k:'c4',s:'col-span-2',l:'Próximamente',lock:true}],
+  guest:{name:'',pases:2},attend:1,rsvp:'si',guests:[{name:'',menu:'Tradicional'}],
+  menus:['Tradicional','Vegetariano','Vegano','Infantil','Sin gluten'],
+  diet:'Todos',allergies:[],otherAllergy:'',allergyList:['Gluten','Lactosa','Huevo','Frutos secos','Mariscos','Pescado'],cats:['Entrada','Plato fuerte','Postre'],
+  dishes:[{c:'Entrada',n:'Crema de calabaza asada',i:'🎃',tags:['Vegano','Vegetariano'],al:[]},{c:'Entrada',n:'Ensalada de burrata',i:'🥗',tags:['Vegetariano'],al:['Lactosa']},{c:'Entrada',n:'Ceviche de camarón',i:'🍤',tags:[],al:['Mariscos']},{c:'Plato fuerte',n:'Lomo al vino tinto',i:'🥩',tags:[],al:[]},{c:'Plato fuerte',n:'Salmón al limón',i:'🐟',tags:[],al:['Pescado']},{c:'Plato fuerte',n:'Pasta primavera',i:'🍝',tags:['Vegano','Vegetariano'],al:['Gluten']},{c:'Postre',n:'Pastel de vainilla',i:'🍰',tags:['Vegetariano'],al:['Gluten','Huevo','Lactosa']},{c:'Postre',n:'Brochetas de fruta',i:'🍓',tags:['Vegano','Vegetariano'],al:[]}],
+  gifts:[{t:'Set de baño para bebé',d:'Toallas con capucha y accesorios suaves.',e:'🛁',store:'Tienda 1',url:'#',reserved:false,src:L('baby,towel',21)},{t:'Peluche musical',d:'Para acompañar sus siestas.',e:'🧸',store:'Tienda 2',url:'#',reserved:false,src:L('teddy,bear',22)},{t:'Manta de algodón',d:'Suave y abrigadora.',e:'🧶',store:'Tienda 3',url:'#',reserved:false,src:L('baby,blanket',23)},{t:'Biblia infantil',d:'Para sus primeras historias de fe.',e:'📖',store:'Tienda 4',url:'#',reserved:false,src:L('bible,book',24)}],
+  bank:[{k:'Banco',v:'Banco Ejemplo'},{k:'Titular',v:'Daniel Ramírez'},{k:'Número de cuenta',v:'0000 0000 0000 0000'},{k:'Cédula / ID',v:'V-00.000.000'}],copied:'',
+  moods:['Alabanza','Instrumental','Clásica','Pop suave','Latina','Infantil'],dj:{t:'',a:'',by:'',m:'Alabanza'},
+  songs:[{id:1,t:'Aleluya',a:'Instrumental',m:'Clásica',by:'Abuela Rosa',votes:6,voted:false},{id:2,t:'Eres mi vida',a:'Varios',m:'Latina',by:'Tío Luis',votes:4,voted:false},{id:3,t:'Rey de reyes',a:'Coro',m:'Alabanza',by:'',votes:2,voted:false}],
+  noteColors:['bg-white text-navy','bg-mist text-navy','bg-sage/40 text-navy','bg-gold/25 text-navy'],note:{n:'',m:'',c:0},
+  notes:[{id:1,n:'Abuela Rosa',m:'Mi pequeño, que Dios te guíe siempre y llene tu vida de luz y paz.',c:0,r:-2},{id:2,n:'Padrinos',m:'Prometemos acompañarte en la fe y en cada paso de tu camino.',c:1,r:2},{id:3,n:'Tío Luis',m:'Bienvenido a la familia de Dios, campeón. ¡Te queremos!',c:3,r:-1}],
+  capsule:'',sealed:false,
+  places:[{tag:'Ceremonia',n:'Parroquia San José',a:'Av. Principal 123, Centro, Ciudad',h:'Sábado 21 de Noviembre de 2026 · 11:00 AM'},{tag:'Recepción',n:'Jardín Los Olivos',a:'Calle Los Olivos 45, Sector Residencial, Ciudad',h:'Sábado 21 de Noviembre de 2026 · 1:00 PM'}],
+  init(){setTimeout(()=>this.loading=false,1400);
+    const q=new URLSearchParams(location.search);if(q.get('invitado'))this.guest.name=q.get('invitado');
+    const ps=parseInt(q.get('pases'));if(ps>0&&ps<21)this.guest.pases=ps;this.attend=Math.min(this.attend,this.guest.pases);
+    this.songs=this.load('songs',this.songs);this.notes=this.load('notes',this.notes)},
+  next(d){const n=this.shoot.length-1;this.lb=(this.lb+d+n)%n},
+  get qr(){const n=11,str=(this.guest.name||'invitado')+this.guest.pases;let s=7;for(const ch of str)s=(s*31+ch.charCodeAt(0))>>>0;
+    return Array.from({length:n*n},(_,i)=>{const r=Math.floor(i/n),c=i%n;if((r<3||r>n-4)&&(c<3||c>n-4)&&!(r>n-4&&c>n-4)){const rr=r<3?r:r-(n-3),cc=c<3?c:c-(n-3);return!(rr==1&&cc==1)}s=(s*1664525+1013904223)>>>0;return(s>>>28)%2==1})},
+  setAttend(n){this.attend=Math.max(1,Math.min(this.guest.pases,n));while(this.guests.length<this.attend)this.guests.push({name:'',menu:'Tradicional'});this.guests.length=this.attend},
+  conflicts(d){return d.al.filter(a=>this.allergies.includes(a))},
+  dishOk(d){if(this.conflicts(d).length)return false;if(this.diet=='Vegano')return d.tags.includes('Vegano');if(this.diet=='Vegetariano')return d.tags.includes('Vegetariano')||d.tags.includes('Vegano');return true},
+  okCount(c){return this.dishes.filter(d=>d.c==c&&this.dishOk(d)).length},
+  get waLink(){const who=this.guest.name||'un invitado';let t;
+    if(this.rsvp=='si'){const list=this.guests.map((g,i)=>`${i+1}. ${g.name||'Invitado '+(i+1)} (${g.menu})`).join('\n');const al=[...this.allergies,this.otherAllergy].filter(Boolean).join(', ')||'Ninguna';t=`Hola, soy ${who}. ¡Confirmo mi asistencia al bautizo de Mateo!\nPases: ${this.attend} de ${this.guest.pases}\n${list}\nDieta: ${this.diet}\nAlergias: ${al}`}
+    else t=`Hola, soy ${who}. Lamentablemente no podré asistir al bautizo de Mateo, ¡pero les mando un abrazo!`;
+    return 'https://wa.me/1234567890?text='+encodeURIComponent(t)},
+  copy(k,v){const d=()=>{this.copied=k;setTimeout(()=>this.copied='',1800)};try{navigator.clipboard.writeText(v).then(d,d)}catch(e){d()}},
+  get queue(){return[...this.songs].sort((a,b)=>b.votes-a.votes)},
+  addSong(){if(!this.dj.t.trim())return;this.songs.push({id:Date.now(),t:this.dj.t.trim(),a:this.dj.a.trim()||'Artista',m:this.dj.m,by:this.dj.by.trim(),votes:1,voted:true});this.dj.t=this.dj.a=this.dj.by='';this.save('songs',this.songs)},
+  vote(s){s.voted=!s.voted;s.votes+=s.voted?1:-1;this.save('songs',this.songs)},
+  addNote(){if(!this.note.m.trim())return;this.notes.unshift({id:Date.now(),n:this.note.n.trim(),m:this.note.m.trim(),c:this.note.c,r:Math.round((Math.random()*6-3)*10)/10});this.note.m='';this.save('notes',this.notes)},
+  save(k,v){try{localStorage.setItem('bm_'+k,JSON.stringify(v))}catch(e){}},
+  load(k,d){try{const r=localStorage.getItem('bm_'+k);return r?JSON.parse(r):d}catch(e){return d}}
+}}
+function countdown(x){return{end:new Date(x).getTime(),v:{days:'00',hours:'00',minutes:'00',seconds:'00'},
+  init(){this.u();setInterval(()=>this.u(),1000)},
+  u(){const r=Math.max(0,this.end-Date.now()),p=n=>String(n).padStart(2,'0');this.v={days:p(Math.floor(r/864e5)),hours:p(Math.floor(r%864e5/36e5)),minutes:p(Math.floor(r%36e5/6e4)),seconds:p(Math.floor(r%6e4/1e3))}}}}
+</script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Years - Camilita ✨</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- AOS CSS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        esmeralda: {
+                            DEFAULT: '#0D5C46',
+                            soft: '#E8F5F1',
+                            light: '#1B8265',
+                            mint: '#A3E2CE',
+                        },
+                        celeste: {
+                            DEFAULT: '#38BDF8',
+                            soft: '#F0F9FF',
+                            light: '#BAE6FD',
+                            accent: '#7DD3FC',
+                        }
+                    },
+                    fontFamily: {
+                        script: ['Alex Brush', 'cursive'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .shadow-soft { box-shadow: 0 20px 40px -15px rgba(13, 92, 70, 0.07); }
+        .shadow-glow-celeste { box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.3); }
+        
+        /* EFECTO DE GLOW / SHINE EN LA FOTO DEL HERO */
+        .glint-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .glint-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: rotate(30deg);
+            transition: all 0.8s ease-in-out;
+        }
+        .glint-effect:hover::after {
+            left: 130%;
+        }
+    </style>
+</head>
+<body x-data="eventApp()" class="bg-slate-50 text-slate-700 font-sans antialiased overflow-x-hidden selection:bg-celeste-light selection:text-slate-800">
+
+    <!-- REPRODUCTOR DE MÚSICA FLOTANTE -->
+    <div class="fixed bottom-6 right-6 z-40" data-aos="fade-up" data-aos-delay="600">
+        <button @click="toggleMusic()" class="w-12 h-12 bg-white/90 backdrop-blur-md border border-slate-200 text-esmeralda rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition duration-300">
+            <span x-show="isPlaying" class="animate-spin text-xl">🎵</span>
+            <span x-show="!isPlaying" class="text-xl">🔇</span>
+        </button>
+        <audio id="bg-music" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen bg-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl w-full mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Foto Clara y Protagonista -->
+            <div class="lg:col-span-6 relative order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1200">
+                <div class="absolute -top-6 -left-6 w-72 h-72 bg-celeste-soft rounded-full blur-3xl opacity-70 animate-pulse"></div>
+                <div class="absolute -bottom-6 -right-6 w-72 h-72 bg-esmeralda-soft rounded-full blur-3xl opacity-70 animate-pulse"></div>
+                
+                <div class="relative rounded-[50px] overflow-hidden shadow-2xl shadow-emerald-950/10 border-4 border-white glint-effect group">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=800" 
+                         alt="Camilita" 
+                         class="w-full h-[520px] sm:h-[620px] object-cover object-top transform group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 text-center" data-aos="zoom-in" data-aos-delay="300">
+                        <span class="inline-block px-5 py-2 bg-white/90 backdrop-blur-md rounded-full text-esmeralda font-medium text-xs tracking-widest uppercase shadow-sm">
+                            ¡Acompáñame a celebrar!
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido de Invitación -->
+            <div class="lg:col-span-6 text-center lg:text-left order-1 lg:order-2 space-y-6" data-aos="fade-left" data-aos-duration="1200">
+                <div>
+                    <span class="font-script text-4xl sm:text-5xl text-esmeralda block mb-1">Te invito a mis</span>
+                    <h1 class="font-serif text-6xl sm:text-8xl text-slate-900 font-normal tracking-wide">15 Años</h1>
+                    <p class="font-serif italic text-3xl sm:text-4xl text-celeste font-light mt-1">Camilita</p>
+                </div>
+                <p class="text-slate-600 text-base sm:text-lg font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
+                    Hay momentos especiales en la vida que se vuelven inolvidables cuando los compartes con las personas que más quieres. Quiero que seas parte de esta noche tan mágica para mí.
+                </p>
+
+                <!-- CONTADOR REGRESIVO -->
+                <div x-data="countdown('2026-11-27T20:00:00')" class="pt-2">
+                    <p class="text-xs uppercase font-semibold text-slate-400 tracking-widest mb-3">La cuenta regresiva ha comenzado</p>
+                    <div class="grid grid-cols-4 gap-3 max-w-md mx-auto lg:mx-0">
+                        <div class="bg-esmeralda-soft/60 backdrop-blur-sm p-3 rounded-2xl border border-esmeralda-mint/30 text-center hover:scale-105 transition duration-300">
+                            <span x-text="days" class="block font-serif text-2xl sm:text-3xl font-semibold text-esmeralda">00</span>
+                            <span class="text-[10px] font-medium uppercase text-slate-500 tracking-wider">Días</span>
+                        </div>
+                        <div class="bg-celeste-soft p-3 rounded-2xl border border-celeste-light/40 text-center hover:scale-105 transition duration-300">
+                            <span x-text="hours" class="block font-serif text-2xl sm:text-3xl font-semibold text-celeste">00</span>
+                            <span class="text-[10px] font-medium uppercase text-slate-500 tracking-wider">Horas</span>
+                        </div>
+                        <div class="bg-esmeralda-soft/60 backdrop-blur-sm p-3 rounded-2xl border border-esmeralda-mint/30 text-center hover:scale-105 transition duration-300">
+                            <span x-text="minutes" class="block font-serif text-2xl sm:text-3xl font-semibold text-esmeralda">00</span>
+                            <span class="text-[10px] font-medium uppercase text-slate-500 tracking-wider">Min</span>
+                        </div>
+                        <div class="bg-celeste-soft p-3 rounded-2xl border border-celeste-light/40 text-center hover:scale-105 transition duration-300">
+                            <span x-text="seconds" class="block font-serif text-2xl sm:text-3xl font-semibold text-celeste">00</span>
+                            <span class="text-[10px] font-medium uppercase text-slate-500 tracking-wider">Seg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones CTA -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <button @click="openRsvpModal()" class="w-full sm:w-auto px-8 py-4 bg-esmeralda hover:bg-esmeralda-light text-white font-medium text-sm rounded-full shadow-lg shadow-esmeralda/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-center">
+                        Confirmar Asistencia
+                    </button>
+                    <a href="#ubicacion" class="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 text-slate-600 hover:text-esmeralda hover:border-esmeralda-mint font-medium text-sm rounded-full hover:shadow-md transition-all duration-300 text-center">
+                        Ver Ubicación
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CRONOGRAMA / ITINERARIO -->
+    <section class="py-20 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="font-script text-4xl text-esmeralda">Plan de la Noche</span>
+                <h2 class="font-serif text-4xl text-slate-900 font-normal mt-1">Itinerario del Evento</h2>
+                <div class="w-12 h-0.5 bg-esmeralda-mint mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <span class="text-2xl block mb-2">🍸</span>
+                    <span class="text-xs font-semibold text-esmeralda block">08:00 PM</span>
+                    <span class="text-xs text-slate-600 font-light">Recepción & Cocktail</span>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <span class="text-2xl block mb-2">✨</span>
+                    <span class="text-xs font-semibold text-esmeralda block">09:30 PM</span>
+                    <span class="text-xs text-slate-600 font-light">Entrada Triunfal</span>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <span class="text-2xl block mb-2">🍽️</span>
+                    <span class="text-xs font-semibold text-esmeralda block">10:00 PM</span>
+                    <span class="text-xs text-slate-600 font-light">Cena Especial</span>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <span class="text-2xl block mb-2">👑</span>
+                    <span class="text-xs font-semibold text-esmeralda block">11:00 PM</span>
+                    <span class="text-xs text-slate-600 font-light">El Vals Principal</span>
+                </div>
+                <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm col-span-2 md:col-span-1 hover:shadow-md hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <span class="text-2xl block mb-2">🎉</span>
+                    <span class="text-xs font-semibold text-esmeralda block">12:00 AM</span>
+                    <span class="text-xs text-slate-600 font-light">Fiesta & Hora Loca</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VESTIMENTA & MESAS DE REGALO -->
+    <section class="py-20 bg-white relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+            
+            <!-- Dresscode -->
+            <div class="bg-gradient-to-r from-esmeralda-soft/50 via-white to-celeste-soft/50 rounded-[40px] p-8 sm:p-14 border border-slate-100 shadow-soft relative overflow-hidden" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 space-y-4">
+                        <span class="font-script text-3xl text-esmeralda">Código de Vestimenta</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-slate-900 font-normal">Gala Formal & Glamour</h2>
+                        <p class="text-slate-600 text-sm sm:text-base font-light leading-relaxed">
+                            Queremos que esta noche sea deslumbrante. Te invitamos a lucir tu mejor traje o vestido de gala para celebrar juntos en grande.
+                        </p>
+                        <div class="p-5 bg-white rounded-3xl border border-celeste-light/50 flex items-start gap-4 shadow-sm">
+                            <span class="text-2xl">✨</span>
+                            <p class="text-xs sm:text-sm text-slate-600 font-light leading-relaxed">
+                                <strong class="font-medium text-slate-800">Nota Especial:</strong> El tono <span class="text-celeste font-semibold">Azul Celeste</span> es el elegido exclusivamente para el vestido de Camilita. ¡El verde esmeralda y la paleta elegante son bienvenidos!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 relative">
+                        <div class="rounded-[35px] overflow-hidden border-4 border-white shadow-md hover:scale-105 transition duration-500">
+                            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Detalles del evento" 
+                                 loading="lazy" 
+                                 class="w-full h-64 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regalos / Lluvia de Sobres -->
+            <div class="text-center bg-slate-50 p-8 sm:p-12 rounded-[40px] border border-slate-100 hover:shadow-md transition duration-300" data-aos="fade-up">
+                <span class="font-script text-3xl text-esmeralda">Mesa de Regalos</span>
+                <h3 class="font-serif text-2xl sm:text-3xl text-slate-800 font-normal mt-1">Tu presencia es mi mejor regalo</h3>
+                <p class="text-slate-500 text-sm font-light max-w-lg mx-auto mt-2 mb-6">
+                    Si deseas hacerme un presente, contaremos con un buzón para lluvia de sobres el día del evento o puedes realizar una transferencia.
+                </p>
+                <button @click="showGiftModal = true" class="px-6 py-3 bg-white border border-slate-200 text-slate-700 hover:text-esmeralda hover:border-esmeralda-mint font-medium text-xs rounded-full shadow-sm hover:shadow transition transform hover:-translate-y-0.5">
+                    Ver Datos de Cuenta / Sobres 🎁
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DINÁMICA Y ÁLBUM -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="font-script text-4xl text-esmeralda">Lo que nos espera</span>
+                <h2 class="font-serif text-4xl sm:text-5xl text-slate-900 font-normal mt-1">Una Noche Inolvidable</h2>
+                <div class="w-12 h-0.5 bg-esmeralda-mint mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-16">
+                <div class="relative h-80 sm:h-96 rounded-[40px] overflow-hidden shadow-md group cursor-pointer" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=800" 
+                         alt="Gran Salón" 
+                         loading="lazy" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 text-white">
+                        <span class="text-xs uppercase font-medium tracking-widest text-celeste-light">Espacio Principal</span>
+                        <h4 class="font-serif text-2xl sm:text-3xl font-normal mt-1">Gran Salón de Recepciones</h4>
+                    </div>
+                </div>
+                <div class="relative h-80 sm:h-96 rounded-[40px] overflow-hidden shadow-md group cursor-pointer" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=800" 
+                         alt="Jardín" 
+                         loading="lazy" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 text-white">
+                        <span class="text-xs uppercase font-medium tracking-widest text-esmeralda-mint">Área Social</span>
+                        <h4 class="font-serif text-2xl sm:text-3xl font-normal mt-1">Jardín & Photo Spots</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Álbum Interactivo -->
+            <div class="bg-gradient-to-b from-celeste-soft to-white p-10 sm:p-16 rounded-[45px] border border-celeste-light/40 shadow-soft text-center space-y-6" data-aos="zoom-in" data-aos-duration="1000">
+                <span class="font-script text-4xl text-celeste">Álbum Interactivo</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-slate-800 font-normal">Comparte tus Fotos y Videos</h2>
+                <p class="text-slate-600 font-light text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                    ¡Tu perspectiva hace la fiesta completa! Podrás subir todas las imágenes y clips que tomes durante la celebración directamente a nuestro álbum en la nube.
+                </p>
+                <div class="pt-2">
+                    <a href="#" class="inline-flex items-center gap-3 px-8 py-4 bg-celeste hover:bg-celeste-accent text-white font-medium text-sm rounded-full shadow-glow-celeste transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                        <span>Subir Contenido al Evento</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACIÓN Y GOOGLE CALENDAR -->
+    <section id="ubicacion" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="font-script text-4xl text-esmeralda">¿Cómo llegar?</span>
+                <h2 class="font-serif text-4xl text-slate-900 font-normal mt-1">Ubicación del Evento</h2>
+            </div>
+            <div class="bg-slate-50 rounded-[40px] p-6 sm:p-8 shadow-soft border border-slate-100 grid lg:grid-cols-12 gap-8 items-center" data-aos="fade-up" data-aos-duration="1000">
+                <div class="lg:col-span-5 space-y-4 text-center lg:text-left">
+                    <span class="px-4 py-1.5 bg-esmeralda-soft text-esmeralda rounded-full text-xs font-semibold uppercase tracking-wider inline-block">
+                        Lugar de la Recepción
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl text-slate-800">Quinta Las Esmeraldas</h3>
+                    <p class="text-slate-500 text-sm font-light">Av. Los Naranjos #102, Sector Residencial, Ciudad</p>
+                    <div class="pt-2">
+                        <p class="text-xs font-medium text-esmeralda">Viernes, 27 de Noviembre de 2026</p>
+                        <p class="text-xs text-slate-400 font-light mt-0.5">Recepción: 8:00 PM</p>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-3 justify-center lg:justify-start">
+                        <a href="https://maps.google.com" target="_blank" class="px-6 py-3 bg-esmeralda hover:bg-esmeralda-light text-white font-medium text-xs rounded-full shadow-sm hover:shadow transition transform hover:-translate-y-0.5">
+                            Abrir en Google Maps
+                        </a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+15+A%C3%B1os+Camilita&dates=20261127T200000/20261128T040000" target="_blank" class="px-6 py-3 bg-white border border-slate-200 text-slate-600 font-medium text-xs rounded-full shadow-sm hover:shadow transition transform hover:-translate-y-0.5">
+                            📅 Agendar en Calendar
+                        </a>
+                    </div>
+                </div>
+                <!-- Mapa Optimizado con Lazy Loading -->
+                <div class="lg:col-span-7 h-80 rounded-[30px] overflow-hidden shadow-inner border border-slate-100">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.598285918731!2d-71.642145!3d10.686888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQxJzEyLjgiTiA3McKwMzgnMzEuNyJX!5e0!3m2!1ses!2s!4v1620000000000!5m2!1ses!2s" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 bg-white border-t border-slate-100 text-center">
+        <div class="max-w-md mx-auto px-4 space-y-6" data-aos="fade-up">
+            <span class="font-script text-5xl text-esmeralda">Camilita</span>
+            <h3 class="font-serif text-3xl text-slate-800 font-normal">¡Te espero para celebrar!</h3>
+            <p class="text-slate-500 font-light text-sm">Recuerda confirmar tu asistencia antes del 15 de Noviembre de 2026.</p>
+            <div class="pt-2">
+                <button @click="openRsvpModal()" class="w-full py-4 bg-esmeralda hover:bg-esmeralda-light text-white font-medium text-sm rounded-full shadow-lg shadow-esmeralda/20 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    Confirmar mi Asistencia
+                </button>
+            </div>
+            <p class="pt-10 text-slate-400 font-serif italic text-xs">Mis 15 Años • 2026</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DE CONFIRMACIÓN (RSVP DINÁMICO PARA BD) -->
+    <div x-show="showRsvpModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm" x-cloak x-transition>
+        <div class="bg-white rounded-[35px] max-w-md w-full p-8 text-center space-y-6 shadow-2xl relative">
+            <span class="font-script text-4xl text-esmeralda">Confirmación</span>
+            <h3 class="font-serif text-2xl text-slate-800">¿Nos acompañarás en esta noche tan especial?</h3>
+            <p class="text-xs text-slate-500">Tu respuesta actualizará directamente la lista oficial del evento.</p>
+            
+            <div class="space-y-3 pt-2">
+                <button @click="submitRsvp('SI')" class="w-full py-3.5 bg-esmeralda hover:bg-esmeralda-light text-white font-medium text-sm rounded-full shadow-md transition">
+                    ¡Sí, ahí estaré! 🎉
+                </button>
+                <button @click="submitRsvp('NO')" class="w-full py-3.5 bg-rose-50 hover:bg-rose-100 text-rose-600 font-medium text-sm rounded-full transition">
+                    Lo siento, no podré asistir 😔
+                </button>
+                <button @click="showRsvpModal = false" class="w-full py-3 bg-slate-100 text-slate-500 font-medium text-xs rounded-full transition">
+                    Confirmar más tarde
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE MESAS DE REGALO / LLUVIAS DE SOBRES -->
+    <div x-show="showGiftModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm" x-cloak x-transition>
+        <div class="bg-white rounded-[35px] max-w-md w-full p-8 text-center space-y-6 shadow-2xl relative">
+            <span class="font-script text-4xl text-esmeralda">Detalles de Regalo</span>
+            <h3 class="font-serif text-2xl text-slate-800">Lluvia de Sobres & Cuentas</h3>
+            
+            <div class="bg-slate-50 p-4 rounded-2xl text-left space-y-2 text-xs text-slate-600 border border-slate-100">
+                <p><strong>Banco:</strong> Banco Nacional</p>
+                <p><strong>Titular:</strong> Familia de Camilita</p>
+                <p><strong>CBU / Alias:</strong> 00000031000123456789</p>
+                <p><strong>Pago Móvil:</strong> CI 12.345.678 • Tel: 0412-1234567</p>
+            </div>
+
+            <button @click="showGiftModal = false" class="w-full py-3 bg-esmeralda text-white font-medium text-xs rounded-full shadow-sm">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <!-- AOS JS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- SCRIPTS INTERACTIVOS -->
+    <script>
+        // Inicializar animaciones al hacer scroll (AOS)
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        function eventApp() {
+            return {
+                showRsvpModal: false,
+                showGiftModal: false,
+                isPlaying: false,
+                openRsvpModal() {
+                    this.showRsvpModal = true;
+                    if (!this.isPlaying) {
+                        this.toggleMusic();
+                    }
+                },
+                toggleMusic() {
+                    const audio = document.getElementById('bg-music');
+                    if (this.isPlaying) {
+                        audio.pause();
+                        this.isPlaying = false;
+                    } else {
+                        audio.play().then(() => {
+                            this.isPlaying = true;
+                        }).catch(() => {});
+                    }
+                },
+                submitRsvp(status) {
+                    console.log("Estado de confirmación guardado:", status);
+                    this.showRsvpModal = false;
+                    alert(status === 'SI' ? '¡Gracias por confirmar! Nos vemos pronto.' : 'Entendido, gracias por responder.');
+                }
+            }
+        }
+
+        function countdown(expiry) {
+            return {
+                expiry: new Date(expiry).getTime(),
+                days: '00', hours: '00', minutes: '00', seconds: '00',
+                init() {
+                    this.updateCountdown();
+                    setInterval(() => { this.updateCountdown(); }, 1000);
+                },
+                updateCountdown() {
+                    const now = new Date().getTime();
+                    const remaining = this.expiry - now;
+                    if (remaining > 0) {
+                        this.days = String(Math.floor(remaining / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                        this.hours = String(Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                        this.minutes = String(Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                        this.seconds = String(Math.floor((remaining % (1000 * 60)) / 1000)).padStart(2, '0');
+                    } else {
+                        this.days = '00'; this.hours = '00'; this.minutes = '00'; this.seconds = '00';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

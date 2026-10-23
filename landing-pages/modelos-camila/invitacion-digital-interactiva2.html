@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mementos.com | Plataforma de Invitaciones Digitales Interactivas Multi-Tenant</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Configuración de Tema Personalizado -->
+    <script>
+        tailwind.config = { theme:{ extend:{
+  colors:{ esmeralda:{DEFAULT:'#5A1730',soft:'#F7E6E3',light:'#7C2744',mint:'#D4AF6A'},
+    celeste:{DEFAULT:'#9C7A3C',soft:'#F6ECD8',light:'#E8D3A8',accent:'#D4AF6A'},
+    slate:{50:'#FAF6EF',100:'#F1EAEA',200:'#E3D8DB',300:'#CBBFC4',400:'#948A92',500:'#6E6570',600:'#524A57',700:'#3B3441',800:'#241E2B',900:'#14111C'} },
+  fontFamily:{ script:['Alex Brush','cursive'], serif:['Bodoni Moda','serif'], sans:['Figtree','sans-serif'] } } } }
+    </script>
+
+    <style>
+:root{--ink:#14111C;--wine:#5A1730;--rose:#F2D9D3;--gold:#D4AF6A;--gold-d:#9C7A3C;--ivory:#FAF6EF}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);font-family:'Figtree',sans-serif}
+h1,h2,h3,h4,.font-serif{font-family:'Bodoni Moda',serif}
+h2{font-size:clamp(2.4rem,5vw,4.2rem)!important;line-height:1.04;font-weight:500!important;letter-spacing:-.02em}
+[x-cloak]{display:none!important}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+span.rounded-full.uppercase{background:none!important;padding:0!important;color:var(--gold-d)!important;letter-spacing:.3em;font-size:.7rem;display:inline-flex;align-items:center;gap:.8rem;font-weight:600}
+span.rounded-full.uppercase::before{content:"";width:2.5rem;height:1px;background:currentColor}
+body>div.pt-20{display:none}
+
+/* 1 NAVBAR: píldora flotante oscura */
+nav{top:14px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:min(1120px,94vw);border-radius:999px;background:rgba(20,17,28,.72)!important;backdrop-filter:blur(16px);border:1px solid rgba(212,175,106,.35)!important;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+nav>div{height:4rem!important;padding:0 .75rem 0 1.5rem!important}
+nav a,nav .font-serif{color:#F4EADB!important}
+nav .font-serif{font-style:italic;font-size:1.7rem}
+nav .md\:flex a{letter-spacing:.14em}
+nav .md\:flex a:hover{color:var(--gold)!important}
+nav a.bg-esmeralda{background:var(--gold)!important;color:var(--ink)!important;transition:.4s}
+nav a.bg-esmeralda:hover{translate:0 -2px;box-shadow:0 10px 24px -8px var(--gold)}
+
+/* 2 HERO: escenario oscuro, tipografía gigante */
+.hero{background:radial-gradient(900px 600px at 82% 35%,rgba(140,40,80,.55),transparent 60%),radial-gradient(700px 500px at 0 0,rgba(212,175,106,.14),transparent 60%),var(--ink)!important;padding:10rem 1.5rem 7rem!important;color:#F4EADB}
+.hero>.blur-3xl{display:none}
+.hero h1{color:#FBF3E6!important;font-size:clamp(3rem,7.4vw,6.6rem)!important;line-height:.98!important;font-weight:500!important}
+.hero h1 .italic{font-family:'Alex Brush',cursive;font-style:normal;font-weight:400;color:var(--gold)!important;font-size:1.3em;display:inline-block;animation:glow 4s ease-in-out infinite}
+.hero p{color:#CFC4B6!important}
+.hero .inline-flex.rounded-full{background:transparent!important;border-color:rgba(212,175,106,.5)!important;box-shadow:none}
+.hero .inline-flex span{color:var(--gold)!important}.hero .inline-flex .bg-esmeralda{background:var(--gold)!important}
+.hero .grid.grid-cols-3>div{background:none!important;border:0!important;border-top:1px solid rgba(212,175,106,.45)!important;box-shadow:none!important;border-radius:0!important;padding:.9rem 0 0!important}
+.hero .grid.grid-cols-3 .font-serif{color:var(--gold)!important;font-size:2rem}
+.hero .grid.grid-cols-3 span.text-slate-500{color:#9E94A6!important}
+.hero a.bg-esmeralda{background:var(--gold)!important;color:var(--ink)!important;box-shadow:0 20px 50px -15px rgba(212,175,106,.7)}
+.hero a.bg-white{background:transparent!important;color:#F4EADB!important;border-color:rgba(244,234,219,.4)!important;box-shadow:none}
+.hero a:hover{translate:0 -3px}
+.hero .lg\:col-span-7>*{opacity:0;animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero .lg\:col-span-7>*:nth-child(2){animation-delay:.15s}.hero .lg\:col-span-7>*:nth-child(3){animation-delay:.3s}.hero .lg\:col-span-7>*:nth-child(4){animation-delay:.45s}.hero .lg\:col-span-7>*:nth-child(5){animation-delay:.6s}
+.hero .lg\:col-span-5{position:relative}
+.hero .lg\:col-span-5::before,.hero .lg\:col-span-5::after{content:"";position:absolute;top:50%;left:50%;translate:-50% -50%;border-radius:50%;border:1px dashed rgba(212,175,106,.45);width:440px;height:440px;animation:spin 50s linear infinite}
+.hero .lg\:col-span-5::after{width:560px;height:560px;border-style:solid;border-color:rgba(212,175,106,.15);animation-direction:reverse}
+.hero .rounded-\[50px\]{background:#000!important;border:1px solid var(--gold)!important;box-shadow:0 60px 100px -30px rgba(0,0,0,.8),0 0 0 8px rgba(212,175,106,.1)!important;animation:float 7s ease-in-out infinite;transform:perspective(1200px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .3s}
+.phone-mockup-screen{height:520px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#C9B28A transparent;background:var(--ivory)!important}
+.phone-mockup-screen::-webkit-scrollbar{width:4px}.phone-mockup-screen::-webkit-scrollbar-thumb{background:#C9B28A;border-radius:10px}
+.sparkles{position:absolute;inset:0;pointer-events:none}
+.sparkles i{position:absolute;width:var(--s);height:var(--s);background:var(--gold);border-radius:50%;opacity:0;box-shadow:0 0 12px 2px rgba(212,175,106,.8);animation:twinkle var(--d) ease-in-out var(--w) infinite}
+
+/* 3 CÓMO FUNCIONA: escalera editorial con números de contorno */
+#como-funciona{background:var(--ivory)!important;padding:8rem 0!important;border:0!important}
+#como-funciona .text-center{text-align:left;margin-left:0;max-width:46rem}
+#como-funciona .grid{gap:2.5rem}
+#como-funciona .grid>div{background:none!important;border:0!important;border-top:1px solid var(--ink)!important;border-radius:0!important;padding:1.5rem 0 0!important}
+#como-funciona .grid>div>span{all:unset;display:block;font-family:'Bodoni Moda',serif;font-style:italic;font-size:7.5rem;line-height:1;color:transparent;-webkit-text-stroke:1px var(--wine);margin-bottom:1rem;transition:color .6s}
+#como-funciona .grid>div:hover>span{color:var(--wine)}
+#como-funciona h3{font-size:2rem!important;font-weight:500}
+@media(min-width:768px){#como-funciona .grid>div:nth-child(2){margin-top:4rem}#como-funciona .grid>div:nth-child(3){margin-top:8rem}}
+
+/* 4 CARACTERÍSTICAS: bento de color */
+#caracteristicas{background:var(--rose)!important;padding:8rem 0!important}
+#caracteristicas .text-center{text-align:left;margin-left:0}
+#caracteristicas .grid{gap:1rem!important}
+#caracteristicas .grid>div{border-radius:2rem!important;border:0!important;padding:2rem!important;box-shadow:none!important;display:flex;flex-direction:column;justify-content:space-between;transition:scale .5s,rotate .5s;background:#fff}
+#caracteristicas .grid>div:hover{scale:1.02;rotate:-.8deg}
+#caracteristicas .grid>div>div:first-child{background:rgba(127,127,127,.15)!important;border-radius:50%!important;width:3.5rem;height:3.5rem}
+#caracteristicas .grid>div:nth-child(1){background:var(--wine)}
+#caracteristicas .grid>div:nth-child(2){background:var(--ink)}
+#caracteristicas .grid>div:nth-child(3){background:var(--gold)}
+#caracteristicas .grid>div:nth-child(1) *,#caracteristicas .grid>div:nth-child(2) *{color:#FBF3E6!important}
+#caracteristicas .grid>div:nth-child(3) *{color:var(--ink)!important}
+#caracteristicas .grid>div:nth-child(1) h3{font-size:2.8rem!important;line-height:1}
+#caracteristicas h3{font-size:1.5rem;font-weight:500}
+@media(min-width:1024px){#caracteristicas .grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:15rem}#caracteristicas .grid>div:nth-child(1){grid-column:1/3;grid-row:1/3}#caracteristicas .grid>div:nth-child(2){grid-column:3/5}}
+
+/* 5 PLANTILLAS: carrusel de pósters a sangre */
+#plantillas{background:#fff!important;padding:8rem 0!important;overflow:hidden}
+#plantillas .flex.flex-wrap button{background:none!important;color:#8a8190!important;border-radius:0!important;padding:.5rem .25rem!important;border-bottom:1px solid transparent;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;margin:0 .75rem}
+#plantillas .flex.flex-wrap button.bg-esmeralda{color:var(--wine)!important;border-bottom-color:var(--wine)}
+#plantillas .grid.md\:grid-cols-2{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:1.5rem;padding:1rem 0 3rem;scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+#plantillas .group{flex:0 0 min(340px,82vw);height:34rem;position:relative;scroll-snap-align:start;border:0!important;border-radius:6px!important;color:#fff;justify-content:flex-end!important;background:var(--ink)!important;box-shadow:0 30px 60px -30px rgba(20,17,28,.6)!important;overflow:hidden}
+#plantillas .group:nth-child(even){margin-top:3rem}
+#plantillas .group>div:first-child{display:contents}
+#plantillas .group .relative.h-64{position:absolute;inset:0;height:100%!important;z-index:auto}
+#plantillas .group img{filter:grayscale(.75) brightness(.85);transition:filter .8s,transform 1.2s}
+#plantillas .group:hover img{filter:none;transform:scale(1.07)}
+#plantillas .group::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 35%,rgba(20,17,28,.94));pointer-events:none}
+#plantillas .group .p-6{position:relative;z-index:2;padding-bottom:.5rem!important}
+#plantillas .group .p-6.pt-0{padding-top:0!important}
+#plantillas .group .absolute.top-4{z-index:2;top:1rem;right:1rem}
+#plantillas .group h3{color:#fff!important;font-size:2rem;line-height:1.05}
+#plantillas .group p{color:#D8CFE0!important}
+#plantillas .group .text-esmeralda{color:var(--gold)!important}
+#plantillas .group button{background:var(--gold)!important;color:var(--ink)!important;border-radius:0!important;letter-spacing:.12em;text-transform:uppercase}
+#plantillas [x-show="activeModal"]{background:rgba(20,17,28,.85)!important}
+#plantillas [x-show="activeModal"]>div{border-radius:6px!important;animation:rise .6s both}
+
+/* 6 COTIZADOR: noche vino + ticket */
+#cotizador{background:radial-gradient(800px 500px at 100% 0,rgba(212,175,106,.18),transparent 60%),var(--wine)!important;border:0!important;padding:8rem 0!important}
+#cotizador>div>div{background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+#cotizador .text-center h2{color:#FBF3E6!important}#cotizador .text-center p{color:#D9C6CC!important}
+#cotizador span.rounded-full.uppercase{color:var(--gold)!important}
+#cotizador label.text-slate-700{color:var(--gold)!important}
+#cotizador select{background:transparent!important;color:#FBF3E6;border:0!important;border-bottom:1px solid rgba(212,175,106,.6)!important;border-radius:0!important;padding-left:0!important;font-size:1.2rem}
+#cotizador option{color:var(--ink)}
+#cotizador label.rounded-2xl{background:transparent!important;color:#EADFE3;border:0!important;border-bottom:1px solid rgba(255,255,255,.15)!important;border-radius:0!important;transition:padding .4s}
+#cotizador label.rounded-2xl:hover{padding-left:1rem}
+#cotizador label.rounded-2xl .font-bold{color:var(--gold)!important}
+#cotizador input[type=checkbox]{accent-color:var(--gold);width:1.1rem;height:1.1rem}
+#cotizador input[type=range]{accent-color:var(--gold)}
+#cotizador .lg\:col-span-5{background:#F8F1E4!important;border:0!important;border-radius:4px!important;rotate:1.5deg;box-shadow:0 40px 80px -30px rgba(0,0,0,.7);padding:2rem!important;-webkit-mask:radial-gradient(circle 10px at 0 62%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 10px at 100% 62%,#0000 98%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 10px at 0 62%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 10px at 100% 62%,#0000 98%,#000) right/51% 100% no-repeat}
+#cotizador .lg\:col-span-5 button.bg-esmeralda{background:var(--ink)!important;color:var(--gold)!important;border-radius:0!important;letter-spacing:.15em;text-transform:uppercase}
+
+/* 7 PLANES: columnas con filetes, plan central invertido */
+#planes{background:#fff!important;padding:8rem 0 10rem!important}
+#planes .text-center{text-align:left;margin-left:0}
+#planes .grid{gap:0!important}
+#planes .grid>div{background:none!important;border:0!important;border-left:1px solid #E4DAE0!important;border-radius:0!important;box-shadow:none!important;padding:3rem 2.5rem!important}
+#planes .grid>div:first-child{border-left:0!important}
+#planes .grid>div h3{font-size:2.2rem!important;font-weight:500}
+#planes .grid>div button{border-radius:0!important;letter-spacing:.14em;text-transform:uppercase;transition:.4s}
+#planes .grid>div button:hover{background:var(--ink)!important;color:var(--gold)!important}
+#planes .grid>div:nth-child(2){background:var(--ink)!important;border-radius:6px!important;box-shadow:0 50px 90px -40px rgba(20,17,28,.8)!important;z-index:2}
+#planes .grid>div:nth-child(2) *{color:#E9E0EE!important}
+#planes .grid>div:nth-child(2) .text-5xl{color:var(--gold)!important}
+#planes .grid>div:nth-child(2) button{background:var(--gold)!important;color:var(--ink)!important}
+#planes .grid>div:nth-child(2) .absolute{background:var(--gold)!important;color:var(--ink)!important;border-radius:0!important;letter-spacing:.25em}
+@media(min-width:768px){#planes .grid>div:nth-child(2){margin:-2.5rem 0}}
+
+/* 8 PAGOS: banda dorada */
+section.py-16{background:var(--gold)!important;border:0!important;padding:5rem 0!important}
+section.py-16 h3{font-size:clamp(2rem,4vw,3.4rem)!important;color:var(--ink)!important;font-style:italic}
+section.py-16 span.block{color:var(--ink)!important;letter-spacing:.3em}
+section.py-16 .flex>div{background:transparent!important;border:1px solid var(--ink)!important;border-radius:999px!important;color:var(--ink)!important;font-size:.9rem!important;padding:.7rem 1.4rem!important;box-shadow:none!important;transition:.4s}
+section.py-16 .flex>div:hover{background:var(--ink)!important;color:var(--gold)!important;translate:0 -4px}
+section.py-16 .flex{opacity:1!important}
+
+/* 9 FAQ: títulos fijos a la izquierda, lista con filetes */
+section.py-20.bg-white{background:var(--ivory)}
+[x-data*="selectedFaq"]{max-width:72rem!important;display:grid;gap:3rem}
+@media(min-width:1024px){[x-data*="selectedFaq"]{grid-template-columns:5fr 7fr}[x-data*="selectedFaq"]>div:first-child{position:sticky;top:7rem;align-self:start}}
+[x-data*="selectedFaq"]>div:first-child{text-align:left!important;margin:0!important}
+[x-data*="selectedFaq"] .rounded-2xl{background:none!important;border:0!important;border-bottom:1px solid #CBBFC4!important;border-radius:0!important}
+[x-data*="selectedFaq"] button{font-size:1.5rem!important;padding:1.75rem 0!important;font-weight:500!important;gap:1rem;transition:color .3s}
+[x-data*="selectedFaq"] button:hover{color:var(--wine)}
+[x-data*="selectedFaq"] button span:last-child{color:var(--gold-d)!important;font-size:2.2rem;font-weight:300}
+[x-data*="selectedFaq"] [x-show]{padding:0 0 1.75rem!important;font-size:1rem!important;max-width:36rem}
+
+/* 10 FOOTER: marca monumental */
+footer{background:var(--ink)!important;color:#CFC4B6;border:0!important;padding-top:6rem!important}
+footer .grid>div:first-child{grid-column:1/-1;margin-bottom:3rem}
+footer .grid>div:first-child>span{display:block;font-size:clamp(3.5rem,14vw,12rem);font-style:italic;line-height:.9;color:transparent;-webkit-text-stroke:1px var(--gold);transition:color .8s}
+footer .grid>div:first-child>span:hover{color:var(--gold)}
+footer .grid>div:first-child>span span{color:inherit!important}
+footer .grid>div:first-child p{max-width:34rem}
+footer h4{color:var(--gold)!important;font-size:1.3rem!important;font-weight:500}
+footer a.bg-esmeralda{background:var(--gold)!important;color:var(--ink)!important;border-radius:0!important}
+a.fixed{background:var(--gold)!important;color:var(--ink)!important;animation:pulse 3s infinite}
+
+/* Revelado */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*.12s)}
+#caracteristicas .rv{transform:scale(.92)}#planes .rv{transform:translateY(70px)}#como-funciona .rv{transform:translateX(-30px)}
+.rv.in{opacity:1!important;transform:none!important}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -14px}}
+@keyframes spin{to{rotate:360deg}}
+@keyframes glow{0%,100%{text-shadow:0 0 0 transparent}50%{text-shadow:0 0 30px rgba(212,175,106,.7)}}
+@keyframes twinkle{0%,100%{opacity:0;scale:.4}50%{opacity:1;scale:1}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,175,106,.6)}70%{box-shadow:0 0 0 18px rgba(212,175,106,0)}100%{box-shadow:0 0 0 0 rgba(212,175,106,0)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.hero .lg\:col-span-7>*{opacity:1!important;transform:none!important}}
+
+</style>
+</head>
+<body class="bg-slate-50 text-slate-700 font-sans antialiased overflow-x-hidden selection:bg-celeste-light selection:text-slate-800" x-data="mainApp()">
+
+    <!-- 1. NAVBAR PERMANENTE -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <span class="font-serif text-2xl font-bold text-slate-900 tracking-tight">
+                    memento
+                </span>
+                
+            </a>
+
+            <!-- Links de Navegación Desktop -->
+            <div class="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-600 uppercase tracking-wider">
+                <a href="#como-funciona" class="hover:text-esmeralda transition">Cómo Funciona</a>
+                <a href="#caracteristicas" class="hover:text-esmeralda transition">Funciones</a>
+                <a href="#plantillas" class="hover:text-esmeralda transition">Plantillas</a>
+                <a href="#cotizador" class="hover:text-esmeralda transition">Cotizador Livewire</a>
+                <a href="#planes" class="hover:text-esmeralda transition">Planes & Precios</a>
+            </div>
+
+            <!-- Botones CTA -->
+            <div class="flex items-center gap-3">
+                <a href="#planes" class="hidden sm:inline-flex px-4 py-2.5 text-slate-600 hover:text-esmeralda text-xs font-semibold transition">
+                    Iniciar Sesión
+                </a>
+                <a href="#cotizador" class="px-5 py-2.5 bg-esmeralda hover:bg-esmeralda-light text-white text-xs font-semibold rounded-full shadow-md transition transform hover:-translate-y-0.5">
+                    Crear Invitación
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="pt-20"></div>
+
+    <!-- 2. HERO SECTION CON SIMULADOR MÓVIL EN VIVO (ALPINE.JS) -->
+    <header id="inicio" class="hero relative bg-gradient-to-b from-white via-slate-50 to-esmeralda-soft/20 py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        
+        <!-- Elementos decorativos de fondo -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-celeste-soft rounded-full blur-3xl opacity-60"></div>
+        <div class="sparkles" aria-hidden="true"></div><div class="absolute top-1/2 -right-24 w-96 h-96 bg-esmeralda-soft rounded-full blur-3xl opacity-60"></div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Texto del Hero -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-esmeralda-mint/50 rounded-full shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-esmeralda animate-ping"></span>
+                    <span class="text-xs font-semibold text-esmeralda uppercase tracking-wider">
+                        Plataforma SaaS para Eventos e Invitaciones
+                    </span>
+                </div>
+
+                <h1 class="font-serif text-4xl sm:text-6xl text-slate-900 font-bold leading-tight">
+                    La experiencia digital que tus <span class="text-esmeralda italic font-normal">invitados</span> merecen.
+                </h1>
+
+                <p class="text-slate-600 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    Crea invitaciones web interactivas de alta gama. Controla listas de pases mediante **Cédula de Identidad**, recolecta regalos por **PagoMóvil/Zelle**, arma la playlist con el DJ y convierte la invitación en un **álbum de fotos post-evento**.
+                </p>
+
+                <!-- Métricas Rápidas -->
+                <div class="pt-2 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-left">
+                    <div class="p-3 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                        <span class="block font-serif text-2xl font-bold text-esmeralda">+15,000</span>
+                        <span class="text-[10px] text-slate-500 font-medium uppercase">Pases Verificados</span>
+                    </div>
+                    <div class="p-3 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                        <span class="block font-serif text-2xl font-bold text-celeste">100%</span>
+                        <span class="text-[10px] text-slate-500 font-medium uppercase">Personalizable</span>
+                    </div>
+                    <div class="p-3 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                        <span class="block font-serif text-2xl font-bold text-slate-800">Multi-Tenant</span>
+                        <span class="text-[10px] text-slate-500 font-medium uppercase">Subdominios / QR</span>
+                    </div>
+                </div>
+
+                <!-- Botones CTA Hero -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#cotizador" class="w-full sm:w-auto px-8 py-4 bg-esmeralda hover:bg-esmeralda-light text-white font-semibold text-sm rounded-full shadow-glow-esmeralda transition text-center">
+                        Cotizar mi Evento en Tiempo Real
+                    </a>
+                    <a href="#plantillas" class="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 text-slate-700 hover:text-esmeralda hover:border-esmeralda-mint font-semibold text-sm rounded-full transition text-center shadow-sm">
+                        Ver Catálogo de Demos
+                    </a>
+                </div>
+            </div>
+
+            <!-- SIMULADOR INTERACTIVO MÓVIL EN VIVO (Showroom Alpine.js) -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-[340px] bg-slate-900 rounded-[50px] p-4 shadow-2xl border-4 border-slate-800 ring-1 ring-slate-900/50">
+                    <!-- Notch del Teléfono -->
+                    <div class="absolute top-6 left-1/2 -translate-x-1/2 w-28 h-4 bg-slate-800 rounded-full z-30"></div>
+
+                    <!-- Contenido Interactivo Emulado (Basado en camila-party.html) -->
+                    <div class="bg-slate-50 rounded-[38px] phone-mockup-screen pt-8 px-4 pb-6 text-slate-700 relative z-20">
+                        
+                        <!-- Header Demo en Teléfono -->
+                        <div class="text-center space-y-1 mb-4">
+                            <span class="font-script text-2xl text-esmeralda block">Mis 15 Años</span>
+                            <h3 class="font-serif text-3xl font-bold text-slate-900">Valentina</h3>
+                            <p class="text-[10px] text-celeste font-semibold uppercase tracking-widest">27 de Noviembre, 2026</p>
+                        </div>
+
+                        <!-- Foto de la cumpleañera en la Demo -->
+                        <div class="rounded-2xl overflow-hidden mb-4 border-2 border-white shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Valentina Demo" class="w-full h-44 object-cover object-top">
+                        </div>
+
+                        <!-- Contador Regresivo Interactivo en el Móvil -->
+                        <div x-data="heroDemoCountdown('2026-11-27T20:00:00')" class="bg-white p-3 rounded-2xl border border-slate-100 shadow-sm mb-4 text-center">
+                            <span class="text-[9px] font-bold uppercase text-slate-400 block mb-1">Cuenta Regresiva</span>
+                            <div class="grid grid-cols-4 gap-1 text-center">
+                                <div class="bg-esmeralda-soft p-1 rounded-lg">
+                                    <span x-text="days" class="font-serif font-bold text-esmeralda text-xs">00</span>
+                                    <span class="block text-[7px] text-slate-500 uppercase">Días</span>
+                                </div>
+                                <div class="bg-celeste-soft p-1 rounded-lg">
+                                    <span x-text="hours" class="font-serif font-bold text-celeste text-xs">00</span>
+                                    <span class="block text-[7px] text-slate-500 uppercase">Horas</span>
+                                </div>
+                                <div class="bg-esmeralda-soft p-1 rounded-lg">
+                                    <span x-text="minutes" class="font-serif font-bold text-esmeralda text-xs">00</span>
+                                    <span class="block text-[7px] text-slate-500 uppercase">Min</span>
+                                </div>
+                                <div class="bg-celeste-soft p-1 rounded-lg">
+                                    <span x-text="seconds" class="font-serif font-bold text-celeste text-xs">00</span>
+                                    <span class="block text-[7px] text-slate-500 uppercase">Seg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Funcionalidades simuladas interactiva -->
+                        <div class="space-y-2">
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-100 text-left text-[11px] shadow-sm flex items-center justify-between">
+                                <span>🎟️ <strong>Pases por Cédula:</strong> Validado</span>
+                                <span class="text-[9px] bg-esmeralda-soft text-esmeralda px-2 py-0.5 rounded-full font-bold">Activo</span>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-100 text-left text-[11px] shadow-sm flex items-center justify-between">
+                                <span>💸 <strong>Lluvia de Sobres:</strong> PagoMóvil/Zelle</span>
+                                <span class="text-[9px] bg-celeste-soft text-celeste px-2 py-0.5 rounded-full font-bold">Configurado</span>
+                            </div>
+                            <div class="p-2.5 bg-white rounded-xl border border-slate-100 text-left text-[11px] shadow-sm flex items-center justify-between">
+                                <span>🎵 <strong>Sugerir canción al DJ:</strong> En vivo</span>
+                                <span class="text-[9px] bg-esmeralda-soft text-esmeralda px-2 py-0.5 rounded-full font-bold">Livewire</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-t border-slate-200 text-center">
+                            <span class="text-[10px] text-slate-400 font-medium">Demo interactiva sincronizada en tiempo real</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 3. CÓMO FUNCIONA EN 3 PASOS -->
+    <section id="como-funciona" class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-esmeralda bg-esmeralda-soft px-4 py-1.5 rounded-full">
+                    Sencillez & Automatización
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-slate-900 font-bold mt-3">
+                    Publica la invitación de tu evento en 3 sencillos pasos
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Paso 1 -->
+                <div class="bg-slate-50 p-8 rounded-[35px] border border-slate-100 relative">
+                    <span class="w-12 h-12 bg-esmeralda text-white font-serif font-bold text-xl rounded-2xl flex items-center justify-center mb-6 shadow-md">1</span>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Selecciona o Cotiza</h3>
+                    <p class="text-slate-600 text-sm font-light leading-relaxed">
+                        Elige una plantilla predefinida o utiliza nuestro cotizador en Livewire 3 para encargar una experiencia personalizada única.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="bg-slate-50 p-8 rounded-[35px] border border-slate-100 relative">
+                    <span class="w-12 h-12 bg-celeste text-white font-serif font-bold text-xl rounded-2xl flex items-center justify-center mb-6 shadow-md">2</span>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Personaliza en tu Panel Tenant</h3>
+                    <p class="text-slate-600 text-sm font-light leading-relaxed">
+                        Ingresa fechas, listas de pases, cuentas bancarias para regalos y activa filtros de menú/alergias desde tu centro de control privado.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="bg-slate-50 p-8 rounded-[35px] border border-slate-100 relative">
+                    <span class="w-12 h-12 bg-slate-900 text-white font-serif font-bold text-xl rounded-2xl flex items-center justify-center mb-6 shadow-md">3</span>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Publica y Comparte el QR</h3>
+                    <p class="text-slate-600 text-sm font-light leading-relaxed">
+                        Genera la URL única con tu Slug propio y el código QR oficial para enviar por WhatsApp. Revisa asistencias en tiempo real.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. MÓDULO DE CARACTERÍSTICAS TÉCNICAS & SOLUCIONES SAAS -->
+    <section id="caracteristicas" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-celeste bg-celeste-soft px-4 py-1.5 rounded-full">
+                    Soluciones Comerciales
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-slate-900 font-bold mt-3">
+                    Diseñado para resolver la logística de tu fiesta
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-[30px] border border-slate-100 shadow-soft space-y-3">
+                    <div class="w-12 h-12 bg-esmeralda-soft text-esmeralda rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        🎟️
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-slate-900">Control por Cédula</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed font-light">
+                        Evita colados asignando pases exactos. Cada acompañante registra su Cédula de Identidad para la validación en puerta.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-[30px] border border-slate-100 shadow-soft space-y-3">
+                    <div class="w-12 h-12 bg-celeste-soft text-celeste rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        💸
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-slate-900">Lluvia de Sobres Digital</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed font-light">
+                        Recibe regalos directamente en tus cuentas: PagoMóvil con comprobante, Zelle o Binance Pay de forma discreta.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-[30px] border border-slate-100 shadow-soft space-y-3">
+                    <div class="w-12 h-12 bg-esmeralda-soft text-esmeralda rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        🎵
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-slate-900">Sugerencias al DJ</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed font-light">
+                        Tus invitados proponen temas musicales en tiempo real mediante un formulario interactivo con Livewire 3.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-[30px] border border-slate-100 shadow-soft space-y-3">
+                    <div class="w-12 h-12 bg-celeste-soft text-celeste rounded-2xl flex items-center justify-center text-2xl font-bold">
+                        📸
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-slate-900">Galería Post-Evento</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed font-light">
+                        Al terminar la fiesta, la URL cambia automáticamente a una Galería para ver y descargar recuerdos con caducidad configurada.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. EXHIBIDOR DE PLANTILLAS Y DEMOS INTERACTIVAS -->
+    <section id="plantillas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" x-data="templateGallery()">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-esmeralda bg-esmeralda-soft px-4 py-1.5 rounded-full">
+                    Catálogo de Diseños
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-slate-900 font-bold mt-3">
+                    Plantillas Listas para Tu Celebración
+                </h2>
+                <p class="text-slate-500 text-sm mt-2 font-light">
+                    Filtra por tipo de evento y previsualiza la experiencia interactiva que tendrán tus invitados.
+                </p>
+            </div>
+
+            <!-- Filtros por Categoría -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button @click="filter = 'all'" :class="filter === 'all' ? 'bg-esmeralda text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-5 py-2 rounded-full text-xs font-semibold transition">
+                    Todas
+                </button>
+                <button @click="filter = '15anos'" :class="filter === '15anos' ? 'bg-esmeralda text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-5 py-2 rounded-full text-xs font-semibold transition">
+                    15 Años
+                </button>
+                <button @click="filter = 'bodas'" :class="filter === 'bodas' ? 'bg-esmeralda text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-5 py-2 rounded-full text-xs font-semibold transition">
+                    Bodas
+                </button>
+                <button @click="filter = 'cumpleanos'" :class="filter === 'cumpleanos' ? 'bg-esmeralda text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-5 py-2 rounded-full text-xs font-semibold transition">
+                    Cumpleaños
+                </button>
+                <button @click="filter = 'corporativo'" :class="filter === 'corporativo' ? 'bg-esmeralda text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'" class="px-5 py-2 rounded-full text-xs font-semibold transition">
+                    Corporativo
+                </button>
+            </div>
+
+            <!-- Cards de Plantillas -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <template x-for="item in filteredTemplates" :key="item.id">
+                    <div class="bg-white rounded-[35px] overflow-hidden border border-slate-100 shadow-soft group hover:shadow-xl transition duration-500 flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-64 overflow-hidden">
+                                <img :src="item.image" :alt="item.title" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                                <div class="absolute top-4 right-4">
+                                    <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-esmeralda text-[10px] font-bold uppercase rounded-full shadow-sm" x-text="item.categoryLabel"></span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold text-slate-900" x-text="item.title"></h3>
+                                <p class="text-slate-500 text-xs mt-2 font-light leading-relaxed" x-text="item.description"></p>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 flex items-center justify-between">
+                            <span class="font-serif font-bold text-esmeralda text-lg" x-text="'$' + item.price + ' USD'"></span>
+                            <button @click="openDemo(item)" class="px-4 py-2 bg-esmeralda-soft hover:bg-esmeralda hover:text-white text-esmeralda text-xs font-semibold rounded-full transition">
+                                Ver Demo
+                            </button>
+                        </div>
+                    </div>
+                </template>
+
+            </div>
+
+            <!-- Modal de Vista Previa Demo -->
+            <div x-show="activeModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm" x-transition>
+                <div @click.away="activeModal = false" class="bg-white rounded-[35px] max-w-lg w-full p-6 text-center shadow-2xl relative">
+                    <button @click="activeModal = false" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
+                    <span class="text-xs font-bold text-esmeralda uppercase tracking-wider block mb-1">Previsualización de Plantilla</span>
+                    <h3 class="font-serif text-2xl font-bold text-slate-900 mb-4" x-text="selectedTemplate?.title"></h3>
+                    <img :src="selectedTemplate?.image" class="w-full h-56 object-cover rounded-2xl mb-4 border">
+                    <p class="text-slate-600 text-xs mb-6" x-text="selectedTemplate?.description"></p>
+                    <div class="flex gap-3 justify-center">
+                        <button @click="activeModal = false" class="px-6 py-2.5 bg-slate-100 text-slate-700 text-xs font-semibold rounded-full">Cerrar</button>
+                        <a href="#cotizador" @click="activeModal = false" class="px-6 py-2.5 bg-esmeralda text-white text-xs font-semibold rounded-full">Seleccionar esta Plantilla</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. COTIZADOR DINÁMICO EN TIEMPO REAL (COMPONENTES LIVEWIRE 3 SIMULADO) -->
+    <section id="cotizador" class="py-20 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" x-data="livewireCalculator()">
+            
+            <div class="bg-white rounded-[40px] p-8 sm:p-12 shadow-soft border border-slate-100">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-esmeralda bg-esmeralda-soft px-4 py-1.5 rounded-full">
+                        Cotizador en Tiempo Real (Livewire 3)
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-slate-900 font-bold mt-3">
+                        Configura tu Paquete a Medida
+                    </h2>
+                    <p class="text-slate-500 text-xs sm:text-sm mt-2 font-light">
+                        Personaliza los módulos que necesitas para tu evento y obtén la estimación inmediata.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Opciones del Formulario Dinámico -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- Selección de Tipo de Evento -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">1. Tipo de Celebración</label>
+                            <select x-model="eventType" class="w-full px-4 py-3 rounded-2xl border border-slate-200 text-sm focus:outline-none focus:border-esmeralda bg-slate-50">
+                                <option value="15anos">15 Años</option>
+                                <option value="boda">Boda de Gala</option>
+                                <option value="cumpleanos">Cumpleaños / Bautizo</option>
+                                <option value="corporativo">Evento Corporativo</option>
+                            </select>
+                        </div>
+
+                        <!-- Número Estimado de Invitados -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                                2. Estimación de Invitados: <span class="text-esmeralda font-bold" x-text="guests"></span> pases
+                            </label>
+                            <input type="range" min="30" max="500" step="10" x-model="guests" class="w-full accent-esmeralda cursor-pointer">
+                        </div>
+
+                        <!-- Módulos Adicionales (Checkboxes) -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">3. Módulos Adicionales Especiales</label>
+                            <div class="space-y-3">
+                                <label class="flex items-center justify-between p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs cursor-pointer">
+                                    <span class="flex items-center gap-2">
+                                        <input type="checkbox" x-model="modules.idValidation" class="rounded text-esmeralda focus:ring-0">
+                                        <span>Verificación por Cédula de Identidad en Puerta</span>
+                                    </span>
+                                    <span class="font-bold text-slate-700">+$15 USD</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs cursor-pointer">
+                                    <span class="flex items-center gap-2">
+                                        <input type="checkbox" x-model="modules.djPlaylist" class="rounded text-esmeralda focus:ring-0">
+                                        <span>Módulo de Playlist Interactiva con DJ</span>
+                                    </span>
+                                    <span class="font-bold text-slate-700">+$10 USD</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs cursor-pointer">
+                                    <span class="flex items-center gap-2">
+                                        <input type="checkbox" x-model="modules.extendedGallery" class="rounded text-esmeralda focus:ring-0">
+                                        <span>Álbum Post-Evento Extendido (60 días de descarga)</span>
+                                    </span>
+                                    <span class="font-bold text-slate-700">+$20 USD</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs cursor-pointer">
+                                    <span class="flex items-center gap-2">
+                                        <input type="checkbox" x-model="modules.customDomain" class="rounded text-esmeralda focus:ring-0">
+                                        <span>Subdominio Personalizado / Dominio Propio</span>
+                                    </span>
+                                    <span class="font-bold text-slate-700">+$25 USD</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Resumen del Presupuesto calculado en vivo -->
+                    <div class="lg:col-span-5 bg-gradient-to-b from-esmeralda-soft to-white p-6 rounded-[30px] border border-esmeralda-mint/40 space-y-4">
+                        <h3 class="font-serif text-xl font-bold text-slate-900 border-b border-esmeralda-mint/30 pb-3">Resumen de Cotización</h3>
+                        
+                        <div class="space-y-2 text-xs text-slate-600">
+                            <div class="flex justify-between">
+                                <span>Base del Evento (<span x-text="eventType"></span>):</span>
+                                <span class="font-semibold text-slate-800">$35.00 USD</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Pases extra (<span x-text="guests"></span> invitados):</span>
+                                <span class="font-semibold text-slate-800" x-text="'$' + guestPrice.toFixed(2) + ' USD'"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Módulos seleccionados:</span>
+                                <span class="font-semibold text-slate-800" x-text="'$' + modulesTotal.toFixed(2) + ' USD'"></span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-esmeralda-mint/40 flex items-center justify-between">
+                            <span class="font-serif font-bold text-slate-900 text-lg">Total Estimado:</span>
+                            <span class="font-serif font-bold text-2xl text-esmeralda" x-text="'$' + calculatedTotal.toFixed(2) + ' USD'"></span>
+                        </div>
+
+                        <button @click="reserved = true" class="w-full py-4 bg-esmeralda hover:bg-esmeralda-light text-white font-semibold text-xs rounded-full shadow-md transition">
+                            Reservar y Crear Invitación
+                        </button>
+
+                        <div x-show="reserved" x-cloak class="p-3 bg-esmeralda text-white rounded-2xl text-xs text-center font-medium">
+                            ✓ Solicitud de cotización enviada. Serás redirigido al formulario de pago.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. TABLA DE PLANES Y PRECIOS TRANSPARENTES -->
+    <section id="planes" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-esmeralda bg-esmeralda-soft px-4 py-1.5 rounded-full">
+                    Planes Accesibles
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-slate-900 font-bold mt-3">
+                    Planes Diseñados para Cada Necesidad
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Plan 1: Básico -->
+                <div class="bg-slate-50 rounded-[35px] p-8 border border-slate-100 flex flex-col justify-between space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Evento Único Sencillo</span>
+                        <h3 class="font-serif text-2xl font-bold text-slate-900">Anfitrión Básico</h3>
+                        <p class="text-slate-500 text-xs font-light mt-2">Ideal para reuniones pequeñas o cumpleaños familiares.</p>
+                        <div class="my-6">
+                            <span class="font-serif text-4xl font-bold text-slate-900">$29</span>
+                            <span class="text-xs text-slate-500"> / evento</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-600">
+                            <li class="flex items-center gap-2">✓ Hasta 80 Invitados</li>
+                            <li class="flex items-center gap-2">✓ Confirmación por WhatsApp</li>
+                            <li class="flex items-center gap-2">✓ Código de Vestimenta y Ubicación</li>
+                            <li class="flex items-center gap-2 text-slate-400">✗ Verificación por Cédula</li>
+                            <li class="flex items-center gap-2 text-slate-400">✗ Playlist Interactiva con DJ</li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 bg-white border border-slate-200 text-slate-700 hover:border-esmeralda hover:text-esmeralda text-xs font-semibold rounded-full transition">
+                        Elegir Plan Básico
+                    </button>
+                </div>
+
+                <!-- Plan 2: Premium (Destacado) -->
+                <div class="bg-gradient-to-b from-white to-esmeralda-soft/30 rounded-[35px] p-8 border-2 border-esmeralda shadow-glow-esmeralda flex flex-col justify-between space-y-6 relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-esmeralda text-white text-[10px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full">
+                        Más Popular
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-esmeralda uppercase tracking-widest block mb-1">Experiencia Completa</span>
+                        <h3 class="font-serif text-2xl font-bold text-slate-900">Anfitrión Premium</h3>
+                        <p class="text-slate-500 text-xs font-light mt-2">Para 15 Años y Bodas inolvidables.</p>
+                        <div class="my-6">
+                            <span class="font-serif text-5xl font-bold text-esmeralda">$49</span>
+                            <span class="text-xs text-slate-500"> / evento</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-700 font-medium">
+                            <li class="flex items-center gap-2">✓ Hasta 250 Invitados</li>
+                            <li class="flex items-center gap-2">✓ **Control de Entrada con Cédula**</li>
+                            <li class="flex items-center gap-2">✓ **Lluvia de Sobres (PagoMóvil/Zelle)**</li>
+                            <li class="flex items-center gap-2">✓ **Sugerencias de Canciones al DJ**</li>
+                            <li class="flex items-center gap-2">✓ Galería Post-Evento (30 días de descarga)</li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-3.5 bg-esmeralda hover:bg-esmeralda-light text-white text-xs font-semibold rounded-full shadow-md transition">
+                        Comprar Plan Premium
+                    </button>
+                </div>
+
+                <!-- Plan 3: Agencia / Wedding Planner -->
+                <div class="bg-slate-50 rounded-[35px] p-8 border border-slate-100 flex flex-col justify-between space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-celeste uppercase tracking-widest block mb-1">B2B / Multi-Evento</span>
+                        <h3 class="font-serif text-2xl font-bold text-slate-900">Agencia & Planners</h3>
+                        <p class="text-slate-500 text-xs font-light mt-2">Para organizadores que manejan múltiples clientes al año.</p>
+                        <div class="my-6">
+                            <span class="font-serif text-4xl font-bold text-slate-900">$149</span>
+                            <span class="text-xs text-slate-500"> / año</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-slate-600">
+                            <li class="flex items-center gap-2">✓ **Hasta 10 Eventos al Año**</li>
+                            <li class="flex items-center gap-2">✓ Marca Blanca / Subdominio Propio</li>
+                            <li class="flex items-center gap-2">✓ Panel Tenant Multi-Cliente</li>
+                            <li class="flex items-center gap-2">✓ Soporte VIP Prioritario</li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-3 bg-white border border-slate-200 text-slate-700 hover:border-celeste hover:text-celeste text-xs font-semibold rounded-full transition">
+                        Contactar para Agencia
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 8. PASARELA DE PAGO Y MÉTODOS LOCALES -->
+    <section class="py-16 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-2">Pasarelas de Pago Flexibles</span>
+            <h3 class="font-serif text-2xl text-slate-800 font-bold mb-6">Aceptamos Métodos Nacionales e Internacionales</h3>
+            
+            <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 opacity-80">
+                <div class="px-4 py-2 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-700 shadow-sm">
+                    🇻🇪 PagoMóvil
+                </div>
+                <div class="px-4 py-2 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-700 shadow-sm">
+                    🇺🇸 Zelle
+                </div>
+                <div class="px-4 py-2 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-700 shadow-sm">
+                    💳 Tarjetas de Crédito / Débito
+                </div>
+                <div class="px-4 py-2 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-700 shadow-sm">
+                    🟡 Binance Pay
+                </div>
+                <div class="px-4 py-2 bg-white rounded-xl border border-slate-200 text-xs font-bold text-slate-700 shadow-sm">
+                    🅿️ PayPal
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. PREGUNTAS FRECUENTES (FAQ INTERACTIVO) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" x-data="{ selectedFaq: null }">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-esmeralda bg-esmeralda-soft px-4 py-1.5 rounded-full">
+                    Resolución de Dudas
+                </span>
+                <h2 class="font-serif text-3xl font-bold text-slate-900 mt-3">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <div class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                    <button @click="selectedFaq = selectedFaq === 1 ? null : 1" class="w-full p-5 text-left font-serif font-bold text-slate-800 text-sm flex justify-between items-center">
+                        <span>¿Cómo funciona el control de entrada mediante Cédula de Identidad?</span>
+                        <span x-text="selectedFaq === 1 ? '-' : '+'" class="text-lg text-esmeralda"></span>
+                    </button>
+                    <div x-show="selectedFaq === 1" x-cloak class="px-5 pb-5 text-xs text-slate-600 font-light leading-relaxed">
+                        El anfitrión asigna una cantidad de pases a un invitado principal. Al recibir la invitación web, el invitado ingresa el nombre y Cédula de Identidad de cada acompañante. El día del evento, la persona en puerta consulta las cédulas desde el panel de Check-in.
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                    <button @click="selectedFaq = selectedFaq === 2 ? null : 2" class="w-full p-5 text-left font-serif font-bold text-slate-800 text-sm flex justify-between items-center">
+                        <span>¿Cuánto tiempo dura activa la Galería de Recuerdos Post-Evento?</span>
+                        <span x-text="selectedFaq === 2 ? '-' : '+'" class="text-lg text-esmeralda"></span>
+                    </button>
+                    <div x-show="selectedFaq === 2" x-cloak class="px-5 pb-5 text-xs text-slate-600 font-light leading-relaxed">
+                        Según el plan contratado, la galería permanece activa entre 15 y 60 días para que tú y tus invitados descarguen todas las fotos y videos capturados durante la noche.
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+                    <button @click="selectedFaq = selectedFaq === 3 ? null : 3" class="w-full p-5 text-left font-serif font-bold text-slate-800 text-sm flex justify-between items-center">
+                        <span>¿Puedo pedir una plantilla con un diseño 100% personalizado?</span>
+                        <span x-text="selectedFaq === 3 ? '-' : '+'" class="text-lg text-esmeralda"></span>
+                    </button>
+                    <div x-show="selectedFaq === 3" x-cloak class="px-5 pb-5 text-xs text-slate-600 font-light leading-relaxed">
+                        ¡Sí! Puedes usar nuestro Cotizador Livewire 3 o solicitar una propuesta a medida. Nuestro equipo de diseño preparará la estructura exclusiva y te habilitará el enlace de pago directo.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER COMERCIAL & BOTÓN FLOTANTE WHATSAPP -->
+    <footer class="bg-slate-900 text-white py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 mb-12">
+            
+            <div class="space-y-4">
+                <span class="font-serif text-2xl font-bold tracking-tight">
+                    mementos<span class="text-esmeralda-mint">.com</span>
+                </span>
+                <p class="text-slate-400 text-xs font-light leading-relaxed">
+                    Plataforma SaaS Multi-Tenant líder en creación y gestión de invitaciones digitales e interactivas para eventos sociales y corporativos.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-sm text-slate-200 mb-4">Navegación</h4>
+                <ul class="space-y-2 text-xs text-slate-400">
+                    <li><a href="#como-funciona" class="hover:text-white transition">Cómo Funciona</a></li>
+                    <li><a href="#caracteristicas" class="hover:text-white transition">Características</a></li>
+                    <li><a href="#plantillas" class="hover:text-white transition">Galería de Plantillas</a></li>
+                    <li><a href="#planes" class="hover:text-white transition">Tabla de Precios</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-sm text-slate-200 mb-4">Paneles de Acceso</h4>
+                <ul class="space-y-2 text-xs text-slate-400">
+                    <li><a href="#" class="hover:text-white transition">Acceso Tenant Admin</a></li>
+                    <li><a href="#" class="hover:text-white transition">Acceso SuperAdmin Filament</a></li>
+                    <li><a href="#" class="hover:text-white transition">Centro de Ayuda / Soporte</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-serif font-bold text-sm text-slate-200 mb-4">Atención al Cliente</h4>
+                <p class="text-xs text-slate-400 mb-4">¿Tienes una agencia o evento corporativo? Habla con nuestro equipo comercial.</p>
+                <a href="https://wa.me/1234567890?text=Hola,%20deseo%20informaci%C3%B3n%20sobre%20mementos.com" target="_blank" class="inline-block px-5 py-2.5 bg-esmeralda hover:bg-esmeralda-light text-white text-xs font-semibold rounded-full transition">
+                    Contacto WhatsApp
+                </a>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            <p>© 2026 mementos.com — Todos los derechos reservados. Arquitectura SaaS Multi-Tenant.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante Comercial de WhatsApp -->
+    <a href="https://wa.me/1234567890?text=Hola,%20quiero%20cotizar%20un%20evento%20en%20mementos.com" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 p-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    </a>
+
+    <!-- LÓGICA DE ALPINE.JS -->
+    <script>
+        function mainApp() {
+            return {}
+        }
+
+        function heroDemoCountdown(expiry) {
+            return {
+                expiry: new Date(expiry).getTime(),
+                days: '00', hours: '00', minutes: '00', seconds: '00',
+                init() {
+                    this.updateCountdown();
+                    setInterval(() => { this.updateCountdown(); }, 1000);
+                },
+                updateCountdown() {
+                    const now = new Date().getTime();
+                    const diff = this.expiry - now;
+                    if (diff > 0) {
+                        this.days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                        this.hours = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                        this.minutes = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                        this.seconds = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+                    }
+                }
+            }
+        }
+
+        function templateGallery() {
+            return {
+                filter: 'all',
+                activeModal: false,
+                selectedTemplate: null,
+                templates: [
+                    { id: 1, title: 'Mis 15 Años Valentina', category: '15anos', categoryLabel: '15 Años', price: 49, image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=800', description: 'Diseño en esmeralda y celeste con contador, vestidos reservados y pases con Cédula.' },
+                    { id: 2, title: 'Boda Elegancia Real', category: 'bodas', categoryLabel: 'Boda', price: 59, image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800', description: 'Estilo romántico y atemporal con confirmación de alergias, lluvia de sobres y mapa interactivo.' },
+                    { id: 3, title: 'Cumpleaños Glamour', category: 'cumpleanos', categoryLabel: 'Cumpleaños', price: 35, image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=800', description: 'Fiesta moderna con playlist integrada con el DJ y subida de fotos instantánea.' },
+                    { id: 4, title: 'Gala Corporativa Anual', category: 'corporativo', categoryLabel: 'Corporativo', price: 79, image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800', description: 'Acreditación con Cédula, itinerario de ponencias y códigos QR personales por asistente.' }
+                ],
+                get filteredTemplates() {
+                    if (this.filter === 'all') return this.templates;
+                    return this.templates.filter(t => t.category === this.filter);
+                },
+                openDemo(item) {
+                    this.selectedTemplate = item;
+                    this.activeModal = true;
+                }
+            }
+        }
+
+        function livewireCalculator() {
+            return {
+                eventType: '15anos',
+                guests: 120,
+                modules: {
+                    idValidation: true,
+                    djPlaylist: true,
+                    extendedGallery: false,
+                    customDomain: false
+                },
+                reserved: false,
+                get guestPrice() {
+                    return Math.max(0, (this.guests - 50) * 0.15);
+                },
+                get modulesTotal() {
+                    let total = 0;
+                    if (this.modules.idValidation) total += 15;
+                    if (this.modules.djPlaylist) total += 10;
+                    if (this.modules.extendedGallery) total += 20;
+                    if (this.modules.customDomain) total += 25;
+                    return total;
+                },
+                get calculatedTotal() {
+                    return 35 + this.guestPrice + this.modulesTotal;
+                }
+            }
+        }
+    </script>
+
+<script>
+(function(){
+  const sp=document.querySelector('.sparkles');
+  if(sp){for(let i=0;i<24;i++){const d=document.createElement('i');d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${4+Math.random()*6}s;--w:${Math.random()*5}s;--s:${3+Math.random()*5}px`;sp.appendChild(d);}}
+  document.querySelectorAll('section .text-center, section .grid > div, #cotizador > div > div, footer .grid > div').forEach((el,i)=>{el.classList.add('rv');el.style.setProperty('--i',i%4);});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  const ph=document.querySelector('.hero .rounded-\\[50px\\]');
+  addEventListener('mousemove',e=>{if(!ph||innerWidth<1024)return;ph.style.setProperty('--rx',(e.clientY/innerHeight-.5)*-8+'deg');ph.style.setProperty('--ry',(e.clientX/innerWidth-.5)*8+'deg');});
+})();
+</script>
+</body>
+</html>

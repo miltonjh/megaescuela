@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 Años - Valentina 🌸</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: {
+    cream:'#FFF9F3', blush:{DEFAULT:'#F7B9CF',soft:'#FFEAF1',deep:'#D9729A'},
+    lilac:{DEFAULT:'#CDB9F2',soft:'#F3EDFF',deep:'#8A6BC9'},
+    sage:{DEFAULT:'#A9C8A0',soft:'#EAF4E6',deep:'#4F7A57'},
+    gold:{DEFAULT:'#D4AF6A',soft:'#FBF1D8'}, ink:'#4A3B4F'
+  },
+  fontFamily: { script:['Great Vibes','cursive'], serif:['Cormorant Garamond','serif'], sans:['Quicksand','sans-serif'] }
+}}}
+</script>
+<style>
+  .rv{opacity:0;transform:translateY(40px);filter:blur(6px);transition:opacity 1s ease var(--d,0s),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0s),filter 1s ease var(--d,0s)}
+  .rv.l{transform:translateX(-60px)} .rv.r{transform:translateX(60px)} .rv.z{transform:scale(.85)} .rv.up{transform:translateY(90px) scale(.95)}
+  .rv.in{opacity:1;transform:none;filter:none}
+  .ph{background:linear-gradient(160deg,#F7B9CF,#CDB9F2,#A9C8A0)}
+  .arch{border-radius:999px 999px 24px 24px}
+  .gold-frame{box-shadow:0 0 0 4px #fff,0 0 0 6px #D4AF6A,0 25px 50px -15px rgba(217,114,154,.35)}
+  .gold-text{background:linear-gradient(90deg,#B98B3E,#F3D88F,#D4AF6A,#B98B3E);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 5s linear infinite}
+  .sky{background:linear-gradient(180deg,#FFEAF1 0%,#F3EDFF 55%,#FFF9F3 100%)}
+  .soft-shift{background:linear-gradient(120deg,#FFEAF1,#F3EDFF,#EAF4E6,#FFEAF1);background-size:300% 300%;animation:flow 18s ease infinite}
+  .float{animation:float 6s ease-in-out infinite} .float2{animation:float 8s ease-in-out infinite reverse}
+  .sway{animation:sway 4s ease-in-out infinite;transform-origin:bottom center}
+  .bob{animation:bob 3s ease-in-out infinite}
+  .spin-slow{animation:spin 40s linear infinite}
+  .twinkle{animation:twinkle 2.5s ease-in-out infinite}
+  .glow{animation:glow 3s ease-out infinite}
+  .petal{position:absolute;top:-8%;animation:fall linear infinite;pointer-events:none}
+  .bfly{position:absolute;animation:fly linear infinite;pointer-events:none}
+  .marq{display:flex;gap:1.5rem;width:max-content;animation:marq 45s linear infinite}
+  .marq.rev{animation-direction:reverse} .marq:hover{animation-play-state:paused}
+  .grow-line{transform:scaleX(0);transition:transform 1.2s ease .3s} .in .grow-line,.grow-line.in{transform:scaleX(1)}
+  .trail{position:fixed;pointer-events:none;z-index:60;animation:trail 1s ease-out forwards}
+  @keyframes shimmer{to{background-position:250% 0}}
+  @keyframes flow{50%{background-position:100% 50%}}
+  @keyframes float{50%{transform:translateY(-16px) rotate(3deg)}}
+  @keyframes sway{50%{transform:rotate(4deg)}0%,100%{transform:rotate(-4deg)}}
+  @keyframes bob{50%{transform:translateY(-8px) rotate(-4deg)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.2)}}
+  @keyframes glow{0%{box-shadow:0 0 0 0 rgba(217,114,154,.5)}100%{box-shadow:0 0 0 20px rgba(217,114,154,0)}}
+  @keyframes fall{0%{transform:translate(0,-10vh) rotate(0)}50%{transform:translate(40px,55vh) rotate(200deg)}100%{transform:translate(-30px,112vh) rotate(420deg)}}
+  @keyframes fly{0%{transform:translate(-12vw,0) rotate(8deg)}25%{transform:translate(22vw,-50px) rotate(-6deg)}50%{transform:translate(50vw,30px) rotate(10deg)}75%{transform:translate(78vw,-40px) rotate(-8deg)}100%{transform:translate(112vw,10px) rotate(6deg)}}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  @keyframes trail{to{opacity:0;transform:translateY(24px) scale(.2) rotate(120deg)}}
+  @keyframes tick{0%{transform:translateY(-10px);opacity:.3}100%{transform:none;opacity:1}}
+  .tick{animation:tick .45s ease}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+
+<body x-data="app()" @scroll.window.passive="y = scrollY; p = y/(document.body.scrollHeight-innerHeight)*100" @mousemove.window.throttle.60ms="spark($event)"
+      class="bg-cream text-ink font-sans antialiased overflow-x-hidden selection:bg-blush selection:text-ink">
+
+  <!-- Símbolos SVG reutilizables -->
+  <svg width="0" height="0" class="absolute"><defs>
+    <symbol id="fl" viewBox="0 0 40 40">
+      <g fill="currentColor"><ellipse cx="20" cy="10" rx="6" ry="10"/><ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(60 20 20)"/><ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(120 20 20)"/><ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(180 20 20)"/><ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(240 20 20)"/><ellipse cx="20" cy="10" rx="6" ry="10" transform="rotate(300 20 20)"/></g>
+      <circle cx="20" cy="20" r="5" fill="#D4AF6A"/>
+    </symbol>
+    <symbol id="crown" viewBox="0 0 64 40"><path d="M4 34 L10 10 L24 22 L32 4 L40 22 L54 10 L60 34 Z" fill="#D4AF6A" stroke="#B98B3E" stroke-width="2" stroke-linejoin="round"/><circle cx="10" cy="9" r="3" fill="#F7B9CF"/><circle cx="32" cy="4" r="3.5" fill="#CDB9F2"/><circle cx="54" cy="9" r="3" fill="#F7B9CF"/><rect x="4" y="34" width="56" height="4" rx="2" fill="#B98B3E"/></symbol>
+  </defs></svg>
+
+  <!-- TELÓN DE ENTRADA -->
+  <div x-show="loading" x-transition:leave="transition duration-1000" x-transition:leave-end="opacity-0" class="fixed inset-0 z-[100] pointer-events-none">
+    <div class="absolute inset-y-0 left-0 w-1/2 bg-blush-soft transition-transform duration-[1400ms] ease-in-out" :class="open && '-translate-x-full'"></div>
+    <div class="absolute inset-y-0 right-0 w-1/2 bg-lilac-soft transition-transform duration-[1400ms] ease-in-out" :class="open && 'translate-x-full'"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center transition duration-700" :class="open && 'opacity-0 scale-125'">
+      <svg class="w-20 h-12 bob"><use href="#crown"/></svg>
+      <p class="font-script text-5xl text-blush-deep mt-2">Valentina</p>
+    </div>
+  </div>
+
+  <div class="fixed top-0 left-0 h-1 z-50 bg-gradient-to-r from-blush via-gold to-sage" :style="`width:${p}%`"></div>
+
+  <!-- ================= HERO ================= -->
+  <header class="relative min-h-screen sky flex items-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <!-- pétalos -->
+    <template x-for="c in petals" :key="c.i">
+      <span class="petal" :style="`left:${c.x}%;font-size:${c.s}px;animation-duration:${c.t}s;animation-delay:-${c.d}s;opacity:.85`" x-text="c.e"></span>
+    </template>
+    <!-- mariposas -->
+    <span class="bfly text-3xl" style="top:18%;animation-duration:26s">🦋</span>
+    <span class="bfly text-2xl" style="top:60%;animation-duration:34s;animation-delay:-12s">🦋</span>
+    <!-- destellos -->
+    <template x-for="s in sparkles" :key="s.i"><span class="absolute twinkle text-gold" :style="`left:${s.x}%;top:${s.y}%;animation-delay:${s.d}s;font-size:${s.s}px`">✦</span></template>
+
+    <div class="relative max-w-6xl w-full mx-auto grid lg:grid-cols-12 gap-12 items-center pb-24">
+      <!-- Foto en arco -->
+      <div class="lg:col-span-6 order-2 lg:order-1 relative flex justify-center" x-reveal.l>
+        <div class="absolute inset-0 m-auto w-[92%] max-w-[26rem] aspect-square rounded-full border border-dashed border-gold/70 spin-slow"></div>
+        <div class="relative w-[78%] max-w-sm aspect-[3/4] arch overflow-hidden gold-frame ph" :style="`transform:translateY(${y*-0.05}px)`">
+          <img :src="photos[0].src" alt="Valentina" class="w-full h-full object-cover hover:scale-110 transition duration-[1500ms]" onerror="this.style.opacity=0">
+          <div class="absolute inset-0 bg-gradient-to-t from-blush-deep/30 to-transparent"></div>
+        </div>
+        <span class="absolute top-6 left-2 sm:left-10 text-5xl float">🌷</span>
+        <span class="absolute bottom-16 right-2 sm:right-8 text-5xl float2">🌼</span>
+        <span class="absolute top-1/3 right-0 sm:right-6 text-3xl bob">🦋</span>
+      </div>
+
+      <!-- Texto -->
+      <div class="lg:col-span-6 order-1 lg:order-2 text-center lg:text-left space-y-6">
+        <div x-reveal style="--d:.2s">
+          <svg class="w-16 h-10 mx-auto lg:mx-0 bob"><use href="#crown"/></svg>
+          <span class="font-script text-5xl sm:text-6xl text-blush-deep block mt-1">Te invito a mis</span>
+          <h1 class="font-serif font-semibold text-7xl sm:text-9xl gold-text leading-none pb-2">15 Años</h1>
+          <p class="font-serif italic text-3xl sm:text-4xl text-lilac-deep mt-1">Valentina <span x-text="words[w]" x-transition.opacity></span></p>
+        </div>
+        <p class="font-light text-base sm:text-lg text-ink/80 leading-relaxed max-w-lg mx-auto lg:mx-0" x-reveal style="--d:.35s">
+          Hay momentos especiales que se vuelven inolvidables cuando los compartes con las personas que más quieres. Quiero que seas parte de esta noche, mágica como un cuento, entre flores y luces.
+        </p>
+
+        <div x-data="countdown('2026-11-27T20:00:00')" x-reveal.z style="--d:.5s">
+          <p class="text-xs uppercase font-semibold tracking-[.25em] text-ink/50 mb-3">La cuenta regresiva ha comenzado</p>
+          <div class="grid grid-cols-4 gap-3 max-w-md mx-auto lg:mx-0">
+            <template x-for="u in [['days','Días','bg-blush-soft'],['hours','Horas','bg-lilac-soft'],['minutes','Min','bg-sage-soft'],['seconds','Seg','bg-gold-soft']]">
+              <div class="py-3 rounded-[28px] text-center border border-gold/60 shadow-sm hover:-translate-y-1 hover:shadow-lg transition duration-500" :class="u[2]">
+                <span class="block font-serif text-3xl font-bold text-blush-deep" :class="u[0]=='seconds' && tick ? 'tick' : ''" x-text="v[u[0]]">00</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-ink/60" x-text="u[1]"></span>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" x-reveal style="--d:.65s">
+          <a href="#confirmar" class="glow w-full sm:w-auto px-8 py-4 bg-blush-deep hover:bg-blush-deep/90 text-white font-semibold text-sm rounded-full hover:scale-105 transition text-center">Confirmar Asistencia</a>
+          <a href="#ubicacion" class="w-full sm:w-auto px-8 py-4 bg-white/70 backdrop-blur border border-gold text-gold hover:bg-gold hover:text-white font-semibold text-sm rounded-full transition text-center">Ver Ubicación</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campo de flores meciéndose -->
+    <div class="absolute bottom-0 inset-x-0 h-32 pointer-events-none">
+      <div class="absolute bottom-0 inset-x-0 h-6 bg-sage/60 rounded-t-[100%]"></div>
+      <template x-for="f in garden" :key="f.i">
+        <div class="absolute bottom-0 sway" :style="`left:${f.x}%;height:${f.h}px;width:${f.h/3}px;animation-delay:-${f.d}s;color:${f.c}`">
+          <svg viewBox="0 0 40 120" class="w-full h-full overflow-visible"><path d="M20 38C18 70 22 95 20 120" stroke="#8DB488" stroke-width="2.5" fill="none"/><path d="M20 90q-14-4-17-20q15 0 17 20" fill="#A9C8A0"/><use href="#fl" width="40" height="40"/></svg>
+        </div>
+      </template>
+    </div>
+  </header>
+
+  <!-- ============ FRANJA DE FOTOS 1: arcos ============ -->
+  <section class="py-14 bg-blush-soft overflow-hidden">
+    <p class="text-center font-script text-4xl text-blush-deep mb-8" x-reveal>Valentina, a través de los años</p>
+    <div class="marq">
+      <template x-for="(ph,i) in [...photos,...photos]" :key="i">
+        <figure class="relative shrink-0 w-44 h-64 sm:w-52 sm:h-72 arch overflow-hidden ph gold-frame hover:-translate-y-3 transition duration-500" :class="i%2 ? 'mt-8' : ''">
+          <img :src="ph.src" :alt="ph.label" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+          <figcaption class="absolute bottom-3 inset-x-6 bg-white/90 text-blush-deep font-serif italic text-sm text-center rounded-full py-0.5" x-text="ph.label"></figcaption>
+        </figure>
+      </template>
+    </div>
+  </section>
+
+  <!-- ============ VESTIMENTA ============ -->
+  <section class="py-24 bg-lilac-soft relative overflow-hidden">
+    <span class="absolute -top-4 left-6 text-6xl opacity-60 float">🌸</span>
+    <span class="absolute bottom-6 right-8 text-6xl opacity-60 float2">🪻</span>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="bg-white/80 backdrop-blur rounded-[48px] p-8 sm:p-14 border border-gold/50 shadow-xl shadow-lilac/30 grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-7 space-y-5">
+          <span class="font-script text-5xl text-lilac-deep block" x-reveal>Código de Vestimenta</span>
+          <h2 class="font-serif font-semibold text-4xl sm:text-5xl text-ink" x-reveal style="--d:.1s">Gala Formal & <span class="gold-text">Glamour</span></h2>
+          <div class="h-px w-24 bg-gold grow-line origin-left" x-reveal></div>
+          <p class="font-light leading-relaxed text-ink/80" x-reveal style="--d:.2s">
+            Queremos que esta noche sea deslumbrante. Te invitamos a lucir tu mejor traje o vestido de gala para celebrar juntos en grande, bajo el cielo del campo.
+          </p>
+          <div class="p-5 bg-sage-soft rounded-3xl border border-sage flex gap-4 hover:scale-[1.02] transition" x-reveal.z style="--d:.3s">
+            <span class="text-2xl bob">🦋</span>
+            <p class="text-sm text-ink/80 leading-relaxed">
+              <strong class="font-semibold">Nota Especial:</strong> El tono <span class="text-sky-500 font-semibold">Azul Celeste</span> es exclusivo para el vestido de Valentina. ¡Los tonos pastel, el verde salvia y los estampados florales son bienvenidos!
+            </p>
+          </div>
+        </div>
+        <div class="md:col-span-5 relative h-80">
+          <div class="absolute left-0 top-8 w-32 sm:w-36 aspect-[3/4] arch overflow-hidden gold-frame ph -rotate-6 hover:rotate-0 hover:z-20 transition duration-500" x-reveal.z><img :src="photos[1].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"></div>
+          <div class="absolute right-0 top-0 w-32 sm:w-36 aspect-[3/4] arch overflow-hidden gold-frame ph rotate-6 hover:rotate-0 hover:z-20 transition duration-500" x-reveal.z style="--d:.15s"><img :src="photos[2].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"></div>
+          <div class="absolute left-1/2 -translate-x-1/2 bottom-0 w-28 sm:w-32 aspect-[3/4] arch overflow-hidden gold-frame ph float" x-reveal.z style="--d:.3s"><img :src="photos[3].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UNA NOCHE INOLVIDABLE ============ -->
+  <section class="py-24 sky relative overflow-hidden">
+    <span class="bfly text-3xl" style="top:8%;animation-duration:30s">🦋</span>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="font-script text-5xl text-blush-deep block" x-reveal>Lo que nos espera</span>
+        <h2 class="font-serif font-semibold text-5xl sm:text-6xl mt-1" x-reveal style="--d:.1s">Una Noche <span class="gold-text">Inolvidable</span></h2>
+        <div class="h-px w-24 bg-gold grow-line mx-auto mt-5 origin-center" x-reveal></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <template x-for="(c,i) in cards" :key="i">
+          <div x-reveal :style="`--d:${i*.15}s`">
+            <div class="h-full p-8 rounded-[40px] text-center space-y-3 bg-white border border-gold/40 shadow-lg shadow-blush/30 hover:-translate-y-3 hover:shadow-2xl transition duration-500">
+              <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-3xl bob" :class="c.bg" x-text="c.i"></div>
+              <h3 class="font-serif font-semibold text-2xl" x-text="c.t"></h3>
+              <p class="text-sm font-light leading-relaxed text-ink/70" x-text="c.d"></p>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 relative">
+        <template x-for="(s,i) in spaces" :key="i">
+          <div x-reveal :class="i ? 'r' : 'l'">
+            <div class="group relative h-80 sm:h-[26rem] rounded-t-[200px] rounded-b-[40px] overflow-hidden ph gold-frame">
+              <img :src="s.src" :alt="s.t" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition duration-[1500ms]" onerror="this.style.opacity=0">
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-8 inset-x-8 text-white text-center">
+                <span class="text-xs uppercase font-semibold tracking-[.25em] text-gold-soft" x-text="s.k"></span>
+                <h4 class="font-serif text-3xl mt-1" x-text="s.t"></h4>
+              </div>
+            </div>
+          </div>
+        </template>
+        <div class="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full overflow-hidden ph gold-frame float z-10" x-reveal.z><img :src="photos[4].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FRANJA DE FOTOS 2: medallones ============ -->
+  <section class="py-14 bg-sage-soft overflow-hidden">
+    <div class="marq rev">
+      <template x-for="(ph,i) in [...photos.slice().reverse(),...photos.slice().reverse()]" :key="i">
+        <figure class="relative shrink-0 w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden ph gold-frame hover:scale-105 hover:rotate-3 transition duration-500" :class="i%2 ? 'mt-6' : ''">
+          <img :src="ph.src" :alt="ph.label" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+        </figure>
+      </template>
+    </div>
+  </section>
+
+  <!-- ============ ÁLBUM ============ -->
+  <section class="py-24 bg-cream relative overflow-hidden">
+    <span class="bfly text-2xl" style="top:12%;animation-duration:28s;animation-delay:-8s">🦋</span>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="relative soft-shift p-10 sm:p-16 rounded-[56px] border border-gold/60 shadow-2xl shadow-blush/40 space-y-6 overflow-hidden" x-reveal.z>
+        <img :src="photos[5].src" alt="" loading="lazy" class="hidden sm:block absolute -left-4 -bottom-4 w-36 h-48 object-cover arch gold-frame -rotate-12 float ph" onerror="this.style.opacity=0">
+        <img :src="photos[6].src" alt="" loading="lazy" class="hidden sm:block absolute -right-4 -top-4 w-36 h-48 object-cover arch gold-frame rotate-12 float2 ph" onerror="this.style.opacity=0">
+        <span class="font-script text-5xl text-blush-deep block">Álbum Interactivo</span>
+        <h2 class="font-serif font-semibold text-4xl sm:text-5xl">Comparte tus Fotos y Videos</h2>
+        <p class="font-light max-w-xl mx-auto leading-relaxed text-ink/80">
+          ¡Tu mirada hace el recuerdo completo! Podrás subir todas las imágenes y clips que captures durante la celebración a la aplicación del evento.
+        </p>
+        <a href="#" class="glow inline-flex items-center gap-3 px-8 py-4 bg-gold hover:bg-gold/90 text-white font-semibold text-sm rounded-full hover:scale-110 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+          Subir Contenido al Evento
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UBICACIÓN ============ -->
+  <section id="ubicacion" class="py-24 bg-blush-soft">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <span class="font-script text-5xl text-lilac-deep block" x-reveal>¿Cómo llegar?</span>
+        <h2 class="font-serif font-semibold text-5xl mt-1" x-reveal style="--d:.1s">Ubicación del Evento</h2>
+      </div>
+      <div class="bg-white rounded-[48px] p-6 sm:p-8 shadow-xl shadow-blush/40 border border-gold/40 grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 space-y-4 text-center lg:text-left" x-reveal.l>
+          <span class="px-4 py-1.5 bg-sage-soft text-sage-deep rounded-full text-xs font-semibold uppercase tracking-wider inline-block">Lugar de la Recepción</span>
+          <h3 class="font-serif font-semibold text-3xl">Quinta Las Esmeraldas</h3>
+          <p class="text-ink/60 text-sm font-light">Av. Los Naranjos #102, Sector Residencial, Ciudad</p>
+          <div>
+            <p class="text-sm font-semibold text-blush-deep">Viernes, 27 de Noviembre de 2026</p>
+            <p class="text-xs text-ink/50 mt-0.5">Recepción: 8:00 PM</p>
+          </div>
+          <a href="https://maps.google.com" target="_blank" class="inline-block px-6 py-3 bg-sage-deep hover:bg-blush-deep text-white font-medium text-xs rounded-full hover:scale-105 transition">Abrir en Google Maps</a>
+        </div>
+        <div class="lg:col-span-7 h-80 rounded-[36px] overflow-hidden border-4 border-white shadow-inner ring-1 ring-gold" x-reveal.r>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.598285918731!2d-71.642145!3d10.686888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQxJzEyLjgiTiA3McKwMzgnMzEuNyJX!5e0!3m2!1ses!2s!4v1620000000000!5m2!1ses!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="confirmar" class="relative pt-24 pb-40 bg-sage-soft text-center overflow-hidden">
+    <div class="absolute inset-0 opacity-20 pointer-events-none"><img :src="photos[7].src" alt="" loading="lazy" class="w-full h-full object-cover" onerror="this.style.opacity=0"></div>
+    <template x-for="c in petals.slice(0,8)" :key="c.i"><span class="petal" :style="`left:${c.x}%;font-size:${c.s}px;animation-duration:${c.t+6}s;animation-delay:-${c.d}s`" x-text="c.e"></span></template>
+    <div class="relative max-w-md mx-auto px-4 space-y-6">
+      <svg class="w-14 h-9 mx-auto bob" x-reveal.z><use href="#crown"/></svg>
+      <span class="font-script text-7xl text-blush-deep block" x-reveal.z>Valentina</span>
+      <h3 class="font-serif font-semibold text-4xl" x-reveal style="--d:.1s">¿Nos acompañarás?</h3>
+      <p class="font-light text-ink/70" x-reveal style="--d:.2s">Agradecemos confirmar tu asistencia antes del 15 de Noviembre de 2026.</p>
+      <a href="https://wa.me/1234567890?text=Hola%20Valentina,%20confirmo%20mi%20asistencia%20a%20tus%2015%20Años" target="_blank"
+         class="glow inline-flex items-center justify-center w-full py-4 bg-blush-deep text-white font-semibold text-sm rounded-full hover:scale-105 transition" x-reveal style="--d:.3s">
+        Confirmar Asistencia por WhatsApp 💬
+      </a>
+      <p class="pt-8 text-ink/50 font-serif italic text-sm">Mis 15 Años • 2026</p>
+    </div>
+    <div class="absolute bottom-0 inset-x-0 h-32 pointer-events-none">
+      <div class="absolute bottom-0 inset-x-0 h-6 bg-sage/70 rounded-t-[100%]"></div>
+      <template x-for="f in garden" :key="f.i">
+        <div class="absolute bottom-0 sway" :style="`left:${f.x}%;height:${f.h}px;width:${f.h/3}px;animation-delay:-${f.d}s;color:${f.c}`">
+          <svg viewBox="0 0 40 120" class="w-full h-full overflow-visible"><path d="M20 38C18 70 22 95 20 120" stroke="#8DB488" stroke-width="2.5" fill="none"/><path d="M20 90q-14-4-17-20q15 0 17 20" fill="#A9C8A0"/><use href="#fl" width="40" height="40"/></svg>
+        </div>
+      </template>
+    </div>
+  </footer>
+
+<script>
+  // x-reveal: fade in al entrar y fade out al salir. Modificadores: .l .r .z .up
+  document.addEventListener('alpine:init', () => {
+    Alpine.directive('reveal', (el, { modifiers }) => {
+      el.classList.add('rv', ...modifiers);
+      new IntersectionObserver(([e]) => el.classList.toggle('in', e.isIntersecting), { threshold: 0.15 }).observe(el);
+    });
+  });
+
+  // Reemplaza por tus fotos originales cuando las tengas.
+  const U = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=700`;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+
+  function app() {
+    return {
+      y: 0, p: 0, loading: true, open: false, w: 0,
+      words: ['🌸', '✨', '🦋', '🌷'],
+      photos: [
+        { src: U('1529626455594-4ff0802cfb7e'), label: 'Gala' },
+        { src: U('1494790108377-be9c29b29330'), label: 'Casual' },
+        { src: U('1496747611176-843222e1e57c'), label: 'Vestido de flores' },
+        { src: U('1515886657613-9f3515b0c78f'), label: 'Elegante' },
+        { src: U('1534528741775-53994a69daeb'), label: 'En el jardín' },
+        { src: U('1524504388940-b1c1722653e1'), label: 'Primavera' },
+        { src: U('1517841905240-472988babdf9'), label: 'Atardecer' },
+        { src: U('1438761681033-6461ffad8d80'), label: 'Sonrisa' },
+      ],
+      spaces: [
+        { src: U('1519167758481-83f550bb49b3'), k: 'Espacio Principal', t: 'Gran Salón de Recepciones' },
+        { src: U('1464366400600-7168b8af9bc3'), k: 'Área Social', t: 'Campo & Jardín de Flores' },
+      ],
+      cards: [
+        { i: '🎵', t: 'Música & DJ', bg: 'bg-blush-soft', d: 'Luces cálidas, sonido de alta definición y una selección musical pensada para mantener la pista llena.' },
+        { i: '🥂', t: 'Cocktail & Gastronomía', bg: 'bg-lilac-soft', d: 'Estaciones delicadas con bebidas y platillos especiales para disfrutar toda la noche.' },
+        { i: '✨', t: 'Momentos Sorpresa', bg: 'bg-sage-soft', d: 'Puntos fotográficos entre flores, show de luces y detalles para inmortalizar el recuerdo.' },
+      ],
+      petals: Array.from({ length: 16 }, (_, i) => ({ i, x: rnd(0, 100), s: rnd(16, 30), t: rnd(14, 24), d: rnd(0, 24), e: ['🌸', '🌼', '🌷', '🤍', '🌺'][i % 5] })),
+      sparkles: Array.from({ length: 12 }, (_, i) => ({ i, x: rnd(3, 97), y: rnd(5, 80), d: rnd(0, 3), s: rnd(10, 22) })),
+      garden: Array.from({ length: 22 }, (_, i) => ({ i, x: i * 4.6 + rnd(-1, 1), h: rnd(60, 120), d: rnd(0, 4), c: ['#F7B9CF', '#CDB9F2', '#FFFFFF', '#FBE7A1', '#F4A6C0'][i % 5] })),
+      spark(e) {
+        const s = document.createElement('span');
+        s.className = 'trail'; s.textContent = ['✦', '🌸', '✧'][Math.floor(Math.random() * 3)];
+        s.style.cssText += `left:${e.clientX}px;top:${e.clientY}px;font-size:${rnd(10, 18)}px;color:#D4AF6A`;
+        document.body.appendChild(s); setTimeout(() => s.remove(), 1000);
+      },
+      init() {
+        setTimeout(() => this.open = true, 900);
+        setTimeout(() => this.loading = false, 2300);
+        setInterval(() => this.w = (this.w + 1) % this.words.length, 2400);
+      }
+    }
+  }
+
+  function countdown(expiry) {
+    return {
+      end: new Date(expiry).getTime(), tick: false,
+      v: { days: '00', hours: '00', minutes: '00', seconds: '00' },
+      init() { this.update(); setInterval(() => this.update(), 1000); },
+      update() {
+        const r = Math.max(0, this.end - Date.now()), pad = n => String(n).padStart(2, '0');
+        this.v = { days: pad(Math.floor(r / 864e5)), hours: pad(Math.floor(r % 864e5 / 36e5)), minutes: pad(Math.floor(r % 36e5 / 6e4)), seconds: pad(Math.floor(r % 6e4 / 1e3)) };
+        this.tick = false; requestAnimationFrame(() => this.tick = true);
+      }
+    }
+  }
+</script>
+</body>
+</html>

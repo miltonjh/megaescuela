@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 Años - Valentina 💖</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Alpine.js -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<!-- Fuentes elegantes -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          'serif': ['"Cormorant Garamond"', 'serif'],
+          'script': ['"Great Vibes"', 'cursive'],
+          'sans': ['Poppins', 'sans-serif'],
+        },
+        colors: {
+          'valentina': '#87CEEB', // Azul celeste exclusivo
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+    background-attachment: fixed;
+  }
+  .font-script { font-family: 'Great Vibes', cursive; }
+  .font-serif-elegant { font-family: 'Cormorant Garamond', serif; }
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+  }
+  .gold-gradient {
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #b8941f 100%);
+  }
+  .text-gold {
+    background: linear-gradient(135deg, #d4af37, #f4d03f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .fade-in {
+    animation: fadeIn 1s ease-in;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #064e3b; }
+  ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+</style>
+</head>
+
+<body class="text-amber-50 min-h-screen" x-data>
+
+<!-- ============ NAVEGACIÓN FIJA ============ -->
+<nav x-data="{ open: false }" class="fixed top-0 left-0 right-0 z-50 glass">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+    <span class="font-script text-2xl text-gold">Valentina 💖</span>
+    <button @click="open = !open" class="md:hidden text-amber-300 text-2xl">☰</button>
+    <ul :class="open ? 'flex' : 'hidden'" class="md:flex gap-6 absolute md:static top-full left-0 right-0 glass p-4 md:p-0 flex-col md:flex-row items-center text-sm">
+      <li><a href="#invitacion-personalizada" class="hover:text-valentina transition">Inicio</a></li>
+      <li><a href="#cronograma-celebracion" class="hover:text-valentina transition">Itinerario</a></li>
+      <li><a href="#album-recuerdos" class="hover:text-valentina transition">Álbum</a></li>
+      <li><a href="#regalo-deseado-sugerido" class="hover:text-valentina transition">Regalos</a></li>
+      <li><a href="#confirmar-asistencia" class="hover:text-valentina transition">Confirmar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ INVITACIÓN PERSONALIZADA E INTERACTIVA ============ -->
+<section id="invitacion-personalizada" 
+         x-data="countdown()" 
+         class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 fade-in">
+  <p class="text-amber-300 tracking-[0.4em] uppercase text-sm mb-4">Sweet 15 💖</p>
+  <h1 class="font-script text-8xl md:text-9xl text-gold mb-2">Valentina</h1>
+  <p class="font-serif-elegant text-3xl md:text-4xl text-amber-100 italic mb-6">está llegando…</p>
+  <p class="text-lg md:text-xl max-w-2xl mb-8">
+    Hay momentos especiales que se vuelven inolvidables cuando los compartes con las personas que más quieres. 
+    Quiero que seas parte de esta noche tan mágica para mí.
+  </p>
+
+  <div class="glass rounded-2xl p-8 mb-8 w-full max-w-xl">
+    <p class="text-amber-300 mb-4 text-sm tracking-widest uppercase">La cuenta regresiva ha comenzado</p>
+    <div class="grid grid-cols-4 gap-2 md:gap-4">
+      <div class="bg-emerald-950/50 rounded-lg p-3">
+        <div class="text-3xl md:text-4xl font-bold text-gold" x-text="days">00</div>
+        <div class="text-xs text-amber-200 uppercase">Días</div>
+      </div>
+      <div class="bg-emerald-950/50 rounded-lg p-3">
+        <div class="text-3xl md:text-4xl font-bold text-gold" x-text="hours">00</div>
+        <div class="text-xs text-amber-200 uppercase">Horas</div>
+      </div>
+      <div class="bg-emerald-950/50 rounded-lg p-3">
+        <div class="text-3xl md:text-4xl font-bold text-gold" x-text="minutes">00</div>
+        <div class="text-xs text-amber-200 uppercase">Min</div>
+      </div>
+      <div class="bg-emerald-950/50 rounded-lg p-3">
+        <div class="text-3xl md:text-4xl font-bold text-gold" x-text="seconds">00</div>
+        <div class="text-xs text-amber-200 uppercase">Seg</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap gap-3 justify-center">
+    <a href="#confirmar-asistencia" class="gold-gradient text-emerald-950 font-semibold px-8 py-3 rounded-full hover:scale-105 transition shadow-lg">
+      💌 Confirmar Asistencia
+    </a>
+    <a href="#ubicacion-evento" class="border-2 border-amber-400 text-amber-300 px-8 py-3 rounded-full hover:bg-amber-400 hover:text-emerald-950 transition">
+      📍 Ver Ubicación
+    </a>
+  </div>
+</section>
+
+<!-- ============ CÓDIGO DE VESTIMENTA ============ -->
+<section id="codigo-vestimenta" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">Código de Vestimenta</h2>
+    <p class="text-center text-amber-200 mb-8 tracking-widest uppercase text-sm">✨ Gala Formal & Glamour ✨</p>
+    <div class="glass rounded-2xl p-8 text-center">
+      <p class="text-lg mb-6">
+        Queremos que esta noche sea deslumbrante. Te invitamos a lucir tu mejor traje o vestido de gala para celebrar juntos en grande.
+      </p>
+      <div class="bg-sky-500/10 border-l-4 border-valentina p-4 rounded-r-lg text-left">
+        <p class="text-valentina font-semibold mb-1">📌 Nota Especial</p>
+        <p class="text-sm">
+          El tono <strong class="text-valentina">Azul Celeste</strong> es exclusivo para el vestido de Valentina. 
+          ¡Los colores vivos, el verde esmeralda y la paleta elegante son bienvenidos!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTROL DE PASES ============ -->
+<section id="control-pases" x-data="pasesControl()" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">🎟️ Control de Pases</h2>
+    <p class="text-center text-amber-200 mb-8">Esta invitación es personal e intransferible</p>
+    <div class="glass rounded-2xl p-8">
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Tu nombre completo</label>
+        <input x-model="nombre" type="text" placeholder="Ej. María González"
+               class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 focus:border-amber-400 outline-none">
+      </div>
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Número de pases confirmados</label>
+        <select x-model="cantidad" class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 focus:border-amber-400 outline-none">
+          <option value="1">1 pase</option>
+          <option value="2">2 pases</option>
+          <option value="3">3 pases</option>
+          <option value="4">4 pases</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Nombre de los acompañantes</label>
+        <template x-for="(acom, i) in parseInt(cantidad) - 1" :key="i">
+          <input x-model="acompanantes[i]" type="text" :placeholder="`Acompañante ${i+1}`"
+                 class="w-full px-4 py-3 mb-2 rounded-lg bg-emerald-950/50 border border-amber-400/30 focus:border-amber-400 outline-none">
+        </template>
+      </div>
+      <button @click="registrarPases" class="w-full gold-gradient text-emerald-950 font-semibold py-3 rounded-full hover:scale-[1.02] transition">
+        ✓ Registrar Pases
+      </button>
+      <div x-show="confirmado" x-transition class="mt-4 bg-emerald-500/20 border border-emerald-400 p-4 rounded-lg text-center">
+        <p class="text-emerald-200">✅ ¡Pases registrados con éxito!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRONOGRAMA DE CELEBRACIÓN ============ -->
+<section id="cronograma-celebracion" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">🕰️ Cronograma</h2>
+    <p class="text-center text-amber-200 mb-10">Así será nuestra velada mágica</p>
+    <div class="space-y-4">
+      <template x-for="evento in [
+        {hora: '8:00 PM', titulo: 'Recepción de invitados', desc: 'Cóctel de bienvenida'},
+        {hora: '8:45 PM', titulo: 'Entrada de Valentina', desc: 'Vals inaugural'},
+        {hora: '9:15 PM', titulo: 'Brindis y palabras', desc: 'De la quinceañera'},
+        {hora: '9:45 PM', titulo: 'Cena de gala', desc: 'Menú de 3 tiempos'},
+        {hora: '11:00 PM', titulo: 'Corte del pastel', desc: 'Tradición de los 15'},
+        {hora: '11:30 PM', titulo: '¡A bailar!', desc: 'Apertura de pista'},
+        {hora: '2:00 AM', titulo: 'Cierre de la fiesta', desc: 'Recuerdo final'}
+      ]" :key="evento.hora">
+        <div class="glass rounded-xl p-5 border-l-4 border-amber-400 flex items-center gap-4 hover:scale-[1.02] transition">
+          <div class="text-2xl md:text-3xl font-bold text-valentina min-w-[100px]" x-text="evento.hora"></div>
+          <div>
+            <h3 class="text-lg font-semibold text-amber-100" x-text="evento.titulo"></h3>
+            <p class="text-sm text-amber-300/80" x-text="evento.desc"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILTRO DE MENÚ Y ALERGIAS ============ -->
+<section id="filtro-menu-alergias" x-data="menuAlergias()" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">🍽️ Menú y Alergias</h2>
+    <p class="text-center text-amber-200 mb-8">Tu comodidad es importante</p>
+    <div class="glass rounded-2xl p-8">
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Selecciona tu menú preferido</label>
+        <select x-model="menu" class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none">
+          <option value="">-- Selecciona --</option>
+          <option>Menú Clásico (carne y pasta)</option>
+          <option>Menú Vegetariano</option>
+          <option>Menú Vegano</option>
+          <option>Menú Sin Gluten</option>
+          <option>Menú Infantil</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">¿Tienes alguna alergia o intolerancia?</label>
+        <textarea x-model="alergias" rows="3" placeholder="Ej. intolerancia a la lactosa, mariscos..."
+                  class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none"></textarea>
+      </div>
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Observaciones adicionales</label>
+        <input x-model="observaciones" type="text" placeholder="Opcional"
+               class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none">
+      </div>
+      <button @click="guardarMenu" class="w-full gold-gradient text-emerald-950 font-semibold py-3 rounded-full hover:scale-[1.02] transition">
+        ✓ Guardar Preferencias
+      </button>
+      <div x-show="guardado" x-transition class="mt-4 bg-emerald-500/20 border border-emerald-400 p-4 rounded-lg text-center">
+        <p class="text-emerald-200">✅ ¡Preferencias guardadas!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SESIÓN DE FOTOS (TEASER) ============ -->
+<section id="sesion-fotos-teaser" x-data="galeria()" class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">📸 Sesión de Fotos</h2>
+    <p class="text-center text-amber-200 mb-10">Un pequeño adelanto de lo que será una noche inolvidable…</p>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <template x-for="(foto, i) in fotos" :key="i">
+        <div @click="abrir(foto)" class="relative group cursor-pointer overflow-hidden rounded-xl aspect-square bg-emerald-950/50 border border-amber-400/20">
+          <img :src="foto" :alt="`Foto ${i+1}`" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3">
+            <span class="text-amber-200 text-sm">Ver imagen 🔍</span>
+          </div>
+        </div>
+      </template>
+    </div>
+    <p class="text-center mt-8 italic text-amber-300/80">¡La galería completa estará disponible durante la fiesta!</p>
+
+    <!-- Modal de imagen -->
+    <div x-show="modal" x-transition @click.self="modal=false" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+      <div class="relative max-w-3xl w-full">
+        <button @click="modal=false" class="absolute -top-2 -right-2 bg-amber-400 text-emerald-950 w-10 h-10 rounded-full font-bold">✕</button>
+        <img :src="fotoActual" class="w-full rounded-xl shadow-2xl">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÁLBUM DE RECUERDOS ============ -->
+<section id="album-recuerdos" x-data="{ tab: 'album' }" class="py-20 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">📷 Álbum de Recuerdos</h2>
+    <p class="text-center text-amber-200 mb-8">¡Tu perspectiva hace la fiesta completa!</p>
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-8">
+      <button @click="tab='album'" :class="tab==='album' ? 'gold-gradient text-emerald-950' : 'border border-amber-400 text-amber-300'"
+              class="px-6 py-2 rounded-full transition">📸 Álbum</button>
+      <button @click="tab='capsula'" :class="tab==='capsula' ? 'gold-gradient text-emerald-950' : 'border border-amber-400 text-amber-300'"
+              class="px-6 py-2 rounded-full transition">💎 Cápsula del Tiempo</button>
+      <button @click="tab='memoria'" :class="tab==='memoria' ? 'gold-gradient text-emerald-950' : 'border border-amber-400 text-amber-300'"
+              class="px-6 py-2 rounded-full transition">🌟 Memoria Colectiva</button>
+    </div>
+
+    <div x-show="tab==='album'" x-transition class="glass rounded-2xl p-8 text-center">
+      <p class="mb-6">Sube todas las imágenes y clips que tomes durante la celebración a la aplicación del evento.</p>
+      <button class="gold-gradient text-emerald-950 font-semibold px-8 py-3 rounded-full hover:scale-105 transition">
+        📤 Subir Contenido al Evento
+      </button>
+    </div>
+
+    <div x-show="tab==='capsula'" x-transition class="glass rounded-2xl p-8">
+      <h3 class="text-2xl text-gold mb-3 font-serif-elegant">💎 Cápsula del Tiempo</h3>
+      <p class="mb-4">Deja un mensaje, foto o video que será abierto en el próximo aniversario de Valentina. Un recuerdo que viaja al futuro.</p>
+      <textarea rows="3" placeholder="Escribe tu mensaje para el futuro..."
+                class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none mb-3"></textarea>
+      <button class="w-full border-2 border-amber-400 text-amber-300 py-3 rounded-full hover:bg-amber-400 hover:text-emerald-950 transition">
+        ✨ Activar Cápsula
+      </button>
+    </div>
+
+    <div x-show="tab==='memoria'" x-transition class="glass rounded-2xl p-8">
+      <h3 class="text-2xl text-gold mb-3 font-serif-elegant">🌟 Memoria Colectiva</h3>
+      <p class="mb-4">Un álbum colaborativo donde todos los invitados aportan sus mejores momentos. ¡Construyamos juntos el recuerdo de la noche!</p>
+      <button class="w-full border-2 border-amber-400 text-amber-300 py-3 rounded-full hover:bg-amber-400 hover:text-emerald-950 transition">
+        📷 Aportar Recuerdo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LLUVIA DE SOBRES ============ -->
+<section id="lluvia-sobres" x-data="{ enviado: false }" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">💌 Lluvia de Sobres</h2>
+    <p class="text-center text-amber-200 mb-8">Un detalle digital lleno de cariño</p>
+    <div class="glass rounded-2xl p-8 text-center">
+      <p class="mb-6">
+        Si deseas obsequiar a Valentina con un detalle especial, puedes hacerlo de forma digital. 
+        Cada sobre contiene tus buenos deseos y tu cariño.
+      </p>
+      <button @click="enviado = true" class="gold-gradient text-emerald-950 font-semibold px-8 py-3 rounded-full hover:scale-105 transition">
+        💝 Enviar Sobre Digital
+      </button>
+      <div x-show="enviado" x-transition class="mt-6 bg-pink-500/20 border border-pink-400 p-4 rounded-lg">
+        <p class="text-pink-200">💖 ¡Tu sobre ha sido enviado con amor!</p>
+      </div>
+      <p class="mt-6 text-sm italic text-amber-300/70">
+        Tu presencia es el mejor regalo, pero si quieres sumar a nuestros sueños, aquí puedes hacerlo con todo el amor.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGALO DESEADO O SUGERIDO ============ -->
+<section id="regalo-deseado-sugerido" class="py-20 px-4">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">🎁 Regalos Deseados</h2>
+    <p class="text-center text-amber-200 mb-10">Algunas ideas que harían muy feliz a Valentina</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <template x-for="regalo in [
+        {img:'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400', titulo:'Perfume de Autor', desc:'Un aroma que la acompañe en esta nueva etapa.'},
+        {img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400', titulo:'Joyería Fina', desc:'Un recuerdo brillante para toda la vida.'},
+        {img:'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400', titulo:'Libros Favoritos', desc:'Historias que alimenten sus sueños.'},
+        {img:'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400', titulo:'Experiencia de Viaje', desc:'Un viaje soñado para celebrar sus 15.'},
+        {img:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400', titulo:'Tecnología', desc:'Un gadget especial para su día a día.'},
+        {img:'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400', titulo:'Arte y Decoración', desc:'Una pieza única para su nuevo espacio.'}
+      ]" :key="regalo.titulo">
+        <div class="glass rounded-2xl overflow-hidden hover:scale-[1.03] transition">
+          <img :src="regalo.img" :alt="regalo.titulo" class="w-full h-48 object-cover">
+          <div class="p-5">
+            <h3 class="text-xl text-gold font-serif-elegant mb-2" x-text="regalo.titulo"></h3>
+            <p class="text-sm text-amber-100 mb-4" x-text="regalo.desc"></p>
+            <a href="#" class="block text-center border-2 border-amber-400 text-amber-300 py-2 rounded-full hover:bg-amber-400 hover:text-emerald-950 transition">
+              Ver en tienda 🛍️
+            </a>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUGERENCIAS AL DJ ============ -->
+<section id="sugerencias-dj" x-data="sugerenciasDJ()" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">🎧 Sugerencias al DJ</h2>
+    <p class="text-center text-amber-200 mb-8">¡Ayúdanos a crear la playlist perfecta!</p>
+    <div class="glass rounded-2xl p-8">
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Canción que no puede faltar</label>
+        <input x-model="cancion" type="text" placeholder="Ej. Dancing Queen - ABBA"
+               class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none">
+      </div>
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Artista o género preferido</label>
+        <input x-model="genero" type="text" placeholder="Ej. Pop latino, rock de los 80..."
+               class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none">
+      </div>
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">¿Alguna canción que prefieras evitar?</label>
+        <input x-model="evitar" type="text" placeholder="Opcional"
+               class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none">
+      </div>
+      <button @click="enviarSugerencia" class="w-full gold-gradient text-emerald-950 font-semibold py-3 rounded-full hover:scale-[1.02] transition">
+        🎵 Enviar Sugerencia
+      </button>
+      <div x-show="enviada" x-transition class="mt-4 bg-emerald-500/20 border border-emerald-400 p-4 rounded-lg text-center">
+        <p class="text-emerald-200">🎶 ¡Sugerencia recibida! Gracias por ayudarnos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIBRO DE FIRMAS DIGITAL ============ -->
+<section id="libro-firmas-digital" x-data="libroFirmas()" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">✍️ Libro de Firmas</h2>
+    <p class="text-center text-amber-200 mb-8">Palabras que Valentina conservará por siempre</p>
+    <div class="glass rounded-2xl p-8">
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Tu nombre</label>
+        <input x-model="nuevoNombre" type="text" placeholder="Escribe tu nombre"
+               class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none">
+      </div>
+      <div class="mb-4">
+        <label class="block text-amber-300 mb-2 text-sm">Tu mensaje para Valentina</label>
+        <textarea x-model="nuevoMensaje" rows="4" placeholder="Escribe tus mejores deseos..."
+                  class="w-full px-4 py-3 rounded-lg bg-emerald-950/50 border border-amber-400/30 outline-none"></textarea>
+      </div>
+      <button @click="firmar" :disabled="!nuevoNombre || !nuevoMensaje"
+              class="w-full gold-gradient text-emerald-950 font-semibold py-3 rounded-full hover:scale-[1.02] transition disabled:opacity-50 disabled:cursor-not-allowed">
+        💖 Firmar el Libro
+      </button>
+
+      <div class="mt-8 space-y-4 max-h-96 overflow-y-auto pr-2">
+        <template x-for="(firma, i) in firmas" :key="i">
+          <div class="bg-emerald-950/40 border-l-4 border-amber-400 rounded-r-lg p-4">
+            <p class="text-valentina font-semibold text-sm" x-text="firma.nombre"></p>
+            <p class="text-amber-100 italic" x-text="firma.mensaje"></p>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UBICACIÓN DEL EVENTO ============ -->
+<section id="ubicacion-evento" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="font-script text-5xl text-gold text-center mb-2">📍 ¿Cómo llegar?</h2>
+    <p class="text-center text-amber-200 mb-8">Lugar de la Recepción</p>
+    <div class="glass rounded-2xl p-8 text-center">
+      <h3 class="text-2xl text-valentina font-serif-elegant mb-2">Quinta Las Esmeraldas</h3>
+      <p class="text-amber-100 mb-4">Av. Los Naranjos #102, Sector Residencial, Ciudad</p>
+      <p class="text-lg text-amber-300 font-semibold">Viernes, 27 de Noviembre de 2026</p>
+      <p class="text-amber-200">Recepción: 8:00 PM</p>
+      <a href="https://maps.google.com" target="_blank"
+         class="inline-block mt-6 gold-gradient text-emerald-950 font-semibold px-8 py-3 rounded-full hover:scale-105 transition">
+        🗺️ Abrir en Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONFIRMAR ASISTENCIA ============ -->
+<section id="confirmar-asistencia" class="py-20 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="font-script text-5xl text-gold mb-2">💖 ¿Nos acompañarás?</h2>
+    <p class="text-amber-200 mb-8">Agradecemos confirmar tu asistencia antes del <strong>15 de Noviembre de 2026</strong></p>
+    <div class="glass rounded-2xl p-8">
+      <a href="https://wa.me/1234567890?text=Hola%20Valentina,%20confirmo%20mi%20asistencia%20a%20tus%2015%20Años" 
+         target="_blank"
+         class="inline-block gold-gradient text-emerald-950 font-semibold px-10 py-4 rounded-full hover:scale-105 transition text-lg">
+        💬 Confirmar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="text-center py-10 border-t border-amber-400/20">
+  <p class="font-script text-3xl text-gold mb-2">Valentina 💖</p>
+  <p class="text-amber-300/70 text-sm">Mis 15 Años • 2026</p>
+</footer>
+
+<!-- ============ SCRIPTS ALPINE ============ -->
+<script>
+  // Contador regresivo
+  function countdown() {
+    const target = new Date('2026-11-27T20:00:00').getTime();
+    return {
+      days: '00', hours: '00', minutes: '00', seconds: '00',
+      init() {
+        const update = () => {
+          const diff = target - new Date().getTime();
+          if (diff < 0) { this.days = '¡HOY!'; this.hours = ''; this.minutes = ''; this.seconds = ''; return; }
+          this.days = String(Math.floor(diff / 86400000)).padStart(2, '0');
+          this.hours = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+          this.minutes = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+          this.seconds = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+        };
+        update();
+        setInterval(update, 1000);
+      }
+    };
+  }
+
+  // Control de pases
+  function pasesControl() {
+    return {
+      nombre: '', cantidad: '1', acompanantes: [], confirmado: false,
+      registrarPases() {
+        if (!this.nombre) return alert('Por favor ingresa tu nombre');
+        this.confirmado = true;
+        setTimeout(() => this.confirmado = false, 4000);
+      }
+    };
+  }
+
+  // Menú y alergias
+  function menuAlergias() {
+    return {
+      menu: '', alergias: '', observaciones: '', guardado: false,
+      guardarMenu() {
+        if (!this.menu) return alert('Selecciona un menú');
+        this.guardado = true;
+        setTimeout(() => this.guardado = false, 4000);
+      }
+    };
+  }
+
+  // Galería
+  function galeria() {
+    return {
+      fotos: [
+        'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500',
+        'https://images.unsplash.com/photo-1519741497674-611481863552?w=500',
+        'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500',
+        'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500&sat=-50',
+        'https://images.unsplash.com/photo-1530103862676-de8c9debadba?w=500',
+        'https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=500'
+      ],
+      modal: false, fotoActual: '',
+      abrir(foto) { this.fotoActual = foto; this.modal = true; }
+    };
+  }
+
+  // Sugerencias al DJ
+  function sugerenciasDJ() {
+    return {
+      cancion: '', genero: '', evitar: '', enviada: false,
+      enviarSugerencia() {
+        if (!this.cancion) return alert('Escribe al menos una canción');
+        this.enviada = true;
+        setTimeout(() => { this.enviada = false; this.cancion=''; this.genero=''; this.evitar=''; }, 4000);
+      }
+    };
+  }
+
+  // Libro de firmas
+  function libroFirmas() {
+    return {
+      nuevoNombre: '', nuevoMensaje: '',
+      firmas: [
+        { nombre: 'Familia Rodríguez', mensaje: '¡Que esta noche sea tan mágica como tú, Valentina! 💖' },
+        { nombre: 'Tía Carmen', mensaje: 'Te queremos muchísimo, princesa. ¡Felicidades en tus 15!' },
+        { nombre: 'Sofía (mejor amiga)', mensaje: '¡Vamos a bailar toda la noche! Te adoro 💃✨' }
+      ],
+      firmar() {
+        if (!this.nuevoNombre || !this.nuevoMensaje) return;
+        this.firmas.unshift({ nombre: this.nuevoNombre, mensaje: this.nuevoMensaje });
+        this.nuevoNombre = ''; this.nuevoMensaje = '';
+      }
+    };
+  }
+</script>
+
+</body>
+</html>
