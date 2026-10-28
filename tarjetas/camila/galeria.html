@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería - Edición Esmeralda</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Poppins:wght@300;400;500;600;750&display=swap" rel="stylesheet" />
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+        background: #022c22;
+      }
+
+      /* Animaciones y estilos de la línea de diseño anterior */
+      @keyframes particleDrift {
+        0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.8; }
+        90% { opacity: 0.8; }
+        100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+      }
+      .particle { animation: particleDrift linear infinite; }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animated-gradient {
+        background-size: 300% 300%;
+        animation: gradientShift 6s ease infinite;
+      }
+
+      @keyframes borderGlow {
+        0%, 100% {
+          box-shadow: 0 0 20px rgba(16, 185, 129, 0.3),
+                      0 0 40px rgba(212, 175, 55, 0.2),
+                      inset 0 0 20px rgba(16, 185, 129, 0.1);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(16, 185, 129, 0.6),
+                      0 0 80px rgba(212, 175, 55, 0.4),
+                      inset 0 0 40px rgba(16, 185, 129, 0.2);
+        }
+      }
+      .border-glow { animation: borderGlow 3s ease-in-out infinite; }
+
+      @keyframes slowRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Contenedor principal con Alpine.js para la lógica del slider -->
+    <div
+      x-data="{ 
+        activeSlide: 1, 
+        totalSlides: 5,
+        next() {
+          this.activeSlide = this.activeSlide === this.totalSlides ? 1 : this.activeSlide + 1;
+        },
+        prev() {
+          this.activeSlide = this.activeSlide === 1 ? this.totalSlides : this.activeSlide - 1;
+        }
+      }"
+      class="min-h-screen w-full bg-emerald-950 flex items-center justify-center overflow-hidden relative"
+    >
+
+      <!-- Fondo animado -->
+      <div class="absolute inset-0 animated-gradient bg-gradient-to-br from-emerald-950 via-gray-950 to-teal-950"></div>
+
+      <!-- Partículas flotantes de fondo -->
+      <div class="absolute rounded-full particle" style="left:5%;width:8px;height:8px;background:radial-gradient(circle,rgba(16,185,129,0.7),rgba(212,175,55,0.3));animation-delay:0s;animation-duration:8s;"></div>
+      <div class="absolute rounded-full particle" style="left:25%;width:10px;height:10px;background:radial-gradient(circle,rgba(212,175,55,0.6),rgba(16,185,129,0.3));animation-delay:2s;animation-duration:7s;"></div>
+      <div class="absolute rounded-full particle" style="left:55%;width:7px;height:7px;background:radial-gradient(circle,rgba(225,29,72,0.5),rgba(16,185,129,0.2));animation-delay:4s;animation-duration:11s;"></div>
+      <div class="absolute rounded-full particle" style="left:75%;width:6px;height:6px;background:radial-gradient(circle,rgba(212,175,55,0.7),rgba(16,185,129,0.2));animation-delay:2.5s;animation-duration:10s;"></div>
+
+      <!-- Anillos decorativos rotatorios -->
+      <div class="absolute w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full border border-emerald-500/20" style="animation: slowRotate 30s linear infinite;"></div>
+
+      <!-- ===== CONTENEDOR DEL SLIDER (Misma proporción vertical del modal) ===== -->
+      <div class="relative z-50 w-[85vw] max-w-[400px] h-[85vh] max-h-[750px] rounded-3xl overflow-hidden border-glow border border-amber-400/40 bg-black/40 flex flex-col shadow-2xl">
+
+        <!-- Botón de Cerrar (X) en el extremo superior derecho -->
+        <button 
+          @click="window.history.back()"
+          class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-emerald-950/80 border border-amber-400/50 flex items-center justify-center text-amber-300 hover:bg-emerald-900 transition-all duration-300 shadow-lg cursor-pointer"
+          aria-label="Cerrar y volver atrás"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <!-- Contenedor de las diapositivas -->
+        <div class="relative w-full h-full overflow-hidden">
+
+          <!-- Slide 1 -->
+          <div x-show="activeSlide === 1" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full">
+            <img src="gallery/cam1.jpeg" alt="Slide 1" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div x-show="activeSlide === 2" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full" style="display: none;">
+            <img src="gallery/cam2.jpeg" alt="Slide 2" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div x-show="activeSlide === 3" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full" style="display: none;">
+            <img src="gallery/cam3.jpeg" alt="Slide 3" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div x-show="activeSlide === 4" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full" style="display: none;">
+            <img src="gallery/cam4.jpeg" alt="Slide 4" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div x-show="activeSlide === 5" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full" style="display: none;">
+            <img src="gallery/cam5.jpeg" alt="Slide 5" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div x-show="activeSlide === 6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full">
+            <img src="gallery/cam6.jpeg" alt="Slide 6" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 7 -->
+          <div x-show="activeSlide === 7" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full" style="display: none;">
+            <img src="gallery/cam7.jpeg" alt="Slide 7" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 8 -->
+          <div x-show="activeSlide === 8" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full" style="display: none;">
+            <img src="gallery/cam8.jpeg" alt="Slide 8" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 9 -->
+          <div x-show="activeSlide === 9" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full" style="display: none;">
+            <img src="gallery/cam9.jpeg" alt="Slide 9" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Slide 10 -->
+          <div x-show="activeSlide === 10" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform translate-x-full" x-transition:enter-end="opacity-100 transform translate-x-0" class="absolute inset-0 w-full h-full" style="display: none;">
+            <img src="gallery/cam10.jpeg" alt="Slide 10" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/70 via-transparent to-transparent"></div>
+          </div>
+        </div>
+
+        <!-- Botones de navegación (Anterior / Siguiente) tipo Hero -->
+        <button 
+          @click="prev()" 
+          class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-emerald-950/70 border border-amber-400/40 text-amber-300 flex items-center justify-center hover:bg-emerald-900 transition-all shadow-md cursor-pointer"
+          aria-label="Anterior"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+
+        <button 
+          @click="next()" 
+          class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-emerald-950/70 border border-amber-400/40 text-amber-300 flex items-center justify-center hover:bg-emerald-900 transition-all shadow-md cursor-pointer"
+          aria-label="Siguiente"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+        <!-- Indicadores de puntos en la parte inferior -->
+        <div class="absolute bottom-6 left-0 right-0 z-20 flex justify-center items-center gap-2">
+          <template x-for="i in totalSlides" :key="i">
+            <button 
+              @click="activeSlide = i"
+              class="transition-all duration-300 rounded-full cursor-pointer"
+              :class="activeSlide === i ? 'w-6 h-2 bg-amber-400 shadow-md shadow-amber-400/50' : 'w-2 h-2 bg-white/40 hover:bg-white/70'"
+              :aria-label="'Ir a diapositiva ' + i"
+            ></button>
+          </template>
+        </div>
+
+      </div>
+
+      <!-- Esquinas decorativas externas -->
+      <div class="fixed top-4 left-4 w-16 h-16 border-l-2 border-t-2 border-emerald-500/40 rounded-tl-lg pointer-events-none"></div>
+      <div class="fixed top-4 right-4 w-16 h-16 border-r-2 border-t-2 border-emerald-500/40 rounded-tr-lg pointer-events-none"></div>
+      <div class="fixed bottom-4 left-4 w-16 h-16 border-l-2 border-b-2 border-emerald-500/40 rounded-bl-lg pointer-events-none"></div>
+      <div class="fixed bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-emerald-500/40 rounded-br-lg pointer-events-none"></div>
+
+    </div>
+  </body>
+</html>
