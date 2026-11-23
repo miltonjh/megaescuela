@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería de Recuerdos - Mis 15 Años Rut E. Castillo</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js via CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Google Fonts acordes a la invitación -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              script: ['"Great Vibes"', 'cursive'],
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['"Poppins"', 'sans-serif'],
+            },
+            colors: {
+              blush: {
+                50: '#fff9fa',
+                100: '#fdf2f4',
+                200: '#fce7eb',
+                300: '#f8d0d8',
+                400: '#f2a7b8',
+                500: '#e5738e',
+              },
+              rosegold: {
+                300: '#e6c2b8',
+                400: '#d4a395',
+                500: '#b77b6b',
+                600: '#9a5f50',
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+
+      /* Partículas flotantes estilo destellos oro rosa */
+      @keyframes particleDrift {
+        0% {
+          transform: translateY(100vh) scale(0.8);
+          opacity: 0;
+        }
+        15% {
+          opacity: 0.7;
+        }
+        85% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-10vh) scale(1.2);
+          opacity: 0;
+        }
+      }
+      .particle {
+        animation: particleDrift linear infinite;
+      }
+
+      /* Brillo sutil en bordes */
+      @keyframes softGlow {
+        0%, 100% {
+          box-shadow: 0 10px 30px -5px rgba(212, 163, 149, 0.25),
+                      0 0 15px rgba(248, 208, 216, 0.4);
+        }
+        50% {
+          box-shadow: 0 15px 40px -5px rgba(183, 123, 107, 0.35),
+                      0 0 25px rgba(242, 167, 184, 0.5);
+        }
+      }
+      .card-glow {
+        animation: softGlow 4s ease-in-out infinite;
+      }
+
+      /* Barra de desplazamiento delicada */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fff9fa;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #e6c2b8;
+        border-radius: 9999px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-blush-50 text-stone-700 font-sans antialiased selection:bg-blush-200 selection:text-rosegold-600">
+    <div
+      x-data="galleryApp()"
+      class="min-h-screen w-full relative overflow-x-hidden flex flex-col justify-between bg-gradient-to-b from-blush-50 via-blush-100/70 to-blush-200/50"
+    >
+      <!-- Fondo decorativo con destellos suaves -->
+      <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <!-- Resplandores radiales -->
+        <div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-blush-200/40 blur-3xl"></div>
+        <div class="absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-rosegold-300/25 blur-3xl"></div>
+        <div class="absolute -bottom-24 left-1/4 w-80 h-80 rounded-full bg-blush-300/30 blur-3xl"></div>
+
+        <!-- Partículas brillantes -->
+        <div class="absolute rounded-full particle" style="left:10%;width:7px;height:7px;background:radial-gradient(circle,#d4a395,transparent);animation-delay:0s;animation-duration:11s;"></div>
+        <div class="absolute rounded-full particle" style="left:30%;width:9px;height:9px;background:radial-gradient(circle,#f2a7b8,transparent);animation-delay:3s;animation-duration:14s;"></div>
+        <div class="absolute rounded-full particle" style="left:65%;width:6px;height:6px;background:radial-gradient(circle,#b77b6b,transparent);animation-delay:1.5s;animation-duration:10s;"></div>
+        <div class="absolute rounded-full particle" style="left:85%;width:8px;height:8px;background:radial-gradient(circle,#d4a395,transparent);animation-delay:4s;animation-duration:13s;"></div>
+      </div>
+
+      <!-- Marco decorativo fino en pantalla -->
+      <div class="fixed inset-3 sm:inset-5 border border-rosegold-300/40 rounded-3xl pointer-events-none z-10"></div>
+
+      <!-- Notificación flotante cuando intentan abrir la sección bloqueada -->
+      <div
+        x-show="lockedNotice"
+        x-cloak
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-4"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-4"
+        class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-md bg-white/95 backdrop-blur-md border border-rosegold-300 text-stone-700 px-5 py-3.5 rounded-2xl shadow-xl flex items-center gap-3"
+      >
+        <div class="w-9 h-9 rounded-full bg-blush-100 text-rosegold-600 flex items-center justify-center shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <div class="text-left">
+          <p class="text-xs font-semibold uppercase tracking-wider text-rosegold-600">Sección reservada</p>
+          <p class="text-xs text-stone-600">Estos recuerdos se desbloquearán muy pronto tras la celebración.</p>
+        </div>
+      </div>
+
+      <!-- ========================================================= -->
+      <!-- VISTA 1: PRESENTACIÓN Y SELECCIÓN DE CATEGORÍA             -->
+      <!-- ========================================================= -->
+      <main
+        x-show="view === 'selection'"
+        x-transition:enter="transition ease-out duration-500"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        class="relative z-20 flex-1 flex flex-col items-center justify-center px-6 py-12 max-w-4xl mx-auto w-full text-center"
+      >
+        <!-- Corona / Ornamento superior SVG -->
+        <div class="mb-3 text-rosegold-500">
+          <svg class="w-12 h-12 mx-auto drop-shadow-sm" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M6 32L12 14L24 24L32 8L40 24L52 14L58 32H6Z" stroke-linejoin="round" />
+            <circle cx="32" cy="5" r="2" fill="currentColor" />
+            <circle cx="12" cy="11" r="1.5" fill="currentColor" />
+            <circle cx="52" cy="11" r="1.5" fill="currentColor" />
+            <path d="M10 36H54" stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <p class="uppercase tracking-[0.28em] text-xs sm:text-sm text-rosegold-500 font-medium mb-1">
+          Mis 15 Años
+        </p>
+        <h1 class="font-script text-5xl sm:text-7xl text-rosegold-600 mb-2 drop-shadow-sm">
+          Rut E. Castillo
+        </h1>
+        <p class="font-serif italic text-lg sm:text-xl text-stone-600 max-w-md mx-auto mb-10">
+          Cada etapa guarda una magia especial. Elige el capítulo que deseas explorar en mi álbum de recuerdos.
+        </p>
+
+        <!-- Tarjetas de Selección (Antes / Después) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 w-full max-w-2xl">
+          <!-- Opción 1: Antes de los 15 -->
+          <button
+            @click="selectCategory('antes')"
+            class="group relative bg-white/80 backdrop-blur-md rounded-3xl p-4 sm:p-5 border border-rosegold-300/60 card-glow hover:border-rosegold-500 transition-all duration-500 hover:-translate-y-1.5 text-left cursor-pointer flex flex-col"
+          >
+            <div class="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden mb-4">
+              <img
+                :src="galleries.antes[0].url"
+                alt="Antes de los 15"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-900/50 via-transparent to-transparent"></div>
+              <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-rosegold-600 text-[11px] font-medium uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                10 Recuerdos
+              </span>
+            </div>
+
+            <div class="px-1 flex items-center justify-between">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-rosegold-400 block">Capítulo I</span>
+                <h2 class="font-script text-3xl sm:text-4xl text-rosegold-600 group-hover:text-rosegold-500 transition-colors">
+                  Antes de los 15
+                </h2>
+                <p class="text-xs sm:text-sm text-stone-500 mt-0.5">
+                  Dulces momentos y sonrisas en mi vida.
+                </p>
+              </div>
+              <div class="w-10 h-10 rounded-full bg-blush-100 border border-rosegold-300/60 flex items-center justify-center text-rosegold-600 group-hover:bg-rosegold-500 group-hover:text-white transition-all duration-300 shrink-0 ml-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Opción 2: Después de los 15 (Con estado bloqueado / desbloqueado) -->
+          <button
+            @click="selectCategory('despues')"
+            :class="despuesUnlocked
+              ? 'bg-white/80 border-rosegold-300/60 card-glow hover:border-rosegold-500 hover:-translate-y-1.5 cursor-pointer'
+              : 'bg-white/60 border-rosegold-300/40 cursor-not-allowed opacity-95'"
+            class="group relative backdrop-blur-md rounded-3xl p-4 sm:p-5 border transition-all duration-500 text-left flex flex-col"
+          >
+            <div class="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden mb-4">
+              <img
+                :src="galleries.despues[0].url"
+                alt="Después de los 15"
+                :class="despuesUnlocked ? 'transition-transform duration-700 group-hover:scale-105' : 'blur-[3px] scale-105 grayscale-[25%]'"
+                class="w-full h-full object-cover"
+              />
+
+              <!-- Capa estética cuando está bloqueado -->
+              <template x-if="!despuesUnlocked">
+                <div class="absolute inset-0 bg-gradient-to-b from-stone-900/35 via-stone-900/45 to-stone-900/65 backdrop-blur-[1px] flex flex-col items-center justify-center p-4 text-center">
+                  <div class="w-14 h-14 rounded-full bg-white/90 border border-rosegold-300 shadow-lg flex items-center justify-center text-rosegold-600 mb-2.5">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </div>
+                  <span class="text-[11px] uppercase tracking-[0.22em] text-white font-medium bg-rosegold-600/80 px-3.5 py-1 rounded-full shadow-sm">
+                    Próximamente
+                  </span>
+                </div>
+              </template>
+
+              <!-- Capa normal cuando esté desbloqueado -->
+              <template x-if="despuesUnlocked">
+                <div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-stone-900/50 via-transparent to-transparent"></div>
+                  <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-rosegold-600 text-[11px] font-medium uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                    10 Recuerdos
+                  </span>
+                </div>
+              </template>
+            </div>
+
+            <div class="px-1 flex items-center justify-between">
+              <div>
+                <span class="text-xs uppercase tracking-widest text-rosegold-400 block">Capítulo II</span>
+                <h2 class="font-script text-3xl sm:text-4xl text-rosegold-600 transition-colors">
+                  Después de los 15
+                </h2>
+                <p
+                  class="text-xs sm:text-sm text-stone-500 mt-0.5"
+                  x-text="despuesUnlocked ? 'Una nueva etapa llena de sueños e ilusión.' : 'Disponible muy pronto tras la celebración.'"
+                ></p>
+              </div>
+
+              <!-- Ícono derecho: Candado si está bloqueado, flecha si está libre -->
+              <div
+                :class="despuesUnlocked
+                  ? 'bg-blush-100 border-rosegold-300/60 text-rosegold-600 group-hover:bg-rosegold-500 group-hover:text-white'
+                  : 'bg-blush-100/80 border-rosegold-300/50 text-rosegold-500'"
+                class="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 ml-3"
+              >
+                <svg x-show="!despuesUnlocked" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <svg x-show="despuesUnlocked" x-cloak class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <!-- Enlace discreto de regreso a la invitación -->
+        <div class="mt-10">
+          <a
+            href="#"
+            @click.prevent="window.history.back()"
+            class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-rosegold-500 hover:text-rosegold-600 transition-colors"
+          >
+            <span>Volver a la invitación</span>
+          </a>
+        </div>
+      </main>
+
+      <!-- ========================================================= -->
+      <!-- VISTA 2: GALERÍA ACTIVA (SLIDER O GRILLA)                 -->
+      <!-- ========================================================= -->
+      <section
+        x-show="view === 'gallery'"
+        x-cloak
+        x-transition:enter="transition ease-out duration-400"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        class="relative z-20 flex-1 flex flex-col max-w-6xl mx-auto w-full px-4 sm:px-8 py-6 sm:py-8"
+      >
+        <!-- Barra Superior: Navegación discreta y controles de vista -->
+        <header class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-5 border-b border-rosegold-300/40">
+          <!-- Izquierda: Volver al inicio + Título de la galería -->
+          <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+            <button
+              @click="view = 'selection'"
+              class="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-rosegold-600 hover:text-rosegold-500 bg-white/80 px-3.5 py-2 rounded-full border border-rosegold-300/60 shadow-sm transition cursor-pointer"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>Inicio</span>
+            </button>
+
+            <div class="text-right sm:text-left">
+              <h2
+                class="font-script text-3xl sm:text-4xl text-rosegold-600 leading-none"
+                x-text="activeCategory === 'antes' ? 'Antes de los 15' : 'Después de los 15'"
+              ></h2>
+            </div>
+          </div>
+
+          <!-- Derecha: Cambio discreto de galería + Selector Slider / Grilla -->
+          <div class="flex items-center gap-2.5 w-full sm:w-auto justify-between sm:justify-end">
+            <!-- Botón discreto para pasar a la otra galería (muestra candado si está bloqueada) -->
+            <button
+              @click="switchCategory()"
+              :class="!despuesUnlocked && activeCategory === 'antes'
+                ? 'text-stone-400 bg-white/50 border-rosegold-300/40 cursor-not-allowed'
+                : 'text-stone-600 hover:text-rosegold-600 bg-white/70 hover:bg-white border-rosegold-300/50 cursor-pointer'"
+              class="inline-flex items-center gap-1.5 text-xs px-3.5 py-2 rounded-full border transition"
+              :title="!despuesUnlocked && activeCategory === 'antes' ? 'Disponible próximamente' : 'Cambiar de álbum'"
+            >
+              <!-- Candado si está bloqueada -->
+              <svg x-show="!despuesUnlocked && activeCategory === 'antes'" class="w-3.5 h-3.5 text-rosegold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              <!-- Flechas de intercambio si está desbloqueada -->
+              <svg x-show="despuesUnlocked || activeCategory === 'despues'" class="w-3.5 h-3.5 text-rosegold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+              <span x-text="activeCategory === 'antes' ? 'Después de los 15' : 'Ver Antes de los 15'"></span>
+            </button>
+
+            <!-- Interruptor de modo de visualización: Slider vs Grilla -->
+            <div class="inline-flex items-center bg-white/80 p-1 rounded-full border border-rosegold-300/60 shadow-sm">
+              <button
+                @click="displayMode = 'slider'"
+                :class="displayMode === 'slider' ? 'bg-rosegold-500 text-white shadow-sm' : 'text-stone-600 hover:text-rosegold-600'"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer"
+                aria-label="Vista Slider"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke-width="2" />
+                </svg>
+                <span>Slider</span>
+              </button>
+
+              <button
+                @click="displayMode = 'grid'"
+                :class="displayMode === 'grid' ? 'bg-rosegold-500 text-white shadow-sm' : 'text-stone-600 hover:text-rosegold-600'"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer"
+                aria-label="Vista Grilla"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+                <span>Grilla</span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- ======================================================= -->
+        <!-- MODO A: SLIDER VERTICAL / HORIZONTAL ELEGANTE           -->
+        <!-- ======================================================= -->
+        <div
+          x-show="displayMode === 'slider'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 scale-95"
+          x-transition:enter-end="opacity-100 scale-100"
+          class="flex-1 flex flex-col items-center justify-center py-6"
+        >
+          <!-- Marco principal del Slider (adaptado a móvil y escritorio) -->
+          <div
+            @touchstart="touchStartX = $event.changedTouches[0].screenX"
+            @touchend="handleSwipe($event.changedTouches[0].screenX)"
+            class="relative w-full max-w-[420px] sm:max-w-[460px] h-[66vh] min-h-[440px] max-h-[680px] rounded-[2rem] overflow-hidden bg-white p-2.5 border border-rosegold-300/80 card-glow shadow-xl"
+          >
+            <div class="relative w-full h-full rounded-[1.5rem] overflow-hidden bg-blush-100">
+              <!-- Diapositivas -->
+              <template x-for="(photo, index) in currentPhotos" :key="photo.url">
+                <div
+                  x-show="activeSlide === index"
+                  x-transition:enter="transition ease-out duration-500"
+                  x-transition:enter-start="opacity-0 scale-105"
+                  x-transition:enter-end="opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-300"
+                  x-transition:leave-start="opacity-100"
+                  x-transition:leave-end="opacity-0"
+                  class="absolute inset-0 w-full h-full"
+                >
+                  <img
+                    :src="photo.url"
+                    :alt="photo.caption"
+                    class="w-full h-full object-cover"
+                  />
+                  <!-- Degradado inferior para lectura suave -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-stone-950/75 via-stone-900/10 to-transparent"></div>
+
+                  <!-- Contador superior -->
+                  <div class="absolute top-4 right-4 bg-white/85 backdrop-blur-md text-rosegold-600 text-xs font-medium px-3 py-1 rounded-full shadow-sm">
+                    <span x-text="index + 1"></span> / <span x-text="currentPhotos.length"></span>
+                  </div>
+
+                  <!-- Leyenda de la fotografía -->
+                  <div class="absolute bottom-14 left-0 right-0 px-6 text-center text-white">
+                    <p class="font-serif italic text-lg sm:text-xl drop-shadow" x-text="photo.caption"></p>
+                  </div>
+                </div>
+              </template>
+
+              <!-- Botón Anterior -->
+              <button
+                @click="prev()"
+                class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-rosegold-600 flex items-center justify-center shadow-md transition transform hover:scale-105 cursor-pointer"
+                aria-label="Foto anterior"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              <!-- Botón Siguiente -->
+              <button
+                @click="next()"
+                class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-rosegold-600 flex items-center justify-center shadow-md transition transform hover:scale-105 cursor-pointer"
+                aria-label="Foto siguiente"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              <!-- Indicadores de puntos -->
+              <div class="absolute bottom-4 left-0 right-0 z-20 flex justify-center items-center gap-1.5 px-4">
+                <template x-for="(photo, idx) in currentPhotos" :key="idx">
+                  <button
+                    @click="activeSlide = idx"
+                    class="transition-all duration-300 rounded-full cursor-pointer"
+                    :class="activeSlide === idx ? 'w-6 h-2 bg-blush-300 shadow' : 'w-2 h-2 bg-white/60 hover:bg-white'"
+                    :aria-label="'Ir a foto ' + (idx + 1)"
+                  ></button>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======================================================= -->
+        <!-- MODO B: GRILLA DE TODAS LAS IMÁGENES (10 FOTOS)         -->
+        <!-- ======================================================= -->
+        <div
+          x-show="displayMode === 'grid'"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 translate-y-2"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          class="py-6"
+        >
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5">
+            <template x-for="(photo, index) in currentPhotos" :key="photo.url">
+              <div
+                @click="openLightbox(index)"
+                class="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-white p-1.5 border border-rosegold-300/60 shadow-sm hover:shadow-xl hover:border-rosegold-500 transition-all duration-300 cursor-pointer"
+              >
+                <div class="relative w-full h-full rounded-xl overflow-hidden">
+                  <img
+                    :src="photo.url"
+                    :alt="photo.caption"
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-transparent to-transparent opacity-80 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+                    <span class="text-[10px] uppercase tracking-widest text-blush-200" x-text="'Foto ' + (index + 1)"></span>
+                    <p class="text-white font-serif italic text-sm leading-snug line-clamp-2" x-text="photo.caption"></p>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- LIGHTBOX (AMPLIACIÓN AL HACER CLIC EN MODO GRILLA)        -->
+      <!-- ========================================================= -->
+      <div
+        x-show="lightboxOpen"
+        x-cloak
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        @keydown.escape.window="lightboxOpen = false"
+        class="fixed inset-0 z-50 bg-stone-950/85 backdrop-blur-md flex items-center justify-center p-4"
+      >
+        <button
+          @click="lightboxOpen = false"
+          class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition cursor-pointer"
+          aria-label="Cerrar vista ampliada"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="relative max-w-lg w-full bg-white p-2.5 rounded-3xl shadow-2xl">
+          <div class="relative aspect-[3/4] w-full rounded-2xl overflow-hidden">
+            <img
+              :src="currentPhotos[activeSlide]?.url"
+              :alt="currentPhotos[activeSlide]?.caption"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-5 text-center">
+              <p class="text-white font-serif italic text-lg" x-text="currentPhotos[activeSlide]?.caption"></p>
+            </div>
+          </div>
+
+          <button
+            @click="prev()"
+            class="absolute -left-3 sm:-left-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white text-rosegold-600 shadow-lg flex items-center justify-center hover:scale-105 transition cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            @click="next()"
+            class="absolute -right-3 sm:-right-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white text-rosegold-600 shadow-lg flex items-center justify-center hover:scale-105 transition cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pie de página sutil -->
+      <footer class="relative z-20 text-center py-4 px-4 text-[11px] uppercase tracking-[0.2em] text-rosegold-500/80">
+        Mis 15 Años &bull; Rut E. Castillo &bull; Noviembre 2026
+      </footer>
+    </div>
+
+    <!-- Lógica Alpine.js y Repositorio de Imágenes -->
+    <script>
+      function galleryApp() {
+        return {
+          // ===============================================================
+          // CAMBIA A `true` CUANDO QUIERAS DESBLOQUEAR "DESPUÉS DE LOS 15"
+          // ===============================================================
+          despuesUnlocked: false,
+
+          view: 'selection', // 'selection' | 'gallery'
+          activeCategory: 'antes', // 'antes' | 'despues'
+          displayMode: 'slider', // 'slider' | 'grid'
+          activeSlide: 0,
+          lightboxOpen: false,
+          lockedNotice: false,
+          noticeTimeout: null,
+          touchStartX: 0,
+
+          // Galerías de fotos
+          galleries: {
+            antes: [
+              {
+                url: './img/a1.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Momentos llenos de ilusión antes del gran día',
+              },
+              {
+                url: './img/a2.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Sonrisas espontáneas que guardo en el corazón',
+              },
+              {
+                url: './img/a3.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Preparando cada detalle con amor',
+              },
+              {
+                url: './img/a4.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'La alegría de crecer rodeada de cariño',
+              },
+              {
+                url: './img/a5.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Recuerdos inolvidables de mi niñez y adolescencia',
+              },
+              {
+                url: './img/a6.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Soñando despierta con esta noche mágica',
+              },
+              {
+                url: './img/a7.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Instantes sencillos que lo significan todo',
+              },
+              {
+                url: './img/a8.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Cada paso me trajo hasta este momento',
+              },
+              {
+                url: './img/a9.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Gratitud por quienes siempre me acompañan',
+              },
+              {
+                url: './img/a10.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'A punto de comenzar un nuevo capítulo',
+              },
+            ],
+            despues: [
+              {
+                url: './img/d1.jpeg?auto=format&fit=crop&w=900&q=80',
+                caption: 'Celebrando el inicio de mis 15 años',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=80',
+                caption: 'Flores, luces y recuerdos de una noche soñada',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=80',
+                caption: 'Elegancia y alegría en cada instante',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80',
+                caption: 'Detalles que brillan para siempre en mi memoria',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80',
+                caption: 'Compartiendo la felicidad con quienes más quiero',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=80',
+                caption: 'Mirando hacia el futuro con ilusión',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80',
+                caption: 'Un brindis por los sueños que están por venir',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=80',
+                caption: 'Magia, música y sonrisas inolvidables',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80',
+                caption: 'El comienzo de una hermosa juventud',
+              },
+              {
+                url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=80',
+                caption: 'Gracias por ser parte de mi historia',
+              },
+            ],
+          },
+
+          get currentPhotos() {
+            return this.galleries[this.activeCategory];
+          },
+
+          showLockedAlert() {
+            this.lockedNotice = true;
+            clearTimeout(this.noticeTimeout);
+            this.noticeTimeout = setTimeout(() => {
+              this.lockedNotice = false;
+            }, 3500);
+          },
+
+          selectCategory(category) {
+            if (category === 'despues' && !this.despuesUnlocked) {
+              this.showLockedAlert();
+              return;
+            }
+            this.activeCategory = category;
+            this.activeSlide = 0;
+            this.view = 'gallery';
+          },
+
+          switchCategory() {
+            if (this.activeCategory === 'antes' && !this.despuesUnlocked) {
+              this.showLockedAlert();
+              return;
+            }
+            this.activeCategory = this.activeCategory === 'antes' ? 'despues' : 'antes';
+            this.activeSlide = 0;
+          },
+
+          next() {
+            this.activeSlide =
+              this.activeSlide === this.currentPhotos.length - 1 ? 0 : this.activeSlide + 1;
+          },
+
+          prev() {
+            this.activeSlide =
+              this.activeSlide === 0 ? this.currentPhotos.length - 1 : this.activeSlide - 1;
+          },
+
+          openLightbox(index) {
+            this.activeSlide = index;
+            this.lightboxOpen = true;
+          },
+
+          handleSwipe(touchEndX) {
+            const diff = this.touchStartX - touchEndX;
+            if (Math.abs(diff) > 40) {
+              diff > 0 ? this.next() : this.prev();
+            }
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
